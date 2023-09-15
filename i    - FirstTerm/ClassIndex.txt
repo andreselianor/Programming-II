@@ -1,0 +1,7 @@
+- 23.09.14 - 
+  Clase 1:
+  * Introducción a los tipos de datos. *
+
+- 23.09.15 - 
+  Clase 2:
+  * Introducción a las funciones de clase. *
