@@ -1,0 +1,14 @@
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\bin\Debug\net7.0\FirstProgram70.exe
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\bin\Debug\net7.0\FirstProgram70.deps.json
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\bin\Debug\net7.0\FirstProgram70.runtimeconfig.json
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\bin\Debug\net7.0\FirstProgram70.dll
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\bin\Debug\net7.0\FirstProgram70.pdb
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\FirstProgram70.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\FirstProgram70.AssemblyInfoInputs.cache
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\FirstProgram70.AssemblyInfo.cs
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\FirstProgram70.csproj.CoreCompileInputs.cache
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\FirstProgram70.dll
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\refint\FirstProgram70.dll
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\FirstProgram70.pdb
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\FirstProgram70.genruntimeconfig.cache
+C:\Users\andre\Desktop\Clase1\FirstProgram70\FirstProgram70\obj\Debug\net7.0\ref\FirstProgram70.dll
