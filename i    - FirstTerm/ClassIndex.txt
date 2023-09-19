@@ -5,3 +5,8 @@
 - 23.09.15 - 
   Clase 2:
   * Introducción a las funciones de clase. *
+
+- 23.09.18 - 
+  Clase 33:
+  * Continuación funciones de clase. *
+  
