@@ -7,6 +7,11 @@
   * Introducción a las funciones de clase. *
 
 - 23.09.18 - 
-  Clase 33:
+  Clase 3:
   * Continuación funciones de clase. *
+
+- 23.09.19 - 
+  Clase 4:
+  * Continuación funciones de clase. *
+  * Estudio de bucles WHILE / FOR    *
   
