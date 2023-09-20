@@ -3,12 +3,14 @@
     padding: 0px
 }
 
-#clase1·Title {
+header {
     width: 100vw;
     border-bottom: 1px solid black;
 }
 
-.clase1·List {
+
+/*  CLASE 1   */
+.clase·List {
     padding: 5vh 5vw;
     width: 60vw;
 }
@@ -20,5 +22,11 @@
 
 .remarks {
     color: chocolate;
-    padding-left: 5vw;
+}
+
+/*  CLASE 2   */
+
+.clase2·List {
+    padding: 5vh 5vw;
+    width: 60vw;
 }
