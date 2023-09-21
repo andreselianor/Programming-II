@@ -13,7 +13,7 @@
             Console.WriteLine(result2);
             */
 
-            Functions.GetSequence2(10);
+            Functions.GetSequence3(20);
         }
     }
 }

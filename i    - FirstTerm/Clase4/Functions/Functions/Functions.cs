@@ -2,6 +2,7 @@
 {
     public class Functions
     {        
+        // Funcion Sumatory con un bucle WHILE
         public static int GetSumatory1(int number)
         {
             int result = 0;
@@ -15,6 +16,7 @@
             return result;
         }
 
+        // Funcion Sumatory con un bucle FOR
         public static int GetSumatory2(int number)
         {
             int result = 0;
@@ -25,6 +27,7 @@
             return result;
         }
 
+        // Funcion Auxiliar que devuelve un verdadero para un número par
         public static bool IsEven(int number)
         {
             if (number % 2 == 0)
@@ -32,6 +35,7 @@
             return false;
         }
 
+        // Funcion Secuencia con un bucle WHILE
         public static void GetSequence(int number)
         {
             int count = 0;
@@ -54,6 +58,7 @@
             }
         }
 
+        // Funcion Secuencia con un bucle FOR
         public static void GetSequence2(int number)
         {
             int result = 0;
@@ -70,6 +75,20 @@
                 }
 
                 Console.WriteLine(result);
+            }
+        }
+
+        // Funcion Secuencia con una funcion reservada MATH.POW
+        public static void GetSequence3(int number)
+        {
+            int result = -2, printNumber, count = 0;            
+
+            while(result < number)
+            {
+                result += 2;
+                printNumber = result * (int)Math.Pow(-1, count);
+                Console.WriteLine(printNumber);
+                count++;
             }
         }
     }
