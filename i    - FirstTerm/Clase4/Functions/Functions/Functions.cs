@@ -91,5 +91,19 @@
                 count++;
             }
         }
+
+        // Funcion que devuelve si un numero es Primo
+        public static bool IsPrime(int number)
+        {
+            for(int i = 2; i < number; i++)
+            {
+                if (number % i == 0)
+                    return false;  
+                
+                // ES UN ERROR ELIMINATORIO ESCRIBIR UN RETURN DENTRO DE UN BUCLE FOR!!!!
+                // return true;
+            }
+            return true;
+        }
     }
 }
