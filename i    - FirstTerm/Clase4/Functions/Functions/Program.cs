@@ -13,8 +13,11 @@
             Console.WriteLine(result2);            
 
             Functions.GetSequence3(20);
-            */
+            
             Console.WriteLine(Functions.IsPrime(127));
+            */
+
+            Functions.Collatz(25);
         }
     }
 }
