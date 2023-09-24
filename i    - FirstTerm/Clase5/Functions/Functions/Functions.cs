@@ -1,14 +1,14 @@
 ﻿namespace Functions
 {
     public class Functions
-    {
+    {        
         // Funcion Sumatory con un bucle WHILE
         public static int GetSumatory1(int number)
         {
             int result = 0;
             int i = 1;
 
-            while (i <= number)
+            while(i <= number)
             {
                 result += i;
                 i++;
@@ -20,7 +20,7 @@
         public static int GetSumatory2(int number)
         {
             int result = 0;
-            for (int i = 1; i <= number; i++)
+            for(int i = 1; i <= number; i++)
             {
                 result += i;
             }
@@ -42,7 +42,7 @@
             int result = 0;
             int resultCounter = 0;
 
-            while (resultCounter < number)
+            while(resultCounter < number)
             {
                 if (IsEven(count))
                 {
@@ -63,7 +63,7 @@
         {
             int result = 0;
 
-            for (int i = 1; i <= number / 2; ++i)
+            for(int i = 1; i <= number/2; ++i)
             {
                 if (IsEven(i))
                 {
@@ -81,15 +81,29 @@
         // Funcion Secuencia con una funcion reservada MATH.POW
         public static void GetSequence3(int number)
         {
-            int result = -2, printNumber, count = 0;
+            int result = -2, printNumber, count = 0;            
 
-            while (result < number)
+            while(result < number)
             {
                 result += 2;
                 printNumber = result * (int)Math.Pow(-1, count);
                 Console.WriteLine(printNumber);
                 count++;
             }
-        }        
+        }
+
+        // Funcion que devuelve si un numero es Primo
+        public static bool IsPrime(int number)
+        {
+            for(int i = 2; i < number; i++)
+            {
+                if (number % i == 0)
+                    return false;  
+                
+                // ES UN ERROR ELIMINATORIO ESCRIBIR UN RETURN DENTRO DE UN BUCLE FOR!!!!
+                // return true;
+            }
+            return true;
+        }
     }
 }
