@@ -36,8 +36,8 @@ namespace Dolphin01
         {
             while (!raceFinish)
             {
-                int movement1 = Utils.GetRandom(10);
-                int movement2 = Utils.GetRandom(10);
+                double movement1 = Utils.GetRandom(10.0);
+                double movement2 = Utils.GetRandom(10.0);
 
                 d1.Move(movement1);
                 d2.Move(movement2);

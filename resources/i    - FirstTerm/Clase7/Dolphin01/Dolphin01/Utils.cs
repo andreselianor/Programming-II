@@ -4,9 +4,9 @@
     {
         public static Random random = new Random();
 
-        public static int GetRandom(int value)
-        {
-            return random.Next(value);
+        public static double GetRandom(double value)
+        {               
+            return (random.NextDouble() * value);
         }
     }
 }
