@@ -27,7 +27,7 @@
 
 
 
-        public void Move(int number)
+        public void Move(double number)
         {
             xPosition += number;
         }
