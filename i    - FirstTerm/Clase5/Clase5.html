@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 5</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 5</h1>
+        <h3>Jueves, 21 Septiembre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+
+    <ul class="clase·List">
+        <h5 class="remarks">Continuación de estudio Funciones de clase</h5>
+        <li>
+            Funciones Ejemplo: Devolver 'true' si un número es primo.
+            <br>
+            <pre><code>
+            public class Functions
+            {
+                public static bool IsPrime(int number)
+                {
+                    for(int i = 2; i &lt number; i++)
+                    {                
+                        if(number % i == 0)
+                            return false;
+                    }
+                    return true;
+                }
+            }
+        </code></pre>        
+    </ul>
+    
+    <ul class="clase·List">
+        <h5 class="remarks">Notas Importantes</h5>
+        <li>
+            Es importante recordar que NUNCA debemos introducir dentro de una condicional for, una sentencia return.
+            No tiene sentido devolver una variable si ANTES NO HEMOS acabado todas las iteraciones del bucle FOR
+        </li>
+    </ul>
+
+</body>
+
+</html>

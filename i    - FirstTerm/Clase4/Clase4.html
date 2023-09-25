@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 4</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 4</h1>
+        <h3>Martes, 19 Septiembre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+
+    <ul class="clase·List">
+        <h5 class="remarks">Continuación de estudio Funciones de clase</h5>
+        <li>
+            Función Sumatorio: Calcula el sumatorio de un número
+            <br>
+            <pre><code>
+            public class Functions
+            {
+                public static bool GetSummatory(int number)
+                {
+                    int count = 1;
+                    int result = 0;
+                    while (count &le number)
+                    {
+                        result += count;
+                        count ++;
+                    } 
+                    return result;                   
+                }
+            }
+        </code></pre>
+        </li>
+        <li>
+            Función Serie: Imprime por consola una serie de números pares positivos y negativos.
+            <br>
+            <pre><code>
+            public class Functions
+            {
+                public static void CalculateSerie(int number)
+                {
+                    int result = 0;
+                    Console.WriteLine(result);
+
+                    for(int i = 1; i &lt number/2; i++)
+                    {
+                        if(IsEven(i))
+                        {
+                            result = result * 1 * -2;
+                        }
+                        else
+                        {
+                            result = result * 1 * 2;
+                        }
+                        Console.WriteLine(result);
+                    }                  
+                }
+            }
+        </code></pre>
+        </li>
+    </ul>
+
+    <ul class="clase·List">
+        <h5 class="remarks">Notas Importantes</h5>
+        <li>
+            Un bucle <b>WHILE</b> se utiliza cuando NO conocemos el número exacto de iteraciones.
+            <pre><code>
+                while(condicion)
+                {
+                    sentencia;                    
+                }
+            </code></pre>
+            Un bucle <b>FOR</b> se utiliza cuando SI conocemos el número de iteraciones.
+            <pre><code>
+                if(inicio de la iteracion; condicion que debe cumplirse; final de la iteración)
+                {
+                    sentencia;
+                }
+            </code></pre>
+        </li>
+        <li>
+            Un <b>'Code Snippet'</b> es un trozo de código que funciona por sí mismo y ejecuta ciertas tareas, pero sí
+            mismo no
+            se considera función.
+        </li>
+        <li>
+            es <b>MUY IMPORTANTE</b> utilizar todas las funciones que hemos escrito en nuestro código. Las funciones que
+            se escriben dentro del Programa
+            pueden ser utilizadas en cualquier localización de nuestra solución. Es buena praxis llamar a otras
+            funciones que <b>SIMPLIFICAN</b> nuestro codigo fuente.
+        </li>
+    </ul>
+
+</body>
+
+</html>
