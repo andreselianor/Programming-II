@@ -23,4 +23,8 @@
   Clase 6:
   * Funcion de Collatz *
   * Funciones de Objetos Dolphin *
-  
+
+- 23.09.25 - 
+  Clase 7:
+  * Simulación Carrera Delfines *
+  * Realizar Funciones de Objeto * 
