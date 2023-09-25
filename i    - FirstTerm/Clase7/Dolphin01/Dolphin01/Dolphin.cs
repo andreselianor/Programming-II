@@ -25,14 +25,11 @@
         public string name = "";
         public ColorType Color;
 
-        public void CreateDolphins()
-        {
 
-        }
 
-        public void Move()
+        public void Move(int number)
         {
-            xPosition += 10;
+            xPosition += number;
         }
     }
 }
