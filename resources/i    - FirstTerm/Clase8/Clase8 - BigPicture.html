@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 8 · Review</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 8 · Review</h1>
+        <h3>Martes, 26 Septiembre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+    <table>
+        <tr>
+            <td class="clase·Column">
+                <ul class="clase·List">
+                    <h5 class="remarks">Tipos de datos</h5>
+                    <li><pre>
+                        'int' = enteros
+                        'float' = reales (16 bits)
+                        'double' = reales (32 bits)
+                        'string' = cadenas de texto
+                        'char' = caracteres
+                        'enum' = enumerations
+                        'objeto' = tipo de un objeto
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Operadores</h5>
+                    <li>
+                        <pre>
+                        '+' = suma
+                        '-' = resta
+                        '*' = producto
+                        '/' = division
+                        '%' = modulo
+                        <br>
+                        </pre>
+                    </li>
+            </td>
+            <td class="clase·Column">
+                <h5 class="remarks">Funciones de clase</h5>
+                <li>
+                    Funciones de Objeto de la clase Dolphin
+                    <br>
+                    <pre><code>
+            public class Dolphin
+            {
+                public double life;
+
+                <b>public double GetLife()</b>
+                {                    
+                    return life/10;                   
+                }
+            }
+
+            public class Main
+            {
+                Dolphin d1 = new Dolphin();
+                double resultLife = d1.GetLife();
+            }
+            </code></pre>
+                </li>
+                <h5 class="remarks">Funciones de objeto</h5>
+                <li>
+                    Funciones de Objeto de la clase Dolphin
+                    <br>
+                    <pre><code>
+                    public class Dolphin
+                    {
+                        public double life;
+
+                        <b>public double GetLife()</b>
+                        {                    
+                            return life/10;                   
+                        }
+                    }
+
+                    public class Main
+                    {
+                        Dolphin d1 = new Dolphin();
+                        double resultLife = d1.GetLife();
+                    }
+                    </code></pre>
+                </li>
+                <li>
+                    Las funciones de objeto explican el comportamiento de las instancias de una clase.
+                </li>
+                <li>
+                    Se diseñan en el interior de la clase. Se caracterizan por no llevar 'static'. Igualmente es raro
+                    que
+                    necesiten parámetros para funcionar.
+                </li>
+                <li>
+                    Para invocarlas, debemos utilizar la notación por punto: d1.GetLife(). Esto significa que la función
+                    es
+                    invocada por el objeto 'd1'
+                </li>
+                <li>
+                    Podemos almacenar los valores resultantes de las funciones en variables que creamos a propósito en
+                    la
+                    clase
+                    Main de nuestro programa.
+                </li>
+                </ul>
+
+                <ul class="clase·List">
+                    <h5 class="remarks">Ejemplos de porcentajes</h5>
+                    <li>
+                        El porcentaje de un número sigue la siguiente regla:
+                        <br>
+                        Parte / Todo * (tipo de tanto)
+                    </li>
+                    <li>
+                        Para aumentar un número un 20 por ciento utilizamos la siguiente fórmula:
+                        <br>
+                        número * (1 + 20 / 100)
+                    </li>
+                    <li>
+                        Para disminuir un número un 20 por ciento utilizamos la siguiente fórmula:
+                        <br>
+                        número * (1 - 20 / 100)
+                    </li>
+                    <br>
+                    <h5 class="remarks">Clase tipo</h5>
+                    <li>
+                        <pre><code>
+                        <u>// FUNCIONES DE CLASE</u>
+
+                        public class <b>Game</b>
+                        {
+                            public static 
+                        }
+
+                        <u>// FUNCIONES DE OBJETO</u>
+
+                        public class <i>Student</i>
+                        {
+                            public string name;
+                        }
+                    </code></pre>
+                    </li>
+                    <li>
+                        <u>Funciones de Clase</u>
+                        <br>
+                        Clase = Funciones = static = retorno = void = Categoria = Enseñanzas
+                    </li>
+                    <li>
+                        <u>Funciones de Objeto</u>
+                        <br>
+                        Objeto = (no)static = (sin)retorno = Instancias = Objetos = registro = parametros
+                    </li>
+                </ul>
+            </td>
+    </table>
+
+</body>
+
+</html>

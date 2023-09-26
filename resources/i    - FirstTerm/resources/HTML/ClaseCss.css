@@ -12,7 +12,7 @@ header {
 /*  CLASE 1   */
 .clase·List {
     padding: 5vh 5vw;
-    width: 60vw;
+    width: 40vw;
 }
 
 .clase1·Link {
@@ -24,9 +24,6 @@ header {
     color: chocolate;
 }
 
-/*  CLASE 2   */
-
-.clase2·List {
-    padding: 5vh 5vw;
-    width: 60vw;
+.clase·Column {
+    vertical-align: top;
 }
