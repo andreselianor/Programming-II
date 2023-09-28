@@ -6,7 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Clase 8 · Review</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../resources/HTML/ClaseCss.css'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
 </head>
 
@@ -20,16 +20,19 @@
     <table>
         <tr>
             <td class="clase·Column">
-                <ul class="clase·List">
+                <ul class="clase·List" style="vertical-align: top;">
                     <h5 class="remarks">Tipos de datos</h5>
-                    <li><pre>
-                        'int' = enteros
-                        'float' = reales (16 bits)
+                    <li>
+                        <pre>
+                        'int'    = enteros
+                        'float'  = reales (16 bits)
                         'double' = reales (32 bits)
                         'string' = cadenas de texto
-                        'char' = caracteres
-                        'enum' = enumerations
+                        'char'   = caracteres
+                        'enum'   = enumerations
                         'objeto' = tipo de un objeto
+                        'funcion'= comportamiento del programa
+                        'metodo' = funciones propias de un objeto de clase
                         </pre>
                     </li>
                     <h5 class="remarks">Operadores</h5>
@@ -43,75 +46,16 @@
                         <br>
                         </pre>
                     </li>
-            </td>
-            <td class="clase·Column">
-                <h5 class="remarks">Funciones de clase</h5>
-                <li>
-                    Funciones de Objeto de la clase Dolphin
-                    <br>
-                    <pre><code>
-            public class Dolphin
-            {
-                public double life;
-
-                <b>public double GetLife()</b>
-                {                    
-                    return life/10;                   
-                }
-            }
-
-            public class Main
-            {
-                Dolphin d1 = new Dolphin();
-                double resultLife = d1.GetLife();
-            }
-            </code></pre>
-                </li>
-                <h5 class="remarks">Funciones de objeto</h5>
-                <li>
-                    Funciones de Objeto de la clase Dolphin
-                    <br>
-                    <pre><code>
-                    public class Dolphin
-                    {
-                        public double life;
-
-                        <b>public double GetLife()</b>
-                        {                    
-                            return life/10;                   
-                        }
-                    }
-
-                    public class Main
-                    {
-                        Dolphin d1 = new Dolphin();
-                        double resultLife = d1.GetLife();
-                    }
-                    </code></pre>
-                </li>
-                <li>
-                    Las funciones de objeto explican el comportamiento de las instancias de una clase.
-                </li>
-                <li>
-                    Se diseñan en el interior de la clase. Se caracterizan por no llevar 'static'. Igualmente es raro
-                    que
-                    necesiten parámetros para funcionar.
-                </li>
-                <li>
-                    Para invocarlas, debemos utilizar la notación por punto: d1.GetLife(). Esto significa que la función
-                    es
-                    invocada por el objeto 'd1'
-                </li>
-                <li>
-                    Podemos almacenar los valores resultantes de las funciones en variables que creamos a propósito en
-                    la
-                    clase
-                    Main de nuestro programa.
-                </li>
-                </ul>
-
-                <ul class="clase·List">
-                    <h5 class="remarks">Ejemplos de porcentajes</h5>
+                    <h5 class="remarks">Declaraciones</h5>
+                    <li>
+                        <pre>
+                        'int a'  declaración de variable 'a'
+                        'a = 5'  inicialización de variable
+                        'a == 3' comparador de igualdad
+                        <br>
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Cálculo de porcentajes</h5>
                     <li>
                         El porcentaje de un número sigue la siguiente regla:
                         <br>
@@ -128,25 +72,214 @@
                         número * (1 - 20 / 100)
                     </li>
                     <br>
-                    <h5 class="remarks">Clase tipo</h5>
+                    <h5 class="remarks">Funciones</h5>
+                    <li>
+                        <pre>
+                        'funcion'= comportamiento del programa
+                        'metodo' = funciones propias de un objeto de clase
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Composición de una función</h5>
+                    <li>
+                        <pre>
+                        Declaración de variables
+                        Asignaciones
+                        Condicionales
+                        Bucles
+                        Rupturas
+                        Retornos
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Condicionales</h5>
+                    <li>
+                        Instrucción para ser evaluada
+                        <pre>
+                        '
+                        <b>while(condicion)</b>
+                        {
+                            código a realizar
+                        }                            
+                        '
+                        </pre>
+                        <pre>
+                        '
+                        <b>if(condicion)</b>
+                        {
+                            código a realizar
+                        }
+                        else
+                        {
+                            código a realizar
+                        }
+                        '
+                        </pre>
+                        <pre>
+                        '
+                        <b>if(condicion 1)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>if(condicion 2)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else</b>
+                        {
+                            si la condicion 2 NO se cumple, entonces código a realizar
+                            si la condicion 1 SI se cumple, pero la 2 NO se cumple, 
+                            entonces codigo a realizar
+                        }
+                        '
+                        Estas condiciones tienen el problema que no tienen en cuenta el primer if                        
+                        </pre>
+                        <pre>
+                        <b>if / else if</b>                       
+                        '
+                        <b>if(condicion 1)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else if(condicion 2)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else</b>
+                        {
+                            si la condicion 1 NO se cumple, y
+                            si la condicion 2 NO se cumple, entonces código a realizar
+                            entonces codigo a realizar
+                        }  
+                        '                      
+                        
+                        Este tipo de condicional tiene la misma estructura que la siguiente:
+
+                        '
+                        <b>if(condicion 1)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else if(condicion 2)</b>
+                        {
+                            <b>if(condicion 2)</b>
+                            {
+                                código a realizar
+                            }
+                        
+                            <b>else</b>
+                            {
+                                si la condicion 1 NO se cumple, y
+                                si la condicion 2 NO se cumple, entonces código a realizar
+                                entonces codigo a realizar
+                            }
+                        } 
+                        '
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Rupturas de bucle</h5>
+                    <li>
+                        break;
+                        <br>
+                        <i>La linea de compilación salta justo al final del bucle.</i>
+                    </li>
+                    <li>
+                        continue;
+                        <br>
+                        <i>La linea de compilación salta justo al inicio del bucle,
+                            sin tener en cuenta lo que resta del bucle.
+                        </i>
+                    </li>
+            </td>
+            <td class="clase·Column">
+                <ul class="clase·List" style="vertical-align: top;">
+                    <h5 class="remarks">Funciones de Objeto</h5>
+                    <li>
+                        Funciones de Objeto de la clase Dolphin
+                        <br>
+                        <pre><code>
+                        '
+                        public class Dolphin
+                        {
+                            public double life;
+
+                            <b>public double GetLife()</b>
+                            {                    
+                                return life/10;                   
+                            }
+                        }
+
+                        public class Main
+                        {
+                            Dolphin d1 = new Dolphin();
+                            double resultLife = d1.GetLife();
+                        }
+                        '
+                        </code></pre>
+                    </li>
+
+                    <h5 class="remarks">Funciones de objeto</h5>
+                    <ul style="list-style: disc;">
+                        <li>
+                            Las funciones de objeto explican el comportamiento de las instancias de una clase.
+                        </li>
+                        <li>
+                            Se diseñan en el interior de la clase. Se caracterizan por no llevar 'static'. Igualmente es
+                            raro
+                            que
+                            necesiten parámetros para funcionar.
+                        </li>
+                        <li>
+                            Para invocarlas, debemos utilizar la notación por punto: d1.GetLife(). Esto significa que la
+                            función
+                            es
+                            invocada por el objeto 'd1'
+                        </li>
+                        <li>
+                            Podemos almacenar los valores resultantes de las funciones en variables que creamos a
+                            propósito
+                            en
+                            la
+                            clase
+                            Main de nuestro programa.
+                        </li>
+                    </ul>
+                    <br>
+
+                    <h5 class="remarks">Orden dentro de la función</h5>
+                    <li>
+                        <pre>
+                        'enum' enumerations
+                        'Atributos' Atributos de clase
+                        'Properties' Getters y Setters
+                        'Constructor' Inicializacion de instancias de Objeto
+                        'Metodos' Funciones propias del Objeto
+                        'Invocaciones'
+                        </pre>
+                    </li>
+
+                    <h5 class="remarks">Ejemplos de Clases tipo</h5>
                     <li>
                         <pre><code>
                         <u>// FUNCIONES DE CLASE</u>
 
+                        '
                         public class <b>Game</b>
                         {
                             public static 
                         }
+                        '
 
                         <u>// FUNCIONES DE OBJETO</u>
 
+                        '
                         public class <i>Student</i>
                         {
                             public string name;
                         }
+                        '
                     </code></pre>
                     </li>
                     <li>
+                        <h5 class="remarks">Palabras clave</h5>
                         <u>Funciones de Clase</u>
                         <br>
                         Clase = Funciones = static = retorno = void = Categoria = Enseñanzas
