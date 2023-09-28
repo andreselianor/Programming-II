@@ -33,3 +33,7 @@
   Clase 8:
   * Funciones de Getters y Setters *
   * Validar los parámetros de entrada *
+
+- 23.09.28 - 
+  Clase 9:
+  * Funciones de Concatenaciones de strings *
