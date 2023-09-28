@@ -32,7 +32,21 @@ namespace Dolphin01
             d2.Color = ColorType.WHITE;
         }
 
-        public void RaceFinish()
+        public void Execute()
+        {
+            while (!raceFinish)
+            {
+                double movement1 = Utils.GetRandom(10.0);
+                double movement2 = Utils.GetRandom(10.0);
+
+                d1.Move(movement1);
+                d2.Move(movement2);
+
+                HasRaceFinish();
+            }
+        }
+
+        public void HasRaceFinish()
         {
             if (d1.xPosition >= raceLength)
             {
