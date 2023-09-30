@@ -19,16 +19,28 @@
         public ColorType Color;
 
 
-        /*      FUNCIONES        */
+        /*      CONSTRUCTOR      */
 
-        // Funcion que devuelve la vida restante en tantos por cien
+        public Dolphin (double currentLife, double maxLifeCapacity)
+        {
+            life = currentLife;
+            lifeCapacity = maxLifeCapacity;
+        }
+
+
+        /*      FUNCIONES        */
+        // Funcion que devuelve la vida restante
+        // en tantos por cien
+
         public double GetLifePercent()
         {
             return (life / lifeCapacity) * 100;
         }
 
 
-        // Funcion que devuelve la vida restante en tantos por uno
+        // Funcion que devuelve la vida restante
+        // en tantos por uno
+
         public double GetLifePercentOne()
         {
             return (life / lifeCapacity);
@@ -48,7 +60,6 @@
 
 
         // SETTERS CON VALIDACION DE PARAMETROS
-
         /*
             CASO 1: CLAMPEAR/SATURAR, llevamos los valores a sus límites posibles
             CASO 2: Comprobamos que los valores son CORRECTOS => establecemos el VALUE

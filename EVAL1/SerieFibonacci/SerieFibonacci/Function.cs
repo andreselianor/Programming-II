@@ -2,13 +2,14 @@
 {
     public class Function
     {
-        public static string Fibonacci(int number)
+        public static string Fibonacci1(int number)
         {
             string result = "0,1";
             int n1 = 0;
             int n2 = 1;
             int sumNumbers;
-            for (int i = 0; i <= number; i++)
+
+            for (int i = 0; i < number - 2; i++)
             {
                 sumNumbers = n1 + n2;
                 result += "," + sumNumbers;

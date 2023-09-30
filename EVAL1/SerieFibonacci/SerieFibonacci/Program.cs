@@ -5,10 +5,10 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Serie de Fibonacci");
-            string Fibonacci = Function.Fibonacci(10);
+            string Fibonacci = Function.Fibonacci1(7);
             Console.WriteLine(Fibonacci);
 
-            string Fibonacci2 = Function.Fibonacci2(10);
+            string Fibonacci2 = Function.Fibonacci2(3);
             Console.WriteLine(Fibonacci2);
         }
     }
