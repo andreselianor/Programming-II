@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 8 · Review</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 8 · Review</h1>
+        <h3>Martes, 26 Septiembre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+    <table>
+        <tr>
+
+            <!----------------- COLUMNA 1 ------------------->
+
+            <td class="clase·Column">
+                <ul class="clase·List" style="vertical-align: top;">
+                    <h5 class="remarks">Tipos de datos</h5>
+                    <li>
+                        <pre>
+                        'int'    = enteros
+                        'float'  = reales (16 bits)
+                        'double' = reales (32 bits)
+                        'string' = cadenas de texto
+                        'char'   = caracteres
+                        'enum'   = enumerations
+                        'objeto' = tipo de un objeto
+                        'funcion'= comportamiento del programa
+                        'metodo' = funciones propias de un objeto de clase
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Operadores</h5>
+                    <li>
+                        <pre>
+                        '+' = suma
+                        '-' = resta
+                        '*' = producto
+                        '/' = division
+                        '%' = modulo
+                        <br>
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Declaraciones, operadores, comparadores</h5>
+                    <li>
+                        <pre>
+                        'int a'   declaración de variable 'a'
+                        'a = 5'   inicialización de variable
+                        <br>
+                        'a >= 3'  mayor o igual 
+                        'a &lt 3' menor o igual
+                        <br>
+                        'a == 3'  comparador de igualdad
+                        'a != 3'  comparador de desigualdad
+                        <br>
+                        'a > 3 && a &lt 9'  Operador <b>AND</b>
+                        <br>
+                        TABLA DE VERDAD
+                        <br>
+                        True && True devuelve True <br>
+                        True && False devuelve False <br>
+                        False && True devuelve False <br>
+                        False && False devuelve False <br>
+                        'a != 3'  comparador de desigualdad
+                        <br>
+                        'a > 3 || a &lt 9'  Operador <b>OR</b>
+                        <br>
+                        TABLA DE VERDAD
+                        <br>
+                        True && True devuelve True <br>
+                        True && False devuelve True <br>
+                        False && True devuelve True <br>
+                        False && False devuelve False <br>
+                        <br>
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Cálculo de porcentajes</h5>
+                    <li>
+                        El porcentaje de un número sigue la siguiente regla:
+                        <br>
+                        Parte / Todo * (tipo de tanto)
+                    </li>
+                    <br>
+                    <li>
+                        Porcentaje en tanto por <b>cien</b>:
+                        <br>
+                        Parte / Todo * (100)
+                    </li>
+                    <li>
+                        Porcentaje en tanto por <b>uno</b>:
+                        <br>
+                        Parte / Todo
+                        <br>
+                        Tiene la ventaja que te indica inmediatamente la proporción de las partes.
+                    </li>
+                    <br>
+                    <li>
+                        Para aumentar un número un 20 por ciento utilizamos la siguiente fórmula:
+                        <br>
+                        número * (1 + 20 / 100)
+                    </li>
+                    <li>
+                        Para disminuir un número un 20 por ciento utilizamos la siguiente fórmula:
+                        <br>
+                        número * (1 - 20 / 100)
+                    </li>
+                    <br>
+                    <h5 class="remarks">Funciones</h5>
+                    <li>
+                        <pre>
+                        'funcion'= comportamiento del programa
+                        'metodo' = funciones propias de un objeto de clase
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Composición de una función</h5>
+                    <li>
+                        <pre>
+                        Declaración de variables
+                        Asignaciones
+                        Condicionales
+                        Bucles
+                        Rupturas
+                        Retornos
+                        </pre>
+                    </li>
+                    <h5 class="remarks">Condicionales</h5>
+                    <li>
+                        Instrucción para ser evaluada
+                        <pre><code>
+                        '
+                        <b>while(condicion)</b>
+                        {
+                            código a realizar
+                        }                            
+                        '
+                        </code></pre>
+                        <pre><code>
+                        '
+                        <b>if(condicion)</b>
+                        {
+                            código a realizar
+                        }
+                        else
+                        {
+                            código a realizar
+                        }
+                        '
+                        </code></pre>
+                        <pre>
+                        '
+                        <b>if(condicion 1)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>if(condicion 2)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else</b>
+                        {
+                            si la condicion 2 NO se cumple, entonces código a realizar
+                            si la condicion 1 SI se cumple, pero la 2 NO se cumple, 
+                            entonces codigo a realizar
+                        }
+                        '
+                        Estas condiciones tienen el problema que no tienen en cuenta el primer if                        
+                        </code></pre>
+                        <pre><code>
+                        <b>if / else if</b>                       
+                        '
+                        <b>if(condicion 1)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else if(condicion 2)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else</b>
+                        {
+                            si la condicion 1 NO se cumple, y
+                            si la condicion 2 NO se cumple, entonces código a realizar
+                            entonces codigo a realizar
+                        }  
+                        '                      
+                        
+                        Este tipo de condicional tiene la misma estructura que la siguiente:
+
+                        '
+                        <b>if(condicion 1)</b>
+                        {
+                            código a realizar
+                        }
+                        <b>else if(condicion 2)</b>
+                        {
+                            <b>if(condicion 2)</b>
+                            {
+                                código a realizar
+                            }
+                        
+                            <b>else</b>
+                            {
+                                si la condicion 1 NO se cumple, y
+                                si la condicion 2 NO se cumple, entonces código a realizar
+                                entonces codigo a realizar
+                            }
+                        } 
+                        '
+                        </code></pre>
+                    </li>
+                    <li>
+                        Operador Ternario: Realiza una comprobacion binaria en un misma linea
+                        <pre><code>
+                            '
+                            (condicion) ? expresion true : expresion false                           
+                            '
+                        </code></pre>
+                        Establecemos una condicion con dos posibilidades, si es true o si es false
+                    </li>
+                    <h5 class="remarks">Bucles</h5>
+                    <li>
+                        <pre><code>
+                            '
+                            <b>while(condicion)</b>
+                            {
+                                código a realizar
+                            }                            
+                            '
+                        </code></pre>
+                    </li>
+                    <li>
+                        Un bucle <b>while</b> se repite mientras se cumpla la condicion del parametro.
+                    </li>
+                    <br>
+                    <li>
+                        <pre><code>
+                            '
+                            <b>for(sentencia inicial; condicion; sentencia final)</b>
+                            {
+                                código a realizar
+                            }                            
+                            '
+                        </code></pre>
+                    </li>
+                    <li>
+                        Un bucle <b>for</b> se repite un número determinado de veces. Podemos utilizarlo siempre que
+                        conozcamos
+                        el numero exacto de iteraciones
+                    </li>
+                    <h5 class="remarks">Rupturas de bucle</h5>
+                    <li>
+                        <b>break;</b>
+                        <br>
+                        <i>La linea de compilación salta justo al final del bucle.</i>
+                    </li>
+                    <li>
+                        <b>continue;</b>
+                        <br>
+                        <i>La linea de compilación salta justo al inicio del bucle,
+                            sin tener en cuenta lo que resta del bucle.
+                        </i>
+                    </li>
+                    <h5 class="remarks">Rupturas de bucle</h5>
+                    <li>
+                        <b>break;</b>
+                        <br>
+                        <i>La linea de compilación salta justo al final del bucle.</i>
+                    </li>
+                    <h5 class="remarks">Notas para tener en cuenta</h5>
+                    <li>
+                        Jamás usaremos un Console.WriteLine() para hacer funciones.
+                        Excepto si nos piden explicitamente que la función imprima por pantalla.
+                    </li>
+                    <li>
+                        Jamás usaremos un return dentro de un bucle for. No tiene sentido terminar el bucle antes
+                        de que la función termine de iterar entre los valores definidos.
+                    </li>
+                    <li>
+                        Una función debe ocupar como máximo el tamaño de una pantalla. Para entenderla mejor y para
+                        mantenerla
+                        sintética.
+                    </li>
+                    <li>
+                        Es muy aconsejable dividir nuestro programa en piezas pequeñas que conforman unidades lógicas.
+                        Sistematizar el programa, crear Sistemas Funcionales que siguen una lógica. Crear el programa
+                        como
+                        las partes que son más que el todo.
+                    </li>
+                    <li>
+                        <i>Code Snippet</i>: Trozos de código que realizan una tarea demostrativa.
+                    </li>
+                    <li>
+                        Todo nuestro programa es reutilizable. Es muy positivo utilizar funciones que hemos diseñado en
+                        otras zonas de nuestro programa.
+                    </li>
+            </td>
+
+            <!----------------- COLUMNA 2 ------------------->
+
+            <td class="clase·Column">
+                <ul class="clase·List" style="vertical-align: top;">
+                    <h5 class="remarks">Funciones de Objeto</h5>
+                    <li>
+                        Funciones de Objeto de la clase Dolphin
+                        <br>
+                        <pre><code>
+                        '
+                        public class Dolphin
+                        {
+                            public double life;
+
+                            <b>public double GetLife()</b>
+                            {                    
+                                return life/10;                   
+                            }
+                        }
+
+                        public class Main
+                        {
+                            Dolphin d1 = new Dolphin();
+                            double resultLife = d1.GetLife();
+                        }
+                        '
+                        </code></pre>
+                    </li>
+
+                    <h5 class="remarks">Funciones de objeto</h5>
+                    <ul style="list-style: disc;">
+                        <li>
+                            Las funciones de objeto explican el comportamiento de las instancias de una clase.
+                        </li>
+                        <li>
+                            Se diseñan en el interior de la clase. Se caracterizan por no llevar 'static'. Igualmente es
+                            raro
+                            que
+                            necesiten parámetros para funcionar.
+                        </li>
+                        <li>
+                            Para invocarlas, debemos utilizar la notación por punto: d1.GetLife(). Esto significa que la
+                            función
+                            es
+                            invocada por el objeto 'd1'
+                        </li>
+                        <li>
+                            Podemos almacenar los valores resultantes de las funciones en variables que creamos a
+                            propósito
+                            en
+                            la
+                            clase
+                            Main de nuestro programa.
+                        </li>
+                    </ul>
+                    <br>
+
+                    <h5 class="remarks">Orden dentro de la función</h5>
+                    <li>
+                        <pre>
+                        'enum' enumerations
+                        'Atributos' Atributos de clase
+                        'Properties' Getters y Setters
+                        'Constructor' Inicializacion de instancias de Objeto
+                        'Metodos' Funciones propias del Objeto
+                        'Invocaciones'
+                        </pre>
+                    </li>
+                    <br>
+
+                    <h5 class="remarks">Funciones de Clase</h5>
+                    <li>
+                        Algunas Funciones de Clase que realizan tareas dentro de nuestro programa.
+                        <br>
+                        <pre><code>
+                        '
+                        public class Utils
+                        {
+                            <b>public <i>static</i> double CalculateSum(double a, double b)</b>
+                            {                    
+                                return a + b;                   
+                            }
+                        }
+
+                        public class Functions
+                        {
+                            <b>public <i>static</i> bool IsMajor(int a, int b)</b>
+                            {                    
+                                return (a > b);                   
+                            }
+                        }
+                        '
+                        </code></pre>
+                    </li>
+
+                    <h5 class="remarks">Funciones de Clase</h5>
+                    <ul style="list-style: disc;">
+                        <li>
+                            Las funciones de clase son pequeños fragmentos de código que por si mismas realizan una
+                            función.
+                        </li>
+                        <li>
+                            Pueden diseñarse dentro de una clase creada especificamente para ellas, como 'Functions',
+                            'Utils'
+                        </li>
+                        <li>
+                            Para utilizarlas, debemos invocarlas desde otro lugar de nuestro programa. Esto se realiza
+                            con la siguiente sintaxis:
+                            <br>
+                            '(nombre de clase).(nombre de funcion)(parametros)'
+                            <br>
+                            'Utils.GetSum(5, 6)'
+                        </li>
+                        <li>
+                            Como regla general , siempre devuelven un valor que luego podemos almacenar en una variable.
+                            Estas variables se usan en
+                            otras funciones o clases de nuestro programa.
+                        </li>
+                        <li>
+                            Siempre debe contener un return.
+                        </li>
+                        <li>
+                            Cada función es una pieza atómica de nuestro programa. Es conveniente que todas las piezas
+                            formen el conjunto funcional del programa.
+                        </li>
+                    </ul>
+                    <br>
+
+                    <h5 class="remarks">Ejemplos de Clases tipo</h5>
+                    <li>
+                        <pre><code>
+                        <u>// FUNCIONES DE CLASE</u>
+
+                        '
+                        public class <b>Game</b>
+                        {
+                            public static (tipo) (nombreFuncion)
+                        }
+                        '
+
+                        <u>// FUNCIONES DE OBJETO</u>
+
+                        '
+                        public class <i>Student</i>
+                        {
+                            public string name;
+                        }
+                        '
+                    </code></pre>
+                    </li>
+                    <li>
+                        <h5 class="remarks">Palabras clave</h5>
+                        <u>Funciones de Clase</u>
+                        <br>
+                        Clase = Funciones = static = retorno = void = Categoria = Enseñanzas
+                    </li>
+                    <li>
+                        <u>Funciones de Objeto</u>
+                        <br>
+                        Objeto = (no)static = (sin)retorno = Instancias = Objetos = registro = parametros
+                    </li>                    
+                </ul>
+            </td>
+    </table>
+
+</body>
+
+</html>

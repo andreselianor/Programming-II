@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px
+}
+
+header {
+    width: 100vw;
+    border-bottom: 1px solid black;
+}
+
+/*  CLASE 1   */
+.clase·List {
+    padding: 2vh 2vw;
+    width: 40vw;
+}
+
+.clase1·Link {
+    padding: 5vh 5vw;
+    width: 60vw;
+}
+
+.remarks {
+    color: chocolate;
+}
+
+.clase·Column {
+    vertical-align: top;
+    width: 40vw;
+}

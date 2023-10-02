@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 8</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 8</h1>
+        <h3>Martes, 26 Septiembre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+    <table>
+        <tr>
+
+            <!----------------- COLUMNA 1 ------------------->
+            <td class="clase·Column">
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Getters</h5>
+                    <li>
+                        Funciones creadas explicitamente para 'recoger' o conseguir el valor de un atributo.
+                        Esto sucede porque es muy posible que otros programadores quieran utilizar los valores que hemos
+                        creado
+                        en nuestras funciones, a las cuales habitualmente no tendran acceso directo, sino a través de
+                        los getters.
+                        <br>
+                        <pre><code>
+                        '
+                        public class Dolphin
+                        {
+                            private double life;
+
+                            <b>public double GetLife()</b>
+                            {                    
+                                return life;                  
+                            }
+                        }
+                        '
+                        </code></pre>
+                        Habitualmente <i>no reciben ningún parámetro y siempre devuelven un valor</i>
+                    </li>
+                    <br>
+
+
+                    <h5 class="remarks">Setters</h5>
+                    <li>
+                        Funciones creadas explicitamente para 'establecer' el valor de un atributo
+                        Se debe realizar la <i>validación</i> del parámetro, para que realice un correcto funcionamiento
+                        de nuestro programa.
+                        <br>
+                        <pre><code>
+                        '
+                        public class Dolphin
+                        {
+                            private double life;
+
+                            <b>public void SetLife(double value)</b>
+                            {                    
+                                this.life = value;                  
+                            }
+                        }
+                        '
+                        </code></pre>
+                        Habitualmente <i>no devuelven nada y siempre reciben un parámetro</i>
+                    </li>
+                    <li>
+                        La validación de los setters puede implicar tres sistemas diferentes:
+                        <br>
+                        1.- "Clampear" o "Saturar" los parametros de entrada. Esto significa llevar los parámetros
+                        a los niveles máximos y mínimos(Clampear) o simplemente a los niveles máximos (Saturar).
+                        <br>
+                        2.- Comprobar que los valores son correctos y en este caso, el programa funciona normalmente
+                        <br>
+                        3.- Darse cuenta que los valores son incorrectos y en este caso, lanzar un error de advertencia.
+                        <br>
+                        <pre><code>
+                        '
+                        public class Dolphin
+                        {
+                            private double life;
+
+                            <b>public void SetLife(double value)</b>
+                            {                    
+                                if (value &lt 0)                
+                                    this.life = 0;
+                                else if ( value > 100)
+                                    this.life = 100;
+                                else
+                                    this.life = value;
+                            }
+                        }
+                        '
+                        </code></pre>
+                        <br>
+                        2.- Comprobar que los valores son correctos y en este caso, el programa funciona normalmente
+                        <pre><code>
+                            '
+                            public class Dolphin
+                            {
+                                private double life;
+    
+                                <b>public void SetLife(double value)</b>
+                                {                    
+                                    if (value > 0 && value &lt 100)                
+                                        this.life = value;
+                                    // else el programa no realiza ninguna acción
+                                }
+                            }
+                            '
+                        </code></pre>
+                        <br>
+                        3.- Darse cuenta que los valores son incorrectos y en este caso, lanzar un error de advertencia.
+                        <pre><code>
+                            '
+                            public class Dolphin
+                            {
+                                private double life;
+    
+                                <b>public void SetLife(double value)</b>
+                                {                    
+                                    if (value &lt 0 || value > 100)                
+                                        throw new Exception("Error de validacion de parametros");
+                                    this.life = value
+                                }
+                            }
+                            '
+                        </code></pre>
+                    </li>
+                </ul>
+            </td>
+    </table>
+
+</body>
+
+</html>
