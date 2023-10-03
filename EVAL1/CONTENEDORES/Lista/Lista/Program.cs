@@ -15,13 +15,7 @@
             list1.Remove(1.6);
             list1.RemoveAt(0);
             list1[0] = list1[1];
-            foreach(double d in list1)
-            {
-                Console.WriteLine(d);
-            }
-            int number = list1.Count();
-            Console.WriteLine(number);
-
+            
 
             double[] list2;
             list2 = new double[4];
@@ -45,6 +39,17 @@
 
             int result2 = Functions.GetGreaterThanZero(list2);
             */
+
+            List<int> list3 = new List<int>();
+            list3.Add(-2);
+            list3.Add(-4);
+            list3.Add(-6);
+            list3.Add(8);
+
+
+            bool result1 = Functions.ContainsNumber(list3, 8);
+            int result2 = Functions.GetMajor(list3);
+            int result3 = Functions.GetIndexMajor(list3);
         }
     }
 }
