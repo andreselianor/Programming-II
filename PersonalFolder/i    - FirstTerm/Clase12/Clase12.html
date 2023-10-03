@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 12</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 12</h1>
+        <h3>Martes, 3 Octubre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+    <table>
+        <tr>
+
+            <!----------------- COLUMNA 1 ------------------->
+
+            <td class="clase·Column">
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Contenedores</h5>
+                    <li>
+                        Los contenedores son colecciones de elementos. Pueden ser de cualquiera de os tipos elementales.
+
+                    </li>
+                    <li>
+                        Los tipos de contenedores son: Arrays, Listas, Diccionarios, Árboles
+                    </li>
+                    <li>
+                        Es importante recordar que los <b>contenedores se almacena en una variable que apunta a una
+                            direccion de memoria,</b>
+                        donde existe un contenedor que se ha creado mediante la funcion new.
+                    </li>
+                </ul>
+
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Listas</h5>
+
+                    <li>
+                        Ejemplo de lista
+                        <pre><code>
+                        '
+                        public static void Main()
+                        {
+                            List<int> l;            // se crea una variable llamada 'l' de tipo Lista de enteros
+                            l = new List<int>();    // se crea la lista en una direccion de la memoria
+                            l = null;               // l apunta a la nada, se elimina la lista del programa
+                        }                            
+                        '
+                        </code></pre>
+                    </li>
+                    <li>
+                        Metodos que hacen funcionar una lista
+                        <pre><code>
+                        '
+                        public static void Main()
+                        {
+                            <b>Add(element)</b>     // añade 'element' al final de la lista
+
+                            l.Add(40);
+                            l.Add(-10);
+                            l.Add(3);
+                                                    // [40,-10,3]
+                            
+                            <b>Remove(element)</b>  // elimina 'element' al final de la lista
+                            <b>RemoveAt(index)</b>  // elimina 'element' en la posicion 'index'
+
+                            l.RemoveAt(2);
+                                                    // [40,-10]
+
+                            <b>l[i] = value</b>     // Actualiza el valor del elemento 'i' de una lista
+
+                            l[0] = 60;
+                            int i = 1;
+                            l[i + 0] = 3;
+                                                    // [60,3]
+
+                            <b>l.Count</b>          // Hace el conteo del número de elementos que hay en una lista
+
+                            int n = l.Count;
+                                                    // n = 2
+
+                            <b>l.Insert(index, element)</b>   // Inserta 'element' en la posicion 'index'
+
+                            l.Insert(1, -20);
+                                                    // [60,-20,3]
+
+                            <b>l[1] = l[2]</b>      // el elemento de la posicion 1 es igual al elemento de la posicion 2
+
+                                                    // [60,3,3]
+
+                            <b>l.Clear()</b>        // Se eliminan todos los elementos de la lista. Vaciar la lista
+
+                                                    // [0]
+                            
+                        }                            
+                        '
+                        </code></pre>
+                    </li>
+                </ul>
+
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Arrays</h5>
+
+                    <li>
+                        Colecciones de elementos con la característica que no permite cambiar el tamaño del array
+                        original
+                        <pre><code>
+                        '
+                        public static void Main()
+                        {
+                            int [] a;               // Se crea la variable 'a' que es del tipo array de int
+                            a = new int[4];         // Se crea un array en una posición de la memoria donde apunta el puntero 'a'
+                                                    // Es <i>Imprescindible</i> especificar el número de celdas que contiene
+                                                    // el array. Este número no se puede cambiar
+                            a                       
+                                                    // [0,0,0,0]
+                            a[3] = -10;
+                            a[0] = a[3];
+                                                    // [-10,0,0,-10]
+
+                            int n = a.Length;
+                                                    // n = 4
+                            int [] b = a;
+                                                    // b = [-10,0,0,-10]
+                                                    // b, del tipo array de int, apunta a la misma dirección que a.
+                        }                            
+                        '
+                        </code></pre>
+                    </li>
+                </ul>
+
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Funciones de ejemplo</h5>
+
+                    <li>
+                        Funcion 1: Se le pasa una lista de strings y devuelve el número de elementos que hay en su
+                        interior.
+                        <pre><code>
+                        '
+                        public class ListExample
+                        {                        
+                            public static int GetListItems(List &lt string &gt list)
+                            {
+                                return list.Count;
+                            } 
+                        }                           
+                        '
+                        </code></pre>
+                    </li>
+                    <li>
+                        Funcion 2: Se le pasa una lista de dobles y devuelve el número de elementos que son positivos.
+                        <pre><code>
+                        '
+                        public class ListExample
+                        {                        
+                            public static int GetPositiveListItems(List &lt double &gt list)
+                            {
+                                int result = 0;
+                                for(int i = 0; i &lt list.Count; i++)
+                                {
+                                    if(list[i] > 0)
+                                        result++;
+                                }
+                                return result;
+                            } 
+                        }                           
+                        '
+                        </code></pre>
+                    </li>
+					<li>
+                        Funcion 3: Se le pasa un array de dobles y devuelve el número de elementos que son positivos.
+                        <pre><code>
+                        '
+                        public class ListExample
+                        {                        
+                            public static int GetPositiveListItems(double[] list)
+                            {
+                                int result = 0;
+                                for(int i = 0; i &lt list.Length; i++)
+                                {
+                                    if(list[i] > 0)
+                                        result++;
+                                }
+                                return result;
+                            } 
+                        }                           
+                        '
+                        </code></pre>
+                    </li>
+                </ul>
+            </td>
+    </table>
+
+</body>
+
+</html>

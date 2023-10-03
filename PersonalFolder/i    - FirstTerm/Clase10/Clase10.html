@@ -12,8 +12,8 @@
 
 <body>
     <header>
-        <h1>Clase 8 · Review</h1>
-        <h3>Martes, 26 Septiembre 2023</h3>
+        <h1>Clase 10</h1>
+        <h3>Viernes, 29 Septiembre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
@@ -25,7 +25,58 @@
             <td class="clase·Column">
                 <ul class="clase·List" style="vertical-align: top;">
 
-                    <h5 class="remarks">Constructores</h5>
+                    <h5 class="remarks">Serie de Fibonacci</h5>
+                    <li>
+                        Funcion que se le pasa un número y devuelve ese número de elementos de la serie Fibonacci
+                        <br>
+                        <pre><code>
+                        '
+                        public static string Fibonacci1(int number)
+                        {
+                            int result = "0,1";
+							int n1 = 0;
+							int n2 = 1;
+							int sumResult = 0;
+							
+							for(int i = 0; i < number - 1; i++)
+							{
+								sumResult = n1 + n2;
+								result += "," + sumResult;
+								n1 = n2;
+								n2 = sumResult;
+							}
+							return result;
+                        }
+                        '
+                        </code></pre>
+                    </li>
+					<li>
+                        Funcion que se le pasa un número y devuelve el número posterior de la serie Fibonacci
+                        <br>
+                        <pre><code>
+                        '
+                        public static string Fibonacci2(int number)
+                        {
+                            int result = "0,1";
+							int n1 = 0;
+							int n2 = 1;
+							int sumResult = 0;
+							
+							while(number &lt sumResult)
+							{										
+								sumResult = n1 + n2;
+								result += "," + sumResult;
+								n1 = n2;
+								n2 = sumResult;
+							}
+							return result;
+                        }
+                        '
+                        </code></pre>
+                    </li>
+					</ul>
+					                <ul class="clase·List" style="vertical-align: top;">
+					<h5 class="remarks">Constructores</h5>
                     <li>
                         Funciones creadas explicitamente para 'establecer' los atributos del objeto que estamos creando.
                         <br>
