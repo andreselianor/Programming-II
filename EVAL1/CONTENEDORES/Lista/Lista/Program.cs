@@ -59,11 +59,11 @@
             List<int> list7 = null;
 
 
-            int[] list8 = new int[]
+            double[] list8 = new double[]
             {
-                0,
-                1,
-                5
+                0.0,
+                1.0,
+                5.0
             };
 
             int test1 = Functions.GetGreaterThanZero(list2);
@@ -81,11 +81,7 @@
             bool test9 = Functions.IsOrdered(list1);
             list7 = Functions.Sort(list1);
 
-            bool test10 = Functions.BinarySearch(list8, 0);
-
-
-
-
+            bool test10 = Functions.BinarySearch(list8, 0.0);
 
         }
     }

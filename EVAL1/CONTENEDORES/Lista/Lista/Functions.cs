@@ -149,59 +149,48 @@ namespace Lista
 
         public static bool BinarySearch(List<int> list, int number)
         {
-            int minIndex = 0;
-            int minValue = list[0];
+            if (list == null || list.Count == 0)
+                return false;
 
-            int maxIndex = list.Count;
-            int maxValue = list[list.Count];
+            int minPosition = 0;
+            int maxPosition = list.Count - 1;
+            int midPosition;
 
-            int midIndex = (minIndex + maxIndex) / 2;
-            int midValue = list[midIndex];            
-
-            while (midValue != midIndex || minIndex > maxIndex)
+            while (minPosition <= maxPosition)
             {
-                if (number > minValue)
-                {
-                    minIndex = list[minIndex];
-                    midIndex = (minIndex + maxIndex) / 2;
-                }
+                midPosition = (minPosition + maxPosition) / 2;
 
-                if ( number < maxValue)
-                {
-                    maxIndex = list[maxIndex];
-                    maxIndex = (minIndex + maxIndex) / 2;
-                }
-
-                if( number == midValue)
-                {
+                if (list[midPosition] == number)
                     return true;
-                }
+
+                if (number > list[midPosition])
+                    minPosition = midPosition + 1;
+                else
+                    maxPosition = midPosition - 1;
             }
             return false;
         }
 
-        public static bool BinarySearch(double[] array , int number)
+        public static bool BinarySearch(double[] array, double number)
         {
-            if (array == null || array.Length == 0)
+            if (array == null || array.Length == 0)            
+                return false;            
+
+            int minPosition = 0;
+            int maxPosition = array.Length - 1;
+            int midPosition;
+
+            while (minPosition <= maxPosition)
             {
-                return false;
-            }
+                midPosition = (minPosition + maxPosition) / 2;
 
-            int minValue = 0;
-            int maxValue = array.Length - 1;
-            int midValue;
+                if (array[midPosition] == number)                
+                    return true;                
 
-            while (minValue < maxValue)
-            {
-                midValue = (minValue + maxValue) / 2;
-
-                if (array[midValue] == number)
-                {
-                    return true;
-                }
-
-                if ()
-                
+                if (number > array[midPosition])
+                    minPosition = midPosition + 1;
+                else
+                    maxPosition = midPosition - 1;
             }
             return false;
         }
