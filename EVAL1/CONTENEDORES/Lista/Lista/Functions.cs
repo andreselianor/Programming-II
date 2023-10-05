@@ -8,6 +8,7 @@ namespace Lista
 {
     public class Functions
     {
+        // FUNCION que devuelve el numero de los valores de una lista mayores de 0
         public static int GetGreaterThanZero(List<double> list)
         {
             int result = 0;
@@ -32,6 +33,7 @@ namespace Lista
             return result;
         }
 
+        // FUNCION que devuelve true si una lista contiene un numero dado
         public static bool ContainsNumber(List<int> list, int number)
         {
             if (list == null)               //  COMPROBACION DE QUE LA LISTA NO ES NULL
@@ -67,6 +69,7 @@ namespace Lista
             return result;
         }
 
+        // FUNCION que devuelve el índice del numero mayor
         public static int GetIndexMajor(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -98,6 +101,48 @@ namespace Lista
                 }
             }
             return index;
+        }
+
+
+        // FUNCION que devuelve true si una lista está ordenada de forma ascendente
+        public static bool IsOrdered(List<int> list)
+        {
+            if (list == null || list.Count == 0)
+                return false;
+
+            bool result = true;
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                if (list[i] > list[i + 1])
+                    result = false;
+            }
+            return result;
+        }
+
+
+        // FUNCION que ordena una lista de forma ascendente
+        public static List<int> Sort(List<int> list)
+        {
+            if (list == null || list.Count == 0)
+                throw new Exception("Error de parametros");
+
+            List<int> result = new List<int>();
+            int aux;
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                for (int j = list.Count - 1; j > 0; j--)
+                {
+                    if (list[j] < list[j - 1])
+                    {
+                        aux = list[j - 1];
+                        list[j - 1] = list[j];
+                        list[j] = aux;
+                    }
+                }
+                result.Add(list[i]);
+            }            
+
+            return result;
         }
     }
 }

@@ -25,18 +25,156 @@
             <td class="clase·Column">
                 <ul class="clase·List" style="vertical-align: top;">
 
-                    <h5 class="remarks">Funciones de Lista</h5>
+                    <h5 class="remarks">Inicializadores de Listas</h5>
                     <li>
-                        Crear una función que se le pase una lista de enteros y un valor. Devuelve verdadero o falso si
+                        Podemos declarar e inicializar las Listas/Arrays de diferentes maneras:
+                    </li>
+                    <li>
+                        <pre><code>
+                    
+                    1.-
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        List&ltint&gt list;
+                        list = new List&ltint&gt();
+
+                        list.Add(1);
+                        list.Add(5);
+                        list.Add(10);
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                    <li>
+                        <pre><code>
+                    2.-
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        List&ltint&gt list = new List&ltint&gt();
+
+                        list.Add(1);
+                        list.Add(5);
+                        list.Add(10);
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                    <li>
+                        <pre><code>                            
+                    3.-
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        List&ltint&gt list = new List&ltint&gt{1, 5, 10};
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                    <li>
+                        <pre><code>
+                    4.-
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        List&ltint&gt list = new List&ltint&gt
+                        {
+                            1,
+                            5,
+                            10
+                        };
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                </ul>
+
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Inicializadores de Arrays</h5>                    
+                    <li>
+                        <pre><code>                    
+                    1.-
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        int[] list;
+                        list = new int[3];
+
+                        list[0] = 1;
+                        list[1] = 5;
+                        list[2] = 10;
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                    <li>
+                        <pre><code>
+                    2.-
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        int[] list = new int[3];
+
+                        list[0] = 1;
+                        list[1] = 5;
+                        list[2] = 10;
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                    <li>
+                        <pre><code>
+                    3-                            
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        int[] list = new int[]{1, 5, 10};                        
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                    <li>
+                        <pre><code>
+                    4.-
+                    '
+                    <b>public static void Main()</b>
+                    {
+                        int[] list = new int[]
+                        {
+                        1,
+                        5,
+                        10
+                        };                        
+                    }                                                                        
+                    '
+                    </code></pre>
+                    </li>
+                </ul>
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Funciones que se utilizan habitualmente en <u>Listas y Arrays</u></h5>
+                    <li>
+                        <b>Función 1:</b> Crear una función que se le pase una lista de enteros y un valor. Devuelve
+                        verdadero
+                        o falso si
                         el valor está dentro de la lista.
+                    </li>
+                    <li>
+                        Es buena idea utilizar el nombre de <i>'Contains'</i> para evaluar si una lista contiene un
+                        elemento.
                     </li>
                     <li>
                         <pre><code>
                     '
                     public class Functions
                     {
-                        public static bool ContainsNumber(List %lt int &gt, int number)
+                        <b>public static bool ContainsNumber(List&ltint&gt list, int number)</b>
                         {
+                            if( list == null || list.Count == 0)
+                                return false;
+
                             for(int i = 0; i &lt list.Count; i++)
                             {
                                 if (list[i] == number)
@@ -49,15 +187,31 @@
                     </code></pre>
                     </li>
                     <li>
-                        Funcion 2: Se le pasa una lista de enteros y te devuelve el valor mayor.
+                        Es aconsejable <b>validar los parámetros de entrada</b> de la función. Hay que comprobar que la
+                        lista
+                        no apunte a null y que no esté vacía.
+                    </li>
+                    <li>
+                        Queda reservado el uso de la función Remove(). Será motivo de suspenso su uso.
+                    </li>
+                    <li>
+                        Podemos hacer 'folding' con snippets de código siempre que queramos simplificar el código
+                        escrito. Para ello empleamos #region y #endregion
+                    </li>
+                    <br>
+                    <li>
+                        <b>Funcion 2:</b> Se le pasa una lista de enteros y te devuelve el valor mayor.
                         <pre><code>
                     '
                     public class ListExample
                     {                        
-                        public static int GetMajor(List &lt int &gt list)
+                        <b>public static int GetMajor(List&ltint&gt list)</b>
                         {
+                            if( list == null || list.Count == 0)
+                                return int.MinValue;
+
                             int result = list[0];
-                            for(int i = 0; i &lt& list.Count; i++)
+                            for(int i = 0; i &lt list.Count; i++)
                             {
                                 if(list[i] > result)
                                     result = list[i];
@@ -68,165 +222,102 @@
                     '
                     </code></pre>
                     </li>
-                </ul>
-
-                <ul class="clase·List" style="vertical-align: top;">
-
-                    <h5 class="remarks">Listas</h5>
-
+                    <br>
                     <li>
-                        Ejemplo de lista
-                        <pre><code>
-                    '
-                    public static void Main()
-                    {
-                        List<int> l;            // se crea una variable llamada 'l' de tipo Lista de enteros
-                        l = new List<int>();    // se crea la lista en una direccion de la memoria
-                        l = null;               // l apunta a la nada, se elimina la lista del programa
-                    }                            
-                    '
-                    </code></pre>
-                    </li>
-                    <li>
-                        Metodos que hacen funcionar una lista
-                        <pre><code>
-                    '
-                    public static void Main()
-                    {
-                        <b>Add(element)</b>     // añade 'element' al final de la lista
-
-                        l.Add(40);
-                        l.Add(-10);
-                        l.Add(3);
-                                                // [40,-10,3]
-                        
-                        <b>Remove(element)</b>  // elimina 'element' al final de la lista
-                        <b>RemoveAt(index)</b>  // elimina 'element' en la posicion 'index'
-
-                        l.RemoveAt(2);
-                                                // [40,-10]
-
-                        <b>l[i] = value</b>     // Actualiza el valor del elemento 'i' de una lista
-
-                        l[0] = 60;
-                        int i = 1;
-                        l[i + 0] = 3;
-                                                // [60,3]
-
-                        <b>l.Count</b>          // Hace el conteo del número de elementos que hay en una lista
-
-                        int n = l.Count;
-                                                // n = 2
-
-                        <b>l.Insert(index, element)</b>   // Inserta 'element' en la posicion 'index'
-
-                        l.Insert(1, -20);
-                                                // [60,-20,3]
-
-                        <b>l[1] = l[2]</b>      // el elemento de la posicion 1 es igual al elemento de la posicion 2
-
-                                                // [60,3,3]
-
-                        <b>l.Clear()</b>        // Se eliminan todos los elementos de la lista. Vaciar la lista
-
-                                                // [0]
-                        
-                    }                            
-                    '
-                    </code></pre>
-                    </li>
-                </ul>
-
-                <ul class="clase·List" style="vertical-align: top;">
-
-                    <h5 class="remarks">Arrays</h5>
-
-                    <li>
-                        Colecciones de elementos con la característica que no permite cambiar el tamaño del array
-                        original
-                        <pre><code>
-                    '
-                    public static void Main()
-                    {
-                        int [] a;               // Se crea la variable 'a' que es del tipo array de int
-                        a = new int[4];         // Se crea un array en una posición de la memoria donde apunta el puntero 'a'
-                                                // Es <i>Imprescindible</i> especificar el número de celdas que contiene
-                                                // el array. Este número no se puede cambiar
-                        a                       
-                                                // [0,0,0,0]
-                        a[3] = -10;
-                        a[0] = a[3];
-                                                // [-10,0,0,-10]
-
-                        int n = a.Length;
-                                                // n = 4
-                        int [] b = a;
-                                                // b = [-10,0,0,-10]
-                                                // b, del tipo array de int, apunta a la misma dirección que a.
-                    }                            
-                    '
-                        </code></pre>
-                    </li>
-                </ul>
-
-                <ul class="clase·List" style="vertical-align: top;">
-
-                    <h5 class="remarks">Funciones de ejemplo</h5>
-
-                    <li>
-                        Funcion 1: Se le pasa una lista de strings y devuelve el número de elementos que hay en su
-                        interior.
+                        <b>Funcion 3:</b> Función que devuelve la posición del valor mayor.
                         <pre><code>
                     '
                     public class ListExample
                     {                        
-                        public static int GetListItems(List &lt string &gt list)
+                        <b>public static int GetMajor(List&ltint&gt list)</b>
                         {
-                            return list.Count;
-                        } 
-                    }                           
-                    '
-                    </code></pre>
-                    </li>
-                    <li>
-                        Funcion 2: Se le pasa una lista de enteros y te devuelve el valor mayor.
-                        <pre><code>
-                    '
-                    public class ListExample
-                    {                        
-                        public static int GetMajor(List &lt int &gt list)
-                        {
-                            int result = list[0];
+                            if( list == null || list.Count == 0)
+                                return -1;
+
+                            int aux = list[0];
+                            int index = 0;
                             for(int i = 0; i &lt& list.Count; i++)
                             {
-                                if(list[i] > result)
-                                    result = list[i];
+                                if(list[i] > aux)
+                                {
+                                    index = i;
+                                    aux = list[i];
+                                }                                
                             }
-                            return result;
+                            return index;
                         } 
                     }                           
                     '
                     </code></pre>
                     </li>
                     <li>
-                        Funcion 3: Se le pasa un array de dobles y devuelve el número de elementos que son positivos.
+                        Los valores de índice se establecen por convención como <i>index</i>.
+                    </li>
+                    <li>
+                        Podemos llamar a la función anterior para buscar el valor mayor, pero tendríamos el problema de
+                        recorrer dos <i>for</i> distintos, con el doble de carga para el programa. Es preferible crear
+                        un único for que resuelva este problema.
+                    </li>
+                    <br>
+                    <li>
+                        <b>Funcion 4:</b> Función que devuelve verdadero o falso si una lista está ordenada
                         <pre><code>
                     '
                     public class ListExample
                     {                        
-                        public static int GetPositiveListItems(double[] list)
+                        <b>public static bool IsOrdered(List&ltint&gt list)</b>
                         {
-                            int result = 0;
-                            for(int i = 0; i &lt list.Length; i++)
+                            if (list == null || list.Count == 0)
+                                return false;
+                
+                            bool result = true;
+
+                            for(int i = 0; i &lt list.Count - 1; i++)
                             {
-                                if(list[i] > 0)
-                                    result++;
+                                if (list[i] &gt list[i + 1])
+                                    result = false;
+                            }
+                            if(list[list.Count - 1] &gt list[list.Count])
+                                result = false;
+                            return result;
+                        }                           
+                    }
+                    '
+                    </code></pre>
+                    </li>
+                    <br>
+                    <li>
+                        <b>Funcion 5:</b> Función que ordena los valores de una lista de manera <i>ascendente</i>.
+                        <pre><code>
+                    '
+                    public class ListExample
+                    {                        
+                        <b>public static List&ltint&gt Sort(List&ltint&gt list)</b>
+                        {
+                            if (list == null || list.Count == 0)
+                                throw new Exception("Error de validación de parámetros");
+                
+                            List &ltint&gt result = new List &ltint&gt();
+                            int aux;
+
+                            for(int i = 0; i &lt list.Count - 1; i++)
+                            {
+                                for(int j = list.Count - 1; j &gt 0; j--)
+                                {
+                                    if (list[j] &lt list[j - 1])
+                                        {
+                                            aux = list[j - 1];
+                                            list[j - 1] = list[j];
+                                            list[j] = aux;
+                                        }
+                                }
+                            list.Add(list[i]);
                             }
                             return result;
-                        } 
-                    }                           
-                    '
-                        </code></pre>
+                        }
+                    }
+                    '                   
+                    </code></pre>
                     </li>
                 </ul>
             </td>
