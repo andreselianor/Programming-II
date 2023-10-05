@@ -180,52 +180,28 @@ namespace Lista
             return false;
         }
 
-        public static bool BinarySearch(int[] array , int number)
+        public static bool BinarySearch(double[] array , int number)
         {
-
-            if(array == null || array.Length == 0)
+            if (array == null || array.Length == 0)
             {
                 return false;
             }
 
-            int minIndex = 0;
-            int minValue = array[0];
+            int minValue = 0;
+            int maxValue = array.Length - 1;
+            int midValue;
 
-            int maxIndex = array.Length - 1;
-            int maxValue = array[array.Length - 1];
-
-            int midIndex = (minIndex + maxIndex) / 2;
-            int midValue = array[midIndex];
-
-            while (midValue != number || minIndex < maxIndex ||
-                   number < minValue  || number > maxValue)
+            while (minValue < maxValue)
             {
-                if (number > minValue)
-                {
-                    minIndex = midIndex;
-                    midIndex = (minIndex + maxIndex) / 2;
-                }
+                midValue = (minValue + maxValue) / 2;
 
-                if (number < maxValue)
-                {
-                    maxIndex = midIndex;
-                    maxIndex = (minIndex + maxIndex) / 2;
-                }
-
-                if (number == midValue)
+                if (array[midValue] == number)
                 {
                     return true;
                 }
 
-                if (number == minValue || number == maxValue)
-                {
-                    return true;
-                }
-
-                if(minIndex == maxIndex)
-                {
-                    return false;
-                }
+                if ()
+                
             }
             return false;
         }
