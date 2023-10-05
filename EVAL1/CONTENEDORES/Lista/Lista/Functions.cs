@@ -140,9 +140,94 @@ namespace Lista
                     }
                 }
                 result.Add(list[i]);
-            }            
+            }
 
             return result;
+        }
+
+        // FUNCION Binary Search
+
+        public static bool BinarySearch(List<int> list, int number)
+        {
+            int minIndex = 0;
+            int minValue = list[0];
+
+            int maxIndex = list.Count;
+            int maxValue = list[list.Count];
+
+            int midIndex = (minIndex + maxIndex) / 2;
+            int midValue = list[midIndex];            
+
+            while (midValue != midIndex || minIndex > maxIndex)
+            {
+                if (number > minValue)
+                {
+                    minIndex = list[minIndex];
+                    midIndex = (minIndex + maxIndex) / 2;
+                }
+
+                if ( number < maxValue)
+                {
+                    maxIndex = list[maxIndex];
+                    maxIndex = (minIndex + maxIndex) / 2;
+                }
+
+                if( number == midValue)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool BinarySearch(int[] array , int number)
+        {
+
+            if(array == null || array.Length == 0)
+            {
+                return false;
+            }
+
+            int minIndex = 0;
+            int minValue = array[0];
+
+            int maxIndex = array.Length - 1;
+            int maxValue = array[array.Length - 1];
+
+            int midIndex = (minIndex + maxIndex) / 2;
+            int midValue = array[midIndex];
+
+            while (midValue != number || minIndex < maxIndex ||
+                   number < minValue  || number > maxValue)
+            {
+                if (number > minValue)
+                {
+                    minIndex = midIndex;
+                    midIndex = (minIndex + maxIndex) / 2;
+                }
+
+                if (number < maxValue)
+                {
+                    maxIndex = midIndex;
+                    maxIndex = (minIndex + maxIndex) / 2;
+                }
+
+                if (number == midValue)
+                {
+                    return true;
+                }
+
+                if (number == minValue || number == maxValue)
+                {
+                    return true;
+                }
+
+                if(minIndex == maxIndex)
+                {
+                    return false;
+                }
+            }
+            return false;
         }
     }
 }
