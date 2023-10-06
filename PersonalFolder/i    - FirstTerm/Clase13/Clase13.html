@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 12</title>
+    <title>Clase 13</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,8 +12,8 @@
 
 <body>
     <header>
-        <h1>Clase 12</h1>
-        <h3>Martes, 3 Octubre 2023</h3>
+        <h1>Clase 13</h1>
+        <h3>Viernes, 6 Octubre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
@@ -25,88 +25,113 @@
             <td class="clase·Column">
                 <ul class="clase·List" style="vertical-align: top;">
 
-                    <h5 class="remarks">Función de búsqueda 'Binary Search'</h5>
+                    <h5 class="remarks">Funciones para listas/arrays</h5>
                     <li>
-                        Existe una función que nos devuelve un 'True/False' si cierto valor está dentro de una lista o array.
-                        Esta función se llama 'Binary Search' y sólo funciona en caso que la lista/array esté ordenada
+                        Crear una función que calcule la media de los valores de un array
                     </li>
                     <li>
-                        Funciona con Listas y Arrays ordenadas
-                    </li>
-                    <li>
-                        El algoritmo es el siguiente:
-                        <br>
-                        1.- Buscamos la posición que se encuentra en la mitad de la lista.
-                        <br>
-                        2.- Comparo el valor de la posición media con el número que buscamos; Si concuerdan entonces el número <i>SI</i> está en la lista.
-                        <br>
-                        3.- Si el número que buscamos <i>es mayor</i> que el valor medio, entonces desplazo la posición mínima un entero por delante de la posición media.
-                        <br>
-                        4.- Si el número que buscamos <i>es menor</i> que el valor medio, entonces desplazo la posición máxima un entero por detrás de la posición media.
-                        <br>
-                        5.- Este algoritmo se repite hasta que el valor mínimo es mayor o igual que el valor máximo, o cuando se encuentra el número buscado.
-                    </li>
-                    <li>
-                        Ejemplo de función que busca un valor de double dentro de una lista de doubles.
-                        <pre><code>                    
-                    '
-                    <b>public static double BinarySearch(List&ltdouble&gt list, double number)</b>
-                    {
-                        if(list == null || list.Count == 0)
-                        return false;
-
-                        int minPosition = 0;
-                        int maxPosition = list.Count - 1;
-                        int midPosition;
-
-                        while (minPosition &lt= maxPosition)
+                        <pre><code>
+                        '
+                        <b>public static double GetMedian(double [] array)</b>
                         {
-                            midPosition = (minPosition + maxPosition) / 2;
+                            double aux = 0.0;
 
-                            if (list[midPosition] == number)
-                                return true;
+                            for(int i = 0; i &lt array.Length; i++)
+                            {
+                                aux += array[i];
+                            }
 
-                            if (number &gt list[midPosition])
-                                minPosition = midPosition + 1;
-                            else
-                                maxPosition = midPosition - 1;
-                        }
-                        return false;
-                    }                                                                        
-                    '
-                    </code></pre>
+                            return aux / array.Length;
+                        }                                                                        
+                        '
+                        </code></pre>
                     </li>
                     <li>
-                        Ejemplo de función que busca un valor de double dentro de un array de doubles
-                        <pre><code>                    
-                    '
-                    <b>public static double BinarySearch(double[] array, double number)</b>
-                    {
-                        if(list == null || list.Length == 0)
-                        return false;
-
-                        int minPosition = 0;
-                        int maxPosition = list.Length - 1;
-                        int midPosition;
-
-                        while (minPosition &lt= maxPosition)
-                        {
-                            midPosition = (minPosition + maxPosition) / 2;
-
-                            if (array[midPosition] == number)
-                                return true;
-
-                            if (number &gt array[midPosition])
-                                minPosition = midPosition + 1;
-                            else
-                                maxPosition = midPosition - 1;
-                        }
-                        return false;
-                    }                                                                        
-                    '
-                    </code></pre>
+                        Es MUY IMPORTANTE validar los parámetros de entrada de la función
                     </li>
+                    <br>
+                    <li>
+                        <b>FUNCION:</b>
+                        Crear una función que calcule la media de los valores de un array, solo si superan el valor dado llamado 'Threshold'
+                    </li>
+                    <li>
+                        <pre><code>
+                        '
+                        <b>public static double GetThresholdMedian(double [] array, double Threshold)</b>
+                        {
+                            double aux = 0.0;
+                            int count = 0;
+
+
+                            for(int i = 0; i &lt array.Length; i++)
+                            {
+                                if(array[i] > Threshold)
+                                {
+                                    aux += array[i];
+                                    count ++;
+                                }
+                            }
+                            return aux / count;
+                        }                                                                        
+                        '
+                        </code></pre>
+                    </li>
+                    <li>
+                        <b>FUNCION:</b>
+                        Crear una función que devuelva el número de veces que se repite el número de mayor valor.
+                    </li>
+                    <li>
+                        <pre><code>
+                        '
+                        <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
+                        {
+                            int result = 0;
+                            int maxNumber;
+                            maxNumber = GetMajor(list);
+                
+                            /*
+                            for(int i = 0; i &lt list.Count; i++)
+                            {
+                                if(list[i] &gt maxNumber)
+                                    maxNumber = list[i];
+                            }
+                            */
+                
+                            for (int i = 0; i &lt list.Count; i++)
+                            {
+                                if (list[i] == maxNumber)
+                                    result++;
+                            }
+                            return result;
+                        }                                                                        
+                        '
+                        </code></pre>
+                    </li>   
+                    <li>
+                        <b>FUNCION:</b>
+                        Crear una función que devuelva la lista que se pasa por parametro en orden inverso.
+                    </li>
+                    <li>
+                        <pre><code>
+                        '
+                        <b>public static List<int> GetReverseList(List&ltint%gt list)</b>
+                            {
+                                if (list == null || list.Count &lt 0)
+                                    throw new Exception("Error");
+                    
+                                List<int> result = new List<int>();
+                    
+                                for (int i = list.Count; i &ge 0; i--)
+                                {
+                                    result.Add(i);
+                                }
+                                return result;
+                            }                                                                        
+                        '
+                        </code></pre>
+                    </li>                 
                 </ul>
+
             </td>
     </table>
 

@@ -173,8 +173,8 @@ namespace Lista
 
         public static bool BinarySearch(double[] array, double number)
         {
-            if (array == null || array.Length == 0)            
-                return false;            
+            if (array == null || array.Length == 0)
+                return false;
 
             int minPosition = 0;
             int maxPosition = array.Length - 1;
@@ -184,8 +184,8 @@ namespace Lista
             {
                 midPosition = (minPosition + maxPosition) / 2;
 
-                if (array[midPosition] == number)                
-                    return true;                
+                if (array[midPosition] == number)
+                    return true;
 
                 if (number > array[midPosition])
                     minPosition = midPosition + 1;
@@ -193,6 +193,79 @@ namespace Lista
                     maxPosition = midPosition - 1;
             }
             return false;
+        }
+
+        public static double GetAverage(double[] array)
+        {
+            if (array == null || array.Length == 0)
+                return 0;
+
+            double aux = 0.0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                aux += array[i];
+            }
+            return aux / array.Length;
+        }
+
+        public static double GetThresholdAverage(double[] array, double Threshold)
+        {
+            if (array == null || array.Length == 0)
+                return double.NaN;
+
+            double aux = 0.0;
+            int count = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] > Threshold)
+                {
+                    aux += array[i];
+                    count++;
+                }
+            }
+
+            if (count == 0)
+                return double.NaN;
+
+            return aux / count;
+        }
+
+        public static int GetMaxNumberRepeated(List<int> list)
+        {
+            int result = 0;
+            int maxNumber;
+            maxNumber = GetMajor(list);
+
+            /*
+            for(int i = 0; i < list.Count; i++)
+            {
+                if(list[i] > maxNumber)
+                    maxNumber = list[i];
+            }
+            */
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] == maxNumber)
+                    result++;
+            }
+            return result;
+        }
+
+        public static List<int> GetReverseList(List<int> list)
+        {
+            if (list == null || list.Count < 0)
+                return new List<int>();
+
+            List<int> result = new List<int>();
+
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                result.Add(list[i]);
+            }
+            return result;
         }
     }
 }
