@@ -83,6 +83,11 @@
 
             bool test10 = Functions.BinarySearch(list8, 0.0);
 
+            Functions.PrintList(list1);
+            Functions.PrintList(list4);
+
+            Functions.AddValuetoArray(list4, 2001);
+            //Functions.PrintList(Functions.AddValuetoArray(list4, 158));
         }
     }
 }

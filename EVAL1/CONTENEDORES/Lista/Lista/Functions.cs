@@ -236,15 +236,7 @@ namespace Lista
         {
             int result = 0;
             int maxNumber;
-            maxNumber = GetMajor(list);
-
-            /*
-            for(int i = 0; i < list.Count; i++)
-            {
-                if(list[i] > maxNumber)
-                    maxNumber = list[i];
-            }
-            */
+            maxNumber = GetMajor(list);                      
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -266,6 +258,46 @@ namespace Lista
                 result.Add(list[i]);
             }
             return result;
+        }
+
+        public static int[] GetReverseList(int[] array)
+        {
+            int[] result = new int[array.Length];
+            int cont = 0;
+
+            for (int i = array.Length - 1; i <= 0; i++)
+            {
+                result[cont] = array[i];
+                cont++;
+            }
+            return result;
+
+        }
+
+        public static void PrintList(List<int> list)
+        {
+            for(int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+        }
+
+        public static void PrintList(int[] array)
+        {
+            for(int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
+        }
+
+        public static void AddValuetoArray(int[] array, int number)
+        {
+            int[] result = new int[array.Length + 1];
+            for(int i = 0; i < array.Length; i++)
+            {
+                result[i] = array[i];
+            }
+            result[array.Length] = number;
         }
     }
 }
