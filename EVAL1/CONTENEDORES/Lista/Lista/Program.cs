@@ -88,6 +88,8 @@
 
             Functions.AddValuetoArray(list4, 2001);
             //Functions.PrintList(Functions.AddValuetoArray(list4, 158));
+
+            Functions.SortMinor(list1);
         }
     }
 }

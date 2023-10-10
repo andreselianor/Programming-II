@@ -236,7 +236,7 @@ namespace Lista
         {
             int result = 0;
             int maxNumber;
-            maxNumber = GetMajor(list);                      
+            maxNumber = GetMajor(list);
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -265,10 +265,10 @@ namespace Lista
             int[] result = new int[array.Length];
             int cont = 0;
 
-            for (int i = array.Length - 1; i <= 0; i++)
+            for (int i = array.Length - 1; i >= 0; i--)
             {
                 result[cont] = array[i];
-                cont++;
+                cont++;         // ESTA MAL
             }
             return result;
 
@@ -276,7 +276,7 @@ namespace Lista
 
         public static void PrintList(List<int> list)
         {
-            for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 Console.WriteLine(list[i]);
             }
@@ -284,20 +284,52 @@ namespace Lista
 
         public static void PrintList(int[] array)
         {
-            for(int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine(array[i]);
             }
         }
 
-        public static void AddValuetoArray(int[] array, int number)
+        public static int[] AddValuetoArray(int[] array, int number)
         {
+            if (array == null)
+            {
+                int[] output = new int[1];
+                output[0] = number;
+                return output;
+            }
             int[] result = new int[array.Length + 1];
-            for(int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 result[i] = array[i];
             }
             result[array.Length] = number;
+            return result;
+        }
+
+        public static bool IsMinor(int number1, int number2)
+        {
+            return number1 < number2;
+        }
+
+        public static void SortMinor(List<int> list)
+        {
+            if (list == null)
+                return;
+
+            int aux;
+            for (int i = 0; i < list.Count; i++)
+            {
+                for (int j = i + 1; j < list.Count; j++)
+                {
+                    if (list[i] > list[j])
+                    {
+                        aux = list[i];
+                        list[i] = list[j];
+                        list[j] = aux;
+                    }
+                }
+            }
         }
     }
 }

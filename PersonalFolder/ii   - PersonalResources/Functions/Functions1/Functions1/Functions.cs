@@ -115,13 +115,9 @@
 
         // PROGRAMA RETO ADIVINAR EL NUMERO
 
+        #region
         public static void GuessNumber()
-        {
-            /*
-            RandomNumber();
-            Guess();
-            Answer();
-            */
+        {            
             Random r1 = new Random();
 
             int random = r1.Next(0, 10);
@@ -145,6 +141,7 @@
                 Console.WriteLine("Has perdido");
 
         }
+        #endregion
 
         // PROGRAMA CONVERSOR DE UNIDADES
         #region
@@ -228,7 +225,10 @@
                 Console.WriteLine(i);
             }
         }
+        
+        // FUNCION QUE CUENTA LETRAS
 
+        #region
         public static void CountLetters(string text)
         {
             int count1 = 0;
@@ -239,11 +239,6 @@
 
             foreach (char letter in text)
             {
-                /*
-                if (letter == 'n')
-                    count1++;
-                */
-
                 conteo = letter == 'n' ? count1++ : count1 +=0;
                 conteo = letter == 'v' ? count2++ : count2 += 0;
                 conteo = letter == 'i' ? count3++ : count3 += 0;
@@ -254,5 +249,6 @@
             Console.WriteLine("Jugadora 3: " + count3);
             Console.WriteLine("Banca: " + resto);
         }
+        #endregion
     }
 }
