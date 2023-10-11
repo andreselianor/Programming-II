@@ -121,7 +121,8 @@ namespace Lista
 
 
         // FUNCION que ordena una lista de forma ascendente
-        public static List<int> Sort(List<int> list)
+        //TODO
+        public static List<int> SortPersonal(List<int> list)
         {
             if (list == null || list.Count == 0)
                 throw new Exception("Error de parametros");
@@ -146,7 +147,7 @@ namespace Lista
         }
 
         // FUNCION Binary Search
-
+        // TODO : funcionamiento TODO
         public static bool BinarySearch(List<int> list, int number)
         {
             if (list == null || list.Count == 0)
@@ -312,15 +313,27 @@ namespace Lista
             return number1 < number2;
         }
 
-        public static void SortMinor(List<int> list)
+        public static void Swap(List<int> list)
+        {
+            int aux;
+            aux = list[0];
+            list[0] = list[1];
+            list[1] = aux;
+
+        }
+
+        public static void Sort(List<int> list)
         {
             if (list == null)
                 return;
 
             int aux;
-            for (int i = 0; i < list.Count; i++)
+            int n1 = list.Count - 1;
+            int n2 = list.Count;
+
+            for (int i = 0; i < n1; i++)
             {
-                for (int j = i + 1; j < list.Count; j++)
+                for (int j = i + 1; j < n2; j++)
                 {
                     if (list[i] > list[j])
                     {
