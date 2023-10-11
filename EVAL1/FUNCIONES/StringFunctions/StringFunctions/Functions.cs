@@ -28,5 +28,16 @@
             }
             return result;
         }
+		
+		public static void Concatenate(string text1, string text2, string text3)
+		{
+			Console.WriteLine("Frase1 , 2 y 3");
+			Console.WriteLine(text1 + ", " + text2 + ", " + text3);
+			
+			Console.WriteLine("Frase1 y 2");
+			Console.WriteLine("{0} , {1}",text1, text2);
+			
+			Console.WriteLine("Frase2 y 3");
+			Console.WriteLine($"{text2} , {text3});
     }
 }
