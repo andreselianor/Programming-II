@@ -184,7 +184,7 @@
         public static int[] GetListOdd(int[] array)
         {
             if (array == null)
-                return null;
+                throw new Exception("Error");
 
             int[] result;
             int count = 0;
