@@ -1,10 +1,22 @@
 ﻿namespace ResumenFunciones
 {
-    public class Container
+    public class Containers
     {
         // FUNCION que devuelve el numero de los valores de una lista mayores de 0
         public static int GetGreaterThanZero(List<double> list)
         {
+            if(list == null)
+            {
+                Console.WriteLine("Excepcion: La lista es null");
+                return 0;
+            }
+
+            if(list.Count == 0)
+            {
+                Console.WriteLine("Excepcion: La lista no contiene elementos");
+                return 0;
+            }
+
             int result = 0;
 
             for (int i = 0; i < list.Count; i++)
@@ -116,7 +128,7 @@
 
 
         // FUNCION que ordena una lista de forma ascendente
-        //TODO
+        // TODO: Ordenar una lista de forma ascendente
         public static List<int> SortPersonal(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -141,8 +153,8 @@
             return result;
         }
 
-        // FUNCION Binary Search
-        // TODO : funcionamiento TODO
+        // FUNCION Binary Search con listas
+        // TODO: Binary Search
         public static bool BinarySearch(List<int> list, int number)
         {
             if (list == null || list.Count == 0)
@@ -167,6 +179,7 @@
             return false;
         }
 
+        // FUNCION Binary search con arrays
         public static bool BinarySearch(double[] array, double number)
         {
             if (array == null || array.Length == 0)
@@ -191,7 +204,7 @@
             return false;
         }
 
-        // Funcion que devuelve el valor medio de un array
+        // FUNCION que devuelve el valor medio de un array
         public static double GetAverage(double[] array)
         {
             if (array == null || array.Length == 0)
@@ -206,7 +219,7 @@
             return aux / array.Length;
         }
 
-        // Funcion que devuelve el mayor medio de los elementos de un array que superen el threshold
+        // FUNCION que devuelve el mayor medio de los elementos de un array que superen el threshold
         public static double GetThresholdAverage(double[] array, double Threshold)
         {
             if (array == null || array.Length == 0)
@@ -230,7 +243,7 @@
             return aux / count;
         }
 
-        // Funcion que devuelve el numero de repeticiones de valores de una lista
+        // FUNCION que devuelve el numero de repeticiones de valores de una lista
         public static int GetMaxNumberRepeated(List<int> list)
         {
             int result = 0;
@@ -245,7 +258,7 @@
             return result;
         }
 
-        // Funcion que ordena los elementos de una lista de forma inversa
+        // FUNCION que ordena los elementos de una lista de forma inversa
         public static List<int> GetReverseList(List<int> list)
         {
             if (list == null || list.Count < 0)
@@ -260,7 +273,7 @@
             return result;
         }
 
-        // Funcion reverse con arrays
+        // FUNCION reverse con arrays
         public static int[] GetReverseList(int[] array)
         {
             int[] result = new int[array.Length];
@@ -275,7 +288,7 @@
 
         }
 
-        // Funciones para imprimir series
+        // FUNCION para imprimir series
         public static void PrintList(List<int> list)
         {
             for (int i = 0; i < list.Count; i++)
@@ -292,7 +305,8 @@
             }
         }
 
-        // Funcion que añade un valor a un array
+        // FUNCION que añade un valor a un array
+        // TODO: Añadir un valor a un array
         public static int[] AddValuetoArray(int[] array, int number)
         {
             if (array == null)
@@ -308,43 +322,6 @@
             }
             result[array.Length] = number;
             return result;
-        }
-
-        public static bool IsMinor(int number1, int number2)
-        {
-            return number1 < number2;
-        }
-
-        public static void Swap(List<int> list)
-        {
-            int aux;
-            aux = list[0];
-            list[0] = list[1];
-            list[1] = aux;
-
-        }
-
-        public static void Sort(List<int> list)
-        {
-            if (list == null)
-                return;
-
-            int aux;
-            int n1 = list.Count - 1;
-            int n2 = list.Count;
-
-            for (int i = 0; i < n1; i++)
-            {
-                for (int j = i + 1; j < n2; j++)
-                {
-                    if (list[i] > list[j])
-                    {
-                        aux = list[i];
-                        list[i] = list[j];
-                        list[j] = aux;
-                    }
-                }
-            }
         }
     }
 }

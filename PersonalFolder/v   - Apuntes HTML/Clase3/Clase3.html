@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 3</h1>
+        <h3>Lunes, 18 Septiembre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+
+    <ul class="clase·List">
+        <h4 class="remarks">Funciones de clase</h4>
+        <li>
+            <b>FUNCION:</b> Averiguar si un número es mayor que otro.
+            <br>        
+            <pre><code>
+            '
+            public class Function   // nombre de la clase
+            {
+                <b>public static bool IsMajor(int number1, int number2)</b>  // Opción completa
+                {
+                    if(number1 &gt number2)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                <b>public static bool IsMajor(int number1, int number2)</b>  // Opción mas sencilla
+                {
+                    if(number1 &gt number2)
+                        return true;
+                    return false
+                }
+
+                <b>public static bool IsMajor(int number1, int number2)</b>  // Opción perfecta
+                {
+                    return (number1 &gt number2); 
+                    // Devuelve <i>true</i> si el primer valor es mayor.                                                 
+                    // En caso contrario develve <i>'false'</i>.
+                }
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            Los comentarios ayudan a entender el funcionamiento de nuestro código.
+            <br>
+            Un <b>comentario en linea</b> empieza con '//' y un <b>comentario en bloque</b> se define dentro de un '/*   */'
+        </li>
+        <li>
+            El nombre de una función debe ser un nombre <b><i>descriptivo</i></b> y a la vez fácil de entender.
+            Es muy útil pensar en <b>'Verbo + Sustantivo'</b> a la hora de poner nombres.
+        </li>
+        <br>
+        <li>
+            <b>FUNCION:</b> Devuelve un booleano para comprobar que un numero es par.
+            <br>
+            <pre><code>
+            '
+            public class Function   
+            {
+                <b>public static bool IsEven(int number)</b> 
+                {
+                    if(number % 2 == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                <b>public static bool IsMajor(int number)</b>  
+                {
+                    if(number % 2 == 0)
+                        return true;
+                    return false
+                }
+
+                <b>public static bool IsMajor(int number)</b>  
+                {
+                    return (number % 2 == 0); 
+                }
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            Operadores:
+            <br>
+            '+   -   /   *'
+            <br>
+            Comparadores:
+            <br>
+            '&lt     &gt    &le;     &ge;'
+            <br>
+            Booleanos:
+            <br>
+            '== != && ||'
+            <br>
+            Módulo o resto
+            <br>
+            '%'
+        </li>
+        <li>
+            Toda función de clase empieza con un 'public static'
+        </li>
+        <li>
+            Si abrimos una llave '{}' hay que cerrarla inmediatamente.
+        </li>
+        <li>
+            Una función que devuelve un tipo de dato, siempre se cierra con un 'return'
+        </li>
+        <br>
+        <li>
+            <b>FUNCION:</b> Devuelve el mayor de tres números
+            <br>        
+            <pre><code>
+            '
+            public class Function   
+            {
+                <b>public static bool GetMajor(int number1, int number2, int number3)</b> 
+                {
+                    if(number1 &gt number2 && number1 &gt number3)
+                        return number1;
+                    else if(number2 &gt number3)
+                        return number2;
+                    else
+                        return number3;   
+                }
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b><i>&&</i></b>
+            <br>
+            Todas las condiciones deben ser ciertas. Puerta lógica <b>'AND'</b>
+        </li>
+        <li>
+            <b><i>||</i></b>
+            <br>
+            Al menos una condición debe ser cierta. Puerta lógica <b>'OR'</b>
+            <br>
+        </li>
+        <li>
+            Funcionamiento de un <b>ELSE/IF</b>
+            <br>
+            Añadimos un 'else if' en caso que tengamos varios 'if', pero la condición 'else' se aplique en todos los casos
+            <br>
+            <pre><code>
+            '
+            <b>public static int Function(int number1, int number2, int number3)</b>
+            {                
+                if(number1 &gt number2 && number1 &gt number3)
+                    return number1;
+                else if(number2 &gt number3)
+                    return number2;
+                else
+                    return number3;                
+            }
+
+            // Es lo mismo que el código siguiente:
+            
+            <b>public static int Function(int number1, int number2, int number3)</b>
+            {                
+                if(number1 &gt number2 && number1 &gt number3)
+                {
+                    return number1;
+                }
+                else
+                {
+                    if(number2 &gt number3)
+                    {
+                        return number2;
+                    }
+                    
+                    else
+                    {
+                        return number3;
+                    }
+                }                                
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            Es muy aconsejable utilizar funciones que hemos diseñado con anterioridad. En este caso se podria
+            <i>llamar</i> a la función 'IsMajor'.
+        </li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 2</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 2</h1>
+        <h3>Viernes, 15 Septiembre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+
+    <ul class="clase·List">
+        <h5 class="remarks">Tipos de datos</h5>
+        <li>
+            Los reales se definen con un 'double'. Tambien es posible usar un float, en caso justificado.
+        </li>
+        <li>
+            <i>'Double'</i> es un tipo de dato de 64 bits.
+            <br>
+            <i>'Float'</i> es un tipo de dato de 32 bits. La GPU trabaja con floats
+        </li>
+        <br>
+        <li>
+            Lenguajes y sus generaciones:
+        </li>
+        <li>
+            <b>Primera generación:</b> lenguaje máquina
+            <br>
+            Cada computadora tiene sólo un lenguaje de programación que su procesador puede ejecutar; pues bien, éste es
+            su lenguaje nativo o lenguaje de máquina.
+            Los programas en lenguaje máquina se escriben en el nivel más básico de operación de la computadora. Las
+            instrucciones se codifican como una serie de unos (1) y ceros (0).
+        </li>
+        <br>
+        <li>
+            <b>Segunda generación:</b> lenguaje ensamblador
+            <br>
+            Para evitar que los programadores tuvieran que programar directamente en código binario o máquina, se
+            desarrollaron unos programas para traducir instrucciones a código de máquina. Estos programas se llamaron
+            ensambladores, puesto que leían las instrucciones que las personas podían entender en lenguaje ensamblador y
+            las convertía al lenguaje máquina.
+
+            El lenguaje ensamblador también es de bajo nivel, ya que cada instrucción de este lenguaje corresponde a una
+            instrucción de lenguaje maquinal.
+        </li>
+        <br>
+        <li>
+            <b>Tercera generación:</b> lenguaje de alto nivel
+            <br>
+            Estos lenguajes son parecidos al inglés y facilitan el trabajo de los desarrolladores de software.
+            Existen muchos lenguajes de tercera generación como, por ejemplo, COBOL, BASIC, FORTRAN, C, PASCAL, etc.
+            Con estos lenguajes, los programadores pueden escribir en una sola instrucción lo equivalente a varias
+            instrucciones complicadas de bajo nivel.
+        </li>
+        <br>
+        <li>
+            <b>Cuarta generación:</b> lenguaje orientado al usuario (4GL)
+            <br>
+            Con los lenguajes 4GL, los usuarios finales escriben sus programas de manera sencilla para
+            consultar una base de datos y para crear sistemas de información personales o departamentales.
+            Muchos de estos lenguajes disponen de una interfaz gráfica y sólo obligan al usuario o programador a usar
+            instrucciones sencillas y fáciles de manejar.
+        </li>
+        <br>
+        <li>
+            <b>Quinta generación:</b> lenguajes naturales
+
+            Los lenguajes naturales se asemejan más al lenguaje humano que sus antecesores, los lenguajes 4GL.
+            Aunque estos lenguajes se encuentran en sus inicios, la mayoría de las herramientas de uso y trabajo con el
+            ordenador tenderán a este tipo de lenguajes.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h5 class="remarks">Conocimientos básicos</h5>
+        <li>
+            <b>Jerarquía de funciones de clase:</b>
+            <br>
+            Declaracion de variables
+            <br>
+            Asignaciones
+            <br>
+            Condicionales
+            <br>
+            Bucles
+            <br>
+            Rupturas
+            <br>
+            Retornos
+        </li>
+        <li>
+            Declaración de variables:
+            <pre><code>
+            '
+            int a;
+            int b;
+            int a, b;
+            '
+            </code></pre>
+        </li>
+        <li>
+            Asignación de variables:
+            <pre><code>
+            '
+            a = 5;
+            int b = 12;
+            '
+            </code></pre>
+        </li>
+        <li>
+            Condicionales:
+            <pre><code>
+            '
+            if(condicion)
+            {
+                código ejecutable
+            }
+            else
+            {
+                código ejecutable
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            Bucles:
+            <br>
+            <pre><code>
+            '
+            // <b>While</b>, en caso que <i>NO</i> conozcamos el numero de iteraciones
+
+            while(condicion)
+            {
+                codigo ejecutable
+            }
+
+            // <b>For</b>, en caso que <i>SI</i> conozcamos el numero de iteraciones
+
+            for(int i = 0; i&ltn; i++)
+            {
+                codigo ejecutable en un bucle de n veces
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            Rupturas:
+            <br>
+            <code><pre>
+            '
+            // <b>Break</b>, hace saltar la linea de compilación hasta el cierre del cuerpo '}'
+            break; //salta al siguiente '}'            
+
+            // <b>Continue</b>, hace saltar la linea de compilación hasta el inicio del bucle
+            continue // salta al inicio del bucle
+            '
+            </pre></code>
+        </li>
+        <li>
+            Retornos
+            <br>
+            'return', termina el metodo o funcion y devuelve el valor indicado.
+        </li>
+        <br>
+        <li>
+            <b>Jerarquía de funciones de objeto:</b>
+            <br>
+            Enumerations
+            <br>
+            Atributos
+            <br>
+            Constructores
+            <br>
+            Getters and setters
+            <br>
+            Metodos
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h5 class="remarks">Conocimiento de funciones</h5>
+        <li>
+            FUNCION: Escribir una función que realiza la suma de dos numeros que se le pasan por parametros:
+            <pre><code>
+            '
+            public class Functions
+            {
+                public static int CalculateSum(int number1, int number2)
+                {
+                    // Opcion 1
+                    return number1 + number2;
+
+                    // Opcion 2
+                    int result;
+                    result = number1 + number2;
+                    return result;
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            Invocar la funcion:
+        </li>
+        <li>
+            <pre><code>
+            '
+            public class Program
+            {
+                public static void Main(args)
+                {
+                    // Declarar variables
+                    int a, b;
+
+                    // Asignar valores
+                    a = 5;
+                    b = 10;
+
+                    // Invocar la funcion de suma de numeros
+                    Functions.CalculateSum(a,b);
+                }
+            }
+            </code></pre>
+        </li>
+    </ul>
+
+    <ul class="clase·List">
+        <h5 class="remarks">Consejos y advertencias</h5>
+        <li>
+            Existe una guía de estilo para dar formato al código y para nombrar a las distintas funciones. Cada grupo de
+            trabajo tiene su propia guía de estilo. Habitualmente las funciones se nombran con 'Verbo+Sustantivo'
+            ej:'CalculateSum' o 'GetIndexAt'.
+        </li>
+        <li>
+            Cuando dentro de un <i>cuerpo</i> (codigo fuente que se escribe entre {}) solo hay una línea de instrucción,
+            es
+            posible eliminar los indicadores{}.
+        </li>
+        <li>
+            Una función debe ocupar como máximo una pantalla del ordenador, y debemos evitar el scroll vertical.
+        </li>
+        <li>
+            <b>JAMÁS</b> ejecutaremos un 'Console.ReadLine()'' dentro del funcionamiento de un método.
+        </li>
+        <li>
+            <b>JAMÁS</b> se debe escribir una sentencia 'return' dentro de un bucle IF
+        </li>
+    </ul>
+
+</body>
+
+</html>
