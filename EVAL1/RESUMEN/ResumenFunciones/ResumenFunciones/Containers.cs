@@ -5,13 +5,13 @@
         // FUNCION que devuelve el numero de los valores de una lista mayores de 0
         public static int GetGreaterThanZero(List<double> list)
         {
-            if(list == null)
+            if (list == null)
             {
                 Console.WriteLine("Excepcion: La lista es null");
                 return 0;
             }
 
-            if(list.Count == 0)
+            if (list.Count == 0)
             {
                 Console.WriteLine("Excepcion: La lista no contiene elementos");
                 return 0;
@@ -322,6 +322,93 @@
             }
             result[array.Length] = number;
             return result;
+        }
+
+        // FUNCION que elimina un elemento de la posicion indicada de una lista de enteros
+        // TODO: Funcion que elimina el valor que está en una posicion indicada
+        public static void RemovePosition(List<int> list, int index)
+        {
+            if (list == null)
+                return;
+            list.RemoveAt(index);
+            // list.Remove(index); Elimina el valor que es igual a index
+        }
+
+        // FUNCION que elimina un valor que le paso por parametros de la lista
+        public static void RemoveElement(List<int> list, int value)
+        {
+            if (list == null)
+                return;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] == value)
+                {
+                    list.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
+
+        // FUNCION anterior que utiliza la ruptura BREAK
+        public static void RemoveElementBreak(List<int> list, int value)
+        {
+            if (list == null)
+                return;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] == value)
+                {
+                    list.RemoveAt(i);
+                    i--;
+                    break;      // Rompe el bucle dentro del cual esta metido
+                }
+            }
+        }
+
+        // FUNCION que borra un elemento de un array
+        // TODO Examen
+        public static bool IsDequal(int number1, int number2)
+        {
+            return (number1 != number2);
+        }
+
+        public static int CountArray(int[] array, int value)
+        {
+            int count = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (IsDequal(array[i], value))
+                    count++;
+            }
+            return count;
+        }
+
+        public static void MakeArray(int[] array, int value)
+        {
+            int capacity = CountArray(array, value);
+            int[] result = new int[capacity];
+            for (int i = 0; i < capacity; i++)
+                if (IsDequal(value, array[i]))
+                    result[i] = value;
+        }
+
+        // FUNCION que elimina de una lista, una lista de valores
+        public static void RemoveValues(List<int> list, List<int> listValues)
+        {
+            if (list == null)
+                return;
+
+            for (int j = 0; j < listValues.Count; j++)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i] == list[j])
+                        list.RemoveAt(i--);
+                }
+            }
         }
     }
 }

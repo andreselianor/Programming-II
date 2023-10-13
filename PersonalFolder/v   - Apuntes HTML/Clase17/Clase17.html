@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 17</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body>
+    <header>
+        <h1>Clase 17</h1>
+        <h3>Viernes, 13 Octubre 2023</h3>
+    </header>
+    <a href="../index.html">Indice</a>
+
+    <table>
+        <tr>
+
+            <!----------------- COLUMNA 1 ------------------->
+
+            <td class="clase·Column">
+                <ul class="clase·List" style="vertical-align: top;">
+
+                    <h5 class="remarks">Funciones complejos de contenedores</h5>
+                    <li>
+                        <b>FUNCION</b> le paso una lista de enteros y una posicion <i>'index'</i>. La funcion elimina el
+                        valor que se encuentra en la posicion 'index'
+                        <code><pre>
+                        '
+                        <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
+                        {
+                            list.RemoveAt(index);
+                        }
+                        
+                        // Elimina el elemento que esta en la <b>posicion 'index'</b>
+
+                        <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
+                        {
+                            list.Remove(index);
+                        }
+                        '
+                        // Elimina el elemento cuyo <b>valor es 'index'</b>
+                        </pre></code>
+                    </li>
+                    <li>
+                        La función <b>'Remove()'</b> esta <b>PROHIBIDA</b>. Siempre usaremos <b>'RemoveAt()</b>
+                    </li>
+                    <li>
+                        <b>Funcion</b> que le paso una lista y un valor que quiero borrar.
+                        <code><pre>
+                        '
+                        <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
+                        {
+                            for(int i = 0; i &lt list.Count; i++)
+                            {
+                                list.RemoveAt(i);
+                                i--;
+                            }                            
+                        }
+                        '
+                        </code></pre>
+                    </li>
+                    <li>
+                        Si le introduzco un punto de ruptura <b>'break'</b> inmediatamente sale del bucle donde está
+                        anidado.
+                        <br>
+                        Un 'IF' no es un bucle, solo 'WHILE' Y 'FOR'
+                    </li>
+                    <li>
+                        <b>Funcion</b> con un punto de ruptura 'BREAK'
+                        <code><pre>
+                        '
+                        <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
+                        {
+                            <i>for(int i = 0; i &lt list.Count; i++)</i>
+                            {
+                                list.RemoveAt(i);
+                                i--;
+                                break;          // Rompe el bucle anidado 'FOR'
+                            }                            
+                        }
+                        '
+                        </code></pre>
+                    </li>
+                    <li>
+                        IMPORTANTE: Si utilizamos i++ ó i-- como una <b>expresion</b> su funcionamiento es distinto al
+                        habitual:
+                        <br>
+                        <b>i++</b>
+                        <br>
+                        Primero la variable asignada es <b>IGUAL</b> a 'i' y cuando se evalua toda la expresión se
+                        <b>INCREMENTA</b> la 'i'.
+                        <br>
+                        <b>++i</b>
+                        <br>
+                        Primero la variable asignada es el <b>INCREMENTO</b> de 'i' y cuando se evalua toda la expresión se
+                        <b>INCREMENTA</b> la 'i'.
+                    </li>
+                    <li>
+                        <b>FUNCION:</b> Elimina un valor dado por parametros de un array que se le pasa.
+                        <pre><code>
+                        '
+                        public static int[] Function(int[] array)
+                        {
+                            // Caso normal
+                            if(array == null)
+                                return null;
+                            
+                            // Caso excepcional, si queremos acceder al elemento [0]
+                            if(array == null || array.Length == 0)
+                                return null;
+                        }
+                        '
+                        </code></pre>
+                    </li>
+                    <li>
+                        <b>FUNCION:</b>Se le pasa una lista y queremos borrar de esta lista otra lista de valores que se le pasan.
+                    </li>
+                    <li>
+                        <pre><code>
+                        '
+                        public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)
+                        {
+                            for(int j = 0; j&ltlistValues; j++)
+                            {
+                                for(int i = 0; i&ltlist; i++)
+                                {
+                                    if(list[i] == list[j])
+                                        list.RemoveAt(i--);
+                                }
+                            }
+                        }
+                        '
+                        </code></pre>
+                    </li>                    
+                </ul>
+            </td>
+    </table>
+</body>
+
+</html>
