@@ -5,17 +5,8 @@
         // FUNCION que devuelve el numero de los valores de una lista mayores de 0
         public static int GetGreaterThanZero(List<double> list)
         {
-            if (list == null)
-            {
-                Console.WriteLine("Excepcion: La lista es null");
+            if (list == null || list.Count == 0)
                 return 0;
-            }
-
-            if (list.Count == 0)
-            {
-                Console.WriteLine("Excepcion: La lista no contiene elementos");
-                return 0;
-            }
 
             int result = 0;
 
@@ -28,13 +19,16 @@
         }
 
         // FUNCION que devuelve el numero de los valores de un array mayores de 0
-        public static int GetGreaterThanZero(double[] list)
+        public static int GetGreaterThanZero(double[] array)
         {
+            if (array == null || array.Length == 0)
+                return 0;
+
             int result = 0;
 
-            for (int i = 0; i < list.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                if (list[i] > 0)
+                if (array[i] > 0)
                     result++;
             }
             return result;
@@ -43,7 +37,7 @@
         // FUNCION que devuelve true si una lista contiene un numero dado
         public static bool ContainsNumber(List<int> list, int number)
         {
-            if (list == null)               //  COMPROBACION DE QUE LA LISTA NO ES NULL
+            if (list == null)
                 return false;
 
             for (int i = 0; i < list.Count; i++)
@@ -54,7 +48,6 @@
             return false;
         }
 
-
         /// <summary>
         /// Como documentar funciones:
         /// Funcion que devuelve el mayor valor de una lista de enteros
@@ -64,7 +57,6 @@
         public static int GetMajor(List<int> list)
         {
             if (list == null || list.Count == 0)
-                // return -1;
                 return int.MinValue;                //  retorno de valor minimo para numeros dentro de la lista
 
             int result = list[0];
@@ -129,10 +121,10 @@
 
         // FUNCION que ordena una lista de forma ascendente
         // TODO: Ordenar una lista de forma ascendente
-        public static List<int> SortPersonal(List<int> list)
+        public static List<int>? SortPersonal(List<int> list)
         {
             if (list == null || list.Count == 0)
-                throw new Exception("Error de parametros");
+                return null;
 
             List<int> result = new List<int>();
             int aux;
@@ -208,7 +200,7 @@
         public static double GetAverage(double[] array)
         {
             if (array == null || array.Length == 0)
-                return 0;
+                return double.NaN;
 
             double aux = 0.0;
 
@@ -315,6 +307,7 @@
                 output[0] = number;
                 return output;
             }
+
             int[] result = new int[array.Length + 1];
             for (int i = 0; i < array.Length; i++)
             {
@@ -410,5 +403,23 @@
                 }
             }
         }
+
+        /*
+         * FUNCION PARA COMPROBAR
+        public static void RemoveValues(List<int> list, List<int> listValues)
+        {
+            if (list == null)
+                return;
+
+            for (int j = 0, int i = 0; j < listValues.Count; j++)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i] == list[j])
+                        list.RemoveAt(i--);
+                }
+            }
+        }
+        */
     }
 }

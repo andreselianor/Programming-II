@@ -5,9 +5,30 @@ namespace ResumenFunciones
     public class Functions
     {
 
+        // Funcion que devuelve 'true' o 'false' si un número es MENOR que otro
         public static bool IsMinor(int number1, int number2)
         {
             return number1 < number2;
+        }
+
+        // Funcion que devuelve 'true' o 'false' si un número es MAYOR que otro
+        public static bool IsMajor(int number1, int number2)
+        {
+            return number1 > number2;
+        }
+
+        // Funcion auxiliar que devuelve verdadero si es un número PAR
+        public static bool IsEven(int number)
+        {
+            if (number % 2 == 0)
+                return true;
+            return false;
+        }
+
+        // Funcion auxiliar que devuelve verdadero si es un numero IMPAR
+        public static bool IsOdd(int number)
+        {
+            return (number % 2 != 0);
         }
 
 
@@ -34,20 +55,6 @@ namespace ResumenFunciones
                 result += i;
             }
             return result;
-        }
-
-        // Funcion auxiliar que devuelve verdadero si es un número par
-        public static bool IsEven(int number)
-        {
-            if (number % 2 == 0)
-                return true;
-            return false;
-        }
-
-        // Funcion auxiliar que devuelve verdadero si es un numero impar
-        public static bool IsOdd(int number)
-        {
-            return (number % 2 != 0);
         }
 
         // Funcion Secuencia con un bucle WHILE
@@ -107,6 +114,20 @@ namespace ResumenFunciones
             }
         }
 
+        // Funcion que devuelve si un numero es Primo
+        // TODO: Numero Primo
+        public static bool IsPrime(int number)
+        {
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0)
+                    return false;
+
+                // ES UN ERROR FATAL ESCRIBIR UN RETURN DENTRO DE UN BUCLE FOR!!!!                
+            }
+            return true;
+        }
+
         #region Funciones Repaso
         // FUNCION que devuelve el menor de dos numeros
         public static int GetMinor(int number1, int number2)
@@ -143,7 +164,7 @@ namespace ResumenFunciones
         }
 
         // FUNCION que devuelve verdadero si un numero es primo
-        public static bool IsPrime(int number)
+        public static bool IsPrimeFirst(int number)
         {
             for (int i = 2; i < number; i++)
             {
@@ -193,22 +214,8 @@ namespace ResumenFunciones
         }
         #endregion
 
-        // Funcion que devuelve si un numero es Primo
-        // TODO: Numero Primo
-        public static bool IsPrime0(int number)
-        {
-            for (int i = 2; i < number; i++)
-            {
-                if (number % i == 0)
-                    return false;
 
-                // ES UN ERROR ELIMINATORIO ESCRIBIR UN RETURN DENTRO DE UN BUCLE FOR!!!!
-                // return true;
-            }
-            return true;
-        }
-
-        // Funcion que concatena strings y devuelve series
+        // Funcion que concatena strings. Devuelve un 'string'
         public static string StringFunction1(string a, string b)
         {
             return a + b;

@@ -31,20 +31,20 @@
                     </li>
                     <li>
                         <pre><code>
-                        '
-                        <b>public static double GetMedian(double [] array)</b>
+                    '
+                    <b>public static double GetMedian(double [] array)</b>
+                    {
+                        double aux = 0.0;
+
+                        for(int i = 0; i&ltarray.Length; i++)
                         {
-                            double aux = 0.0;
+                            aux += array[i];
+                        }
 
-                            for(int i = 0; i&ltarray.Length; i++)
-                            {
-                                aux += array[i];
-                            }
-
-                            return aux / array.Length;
-                        }                                                                        
-                        '
-                        </code></pre>
+                        return aux / array.Length;
+                    }                                                                        
+                    '
+                    </code></pre>
                     </li>
                     <li>
                         Es MUY IMPORTANTE validar los parámetros de entrada de la función
@@ -57,24 +57,24 @@
                     </li>
                     <li>
                         <pre><code>
-                        '
-                        <b>public static double GetThresholdMedian(double[] array, double Threshold)</b>
-                        {
-                            double aux = 0.0;
-                            int count = 0;
+                    '
+                    <b>public static double GetThresholdMedian(double[] array, double Threshold)</b>
+                    {
+                        double aux = 0.0;
+                        int count = 0;
 
-                            for(int i = 0; i&ltarray.Length; i++)
+                        for(int i = 0; i&ltarray.Length; i++)
+                        {
+                            if(array[i] > Threshold)
                             {
-                                if(array[i] > Threshold)
-                                {
-                                    aux += array[i];
-                                    count ++;
-                                }
+                                aux += array[i];
+                                count ++;
                             }
-                            return aux / count;
-                        }                                                                        
-                        '
-                        </code></pre>
+                        }
+                        return aux / count;
+                    }                                                                        
+                    '
+                    </code></pre>
                     </li>
                     <li>
                         <b>FUNCION:</b>
@@ -82,22 +82,22 @@
                     </li>
                     <li>
                         <pre><code>
-                        '
-                        <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
+                    '
+                    <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
+                    {
+                        int result = 0;
+                        int maxNumber;
+                        maxNumber = GetMajor(list);
+            
+                        for (int i = 0; i&ltlist.Count; i++)
                         {
-                            int result = 0;
-                            int maxNumber;
-                            maxNumber = GetMajor(list);
-                
-                            for (int i = 0; i&ltlist.Count; i++)
-                            {
-                                if (list[i] == maxNumber)
-                                    result++;
-                            }
-                            return result;
-                        }                                                                        
-                        '
-                        </code></pre>
+                            if (list[i] == maxNumber)
+                                result++;
+                        }
+                        return result;
+                    }                                                                        
+                    '
+                    </code></pre>
                     </li>
                     <li>
                         <b>FUNCION:</b>
@@ -105,22 +105,22 @@
                     </li>
                     <li>
                         <pre><code>
-                        '
-                        <b>public static List<int> GetReverseList(List&ltint%gt list)</b>
+                    '
+                    <b>public static List<int> GetReverseList(List&ltint%gt list)</b>
+                        {
+                            if (list == null || list.Count &lt 0)
+                                throw new Exception("Error");
+                
+                            List<int> result = new List<int>();
+                
+                            for (int i = list.Count; i &ge 0; i--)
                             {
-                                if (list == null || list.Count &lt 0)
-                                    throw new Exception("Error");
-                    
-                                List<int> result = new List<int>();
-                    
-                                for (int i = list.Count; i &ge 0; i--)
-                                {
-                                    result.Add(i);
-                                }
-                                return result;
-                            }                                                                        
-                        '
-                        </code></pre>
+                                result.Add(i);
+                            }
+                            return result;
+                        }                                                                        
+                    '
+                    </code></pre>
                     </li>
                     <li>
                         <b>FUNCION:</b>
@@ -128,16 +128,16 @@
                     </li>
                     <li>
                         <pre><code>
-                        '
-                        <b>public static void PrintList(List&ltint&gt list)</b>
+                    '
+                    <b>public static void PrintList(List&ltint&gt list)</b>
+                        {
+                            for(int i = 0; i &ltlist.Count; i++)
                             {
-                                for(int i = 0; i &ltlist.Count; i++)
-                                {
-                                    Console.WriteLine(list[i]);
-                                }
-                            }                                                                        
-                        '
-                        </code></pre>
+                                Console.WriteLine(list[i]);
+                            }
+                        }                                                                        
+                    '
+                    </code></pre>
                     </li>
                     <li>
                         <b>FUNCION:</b>
@@ -145,16 +145,16 @@
                     </li>
                     <li>
                         <pre><code>
-                        '
-                        <b>public static void PrintList(int[] array)</b>
+                    '
+                    <b>public static void PrintList(int[] array)</b>
+                        {
+                            for(int i = 0; i &ltarray.Length; i++)
                             {
-                                for(int i = 0; i &ltarray.Length; i++)
-                                {
-                                    Console.WriteLine(array[i]);
-                                }
-                            }                                                                        
-                        '
-                        </code></pre>
+                                Console.WriteLine(array[i]);
+                            }
+                        }                                                                        
+                    '
+                    </code></pre>
                     </li>
                     <li>
                         <b>FUNCION:</b>
@@ -162,23 +162,23 @@
                     </li>
                     <li>
                         <pre><code>
-                        '
-                        <b>public static void AddValueToArray(int[] array, int number)</b>
+                    '
+                    <b>public static void AddValueToArray(int[] array, int number)</b>
+                        {
+                            if(array == null || array.Length == 0)
+                                throw new Exception("Error");
+
+                            int[] result = new int[array.Length + 1];
+
+                            for(int i = 0; i &ltarray.Length; i++)
                             {
-                                if(array == null || array.Length == 0)
-                                    throw new Exception("Error");
+                                result[i] = array[i];   
+                            }
 
-                                int[] result = new int[array.Length + 1];
-
-                                for(int i = 0; i &ltarray.Length; i++)
-                                {
-                                    result[i] = array[i];   
-                                }
-
-                                result[array.Length] = number;
-                            }                                                                        
-                        '
-                        </code></pre>
+                            result[array.Length] = number;
+                        }                                                                        
+                    '
+                    </code></pre>
                     </li>
                 </ul>
 

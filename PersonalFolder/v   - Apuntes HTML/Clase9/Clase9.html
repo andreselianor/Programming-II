@@ -17,67 +17,72 @@
     </header>
     <a href="../index.html">Indice</a>
 
-    <table>
-        <tr>
-
-            <!----------------- COLUMNA 1 ------------------->
-            <td class="clase·Column">
-                <ul class="clase·List" style="vertical-align: top;">
-
-                    <h5 class="remarks">Concatenación de strings</h5>
-                    <li>
-                        Ejemplo 1: Función que devuelve la concatenación de dos strings.
-                        <br>
-                        <pre><code>
-                        '
-                        public static string Concat(string a, string b)
-                        {
-                            return a + b;
-                        }
-                        '
-                        </code></pre>
-                    </li>
-
-                    <li>
-                        Ejemplo 2: Función que devuelve una serie de números.
-                        <br>
-                        <pre><code>
-                        '
-                        public static string Concat(int number)
-                        {
-                            string result = "0";
-                            for(int i = 0; i &lt number; i++)
-                            {
-                                result += "," + i;
-                            }
-                            return result;
-                        }
-                        '
-                        </code></pre>
-                    </li>
-
-                    <li>
-                        Ejemplo 3: Función que devuelve una serie de números.
-                        <br>
-                        <pre><code>
-                        '
-                        public static string Concat(int number)
-                        {
-                            string result = "0";
-                            int multiplicador = 1;
-                            for(int i = 0; i &lt number; i++)
-                            {
-                                multiplicador *= 2;
-                                result += "," + multiplicador;
-                            }
-                            return result;
-                        }
-                        '
-                        </code></pre>
-                    </li>
-                </ul>
-            </td>
-    </table>
+    <ul class="clase·List">
+        <h4 class="remarks">Concatenación de strings</h4>
+        <li>
+            <b>FUNCIÓN:</b> devuelve la concatenación de dos strings.
+            <pre><code>
+            '
+            <b>public static string Concat(string a, string b)</b>
+            {
+                return a + b;
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCIÓN:</b> devuelve una serie de números.
+            <pre><code>
+            '
+            <b>public static string Concat(int number)</b>
+            {
+                string result = "0";
+                for(int i = 0; i &lt number; i++)
+                {
+                    result += "," + i;
+                }
+                return result;
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCIÓN:</b> devuelve una serie de números.
+            <pre><code>
+            '
+            <b>public static string Concat(int number)</b>
+            {
+                string result = "0";
+                int multiplicador = 1;
+                for(int i = 0; i &lt number; i++)
+                {
+                    multiplicador *= 2;
+                    result += "," + multiplicador;
+                }
+                return result;
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCIÓN:</b> realiza distintas concatenaciones con variables.
+            <pre><code>
+            '
+            <b>public static void Concatenate(string text1, string text2, string text3)</b>
+            {
+                Console.WriteLine("Frase1 , 2 y 3");
+                string result1 = (text1 + ", " + text2 + ", " + text3);
+    
+                Console.WriteLine("Frase1 y 2");
+                string result2 = ("{0} , {1}", text1, text2);
+    
+                Console.WriteLine("Frase2 y 3");
+                string result3 = ($"{text2} , {text3}");
+            }
+            '
+            </code></pre>
+        </li>
+    </ul>
 
 </body>
 

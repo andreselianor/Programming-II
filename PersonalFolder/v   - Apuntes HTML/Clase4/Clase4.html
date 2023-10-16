@@ -19,35 +19,45 @@
 
 
     <ul class="clase·List">
-        <h5 class="remarks">Continuación de estudio Funciones de clase</h5>
+        <h4 class="remarks">Continuación de estudio Funciones de clase</h4>
         <li>
-            Función Sumatorio: Calcula el sumatorio de un número
+            <b>FUNCIÓN Sumatorio:</b> Calcula el sumatorio de un número mediante un bucle <b>WHILE</b> y un bucle <b>FOR</b>
             <pre><code>
             '
             public class Functions
             {
-                public static bool GetSummatory(int number)
+                <b>public static int GetSummatory(int number)</b>
                 {
                     int count = 1;
                     int result = 0;
-                    while (count &le number)
+                    while (count &le; number)
                     {
                         result += count;
                         count ++;
                     } 
                     return result;                   
                 }
+
+                <b>public static int GetSumatory(int number)</b>
+                {
+                    int result = 0;
+                    for (int i = 1; i &le; number; i++)
+                    {
+                        result += i;
+                    }
+                    return result;
+                }
             }
             '
         </code></pre>
         </li>
         <li>
-            Función Serie: Imprime por consola una serie de números pares positivos y negativos.
+            <b>FUNCIÓN Serie:</b> Imprime por consola una serie de números pares positivos y negativos.
             <pre><code>
             '
             public class Functions
             {
-                public static void CalculateSerie(int number)
+                <b>public static void CalculateSerie(int number)</b>
                 {
                     int result = 0;
                     Console.WriteLine(result);
@@ -72,33 +82,36 @@
     </ul>
 
     <ul class="clase·List">
-        <h5 class="remarks">Notas Importantes</h5>
+        <h4 class="remarks">Notas Importantes</h4>
         <li>
-            Un bucle <b>WHILE</b> se utiliza cuando NO conocemos el número exacto de iteraciones.
+            Un bucle <b>WHILE</b> se utiliza cuando <i>NO</i> conocemos el número exacto de iteraciones.
             <pre><code>
-                while(condicion)
+                while(<i>condicion</i>)
                 {
                     sentencia;                    
                 }
             </code></pre>
-            Un bucle <b>FOR</b> se utiliza cuando SI conocemos el número de iteraciones.
+        </li>
+        <li>
+            Un bucle <b>FOR</b> se utiliza cuando <i>SI</i> conocemos el número de iteraciones.
             <pre><code>
-                if(inicio de la iteracion; condicion que debe cumplirse; final de la iteración)
+                if(<i>inicio de la iteracion; condicion que debe cumplirse; final de la iteración</i>)
                 {
                     sentencia;
                 }
             </code></pre>
         </li>
         <li>
-            Un <b>'Code Snippet'</b> es un trozo de código que funciona por sí mismo y ejecuta ciertas tareas, pero sí
-            mismo no
-            se considera función.
+            Un <b>'Code Snippet'</b> es un trozo de código que funciona por sí mismo y ejecuta ciertas tareas.
+            A pesar de esto, no puede considerarse por sí mismo función.
         </li>
         <li>
             es <b>MUY IMPORTANTE</b> utilizar todas las funciones que hemos escrito en nuestro código. Las funciones que
             se escriben dentro del Programa
-            pueden ser utilizadas en cualquier localización de nuestra solución. Es buena praxis llamar a otras
-            funciones que <b>SIMPLIFICAN</b> nuestro codigo fuente.
+            pueden ser utilizadas en cualquier localización de nuestra solución.
+        </li>
+        <li>
+            Estas llamadas o invocaciones, <b>SIMPLIFICAN</b> nuestro codigo fuente y facilitan la lectura del programa.
         </li>
     </ul>
 

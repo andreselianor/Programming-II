@@ -17,133 +17,127 @@
     </header>
     <a href="../index.html">Indice</a>
 
-    <table>
-        <tr>
 
-            <!----------------- COLUMNA 1 ------------------->
+    <ul class="clase·List" style="vertical-align: top;">
 
-            <td class="clase·Column">
-                <ul class="clase·List" style="vertical-align: top;">
+        <h5 class="remarks">Sugerencias y Advertencias</h5>
+        <li>
+            Si mostramos una informacion por pantalla, hay dos opciones:
+            <br>
+            Devolver 'void' o devolver 'string'. Es mejor la última opción.
+        </li>
+        <li>
+            Si tenemos que mostrar informacióno por pantalla y se trata de una serie, lo mejor es devolver una
+            Lista.
+        </li>
+        <li>
+            En caso que tengamos una función 'void' y la validación sea negativa, podemos simplemente
+            devolver 'return'.
+            <pre><code>
+            '
+            public static void Function(List&ltint&gt list)
+            {
+                if (list == null)
+                    return ;
+            
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            'Console.WriteLine(string text)'
+            <pre><code>
+            // Escribe cada sentencia en lineas distintas
+            text1
+            text2
+            text3
+            </code></pre>
+            'Console.Write(string text)'
+            <pre><code>
+            // Escribe cada sentencia en la misma linea
+            text1text2text3                            
+            </code></pre>
+            'Console.BackgroundColor()'
+            <br>
+            'Console.ForegroundColor()'
+            <br>
+            Cambia el color de la fuente y del fondo de la consola.
+        </li>
+        <li>
+            <b> Es obligatorio validar todos los parámetros de entrada de una función.</b>
+        </li>
+        <li>
+            No es necesario validar que un array o lista entren con 0 elementos. Esto solo es necesario en
+            caso que queramos acceder al elemento[0]
+            <pre><code>
+            '
+            public static int[] Function(int[] array)
+            {
+                // Caso normal
+                if(array == null)
+                    return null;
+                
+                // Caso excepcional, si queremos acceder al elemento [0]
+                if(array == null || array.Length == 0)
+                    return null;
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            Las variables de una función STATIC deben declararse <b>DENTRO</b> de la propia función.
+        </li>
+        <li>
+            No se deben poner contadores <b>DENTRO</b> de un bucle FOR
+        </li>
+        <li>
+            Siempre validamos las variables que implican una creación de objeto mediante NEW
+        </li>
+        <br>
 
-                    <h5 class="remarks">Sugerencias y Advertencias</h5>
-                    <li>
-                        Si mostramos una informacion por pantalla, hay dos opciones:
-                        <br>
-                        Devolver 'void' o devolver 'string'. Es mejor la última opción.
-                    </li>
-					                    <li>
-                        Si tenemos que mostrar informacióno por pantalla y se trata de una serie, lo mejor es devolver una Lista.
-                    </li>
-                    <li>
-                        En caso que tengamos una función 'void' y la validación sea negativa, podemos simplemente
-                        devolver 'return'.
-                        <pre><code>
-                    '
-                    public static void Function(List&ltint&gt list)
+        <h5 class="remarks">Funcion <i>SWAP</i></h5>
+        <li>
+            <pre><code>
+            '
+            <b>public static void Swap(List&ltint&gt list)</b>
+            {
+                int aux;
+                aux = list[i];
+                list[i] = list[j];
+                list[j] = aux;
+            }
+            '
+            </code></pre>
+        </li>
+        <br>
+
+        <h5 class="remarks">Funcion <i>SORT</i></h5>
+        <li>
+            <pre><code>
+            '
+            <b>public static void Sort(List&ltint&gt list)</b>
+            {
+                if (list == null)
+                    return null;
+                
+                int aux;
+                int n1 = list.Count - 1;
+                int n2 = list.Count;
+
+                for(int i = 0; i&ltn1; i++)
+                {
+                    for(int j = i + 1; j&ltn2; j++)
                     {
-                        if (list == null)
-                            return ;
-                    
+                        aux = l[i];
+                        l[i] = l[j];
+                        l[j] = aux;
                     }
-                    '
-                    </code></pre>
-                    </li>
-                    <li>
-                        'Console.WriteLine(string text)'
-                        <pre><code>
-                    // Escribe cada sentencia en lineas distintas
-                    text1
-                    text2
-                    text3
-                    </code></pre>
-                        'Console.Write(string text)'
-                        <pre><code>
-                    // Escribe cada sentencia en la misma linea
-                    text1text2text3                            
-                    </code></pre>
-                        'Console.BackgroundColor()'
-                        <br>
-                        'Console.ForegroundColor()'
-                        <br>
-                        Cambia el color de la fuente y del fondo de la consola.
-                    </li>
-                    <li>
-                        <b> Es obligatorio validar todos los parámetros de entrada de una función.</b>
-                    </li>
-                    <li>
-                        No es necesario validar que un array o lista entren con 0 elementos. Esto solo es necesario en
-                        caso que queramos acceder al elemento[0]
-                        <pre><code>
-                    '
-                    public static int[] Function(int[] array)
-                    {
-                        // Caso normal
-                        if(array == null)
-                            return null;
-                        
-                        // Caso excepcional, si queremos acceder al elemento [0]
-                        if(array == null || array.Length == 0)
-                            return null;
-                    }
-                    '
-                    </code></pre>
-                    </li>
-                    <li>
-                        Las variables de una función STATIC deben declararse <b>DENTRO</b> de la propia función.
-                    </li>
-                    <li>
-                        No se deben poner contadores <b>DENTRO</b> de un bucle FOR
-                    </li>
-                    <li>
-                        Siempre validamos las variables que implican una creación de objeto mediante NEW
-                    </li>
-                    <br>
-
-                    <h5 class="remarks">Funcion <i>SWAP</i></h5>
-                    <li>
-                        <pre><code>
-                    '
-                    <b>public static void Swap(List&ltint&gt list)</b>
-                    {
-                        int aux;
-                        aux = list[i];
-                        list[i] = list[j];
-                        list[j] = aux;
-                    }
-                    '
-                    </code></pre>
-                    </li>
-                    <br>
-
-                    <h5 class="remarks">Funcion <i>SORT</i></h5>
-                    <li>
-                        <pre><code>
-                    '
-                    <b>public static void Sort(List&ltint&gt list)</b>
-                    {
-                        if (list == null)
-                            return null;
-                        
-                        int aux;
-                        int n1 = list.Count - 1;
-                        int n2 = list.Count;
-
-                        for(int i = 0; i&ltn1; i++)
-                        {
-                            for(int j = i + 1; j&ltn2; j++)
-                            {
-                                aux = l[i];
-                                l[i] = l[j];
-                                l[j] = aux;
-                            }
-                        }
-                    }
-                    '
-                    </code></pre>
-                    </li>
-                </ul>
-            </td>
-    </table>
+                }
+            }
+            '
+            </code></pre>
+        </li>
+    </ul>
 </body>
 
 </html>

@@ -19,30 +19,30 @@
 
 
     <ul class="clase·List">
-        <h5 class="remarks">Tipos de datos</h5>
+        <h4 class="remarks">Tipos de datos</h4>
         <li>
             Los reales se definen con un 'double'. Tambien es posible usar un float, en caso justificado.
         </li>
         <li>
             <i>'Double'</i> es un tipo de dato de 64 bits.
-            <br>
+        </li>
+        <li>
             <i>'Float'</i> es un tipo de dato de 32 bits. La GPU trabaja con floats
         </li>
         <br>
+        
+        <h4 class="remarks">Lenguajes y sus generaciones:</h4>         
         <li>
-            Lenguajes y sus generaciones:
-        </li>
-        <li>
-            <b>Primera generación:</b> lenguaje máquina
+            <b>Primera generación,</b> lenguaje máquina:
             <br>
             Cada computadora tiene sólo un lenguaje de programación que su procesador puede ejecutar; pues bien, éste es
             su lenguaje nativo o lenguaje de máquina.
             Los programas en lenguaje máquina se escriben en el nivel más básico de operación de la computadora. Las
-            instrucciones se codifican como una serie de unos (1) y ceros (0).
+            instrucciones se codifican como una serie de unos '1' y ceros '0'.
         </li>
         <br>
         <li>
-            <b>Segunda generación:</b> lenguaje ensamblador
+            <b>Segunda generación,</b> lenguaje ensamblador:
             <br>
             Para evitar que los programadores tuvieran que programar directamente en código binario o máquina, se
             desarrollaron unos programas para traducir instrucciones a código de máquina. Estos programas se llamaron
@@ -54,7 +54,7 @@
         </li>
         <br>
         <li>
-            <b>Tercera generación:</b> lenguaje de alto nivel
+            <b>Tercera generación,</b> lenguaje de alto nivel:
             <br>
             Estos lenguajes son parecidos al inglés y facilitan el trabajo de los desarrolladores de software.
             Existen muchos lenguajes de tercera generación como, por ejemplo, COBOL, BASIC, FORTRAN, C, PASCAL, etc.
@@ -63,7 +63,7 @@
         </li>
         <br>
         <li>
-            <b>Cuarta generación:</b> lenguaje orientado al usuario (4GL)
+            <b>Cuarta generación,</b> lenguaje orientado al usuario (4GL):
             <br>
             Con los lenguajes 4GL, los usuarios finales escriben sus programas de manera sencilla para
             consultar una base de datos y para crear sistemas de información personales o departamentales.
@@ -72,29 +72,37 @@
         </li>
         <br>
         <li>
-            <b>Quinta generación:</b> lenguajes naturales
-
+            <b>Quinta generación,</b> lenguajes naturales:
+            <br>
             Los lenguajes naturales se asemejan más al lenguaje humano que sus antecesores, los lenguajes 4GL.
             Aunque estos lenguajes se encuentran en sus inicios, la mayoría de las herramientas de uso y trabajo con el
             ordenador tenderán a este tipo de lenguajes.
         </li>
     </ul>
     <ul class="clase·List">
-        <h5 class="remarks">Conocimientos básicos</h5>
+        <h4 class="remarks">Conocimientos básicos</h4>
         <li>
             <b>Jerarquía de funciones de clase:</b>
-            <br>
-            Declaracion de variables
-            <br>
-            Asignaciones
-            <br>
-            Condicionales
-            <br>
-            Bucles
-            <br>
-            Rupturas
-            <br>
-            Retornos
+            <ul style="list-style: circle;padding-left:15px;">
+                <li>
+                    Declaracion de variables
+                </li>
+                <li>
+                    Asignaciones
+                </li>
+                <li>
+                    Condicionales
+                </li>
+                <li>
+                    Bucles
+                </li>
+                <li>
+                    Rupturas
+                </li>
+                <li>
+                    Retornos
+                </li>
+            </ul>
         </li>
         <li>
             Declaración de variables:
@@ -144,7 +152,7 @@
 
             // <b>For</b>, en caso que <i>SI</i> conozcamos el numero de iteraciones
 
-            for(int i = 0; i&ltn; i++)
+            for(int i = 0; i &lt n; i++)
             {
                 codigo ejecutable en un bucle de n veces
             }
@@ -156,43 +164,51 @@
             <br>
             <code><pre>
             '
+            break;
             // <b>Break</b>, hace saltar la linea de compilación hasta el cierre del cuerpo '}'
-            break; //salta al siguiente '}'            
-
-            // <b>Continue</b>, hace saltar la linea de compilación hasta el inicio del bucle
-            continue // salta al inicio del bucle
+                        
+            continue;
+            // <b>Continue</b>, hace saltar la linea de compilación hasta el inicio del bucle            
             '
             </pre></code>
         </li>
         <li>
             Retornos
-            <br>
-            'return', termina el metodo o funcion y devuelve el valor indicado.
+            <pre><code>
+            'return [tipo de dato];'
+             // termina el metodo o funcion y devuelve el valor indicado.
+            </code></pre>
         </li>
         <br>
         <li>
             <b>Jerarquía de funciones de objeto:</b>
-            <br>
-            Enumerations
-            <br>
-            Atributos
-            <br>
-            Constructores
-            <br>
-            Getters and setters
-            <br>
-            Metodos
+            <ul style="list-style: circle;padding-left:15px;">
+                <li>
+                    Enumerations
+                </li>
+                <li>
+                    Atributos
+                </li>
+                <li>
+                    Constructores
+                </li>
+                <li>
+                    Getters and setters
+                </li>
+                <li>
+                    Metodos
+                </li>
+            </ul>
         </li>
     </ul>
     <ul class="clase·List">
-        <h5 class="remarks">Conocimiento de funciones</h5>
-        <li>
-            FUNCION: Escribir una función que realiza la suma de dos numeros que se le pasan por parametros:
+        <h4 class="remarks">Conocimiento básico de funciones</h4>
+        <li><b>FUNCION:</b> Realiza la suma de dos numeros que se le pasan por parametros
             <pre><code>
             '
             public class Functions
             {
-                public static int CalculateSum(int number1, int number2)
+                <b>public static int CalculateSum(int number1, int number2)</b>
                 {
                     // Opcion 1
                     return number1 + number2;
@@ -206,9 +222,8 @@
             </code></pre>
         </li>
         <li>
-            Invocar la funcion:
-        </li>
-        <li>
+            Para invocar a una función escribimos el nombre de la clase, seguida de un punto
+            y el nombre de la función.     
             <pre><code>
             '
             public class Program
@@ -223,7 +238,7 @@
                     b = 10;
 
                     // Invocar la funcion de suma de numeros
-                    Functions.CalculateSum(a,b);
+                    <b>Functions.CalculateSum(a,b);</b>
                 }
             }
             </code></pre>
@@ -231,10 +246,11 @@
     </ul>
 
     <ul class="clase·List">
-        <h5 class="remarks">Consejos y advertencias</h5>
+        <h4 class="remarks">Consejos y advertencias</h4>
         <li>
             Existe una guía de estilo para dar formato al código y para nombrar a las distintas funciones. Cada grupo de
             trabajo tiene su propia guía de estilo. Habitualmente las funciones se nombran con 'Verbo+Sustantivo'
+            <br>
             ej:'CalculateSum' o 'GetIndexAt'.
         </li>
         <li>
@@ -246,7 +262,7 @@
             Una función debe ocupar como máximo una pantalla del ordenador, y debemos evitar el scroll vertical.
         </li>
         <li>
-            <b>JAMÁS</b> ejecutaremos un 'Console.ReadLine()'' dentro del funcionamiento de un método.
+            <b>JAMÁS</b> ejecutaremos un 'Console.WriteLine()'' dentro del funcionamiento de un método.
         </li>
         <li>
             <b>JAMÁS</b> se debe escribir una sentencia 'return' dentro de un bucle IF

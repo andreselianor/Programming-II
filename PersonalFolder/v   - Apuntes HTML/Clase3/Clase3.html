@@ -22,7 +22,6 @@
         <h4 class="remarks">Funciones de clase</h4>
         <li>
             <b>FUNCION:</b> Averiguar si un número es mayor que otro.
-            <br>        
             <pre><code>
             '
             public class Function   // nombre de la clase
@@ -49,7 +48,7 @@
                 <b>public static bool IsMajor(int number1, int number2)</b>  // Opción perfecta
                 {
                     return (number1 &gt number2); 
-                    // Devuelve <i>true</i> si el primer valor es mayor.                                                 
+                    // Devuelve <i>'true'</i> si el primer valor es mayor.                                                 
                     // En caso contrario develve <i>'false'</i>.
                 }
             }
@@ -57,18 +56,15 @@
             </code></pre>
         </li>
         <li>
-            Los comentarios ayudan a entender el funcionamiento de nuestro código.
-            <br>
+            Los comentarios ayudan a entender el funcionamiento de nuestro código.            
             Un <b>comentario en linea</b> empieza con '//' y un <b>comentario en bloque</b> se define dentro de un '/*   */'
         </li>
         <li>
             El nombre de una función debe ser un nombre <b><i>descriptivo</i></b> y a la vez fácil de entender.
             Es muy útil pensar en <b>'Verbo + Sustantivo'</b> a la hora de poner nombres.
         </li>
-        <br>
         <li>
             <b>FUNCION:</b> Devuelve un booleano para comprobar que un numero es par.
-            <br>
             <pre><code>
             '
             public class Function   
@@ -101,21 +97,31 @@
             </code></pre>
         </li>
         <li>
+            Los operadores que utilizamos en las funciones son los siguientes:
+            <pre><code>
             Operadores:
-            <br>
-            '+   -   /   *'
-            <br>
+            '
+            +   Suma
+            -   Resta
+            /   Division
+            *   Producto
+            %   Modulo o resto de la división
+            '
             Comparadores:
-            <br>
-            '&lt     &gt    &le;     &ge;'
-            <br>
+            '
+            &lt Menor que
+            &gt Mayor que 
+            &le; Menor o igual que    
+            &ge; Mayor o igual que
+            '
             Booleanos:
-            <br>
-            '== != && ||'
-            <br>
-            Módulo o resto
-            <br>
-            '%'
+            '
+            ==  Igual que
+            !=  Distinto de
+            &&  AND todas las entradas deben ser ciertas
+            ||  OR es suficiente que una entrada sea cierta
+            '
+            </code></pre>            
         </li>
         <li>
             Toda función de clase empieza con un 'public static'
@@ -129,7 +135,6 @@
         <br>
         <li>
             <b>FUNCION:</b> Devuelve el mayor de tres números
-            <br>        
             <pre><code>
             '
             public class Function   
@@ -148,21 +153,18 @@
             </code></pre>
         </li>
         <li>
-            <b><i>&&</i></b>
-            <br>
-            Todas las condiciones deben ser ciertas. Puerta lógica <b>'AND'</b>
+            <b>(&&)</b>            
+            Puerta lógica <b>'AND': </b>Todas las condiciones deben ser ciertas. 
         </li>
         <li>
-            <b><i>||</i></b>
-            <br>
-            Al menos una condición debe ser cierta. Puerta lógica <b>'OR'</b>
+            <b>(||)</b>           
+            Puerta lógica <b>'OR': </b>Al menos una condición debe ser cierta.
             <br>
         </li>
         <li>
             Funcionamiento de un <b>ELSE/IF</b>
             <br>
             Añadimos un 'else if' en caso que tengamos varios 'if', pero la condición 'else' se aplique en todos los casos
-            <br>
             <pre><code>
             '
             <b>public static int Function(int number1, int number2, int number3)</b>
@@ -174,9 +176,8 @@
                 else
                     return number3;                
             }
-
             // Es lo mismo que el código siguiente:
-            
+
             <b>public static int Function(int number1, int number2, int number3)</b>
             {                
                 if(number1 &gt number2 && number1 &gt number3)
@@ -188,8 +189,7 @@
                     if(number2 &gt number3)
                     {
                         return number2;
-                    }
-                    
+                    }                    
                     else
                     {
                         return number3;

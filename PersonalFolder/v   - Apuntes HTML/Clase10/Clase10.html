@@ -17,104 +17,114 @@
     </header>
     <a href="../index.html">Indice</a>
 
-    <table>
-        <tr>
-
-            <!----------------- COLUMNA 1 ------------------->
-
-            <td class="clase·Column">
-                <ul class="clase·List" style="vertical-align: top;">
-
-                    <h5 class="remarks">Serie de Fibonacci</h5>
-                    <li>
-                        Funcion que se le pasa un número y devuelve ese número de elementos de la serie Fibonacci
-                        <br>
-                        <pre><code>
-                        '
-                        public static string Fibonacci1(int number)
-                        {
-                            int result = "0,1";
-							int n1 = 0;
-							int n2 = 1;
-							int sumResult = 0;
-							
-							for(int i = 0; i < number - 1; i++)
-							{
-								sumResult = n1 + n2;
-								result += "," + sumResult;
-								n1 = n2;
-								n2 = sumResult;
-							}
-							return result;
-                        }
-                        '
-                        </code></pre>
-                    </li>
-					<li>
-                        Funcion que se le pasa un número y devuelve el número posterior de la serie Fibonacci
-                        <br>
-                        <pre><code>
-                        '
-                        public static string Fibonacci2(int number)
-                        {
-                            int result = "0,1";
-							int n1 = 0;
-							int n2 = 1;
-							int sumResult = 0;
-							
-							while(number &lt sumResult)
-							{										
-								sumResult = n1 + n2;
-								result += "," + sumResult;
-								n1 = n2;
-								n2 = sumResult;
-							}
-							return result;
-                        }
-                        '
-                        </code></pre>
-                    </li>
-					</ul>
-					                <ul class="clase·List" style="vertical-align: top;">
-					<h5 class="remarks">Constructores</h5>
-                    <li>
-                        Funciones creadas explicitamente para 'establecer' los atributos del objeto que estamos creando.
-                        <br>
-                        <pre><code>
-                        '
-                        public Dolphin (double actualLife, double maxValueLife)
-                        {
-                            life = actualLife;
-                            maxLife = maxValueLife
-                        }
-                        '
-                        </code></pre>
-                    </li>
-                    <li>
-                        Es una función porque recibe la llamada de los parámetros "( )" y además tiene un cuerpo de
-                        función "{ }"
-                    </li>
-                    <li>
-                        La función del constructor tiene el <b>mismo nombre</b> que el nombre de la clase
-                    </li>
-                    <li>
-                        Esta función no devuelve ningún valor
-                    </li>
-                    <li>
-                        Ejemplo de uso
-                        <pre><code>
-                        '
-                        public static void Main()
-                        {
-                            Dolphin d1;
-                            d1 = new Dolphin(100.0, 250.0);
-                        }                            
-                        '
-                        </code></pre>
-                    </li>
-                </ul>
-            </td>
-    </table>
+    <ul class="clase·List">
+        <h4 class="remarks">Serie de Fibonacci</h4>
+        <li>
+            <b>FUNCIÓN:</b> se le pasa un número y devuelve ese número de elementos de la serie Fibonacci.
+            <pre><code>
+            '
+            <b>public static string Fibonacci(int number)</b>
+            {
+                int result = "0,1";
+                int n1 = 0;
+                int n2 = 1;
+                int sumResult = 0;
+                
+                for(int i = 0; i &lt number - 1; i++)
+                {
+                    sumResult = n1 + n2;
+                    result += "," + sumResult;
+                    n1 = n2;
+                    n2 = sumResult;
+                }
+                return result;
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCIÓN:</b> se le pasa un número y devuelve el número posterior de la serie Fibonacci.
+            <pre><code>
+            '
+            <b>public static string Fibonacci(int number)</b>
+            {
+                int result = "0,1";
+                int n1 = 0;
+                int n2 = 1;
+                int sumResult = 0;
+                
+                while(number &lt sumResult)
+                {										
+                    sumResult = n1 + n2;
+                    result += "," + sumResult;
+                    n1 = n2;
+                    n2 = sumResult;
+                }
+                return result;
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCIÓN:</b> Devuelve la serie de Collatz
+            <pre><code>
+            '
+            <b>public static List<int> Collatz(int number)</b>
+            {
+                List<int> list = new List<int>();
+                int result = number;    
+                list.Add(number);
+    
+                while (result != 1)
+                {
+                    if (IsEven(result))
+                        result /= 2;
+                    else
+                        result = (result * 3) + 1;
+                    list.Add(result);
+                }    
+                return list;
+            }
+            '
+            </code></pre>
+        </li>
+        <h4 class="remarks">Constructores</h4>
+        <li>
+            Funciones creadas explicitamente para <b>'establecer'</b> los atributos <b>iniciales</b> del objeto
+            que estamos creando.
+            <pre><code>
+            '
+            <b>public Dolphin (double actualLife, double maxValueLife)</b>
+            {
+                life = actualLife;
+                maxLife = maxValueLife
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            Es una función porque recibe la llamada de los parámetros "( )" y además tiene un cuerpo de
+            función "{ }".
+        </li>
+        <li>
+            La función del constructor tiene el <b>mismo nombre</b> que el nombre de la clase.
+        </li>
+        <li>
+            Esta función no devuelve ningún valor.
+        </li>
+        <li>
+            Ejemplo de uso
+            <pre><code>
+            '
+            public static void Main()
+            {
+                Dolphin d1;
+                d1 = new Dolphin(100.0, 250.0);
+            }                            
+            '
+            </code></pre>
+        </li>
+    </ul>
 
 </body>
 
