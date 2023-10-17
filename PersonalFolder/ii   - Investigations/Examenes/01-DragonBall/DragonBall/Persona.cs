@@ -2,8 +2,11 @@
 {
     public enum RaceType
     {
-        HUMANO
+        HUMANO,
+        SAIYAN,
+        NAMEKIANO
     }
+
     abstract public class Persona
     {
         // ATRIBUTOS

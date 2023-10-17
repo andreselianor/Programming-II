@@ -8,9 +8,9 @@
 
             ITorneo torneo = new Torneo();
 
-            List<string> ganador = torneo.Execute();
+            List<Persona> ganador = torneo.Execute();
 
-            Console.WriteLine("El ganador es: " + ganador[0]);
+            Console.WriteLine("El ganador es: " + ganador[0].Name);
 
         }
     }

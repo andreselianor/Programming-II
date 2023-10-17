@@ -1,0 +1,46 @@
++++1) Ingresar 5 números y mostrar su promedio
++++2) Ingresar un número y mostrar el cuadrado del mismo.El número debe ser mayor que cero, en caso de error que aparezca el mensaje "ERROR. Reingresar numero"
++++3) De 10 números ingresados indicar cuantos son mayores a cero y cuantos son menores a cero.
++++4) Diseñar un algoritmo que calcule la longitud de la circunferencia y el área del círculo de radio dado.
++++5) Diseñar un algoritmo que calcule la superficie de un triángulo a partir del ingreso de su base y altura y muestre el resultado
+
++++6) Ingresar un número e indicar si es positivo o negativo
++++7) Ingresar un número y mostrar si es par o impar
++++8 ) Equivalencia de Grados Celsius con Grados Fahrenheit
++++9) Equivalencia de centimetros con pies y pulgadas
++++10) Ingresar una frase no mas de 20 caracteres y mostrar cuantas vocales tiene.
+
+11) Mostrar en pantalla la opción que se eligio, teniendo en cuenta los dias de la semana y pregutnar si desea continuar.
+12) Mostrar los nùmeros impares entre el 0 y el 100
+13) Mostrar los números pares entre el 0 y el 100
+14) Mostrar los números del 0 al 100
+15) Mostrar los números del 100 al 0
+
+16) Mostrar los multiplos de 3 del 0 al 100
+17) Mostrar los multiplos de 3 y de 2 entre el 0 y 100
+18) Ingresar un número y mostrar la suma de los números que lo anteceden.
+19) Mostrar los números del 1 hasta el número ingresado.
+20) Contar los multiplos de 3 desde la unidad hasta un num que ingresamos
+
+21) Mostrar los números primos entre el 0 y 100.
+22) Ingresar 10 números sumar los + y multiplicar los - .
+23) Ingresar dos números e intercambiarlos .
+24) Ingresar un número y mostrar su cuadrado y cubo.
+25) Ingresar x cant de pesos y mostrar la cantidad de personas que pesan + de 80 y - de 80.
+
++++26) Ingresar 3 datos y decir que clase de triangulo es. Para formar un triangulo hay que tener en cuenta que la suma de sus dos las inferiores
+tiene que ser mayor a el lado superior
++++27)Dados 3 números donde el primero y el último son límites de un intervalo, indicar si el tercero pertenece a dicho intervalo
++++28)Por teclado se ingresa el valor hora de un empleado.Posteriormente se ingresa el nombre del empleado, la antiguedad y la cantidad de horas 
+trabajadas en el mes. Se pide calcular el importe a cobrar teniendo en cuenta que al total que resuelta de multiplicar el valor hora por la 
+cantidad de horas trabajadas, hay que sumarle la cantidad de años trabajados multiplicados por $30, y al total de todas esas operaciones 
+restarle el 13% en concepto de descuentos. Imprimir el recibo correspondiente con el nombre, 
+la antiguedad, el valor hora, el total a cobrar en bruto, el total de descuentos y el valor neto a cobrar.
+29)Realizar la tabla de multiplicar de un número entre 0 y 10 de forma que se visualice de la siguiente forma: 4x1=4
+30)Ingresar 2 números, imprima los números naturales que hay entre ambos empezando por el más pequeño, 
+contar cuántos números hay y cuántos de ellos son pares.
+
+31) Se registran 10 empleados de una empresa Número de legajo, sueldo, sexo(1=femenino y 2=masculino).
+Mostrar cuantas mujeres ganan más de $500 pesos y cuantos hombres ganan menos de $400.
+32)Se ingresa por teclado la cantidad de agua caida, en mílimetros día a día durante un mes.Se pide determinar el día de mayor lluvia, el de menor y el promedio.
+33) Hacer el algoritmo que imprima el mayor y el menor de una serie de 5 números que vamos introduciendo por teclado.

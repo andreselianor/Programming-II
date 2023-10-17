@@ -5,9 +5,9 @@
         public List<Persona> listFighters = new List<Persona>();
 
         // Ejecuta el combate
-        public List<string> Execute()
+        public List<Persona> Execute()
         {
-            List<string> ganador = new List<string>();
+            List<Persona> ganador = new List<Persona>();
             Init();
             Visit();
 
@@ -19,13 +19,13 @@
 
                 if (listFighters[0].Energy < 0)
                 {
-                    ganador.Add(listFighters[1].Name);
+                    ganador.Add(listFighters[1]);
                     FightingPlayers = false;
                 }                    
 
                 if (listFighters[1].Energy < 0)
                 {
-                    ganador.Add(listFighters[0].Name);
+                    ganador.Add(listFighters[0]);
                     FightingPlayers = false;
                 }
                 Console.WriteLine(listFighters[0].Energy);
@@ -38,10 +38,10 @@
 
         public void Init()
         {
-            Humano jugador1 = new Humano("Flaqui");
+            Persona jugador1 = new Saiyan("RojoPatoso");
             listFighters.Add(jugador1);
 
-            Saiyan jugador2 = new Saiyan("PetroTordo");
+            Persona jugador2 = new Namekiano("PetroTordo");
             listFighters.Add(jugador2);
         }
 
@@ -51,6 +51,11 @@
             {
                 Console.WriteLine("Luchador: " + jugador.Name);
             }
+        }
+
+        public Persona Winner()
+        {
+            return listFighters[0];
         }
     }
 }

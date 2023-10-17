@@ -13,127 +13,102 @@
 <body>
     <header>
         <h1>Clase 13</h1>
-        <h3>Viernes, 6 Octubre 2023</h3>
+        <h3>Jueves, 5 Octubre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
-    <table>
-        <tr>
 
-            <!----------------- COLUMNA 1 ------------------->
+    <ul class="clase·List">
+        <h4 class="remarks">Funciones para listas/arrays</h4>
+        <li>
+            <b>FUNCIÓN:</b> Calcula la media de los valores de un array.
+        </li>
+        <pre><code>
+            '
+            <b>public static double GetAverage(double [] array)</b>
+            {
+                double aux = 0.0;
 
-            <td class="clase·Column">
-                <ul class="clase·List" style="vertical-align: top;">
+                for(int i = 0; i &lt array.Length; i++)
+                {
+                    aux += array[i];
+                }
 
-                    <h5 class="remarks">Funciones para listas/arrays</h5>
-                    <li>
-                        Crear una función que calcule la media de los valores de un array
-                    </li>
-                    <li>
-                        <pre><code>
-                        '
-                        <b>public static double GetMedian(double [] array)</b>
-                        {
-                            double aux = 0.0;
+                return aux / array.Length;
+            }                                                                        
+            '
+            </code></pre>
+        </li>
+        <li>
+            Es <b>MUY IMPORTANTE</b> validar los parámetros de entrada de la función.
+        </li>
+        <br>
+        <li>
+            <b>FUNCION:</b> Crear una función que calcule la media de los valores de un array, 
+            solo si superan el valor dado llamado 'Threshold'.
+            <pre><code>
+            '
+            <b>public static double GetThresholdMedian(double [] array, double Threshold)</b>
+            {
+                double aux = 0.0;
+                int count = 0;
 
-                            for(int i = 0; i &lt array.Length; i++)
-                            {
-                                aux += array[i];
-                            }
-
-                            return aux / array.Length;
-                        }                                                                        
-                        '
-                        </code></pre>
-                    </li>
-                    <li>
-                        Es MUY IMPORTANTE validar los parámetros de entrada de la función
-                    </li>
-                    <br>
-                    <li>
-                        <b>FUNCION:</b>
-                        Crear una función que calcule la media de los valores de un array, solo si superan el valor dado llamado 'Threshold'
-                    </li>
-                    <li>
-                        <pre><code>
-                        '
-                        <b>public static double GetThresholdMedian(double [] array, double Threshold)</b>
-                        {
-                            double aux = 0.0;
-                            int count = 0;
-
-
-                            for(int i = 0; i &lt array.Length; i++)
-                            {
-                                if(array[i] > Threshold)
-                                {
-                                    aux += array[i];
-                                    count ++;
-                                }
-                            }
-                            return aux / count;
-                        }                                                                        
-                        '
-                        </code></pre>
-                    </li>
-                    <li>
-                        <b>FUNCION:</b>
-                        Crear una función que devuelva el número de veces que se repite el número de mayor valor.
-                    </li>
-                    <li>
-                        <pre><code>
-                        '
-                        <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
-                        {
-                            int result = 0;
-                            int maxNumber;
-                            maxNumber = GetMajor(list);
-                
-                            /*
-                            for(int i = 0; i &lt list.Count; i++)
-                            {
-                                if(list[i] &gt maxNumber)
-                                    maxNumber = list[i];
-                            }
-                            */
-                
-                            for (int i = 0; i &lt list.Count; i++)
-                            {
-                                if (list[i] == maxNumber)
-                                    result++;
-                            }
-                            return result;
-                        }                                                                        
-                        '
-                        </code></pre>
-                    </li>   
-                    <li>
-                        <b>FUNCION:</b>
-                        Crear una función que devuelva la lista que se pasa por parametro en orden inverso.
-                    </li>
-                    <li>
-                        <pre><code>
-                        '
-                        <b>public static List<int> GetReverseList(List&ltint%gt list)</b>
-                            {
-                                if (list == null || list.Count &lt 0)
-                                    throw new Exception("Error");
-                    
-                                List<int> result = new List<int>();
-                    
-                                for (int i = list.Count; i &ge 0; i--)
-                                {
-                                    result.Add(i);
-                                }
-                                return result;
-                            }                                                                        
-                        '
-                        </code></pre>
-                    </li>                 
-                </ul>
-
-            </td>
-    </table>
+                for(int i = 0; i &lt array.Length; i++)
+                {
+                    if(array[i] > Threshold)
+                    {
+                        aux += array[i];
+                        count ++;
+                    }
+                }
+                return aux / count;
+            }                                                                        
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCION:</b> Crear una función que devuelva el número de veces que se 
+            repite el número de mayor valor.
+            <pre><code>
+            '
+            <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
+            {
+                int result = 0;
+                int maxNumber;
+                maxNumber = GetMajor(list);    
+    
+                for (int i = 0; i &lt list.Count; i++)
+                {
+                    if (list[i] == maxNumber)
+                        result++;
+                }
+                return result;
+            }                                                                        
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCION:</b> Devuelve la lista que se le pasa 
+            por parametro en orden inverso.
+            <pre><code>
+            '
+            <b>public static List&ltint&gt list GetReverseList(List&ltint&gt list)</b>
+                {
+                    if (list == null || list.Count &lt 0)
+                        return null;
+        
+                    List&ltint&gt result = new List&ltint&gt();
+        
+                    for (int i = list.Count; i &ge; 0; i--)
+                    {
+                        result.Add(i);
+                    }
+                    return result;
+                }                                                                        
+            '
+            </code></pre>
+        </li>
+    </ul>
 
 </body>
 

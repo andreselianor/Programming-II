@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica11Torneo", "Practica11Torneo\Practica11Torneo.csproj", "{1AC9BF5C-56ED-42C3-8BAA-726D0993E3B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AC9BF5C-56ED-42C3-8BAA-726D0993E3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC9BF5C-56ED-42C3-8BAA-726D0993E3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC9BF5C-56ED-42C3-8BAA-726D0993E3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC9BF5C-56ED-42C3-8BAA-726D0993E3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85431D32-7E1B-4532-9106-11506619C90C}
+	EndGlobalSection
+EndGlobal

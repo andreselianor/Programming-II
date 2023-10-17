@@ -9,7 +9,7 @@ namespace ResumenFunciones
     public class Extras
     {
         // FUNCIONES ENCONTRADAS EN INTERNET
-        // FUNCION 1: Comprueba si un texto es un Palindromo
+        // FUNCION: Comprueba si un texto es un Palindromo
         // https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-palindromo
 
         public static bool IsPalindrome(string texto)
@@ -27,7 +27,7 @@ namespace ResumenFunciones
             return true;
         }
 
-        // FUNCION 2: Indicar si un elemento esta dentro de un array
+        // FUNCION: Indicar si un elemento esta dentro de un array
         // https://www.discoduroderoer.es/ejercicios-propuestos-y-resueltos-funciones-y-metodos-c-sharp/
 
         public static bool ContainsElement(int[,] array, int row, int column)
@@ -38,7 +38,7 @@ namespace ResumenFunciones
         }
 
 
-        // FUNCION 3: Concatenar texto
+        // FUNCION: Concatenar texto
 
         public static void Concatenate(string text1, string text2, string text3)
         {
@@ -94,9 +94,9 @@ namespace ResumenFunciones
         // NACHO CABANES 2.1.9.1
         // OPERADOR SWITCH
 
-        public static string IsChar(char text)
+        public static string TextChar(char letter)
         {
-            switch (text)
+            switch (letter)
             {
                 case 'a':
                 case 'e':
@@ -105,7 +105,7 @@ namespace ResumenFunciones
                 case 'u':
                     return "Se trata de una vocal";
                 default:
-                    return "No es una letra";
+                    return "No es una vocal";
             }
         }
 
@@ -243,8 +243,129 @@ namespace ResumenFunciones
             Console.WriteLine("Banca: " + resto);
         }
 
-        // FUNCION PARA CALCULAR EL MCM Y EL MCD
+        // TODO: Funcion MCM
+        // FUNCION QUE CALCULA EL MCM
+        // Es el numero mas pequeño de los multiplos comunes
+        public static int CalculateMCM(int number1, int number2)
+        {
+            int result = 1;
 
+            for (int i = 2; i < number1 || i < number2; i++)
+            {
+                if (number1 % i == 0 && number2 % i == 0)
+                    result = i;
+            }
+            return result;
+        }
+
+        public static int CalculateMCM(List<int> list)
+        {
+            int result = 1;
+            int minor = Colecciones.GetMinor(list);
+
+            for (int i = 2; i < minor; i++)
+            {
+                for(int j = 0; j < list.Count; j++)
+                {
+                    if (list[j] % i == 0)
+                        result = i;
+                    else
+                        result = 1;
+                }               
+            }
+            return result;
+        }
+
+        // TODO: Funcion MCD
+        // FUNCION QUE CALCULA EL MCD
+        // MCD es el mayor numero que divide todos los elementos
+
+        public static int CalculateMCD(int number1, int number2)
+        {
+            int result = 1;
+            int minor = Functions.GetMinor(number1, number2);
+            for(int i = 2; i < minor; i++)
+            {
+                if(number1 % i == 0 && number2 % i == 0)
+                {
+                    result *= i;
+                }
+            }
+            return result;
+        }
+
+        // FUNCION QUE ACEPTA 5 NUMEROS Y EXTRAE SU MEDIA
+
+        public static int CalculateAverage(int n1, int n2, int n3, int n4, int n5)
+        {
+            return (n1 + n2 + n3 + n4 + n5) / 5;
+        }
+
+        // FUNCION QUE CALCULA LA SUPERFICIE Y EL AREA DE UN CIRCULO DE RADIO DADO
+        public static (double,double) GetCircle(double radius)
+        {
+            double length = 2 * 3.14 * radius;
+            double area = 3.14 * radius * radius;
+            return (length, area);
+        }
+
+        // FUNCION QUE CALCULA EL AREA DE UN TRIANGULO
+        public static double CalculateTriangleArea(double baseTriangle, double height)
+        {
+            return (baseTriangle * height) / 2;
+        }
+
+        // FUNCION QUE CALCULA EL NUMERO DE VOCALES
+        public static int CalculateVowels(string text)
+        {
+            int result = 0;
+            for(int i = 0; i < text.Length; i++)
+            {
+                result += CountVowels(text[i]);
+            }
+            return result;
+        }
+
+        public static int CountVowels(char letter)
+        {
+            switch (letter)
+            {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    return 1;
+                default:
+                    return 0;
+            }
+        }
+
+        // FUNCION QUE INDICA QUE TIPO DE TRIANGULO ES
+        public static string ShowTriangleType(double a, double b, double c)
+        {
+            if (a == b && a == c)
+                return "Equilatero";
+            else if (a == b && a != c)
+                return "Isosceles";
+            else
+                return "Escaleno";
+        }
+
+        // FUNCION QUE INDICA SI UN NUMERO ESTA DENTRO DE UN INTERVALO
+        public static bool IsInsideLimits(int n1, int n2, int n3)
+        {
+            return (n1 < n2 && n2 < n3);
+        }
+
+        // FUNCION QUE CALCULA NOMINAS
+        public static void CalculateNominas(string name, double euroHour, double oldness)
+        {
+            Console.WriteLine("Introduzca el número de horas trabajadas");
+            double workHours = Int32.Parse(Console.ReadLine());
+            Console.WriteLine($"Le trabajadore {name} ha trabajado este mes {workHours}, a razón de {euroHour} € por hora." +
+                $"Le corresponde un abono de {workHours * euroHour} € debido a su antiguedad de {oldness} años.");
+        }
     }
 }
 

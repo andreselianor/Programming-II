@@ -3,7 +3,8 @@
     public interface ITorneo
     {
         public void Init();
-        public List<string> Execute();
+        public List<Persona> Execute();
         public void Visit();
+        public Persona Winner();
     }
 }

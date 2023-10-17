@@ -2,10 +2,11 @@
 {
     public class Humano : Persona
     {
-        //public double _attackCapacity = Utils.GetRandom(0.1,0.9);
         public double _attackCapacity;
+
         public double _attackMin;
         public double _attackMax;
+
         public double _dodgeCapacity;
         public double _resistCapacity;
 
