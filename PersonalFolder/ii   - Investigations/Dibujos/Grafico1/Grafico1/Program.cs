@@ -50,27 +50,12 @@ namespace Grafico1
                 _listMinion[i].posX = Utils.GetRandom(0, width);
                 _listMinion[i].posY = Utils.GetRandom(0, height);
             }
-
-            
-
-
         }
 
         public void OnAnimate(GameDelegateEvent gameEvent)
-        {
-            
+        {            
             Thief.posX = Utils.GetRandom(1, 1.2);
             Thief.posY = Utils.GetRandom(1, 1.2);
-            /*
-            for (int i = 0; i < _listMinion.Count; i++)
-            {
-                _listMinion[i].posX = Utils.GetRandom(0, 0.2);
-                _listMinion[i].posY = Utils.GetRandom(0, 0.2);
-            }
-            */
-
-
-
         }
 
         public void OnDraw(GameDelegateEvent gameEvent, ICanvas canvas)
@@ -83,7 +68,7 @@ namespace Grafico1
             canvas.FillShader.SetColor(0.0, 0.0, 1.0, 1.0);
             canvas.DrawRectangle(Player1.posX,Player1.posY,Player1.characterWidth, Player1.characterHeight);
 
-            // Thief
+            // ThiefBoss
             canvas.FillShader.SetColor(1.0, 0.0, 0.0, 1.0);
             canvas.DrawRectangle(Thief.posX, Thief.posY, Thief.characterWidth, Thief.characterHeight);
 
@@ -95,7 +80,6 @@ namespace Grafico1
                 canvas.DrawRectangle(_listMinion[i].posX, _listMinion[i].posY,
                                      _listMinion[i].characterWidth, _listMinion[i].characterHeight);
             }
-
         }
 
         public void OnKeyboard(GameDelegateEvent gameEvent, IKeyboard keyboard, IMouse mouse)
@@ -133,6 +117,11 @@ namespace Grafico1
         public static double GetRandom(double min, double max)
         {
             return (min + random.NextDouble() * (max - min));
+        }
+
+        public static int GetIntRandom(int min, int max)
+        {
+            return random.Next(min, max);
         }
     }
 }
