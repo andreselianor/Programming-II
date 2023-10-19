@@ -19,160 +19,159 @@
 
     <ul class="clase·List">
 
-        <h4 class="remarks">Funciones para listas y arrays</h4>
+        <h4 class="remarks">Funciones para manejar listas y arrays</h4>
         <li>
             <b>FUNCIÓN:</b> Crear una función que calcule la media de los valores de un array
-        </li>
-        <li>
             <pre><code>
-                    '
-                    <b>public static double GetMedian(double [] array)</b>
-                    {
-                        double aux = 0.0;
+            '
+            <b>public static double GetMedian(double[] array)</b>
+            {
+                if (array == null || array.Lenght &lt 0)
+                    return null;
 
-                        for(int i = 0; i&ltarray.Length; i++)
-                        {
-                            aux += array[i];
-                        }
+                double aux = 0.0;
 
-                        return aux / array.Length;
-                    }                                                                        
-                    '
-                    </code></pre>
+                for(int i = 0; i&ltarray.Length; i++)
+                {
+                    aux += array[i];
+                }
+
+                return aux / array.Length;
+            }                                                                        
+            '
+            </code></pre>
         </li>
         <li>
-            Es MUY IMPORTANTE validar los parámetros de entrada de la función
+            Es <b>MUY IMPORTANTE</b> validar los parámetros de entrada de la función
         </li>
         <br>
         <li>
-            <b>FUNCION:</b>
-            Crear una función que calcule la media de los valores de un array, solo si superan el valor dado
+            <b>FUNCION:</b> Crear una función que calcule la media de los valores de un array, solo si superan el valor
+            dado
             llamado 'Threshold'
-        </li>
-        <li>
             <pre><code>
-                    '
-                    <b>public static double GetThresholdMedian(double[] array, double Threshold)</b>
+            '
+            <b>public static double GetThresholdMedian(double[] array, double Threshold)</b>
+            {
+                if (array == null || array.Lenght &lt 0)
+                    return null;
+
+                double aux = 0.0;
+                int count = 0;
+
+                for(int i = 0; i&ltarray.Length; i++)
+                {
+                    if(array[i] > Threshold)
                     {
-                        double aux = 0.0;
-                        int count = 0;
+                        aux += array[i];
+                        count++;
+                    }
+                }
+                return aux / count;
+            }                                                                        
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCION:</b> Crear una función que devuelva el número de veces que se repite el número de mayor valor.
+            <pre><code>
+            '
+            <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
+            {
+                if (list == null || list.Count &lt 0)
+                    return null;
 
-                        for(int i = 0; i&ltarray.Length; i++)
-                        {
-                            if(array[i] > Threshold)
-                            {
-                                aux += array[i];
-                                count ++;
-                            }
-                        }
-                        return aux / count;
-                    }                                                                        
-                    '
-                    </code></pre>
+                int result = 0;
+                int maxNumber;
+                maxNumber = GetMajor(list);
+    
+                for (int i = 0; i&ltlist.Count; i++)
+                {
+                    if (list[i] == maxNumber)
+                        result++;
+                }
+                return result;
+            }                                                                        
+            '
+            </code></pre>
         </li>
         <li>
-            <b>FUNCION:</b>
-            Crear una función que devuelva el número de veces que se repite el número de mayor valor.
+            El proceso para construir una función consiste en <b>SEPARAR EL PROBLEMA en PEQUEÑOS FRAGMENTOS FUNCIONALES</b>
         </li>
         <li>
+            <b>FUNCION:</b> Crear una función que devuelva la lista que se pasa por parametro en orden inverso.
             <pre><code>
-                    '
-                    <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
-                    {
-                        int result = 0;
-                        int maxNumber;
-                        maxNumber = GetMajor(list);
-            
-                        for (int i = 0; i&ltlist.Count; i++)
-                        {
-                            if (list[i] == maxNumber)
-                                result++;
-                        }
-                        return result;
-                    }                                                                        
-                    '
-                    </code></pre>
+            '
+            <b>public static List&ltint&gt GetReverseList(List&ltint&gt list)</b>
+            {
+                if (list == null || list.Count &lt 0)
+                    return null;
+    
+                List&ltint&gt result = new List&ltint&gt();
+    
+                for (int i = list.Count; i &ge; 0; i--)
+                {
+                    result.Add(result[i]);
+                }
+                return result;
+            }                                                                        
+            '
+            </code></pre>
         </li>
         <li>
-            <b>FUNCION:</b>
-            Crear una función que devuelva la lista que se pasa por parametro en orden inverso.
-        </li>
-        <li>
+            <b>FUNCION:</b> Crear una función que imprima los valores de una lista de enteros en pantalla
             <pre><code>
-                    '
-                    <b>public static List<int> GetReverseList(List&ltint%gt list)</b>
-                        {
-                            if (list == null || list.Count &lt 0)
-                                throw new Exception("Error");
-                
-                            List<int> result = new List<int>();
-                
-                            for (int i = list.Count; i &ge 0; i--)
-                            {
-                                result.Add(i);
-                            }
-                            return result;
-                        }                                                                        
-                    '
-                    </code></pre>
-        </li>
-        <li>
-            <b>FUNCION:</b>
-            Crear una función que imprima los valores de una lista de enteros en pantalla
-        </li>
-        <li>
-            <pre><code>
-                    '
-                    <b>public static void PrintList(List&ltint&gt list)</b>
-                        {
-                            for(int i = 0; i &ltlist.Count; i++)
-                            {
-                                Console.WriteLine(list[i]);
-                            }
-                        }                                                                        
-                    '
-                    </code></pre>
-        </li>
-        <li>
-            <b>FUNCION:</b>
-            Crear una función que imprima los valores de un array de enteros en pantalla
-        </li>
-        <li>
-            <pre><code>
-                    '
-                    <b>public static void PrintList(int[] array)</b>
-                        {
-                            for(int i = 0; i &ltarray.Length; i++)
-                            {
-                                Console.WriteLine(array[i]);
-                            }
-                        }                                                                        
-                    '
-                    </code></pre>
-        </li>
-        <li>
-            <b>FUNCION:</b>
-            Crear una función que añada un valor dado por parametros al final de un array de enteros.
-        </li>
-        <li>
-            <pre><code>
-                    '
-                    <b>public static void AddValueToArray(int[] array, int number)</b>
-                        {
-                            if(array == null || array.Length == 0)
-                                throw new Exception("Error");
+            '
+            <b>public static void PrintList(List&ltint&gt list)</b>
+            {
+                if (list == null || list.Count &lt 0)
+                return null;
 
-                            int[] result = new int[array.Length + 1];
+                for(int i = 0; i &ltlist.Count; i++)
+                {
+                    Console.WriteLine(list[i]);
+                }
+            }                                                                        
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCION:</b> Crear una función que imprima los valores de un array de enteros en pantalla
+            <pre><code>
+            '
+            <b>public static void PrintList(int[] array)</b>
+            {
+                if (array == null || array.Length &lt 0)
+                return null;
 
-                            for(int i = 0; i &ltarray.Length; i++)
-                            {
-                                result[i] = array[i];   
-                            }
+                for(int i = 0; i &lt array.Length; i++)
+                {
+                    Console.WriteLine(array[i]);
+                }
+            }                                                                        
+            '
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCION:</b> Crear una función que añada un valor dado por parametros al final de un array de enteros.
+            <pre><code>
+            '
+            <b>public static void AddValueToArray(int[] array, int number)</b>
+            {
+                if(array == null || array.Length == 0)
+                    return null;
 
-                            result[array.Length] = number;
-                        }                                                                        
-                    '
-                    </code></pre>
+                int[] result = new int[array.Length + 1];
+
+                for(int i = 0; i &lt array.Length; i++)
+                {
+                    result[i] = array[i];   
+                }
+
+                result[array.Length] = number;
+            }                                                                        
+            '
+            </code></pre>
         </li>
     </ul>
 

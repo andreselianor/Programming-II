@@ -18,28 +18,26 @@
     <a href="../index.html">Indice</a>
 
 
-    <ul class="clase·List" style="vertical-align: top;">
-
+    <ul class="clase·List">
         <h5 class="remarks">Sugerencias y Advertencias</h5>
         <li>
             Si mostramos una informacion por pantalla, hay dos opciones:
             <br>
-            Devolver 'void' o devolver 'string'. Es mejor la última opción.
+            Devolver <b>'void'</b> o devolver <b>'string'</b>. Es mejor la última opción.
         </li>
         <li>
-            Si tenemos que mostrar informacióno por pantalla y se trata de una serie, lo mejor es devolver una
-            Lista.
+            Si tenemos que mostrar información por pantalla y se trata de una serie, lo mejor es devolver <b>una
+            Lista</b>.
         </li>
         <li>
             En caso que tengamos una función 'void' y la validación sea negativa, podemos simplemente
-            devolver 'return'.
+            devolver <b>'return'</b>.
             <pre><code>
             '
             public static void Function(List&ltint&gt list)
             {
                 if (list == null)
-                    return ;
-            
+                    return;            
             }
             '
             </code></pre>
@@ -64,7 +62,7 @@
             Cambia el color de la fuente y del fondo de la consola.
         </li>
         <li>
-            <b> Es obligatorio validar todos los parámetros de entrada de una función.</b>
+            <b>Es obligatorio validar todos los parámetros de entrada de una función.</b>
         </li>
         <li>
             No es necesario validar que un array o lista entren con 0 elementos. Esto solo es necesario en
@@ -85,15 +83,14 @@
             </code></pre>
         </li>
         <li>
-            Las variables de una función STATIC deben declararse <b>DENTRO</b> de la propia función.
+            Las variables de una función <b>STATIC</b> deben declararse <b>DENTRO</b> de la propia función.
         </li>
         <li>
-            No se deben poner contadores <b>DENTRO</b> de un bucle FOR
+            No es aconsejable poner contadores <b>DENTRO</b> de un bucle <b>FOR</b>.
         </li>
         <li>
-            Siempre validamos las variables que implican una creación de objeto mediante NEW
+            Siempre <b>validamos las variables</b> que implican una creación de objeto mediante <i><b>'NEW'</b></i>.
         </li>
-        <br>
 
         <h5 class="remarks">Funcion <i>SWAP</i></h5>
         <li>
@@ -124,9 +121,9 @@
                 int n1 = list.Count - 1;
                 int n2 = list.Count;
 
-                for(int i = 0; i&ltn1; i++)
+                for(int i = 0; i &lt n1; i++)
                 {
-                    for(int j = i + 1; j&ltn2; j++)
+                    for(int j = i + 1; j &lt n2; j++)
                     {
                         aux = l[i];
                         l[i] = l[j];
