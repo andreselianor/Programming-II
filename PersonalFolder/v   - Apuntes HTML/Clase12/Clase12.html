@@ -174,7 +174,7 @@
             </code></pre>
         </li>
         <li>
-            Es buena idea utilizar el nombre de función <i>'Contains'</i> para evaluar si una lista contiene un
+            Es buena idea utilizar el nombre de función <b><i>'Contains'</i></b> para evaluar si una lista contiene un
             elemento.
         <li>
             Es aconsejable <b>validar los parámetros de entrada</b> de la función. Hay que comprobar que la
@@ -212,7 +212,7 @@
             </code></pre>
         </li>
         <li>
-            <b>FUNCIÓN:</b> Devuelve la posición del valor mayor.
+            <b>FUNCIÓN:</b> Se le pasa una lista de enteros y te devuelve la posición del valor mayor.
             <pre><code>
             '
             public class ListExample
@@ -240,14 +240,31 @@
             </code></pre>
         </li>
         <li>
-            Los valores de índice se establecen por convención como <b><i>index</i></b>
+            Los valores de índice se establecen por convención como <b><i>'index'</i></b>.
         </li>
         <li>
             Podemos llamar a la función anterior para buscar el valor mayor, pero tendríamos el problema de
             recorrer dos <i>for</i> distintos, con el doble de carga para el programa. Es preferible crear
             un único for que resuelva este problema.
         </li>
-        <br>
+        <li>
+            Debemos validar dos entradas en una lista: que no apunte a null, y que la lista no esté vacía.
+            <pre><code>
+                '
+                public static int Validate()
+                {
+                    if(list == null)            // La lista apunta a null                   
+                        return 0;
+
+                    if(list.Count == null)      // La lista no contiene elementos.
+                        return 0;
+
+                    if(list == null)
+                        return -1;              //  Si se trata de índices devuelve -1.
+                }
+                '
+            </code></pre>
+        </li>
         <li>
             <b>FUNCIÓN:</b> Devuelve 'true' o 'false' si una lista que se le pasa por parámetros está ordenada.
             <pre><code>

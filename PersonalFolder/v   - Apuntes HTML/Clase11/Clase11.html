@@ -42,7 +42,8 @@
             Su funcionamiento es similar al de un objeto, creado a partir de la clase LIST.
         </li>
         <li>
-            El objeto LIST se crea en el momento que hacemos <b>NEW</b>. Esto quiere decir que la asignación a una variable
+            El objeto LIST se crea en el momento que hacemos <b>NEW</b>. Esto quiere decir que la asignación a una
+            variable
             no crea el objeto en sí mismo.
         </li>
         <li>
@@ -120,7 +121,7 @@
         <h4 class="remarks">Arrays</h4>
         <li>
             Son colecciones de elementos, rígidas y estáticas, del tipo que se indique en su definición.
-            Tienen la característica particula que no permiten cambiar el tamaño de la colección, ni añadir o eliminar
+            Tienen la característica particular que no permiten cambiar el tamaño de la colección, ni añadir o eliminar
             elementos posteriormente a su creación. De hecho, es obligatorio definir su tamaño en el momento que creamos
             el objeto.
             <pre><code>
@@ -153,7 +154,7 @@
 
         <h4 class="remarks">Funciones de ejemplo</h4>
         <li>
-            <b>FUNCIÓN:</b>Se le pasa una lista de strings y devuelve el número de elementos que hay en su
+            <b>FUNCIÓN:</b> Se le pasa una lista de strings y devuelve el número de elementos que hay en su
             interior.
             <pre><code>
             '
@@ -168,7 +169,12 @@
             </code></pre>
         </li>
         <li>
-            <b>FUNCIÓN:</b>Se le pasa una lista de dobles y devuelve el número de elementos que son positivos.
+            'list' es solo el puntero que apunta una dirección de la RAM donde se almacenan los datos particulares.
+            Realmente es un número entero, por ejemplo 380.000. Esto quiere decir que hasta que no hacemos el 'NEW' no
+            estamos creando ninguna lista
+        </li>
+        <li>
+            <b>FUNCIÓN:</b> Se le pasa una lista de dobles y devuelve el número de elementos que son positivos.
             <pre><code>
             '                     
             <b>public static int GetPositiveListItems(List&ltdouble&gt list)</b>
@@ -185,15 +191,15 @@
             </code></pre>
         </li>
         <li>
-            <b>FUNCIÓN:</b>Se le pasa un array de dobles y devuelve el número de elementos que son positivos.
+            <b>FUNCIÓN:</b> Se le pasa un array de dobles y devuelve el número de elementos que son positivos.
             <pre><code>
             '                       
-            <b>public static int GetPositiveArrayItems(double[] list)</b>
+            <b>public static int GetPositiveArrayItems(double[] array)</b>
             {
                 int result = 0;
-                for(int i = 0; i &lt list.Length; i++)
+                for(int i = 0; i &lt array.Length; i++)
                 {
-                    if(list[i] > 0)
+                    if(array[i] > 0)
                         result++;
                 }
                 return result;
