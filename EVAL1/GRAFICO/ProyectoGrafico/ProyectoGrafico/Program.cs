@@ -1,127 +1,134 @@
-﻿using OpenTK.Core;
+﻿using System;
 using UDK;
 
-namespace ProyectoGrafico
+namespace Grafico1
 {
     internal class Program
     {
-        
         static void Main(string[] args)
         {
             MyGame game = new MyGame();
-
             UDK.Game.Launch(game);
         }
     }
-	
-	public class Utils
-    {
-        private static Random random = new Random();
-
-        public static double GetRandom()        
-            return random.NextDouble();
-        
-
-        public static double GetRandomDouble(double min, double max)        
-            return (min + (random.NextDouble() * (max - min)));        
-    }
-
-    public class Character
-    {
-        public double x;
-        public double y;
-        public double colorR = 0.0;
-        public double colorG = 0.0;
-        public double colorB = 1.0;
-    }
-
 
     public class MyGame : UDK.IGameDelegate
     {
-        double x = 0;
-        double y = 0;
-        Character Player1;
-        Character Enemy1;
-        List<Character> EnemyCharacters;
 
+        double width = 10.0;
+        double height = 10.0;
+
+        Character Player1;
+        Character Thief;
+        List<Character> _listMinion;
+
+        Character Minion1;
+        Character Minion2;
+        Character Minion3;
 
         public void OnLoad(GameDelegateEvent gameEvent)
         {
             Player1 = new Character();
-            Player1.x = 50;
-            Player1.y = 50;
+            Player1.posX = width / 2;
+            Player1.posY = height / 2;
 
+            Thief = new Character();
+            Thief.posX = 2.0;
+            Thief.posY = 2.0;
 
-            Enemy1 = new Character();
-            Enemy1.x = 10;
-            Enemy1.y = 10;
+            _listMinion = new List<Character>();
+            Minion1 = new Character();
+            Minion2 = new Character();
+            Minion3 = new Character();
 
-            EnemyCharacters = new List<Character>();
+            _listMinion.Add(Minion1);
+            _listMinion.Add(Minion2);
+            _listMinion.Add(Minion3);
 
-            EnemyCharacters.Add(new Character());
-            EnemyCharacters.Add(new Character());
-            EnemyCharacters.Add(new Character());
-            EnemyCharacters.Add(new Character());
-
-            for(int i = 0; i < EnemyCharacters.Count; i++)
+            for (int i = 0; i < _listMinion.Count; i++)
             {
-                EnemyCharacters[i].x = Utils.GetRandomDouble(0, 50);
-                EnemyCharacters[i].y = Utils.GetRandomDouble(0, 50);
+                _listMinion[i].posX = Utils.GetRandom(0, width);
+                _listMinion[i].posY = Utils.GetRandom(0, height);
             }
-            
         }
-
-        public void OnKeyboard(GameDelegateEvent gameEvent, IKeyboard keyboard, IMouse mouse)
-        {
-            if (keyboard.IsKeyUp(Keys.Right))
-                Player1.x -= 0.01;
-            if (keyboard.IsKeyUp(Keys.Left))
-                Player1.x += 0.01;
-            if (keyboard.IsKeyUp(Keys.Up))
-                Player1.y -= 0.01;
-            if (keyboard.IsKeyUp(Keys.Down))
-                Player1.y += 0.01;
-
-        }
-
 
         public void OnAnimate(GameDelegateEvent gameEvent)
-        {
-            double movementx = Utils.GetRandomDouble(0,0.5);
-            double movementy = Utils.GetRandomDouble(0, 0.5);
-            Enemy1.x = movementx;
-            Enemy1.y = movementy;
-
-            for(int i = 0; i < EnemyCharacters.Count; i++)
-            {
-                EnemyCharacters[i].x = movementx;
-                EnemyCharacters[i].y = movementy;
-            }
+        {            
+            Thief.posX = Utils.GetRandom(1, 1.2);
+            Thief.posY = Utils.GetRandom(1, 1.2);
         }
 
         public void OnDraw(GameDelegateEvent gameEvent, ICanvas canvas)
         {
-                                                                    // Luces de color
-            canvas.Clear(0.0,0.0,0.0,1.0);                          // Limpiar el canvas
-            canvas.Camera.SetRectangle(0, 0, 100, 100);               // Colocar la camara del canvas
+            // Canvas
+            canvas.Clear(0.0, 0.0, 0.0, 1.0);
+            canvas.Camera.SetRectangle(0, 0, width, height);
 
-            canvas.FillShader.SetColor(1.0, 0.0, 0.0, 1.0);                              // Color del Camera 
-            canvas.DrawRectangle(Enemy1.x + 30, Enemy1.y + 30, 5, 5);                       // rectangulo
+            // Police
+            canvas.FillShader.SetColor(0.0, 0.0, 1.0, 1.0);
+            canvas.DrawRectangle(Player1.posX,Player1.posY,Player1.characterWidth, Player1.characterHeight);
 
-            canvas.FillShader.SetColor(Player1.colorR, Player1.colorG, Player1.colorB, 1.0);
-            canvas.DrawRectangle(Player1.x, Player1.y, 5, 5);
+            // ThiefBoss
+            canvas.FillShader.SetColor(1.0, 0.0, 0.0, 1.0);
+            canvas.DrawRectangle(Thief.posX, Thief.posY, Thief.characterWidth, Thief.characterHeight);
 
-            for (int i = 0; i < EnemyCharacters.Count; i++)
-            {                
-                canvas.FillShader.SetColor(0.0, 1.0, 0.0, 1.0);
-                canvas.DrawRectangle(EnemyCharacters[i].x, EnemyCharacters[i].y, 5, 5);
-                
+            // Minions
+            canvas.FillShader.SetColor(0.0, 1.0, 1.0, 1.0);
+            
+            for (int i = 0; i < _listMinion.Count; i++)
+            {
+                canvas.DrawRectangle(_listMinion[i].posX, _listMinion[i].posY,
+                                     _listMinion[i].characterWidth, _listMinion[i].characterHeight);
             }
             
+
+            // Para optimizar la programacion orientada a objetos
+            // es mejor sustituir este for por:
+            // Player1.Draw()
+            // una funcion de objeto definida en la clase Character
+            // PINTA el objeto Player1
+        }
+
+        public void OnKeyboard(GameDelegateEvent gameEvent, IKeyboard keyboard, IMouse mouse)
+        {
+            if (keyboard.IsKeyDown(Keys.Up))            
+                Player1.posY += 0.01;            
+
+            if (keyboard.IsKeyDown(Keys.Down))            
+                Player1.posY -= 0.01;            
+
+            if (keyboard.IsKeyDown(Keys.Right))            
+                Player1.posX += 0.01;            
+
+            if (keyboard.IsKeyDown(Keys.Left))            
+                Player1.posX -= 0.01;            
         }
 
         public void OnUnload(GameDelegateEvent gameEvent)
         {
+        }
+    }
+
+    public class Character
+    {
+        public double posX;
+        public double posY;
+
+        public double characterWidth = 1;
+        public double characterHeight = 1;
+    }
+
+    public class Utils
+    {
+        private static Random random = new Random();
+        public static double GetRandom(double min, double max)
+        {
+            return (min + random.NextDouble() * (max - min));
+        }
+
+        public static int GetIntRandom(int min, int max)
+        {
+            return random.Next(min, max);
         }
     }
 }
