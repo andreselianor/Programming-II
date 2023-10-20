@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 17</title>
+    <title>Clase 20</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,149 +12,173 @@
 
 <body>
     <header>
-        <h1>Clase 17</h1>
-        <h3>Viernes, 13 Octubre 2023</h3>
+        <h1>Clase 20</h1>
+        <h3>Jueves, 19 Octubre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
-    <ul class="clase·List" style="vertical-align: top;">
+    <ul class="clase·List">
 
-        <h5 class="remarks">Funciones complejas de contenedores</h5>
+        <h5 class="remarks">Interfaz gráfica</h5>
         <li>
-            <b>FUNCION</b> le paso una lista de enteros y una posicion <i>'index'</i>. La funcion elimina el
-            valor que se encuentra en la posicion 'index'
-            <code><pre>
-            '
-            <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
-            {
-                list.RemoveAt(index);
-            }
-            
-            // Elimina el elemento que esta en la <b>posicion 'index'</b>
-
-            <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
-            {
-                list.Remove(index);
-            }
-            '
-            // Elimina el elemento cuyo <b>valor es 'index'</b>
-            </pre></code>
-        </li>
-        <li>
-            La función <b>'Remove()'</b> esta <b>PROHIBIDA</b>. Siempre usaremos <b>'RemoveAt()</b>
-        </li>
-        <li>
-            <b>Funcion</b> que le paso una lista y un valor que quiero borrar.
-            <code><pre>
-            '
-            <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
-            {
-                if (list == null)
-                    return;
-    
-                for (int i = 0; i &lt list.Count; i++)
-                {
-                    if (list[i] == value)
-                    {
-                        list.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-            '
-            </code></pre>
-        </li>
-        <li>
-            Si le introduzco un punto de ruptura <b>'break'</b> inmediatamente sale del bucle donde está
-            anidado.
-            <br>
-            Un 'IF' no es un bucle, solo 'WHILE' Y 'FOR'
-        </li>
-        <li>
-            <b>Funcion</b> con un punto de ruptura 'BREAK'
-            <code><pre>
-            '
-            <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
-            {
-                <i>for(int i = 0; i &lt list.Count; i++)</i>
-                {
-                    list.RemoveAt(i);
-                    i--;
-                    break;          // Rompe el bucle anidado 'FOR'
-                }                            
-            }
-            '
-            </code></pre>
-        </li>
-        <li>
-            IMPORTANTE: Si utilizamos i++ ó i-- como una <b>expresion</b> su funcionamiento es distinto al
-            habitual:
-            <br>
-            <b>i++</b>
-            <br>
-            Primero la variable asignada es <b>IGUAL</b> a 'i' y cuando se evalua toda la expresión se
-            <b>INCREMENTA</b> la 'i'.
-            <br>
-            <b>++i</b>
-            <br>
-            Primero la variable asignada es el <b>INCREMENTO</b> de 'i' y cuando se evalua toda la expresión
-            se
-            <b>INCREMENTA</b> la 'i'.
-        </li>
-        <li>
-            <b>FUNCION:</b>Se le pasa una lista y queremos borrar de esta lista otra lista de valores que se
-            le pasan.
-        </li>
-        <li>
+            Es posible crear objetos de forma dinámica. Para ello utilizamos un bucle 'for' para crear un numero 'i' de
+            personajes
             <pre><code>
             '
-            <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
+            for(int i = 0; i&ltcountEnemies; i++)
             {
-                for(int j = 0; j &lt listValues; j++)
-                {
-                    for(int i = 0; i &lt list; i++)
-                    {
-                        if(list[i] == list[j])
-                            list.RemoveAt(i--);
-                    }
-                }
-            }
-        
-            <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
-            {
-                for(int i = 0; i &lt listValues; i++)
-                {
-                    for(int j = 0; j &lt list; j++)
-                    {
-                        if(list[i] == list[j])
-                            list.RemoveAt(i--);
-                    }
-                }
+                Character character = new Character();
+                list.Add(character);
             }
             '
             </code></pre>
         </li>
+        <li>
+            Estudio del color. RGB frente a CMYK.
+            <br>
+            <b>RGB</b> es habitual utilizarlo cuando pintamos sobre fondos negros, pantallas.
+            <br>
+            <b>CMYK</b> es habitual utilizarlo cuando pintamos sobre fondos blancos, papel. Lo normal es necesitar
+            imprimir el color negro cuando interactuamos sobre pantallas blancas.
+        </li>
+        <li>
+            Es mucho mas util para un programador pensar en tantos por uno.
+        </li>
+        <li>
+            Para pintar todos los elementos de nuestra pantalla, utilizamos las listas.
+        </li>
+        <li>
+            Existen dos formas de utilizar los parametros de las funciones:
+            <br>
+            '
+            r = 1.0;
+            g = 1.0;
+            b = 1.0;
+            Draw(r,g,b);
+            '
+            <br>
+            En el momento de dibujar recogemos las variables
+            <br>
+            '
+            Draw(r = 1.0, g = 1.0, b = 1.0);
+            '
+            <br>
+            Primero asigna todos los valores, y después realiza la función Draw(); Es menos aconsejable.
+        </li>
+        <li>
+            El <b>Draw()</b> no cambia valores ni posiciones. El <b>Draw()</b> unicamente dibuja. Tenemos el
+            <b>Animate()</b> para realizar cambios en el dibujo.
+        </li>
+        <li>
+            Si tenemos valores que son muy repetitivos y largos de escribir, lo mas conveniente es utilizar variables
+            donde almacenar estos valores
+            <br>
+            '
+            player[i] // Mejor en una variable
 
-        <h5 class="remarks">Consejos y Sugerencias</h5>
-        <li>
-            <b>CONSEJO:</b> No es adecuado contener un 'FOR' dentro de otro 'FOR'. Es mejor solución llamar
-            a las funciones desde el interior del primer 'FOR'
+            Character pj;
+            pj = player[i];
+            '
         </li>
         <li>
-            Si trabajas con 'Listas' es mejor no devolver nada. Por otro lado si trabajas con 'Arrays' lo
-            normal es devolver un 'Array'
+            Estudiamos la filosofía de la programación orientada a objetos.
+            <br>
+            Vamos a cambiar el funcionamiento de la función <b>OnDraw()</b>.
+            <pre><code>
+            '
+            public class World
+            {
+                <b>public void OnDraw(Icanvas canvas)</b>
+                {
+                    for(int i = 0; i&ltlist.Count; i++)
+                    {
+                        canvas.FillShader.SetColor(r,g,b,a);
+                        canvas.DrawRectangle(x,y,w,h);
+                    }
+                }
+            }            
+            '
+            <br>
+            Por este otro, mejor orientado a los objetos.
+            <br>
+            '
+            public class World
+            {
+                <b>public void OnDraw(Icanvas canvas)</b>
+                {
+                    for(int i = 0; i&ltlist.Count; i++)
+                    {
+                        list[i].Draw(canvas);
+                    }                    
+                }                
+            }
+
+            public class Character
+            {
+                <b>public void Draw(Icanvas canvas)</b>
+                {
+                    for(int i = 0; i&ltlist.Count; i++)
+                    {
+                        canvas.FillShader.SetColor(r,g,b,a);
+                        canvas.DrawRectangle(x,y,w,h);
+                    }                    
+                }                
+            }
+            '
+        </code></pre>
+            Aquí se ordena al elemento 'i' de la lista que tiene la clase 'Mundo', que se pinte. Esta orden invoca a la
+            función de objeto de la clase Character, donde se establece como debe pintarse este personaje.
+            <br>
+            Hemos separado el funcionamiento de Draw(), de manera que ahora desde la clase superior, llamamos a la
+            funcion del objeto instancia para que se pinte.
+            <br>
+            Es importante pasarle el 'Icanvas canvas' para que pueda utilizar la función del SDK.
         </li>
         <li>
-            <b>WARNING:</b> Cuando declaramos un tipo de dato, el compilador no espera que pueda devolver
-            'null'.
-            <br>
-            Si añadimos <b>?</b> al final del tipo de dato, le indicamos al compilador que este datos <b>SI
-                PUEDE SER NULL</b>.
-            <br>
-            int[]? --> PUEDE SER NULL
-            <br>
-            int[] --> NO DEBERÍA SER NULL
+            Siempre que utilizamos metodos de objeto y llamadas de ese objeto, se añade implicitamente una orden
+            'this.', que es invisible para el usuario gracias al runtime, y que apunta hacia el objeto que se encuentra
+            en ese mismo momento en ejecución.
+            <pre><code>
+            '
+            public class Character
+            {
+                <b>public void Draw(Icanvas canvas)</b>
+                {
+                    for(int i = 0; i&ltlist.Count; i++)
+                    {
+                        canvas.FillShader.SetColor(this.r,this.g,this.b,this.a);
+                        canvas.DrawRectangle(this.x,this.y,this.w,this.h);
+                    }                    
+                }                            
+            '                
+            </code></pre>
         </li>
+        <li>
+            A partir de ahora vamos a separar las clases según su jerarquía en el programa. Cada clase crea un objeto de
+            una clase mas específica, de modo que el funcionamiento del programa sea, a la vez eficiente y sencillo de
+            entender.
+        </li>
+        <li>
+            Debemos crear las siguientes clases en nuestro programa: Program, MyGame, World, Character y Utils
+        </li>
+        <li>
+            Las Listas, realmente son arrays con Metodos diseñados por los programadores de C# para facilitar su uso.
+        </li>
+        <li>
+            El Program perfecto es el siguiente:
+            <pre><code>
+            '
+            public class Program
+            {
+                public static void Main()
+                {
+                    MyGame game = new MyGame();
+                    UDK.Game.Launch(game);
+                }
+            }
+            '
+            </code></pre>
+        </li>        
     </ul>
 </body>
 
