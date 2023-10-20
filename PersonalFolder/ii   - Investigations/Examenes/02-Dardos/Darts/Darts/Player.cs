@@ -5,6 +5,7 @@
         private string _name = "";
         private int _playerNumber;
         private int _chips;
+        private int _puntuationRound;
 
         public Player()
         {
@@ -22,6 +23,12 @@
         {
             get { return _chips; }
             set { _chips = value; }
+        }
+
+        public int PuntuationRound
+        {
+            get { return _puntuationRound; }
+            set { _puntuationRound = value; }
         }
     }
 }

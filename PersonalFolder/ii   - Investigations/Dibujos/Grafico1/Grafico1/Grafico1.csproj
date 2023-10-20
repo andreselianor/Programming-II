@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="10.18\**" />
+    <EmbeddedResource Remove="10.18\**" />
+    <None Remove="10.18\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OpenAL.Soft" Version="1.19.1" />
     <PackageReference Include="UDK" Version="1.0.0" />
   </ItemGroup>

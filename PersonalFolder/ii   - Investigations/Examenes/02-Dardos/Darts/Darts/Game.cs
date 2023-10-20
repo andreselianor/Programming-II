@@ -21,7 +21,12 @@
             {
                 BetChips(_listPlayer[i]);
             }
-            
+
+            for (int i = 0; i < _listPlayer.Count; i++)
+            {
+                ThrowDarts(_listPlayer[i]);
+            }
+
         }
 
         public string Winner()
@@ -49,6 +54,17 @@
 
             _totalBet += bet;
             p.Chips -= bet;
+        }
+
+        public void ThrowDarts(Player p)
+        {
+            int dartsNumber = 3;
+            int ability = Utils.GetRandom(0, 6);
+            p.PuntuationRound = 0;            
+            for(int i = 0; i < dartsNumber; i++)
+            {
+                p.PuntuationRound += Utils.CalculatePuntuation(ability);
+            }
         }
     }
 }
