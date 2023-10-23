@@ -81,8 +81,10 @@ namespace Grafico1
 
         public void Move()
         {
+            /*
             velocity += 0.001;
-            rectangle.Y = (Math.Sin(velocity) * 4) + 5;            
+            rectangle.Y = (Math.Sin(velocity) * 4) + 5; 
+            */
         }
     }
 }

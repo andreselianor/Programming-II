@@ -56,6 +56,9 @@ namespace Grafico1
 
         public void OnAnimate(GameDelegateEvent gameEvent)
         {
+            listPolice = world.actores.ListPolice;
+
+
             // MOVEMENT
             listThief = world.actores.ListThief;
             for (int i = 0; i < listThief.Count; i++)
@@ -64,7 +67,7 @@ namespace Grafico1
             }
 
             // CHASING INTERSECTION
-            listPolice = world.actores.ListPolice;
+
             listPolice[0].rectangle.IntersectionRectangle(listThief[0].rectangle);
 
             if (listPolice[0].rectangle.IntersectionRectangle(listThief[0].rectangle))
@@ -80,19 +83,42 @@ namespace Grafico1
             Player1 = world.GetPoliceList()[0];
 
             if (keyboard.IsKeyDown(Keys.Up))
-                Player1.rectangle.Y += 0.01;
+            {
+                if (world.HasReachLimitWorld(Player1.rectangle))
+                    Player1.rectangle.Y -= 0.01;
+                else
+                    Player1.rectangle.Y += 0.01;
+            }
 
             if (keyboard.IsKeyDown(Keys.Down))
-                Player1.rectangle.Y -= 0.01;
+            {
+                if (world.HasReachLimitWorld(Player1.rectangle))
+                    Player1.rectangle.Y += 0.01;
+                else
+                    Player1.rectangle.Y -= 0.01;
+            }
 
             if (keyboard.IsKeyDown(Keys.Right))
-                Player1.rectangle.X += 0.01;
+            {
+                if (world.HasReachLimitWorld(Player1.rectangle))
+                    Player1.rectangle.X -= 0.01;
+                else
+                    Player1.rectangle.X += 0.01;
+            }
 
             if (keyboard.IsKeyDown(Keys.Left))
-                Player1.rectangle.X -= 0.01;
+            {
+                if (world.HasReachLimitWorld(Player1.rectangle))
+                    Player1.rectangle.X += 0.01;
+                else
+                    Player1.rectangle.X -= 0.01;
+            }
 
-            if (keyboard.IsKeyDown(Keys.Space))           
 
+            if (keyboard.IsKeyDown(Keys.Space))
+            {
+
+            }
 
             // PLAYER 2
             Player2 = world.GetPoliceList()[1];         // TODO: PROBLEMA DE ACCESO AL INDEX 1

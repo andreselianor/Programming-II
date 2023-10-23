@@ -1,4 +1,6 @@
-﻿namespace Grafico1
+﻿using System.Drawing;
+
+namespace Grafico1
 {
     public class World
     {
@@ -61,6 +63,23 @@
             }
             return null;
         }
+
+        public bool HasReachLimitWorld(Rectangle rectangle)
+        {
+
+            if (rectangle.X > WidthWorld)
+                return true;
+            if (rectangle.X < 0)
+                return true;
+            if (rectangle.Y > HeightWorld)
+                return true;
+            if (rectangle.Y < 0)
+                return true;
+
+            return false;
+        }
+
+
 
         /* NO COMPILA
         public void CreateQuieters(double x, double y)
