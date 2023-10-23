@@ -14,33 +14,41 @@
 
     public class Hour
     {
-        private int date;       // mejor con tipo de dato 'date'?
-        private int hour;
+        private DateTime date;       // mejor con tipo de dato 'date'?        
     }
 
-    public class Animal
+    public interface IAnimal
     {
-        private bool IsVaccined;
-        private string id;
-        private Stable stableNumber;     // referencia al establo
-        protected double weight;
-
-        public string GetId => id;
+        bool IsVaccined();
+        string Id();
+        Stable stableNumber();     
+        double Weight();
+        bool AbleToFly();        
     }
 
-    public class FlyingAnimal : Animal
+    public interface IFlyingAnimal : IAnimal
     {
-        protected bool AbleToFly;             // mejor en la clase padre   
+                    
     }
 
-    public class TerrestrialAnimal : Animal
+    public interface ITerrestrialAnimal : IAnimal
     {
-        protected bool AbleToFly;             // mejor en la clase padre   
+                    
     }
 
-    abstract public class Horse : TerrestrialAnimal
+    public class Horse : ITerrestrialAnimal
     {
-        abstract public double GetQualification();
+        public bool IsVaccined() { }
+        
+        string Id();
+        Stable stableNumber();
+        double Weight();
+        bool AbleToFly();
+
+        virtual public double GetQualification()
+        {
+            return 1.0;
+        }
     }
 
     public class HorseDomated : Horse

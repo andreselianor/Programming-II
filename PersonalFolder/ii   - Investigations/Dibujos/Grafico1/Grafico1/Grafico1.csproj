@@ -9,8 +9,11 @@
 
   <ItemGroup>
     <Compile Remove="10.18\**" />
+    <Compile Remove="10.19\**" />
     <EmbeddedResource Remove="10.18\**" />
+    <EmbeddedResource Remove="10.19\**" />
     <None Remove="10.18\**" />
+    <None Remove="10.19\**" />
   </ItemGroup>
 
   <ItemGroup>

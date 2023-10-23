@@ -3,7 +3,7 @@
     public class Utils
     {
         private static Random random = new Random();
-        public static double GetDoubleRandom(double min, double max)
+        public static double GetRandom(double min, double max)
         {
             return (min + random.NextDouble() * (max - min));
         }

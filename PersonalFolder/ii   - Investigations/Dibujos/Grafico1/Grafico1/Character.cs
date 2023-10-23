@@ -10,15 +10,11 @@ namespace Grafico1
     }
     public class Character
     {
-        public double posX;
-        public double posY;
-
-        public double characterWidth = 1;
-        public double characterHeight = 1;
-
+        public Rectangle rectangle = new Rectangle();
         public CharacterType type;
+        public double velocity = 0;
 
-        public double[] policeColor = new double[4]
+        private double[] policeColor = new double[4]
         {
             0.2,
             0.2,
@@ -26,29 +22,20 @@ namespace Grafico1
             0.8
         };
 
-        public double[] thiefColor = new double[4]
+        private double[] thiefColor = new double[4]
         {
             0.2,
             0.8,
             0.2,
             0.8
         };
-        public double[] bossColor = new double[4]
+        private double[] bossColor = new double[4]
         {
             0.8,
             0.2,
             0.2,
             0.8
         };
-
-        public double movement = 0;
-        public double variation = 0;
-
-
-
-        // GETTER
-        public CharacterType GetCharacterType => type;
-
 
 
         // CONSTRUCTORES
@@ -57,17 +44,22 @@ namespace Grafico1
 
         }
 
-        public Character(CharacterType typeValue, double positionXValue, double PositionYValue)
+        public Character(CharacterType typeValue, double positionXValue, double positionYValue)
         {
             type = typeValue;
-            posX = positionXValue;
-            posY = PositionYValue;
+            rectangle.X = positionXValue;
+            rectangle.Y = positionYValue;
         }
 
 
-        // METODOS DE CLASE
-        public void Draw(ICanvas canvas, CharacterType type)
+        // METODOS
+        public void Draw(ICanvas canvas)
         {
+            double posX = rectangle.X;  // TODO:DUDA DE VARIABLES
+            double posY = rectangle.Y;
+            double characterWidth = rectangle.Width;
+            double characterHeight = rectangle.Height;
+
             if (type == CharacterType.PLAYER)
             {
                 canvas.FillShader.SetColor(policeColor[0], policeColor[1], policeColor[2], policeColor[3]);
@@ -89,9 +81,8 @@ namespace Grafico1
 
         public void Move()
         {
-            //movement += 1.0 / 1000.0;
-            variation += 0.001;
-            posX = Math.Sin(variation);            
+            velocity += 0.001;
+            rectangle.Y = (Math.Sin(velocity) * 4) + 5;            
         }
     }
 }

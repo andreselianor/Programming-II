@@ -8,25 +8,29 @@
             return random.Next(min,max);
         }
 
-        public static int CalculatePuntuation(int number)
+        public static double ThrowAbility()
+        {
+            return random.NextDouble();
+        }
+
+        public static int CalculatePuntuation(double number)
         {
             switch (number)
             {
-                case 0:
+                case < 1:
                     return 0;
-                case 1:
+                case < 2:
                     return 1;
-                case 2:
+                case < 3:
                     return 5;
-                case 3:
+                case < 4:
                     return 10;
-                case 4:
+                case < 5:
                     return 50;
-                case 5:
+                case < 6:
                     return 100;
-                default:
-                    return 101;
             }
+            return 0;
         }
     }
 }
