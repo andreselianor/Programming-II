@@ -4,7 +4,7 @@
     {
         private double _capacity;
         private double _quantity;
-            
+
         public double SetQuantity(double value)
         {
             if (value < 0)
@@ -12,10 +12,10 @@
 
             _quantity = value;
 
-            if(_quantity > _capacity)
+            if (_quantity > _capacity)
             {
                 _quantity = _capacity;
-                return value - _quantity;
+                return (value - _quantity);
             }
             return 0;
         }
@@ -30,7 +30,10 @@
             if (value < 0)
                 _capacity = 0;
 
-            _capacity = value;
+            if (_quantity > _capacity)
+                _capacity = _quantity;
+            else
+                _capacity = value;
         }
 
         public double GetCapacity()
@@ -39,6 +42,9 @@
         }
         public double GetPercent()
         {
+            if (_capacity == 0)
+                return double.NaN;
+
             return _quantity / _capacity;
         }
 
