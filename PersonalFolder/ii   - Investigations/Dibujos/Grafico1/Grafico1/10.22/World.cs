@@ -1,41 +1,26 @@
-﻿using System.Drawing;
-using UDK;
-
-namespace Grafico1
+﻿namespace Grafico1
 {
     public class World
     {
-        public Rectangle rectangle;
 
-        private double[] WorldColor = new double[]
-        {
-            0.2,    
-            0.8,    
-            0.4,
-            0.2
-        };
+        private double _widthWorld = 10.0;
+        private double _heightWorld = 10.0;
 
         private int policeCount = 2;
         private int thiefCount = 4;
         private int bossCount = 1;
-              
+
+        public double WidthWorld => _widthWorld;
+        public double HeightWorld => _heightWorld;
+
+
         public Actores actores = new Actores();       
         public List<Character> listActores = new List<Character>();
 
         public NoActores noActores = new NoActores();
         public List<NoActores> listNoActores = new List<NoActores>();
 
-
-        public void CreateWorld(double widthWorld, double heightWorld)
-        {
-            rectangle = new Rectangle(0, 0, widthWorld, heightWorld);
-        }
-
-        public void DrawWorld(ICanvas canvas)
-        {
-            canvas.FillShader.SetColor(WorldColor[0], WorldColor[1], WorldColor[2], WorldColor[3]);
-            canvas.DrawRectangle(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
-        }
+        // EL MUNDO TIENE ACTORES, NOACTORES, ITEMS, ENVIRONMENT, LANDSCAPE           
 
         public void CreateActers()
         {
@@ -77,27 +62,11 @@ namespace Grafico1
             return null;
         }
 
-        public bool HasPlayerReachLimit(Character character)
-        {
-            Rectangle limitWorld = new Rectangle();
-            limitWorld = rectangle;
-
-            Rectangle reference = new Rectangle();
-            reference = character.rectangle;
-
-            if (reference.X <= -1 || reference.X >= limitWorld.Width)
-                return true;
-            if (reference.Y <= -1 || reference.Y >= limitWorld.Height)
-                return true;
-
-            return false;
-        }
-
         /* NO COMPILA
         public void CreateQuieters(double x, double y)
         {
             NoActores q = new NoActores();
-            listNoActores.CreateBombs(x, y);
+            listNoActores.CreateQuieters(x, y);
             listNoActores.Add(q);
         }
         */

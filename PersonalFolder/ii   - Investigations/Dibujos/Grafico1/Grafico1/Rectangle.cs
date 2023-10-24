@@ -2,71 +2,77 @@
 {
     public class Rectangle
     {
-        private double x;
-        private double y;
+        private double _x;
+        private double _y;
 
-        private double width;
-        private double height;
+        private double _width;
+        private double _height;
 
 
-        // CONSTRUCTORES
+        #region Constructores
         public Rectangle()
         {
-            width = 1;
-            height = 1;
+
         }
-        public Rectangle(double x, double y)
+        public Rectangle(double PositionX, double PositionY, double widthValue, double heightValue)
         {
-            this.x = x;
-            this.y = y;
-            width = 1;
-            height = 1;
+            _x = PositionX;
+            _y = PositionY;
+            _width = widthValue;
+            _height = heightValue;
         }
+        #endregion
 
 
-        // GETTERS & SETTERS
+        #region Properties
         public double X
         {
-            get{ return x; }
-            set { x = value; }
+            get{ return _x; }
+            set { _x = value; }
         }
         public double Y
         {
-            get { return y; }
-            set { y = value; }
+            get { return _y; }
+            set { _y = value; }
         }
 
         public double Width
         {
-            get { return width; }
-            set { width = value; }
+            get { return _width; }
         }
 
         public double Height
         {
-            get { return height; }
-            set { height = value; }
+            get { return _height; }
         }
+        #endregion
 
 
         // METODOS
-        public bool IntersectionRectangle(Rectangle r)
+        public void SetWidth(double value)
         {
-            if (this.x > r.x && this.x < r.x + r.width) // TODO: 4 CONDICIONALES?
+            _width = value;
+        }
+
+        public void SetHeight(double value)
+        {
+            _height = value;
+        }
+
+        public bool IntersectionRectangle(Rectangle rectangle)
+        {
+            if (this._x > rectangle._x && this._x < rectangle._x + rectangle._width &&
+                this._y > rectangle._y && this._y < rectangle._y + rectangle._height) 
             {
                 return true;
             }
+
             return false;                
         }
 
-        public void Destroy()
-        {
-            double velocity = 0;
-            while(width > 0)
-            {
-                
-                
-            }                        
+        public void DeleteActors(double velocity)
+        {            
+            SetWidth(velocity);            
         }
     }
 }
