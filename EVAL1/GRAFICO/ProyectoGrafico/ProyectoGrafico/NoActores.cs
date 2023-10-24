@@ -4,9 +4,9 @@
     {
         Rectangle r;
 
-        public void CreateNoActers(double x, double y)
+        public void CreateNoActers(double x, double y, double width, double height)
         {
-            r = new Rectangle(x,y);
+            r = new Rectangle(x,y, width, height);
         }
     }
 }

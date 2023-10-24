@@ -19,21 +19,21 @@ namespace Grafico1
         {
             for (int i = 0; i < policeNumber; i++)
             {
-                Character Player = new Character(CharacterType.PLAYER, 10 - (i * 10), 9, 1, 1);
+                Character Player = new Character(CharacterType.PLAYER, 9 - (i * 9), 9);
                 listPolicePlayer.Add(Player);
             }
 
             for (int i = 0; i < bossNumber; i++)
             {
-                Character Boss = new Character(CharacterType.BOSS, 5, 0, 1, 1);
+                Character Boss = new Character(CharacterType.BOSS, 5, 0);
                 listBossEnemy.Add(Boss);
             }
 
             for (int i = 0; i < thiefNumber; i++)
             {
-                int thiefPositionX = (i * 2) + 2;
+                int thiefPositionX = (i * 2) + 1;
                 int thiefPositionY = 1;
-                Character Thief = new Character(CharacterType.THIEF, thiefPositionX, thiefPositionY, 1, 1);
+                Character Thief = new Character(CharacterType.THIEF, thiefPositionX, thiefPositionY);
                 listThiefMinion.Add(Thief);
             }
         }

@@ -12,7 +12,7 @@ namespace Grafico1
     {
         public Rectangle rectangle = new Rectangle();
         public CharacterType type;
-        public double velocity = 1;
+        public double velocity = 0;
 
         private double[] policeColor = new double[4]
         {
@@ -38,26 +38,21 @@ namespace Grafico1
         };
 
 
-        #region Constructores
+        // CONSTRUCTORES
         public Character()
         {
 
         }
 
-        public Character(CharacterType typeValue,
-                        double positionXValue, double positionYValue,
-                        double widthValue, double heightValue)
+        public Character(CharacterType typeValue, double positionXValue, double positionYValue)
         {
             type = typeValue;
             rectangle.X = positionXValue;
             rectangle.Y = positionYValue;
-            rectangle.SetWidth(widthValue);
-            rectangle.SetHeight(heightValue);
         }
-        #endregion
 
 
-        #region Metodos
+        // METODOS
         public void Draw(ICanvas canvas)
         {
             double posX = rectangle.X;  // TODO:DUDA DE VARIABLES
@@ -84,33 +79,12 @@ namespace Grafico1
             }
         }
 
-        public void MovePlayer(bool horizontal, bool vertical, double value)
+        public void Move()
         {
-            if (!horizontal && vertical)
-                rectangle.Y += value;
-
-            if (!horizontal && !vertical)
-                rectangle.Y -= value;
-
-            if (horizontal && vertical)
-                rectangle.X += value;
-
-            if (horizontal && !vertical)
-                rectangle.X -= value;
-        }
-
-        public void MoveIA()
-        {
+            /*
             velocity += 0.001;
-            rectangle.Y = (Math.Sin(velocity) * 4) + 5;
+            rectangle.Y = (Math.Sin(velocity) * 4) + 5; 
+            */
         }
-
-        public void DeleteThief()
-        {
-            double eraser = 0.001;
-            eraser -= velocity;
-            rectangle.SetWidth(eraser);
-        }
-        #endregion
     }
 }
