@@ -1,4 +1,6 @@
-﻿namespace Classes
+﻿using System.ComponentModel;
+
+namespace Classes
 {
     public enum Moneda
     {
@@ -32,7 +34,7 @@
         public static Moneda ToMoneda(int centimos)
         {
             if (centimos == 50000)
-                return Moneda.COIN_5000;
+                return Moneda.COIN_50000;
             else
                 return Moneda.COIN_1;
         }
@@ -40,38 +42,34 @@
         public static List<Moneda> GetCoins(int money)
         {
             List<Moneda> listResult = new List<Moneda>();
-            int centims = money;
+            int centimsResult = money;
             
 
-            while (money >= 1)
+            while (centimsResult > 0)
             {
-                if (centims > 50000)
+                if (centimsResult > 50000)
                 {
-                    ExchangeMoney500(money);
-                }
-
-                if (centims > 20000)
-                {
-                    rest = centims / 20000;
-                    centims = money % 20000;
-                    for (int i = 0; i < rest; i++)
-                        listResult.Add(Moneda.COIN_5000);
+                    listResult = ExchangeListResult(centimsResult, listResult);
+                    centimsResult = ExchangeResult(centimsResult);
                 }
             }
 
             return listResult;
         }
 
-        public static int ExchangeMoney500(int money)
+        public static List<Moneda> ExchangeListResult(int money, List<Moneda> listExchange)
         {
-            List<Moneda> listResult = new List<Moneda>();
-            int rest = 0;
-            int centims = money;
-
-            rest = centims / 50000;
-            centims = money % 50000;
-            for (int i = 0; i < rest; i++)
-                listResult.Add(Moneda.COIN_5000);
+            int numberBills = money / 500000;
+            for (int i = 0; i < numberBills; i++)
+            {
+                listExchange.Add(Moneda.COIN_50000);
+            }
+            return listExchange;
         }
+
+        public static int ExchangeResult(int money)
+        {
+            return money % 50000;
+        }        
     }
 }
