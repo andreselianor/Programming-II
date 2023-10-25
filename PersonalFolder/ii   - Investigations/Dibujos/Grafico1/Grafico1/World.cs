@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using UDK;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Grafico1
 {
@@ -9,8 +10,8 @@ namespace Grafico1
 
         private double[] WorldColor = new double[]
         {
-            0.2,    
-            0.8,    
+            0.2,
+            0.8,
             0.4,
             0.2
         };
@@ -18,12 +19,12 @@ namespace Grafico1
         private int policeCount = 2;
         private int thiefCount = 4;
         private int bossCount = 1;
-              
-        public Actores actores = new Actores();       
+
+        public Actores actores = new Actores();
         public List<Character> listActores = new List<Character>();
 
-        public NoActores noActores = new NoActores();
-        public List<NoActores> listNoActores = new List<NoActores>();
+        public NoActores bombs = new NoActores();
+        public List<NoActores> listBombs = new List<NoActores>();
 
 
         public void CreateWorld(double widthWorld, double heightWorld)
@@ -58,6 +59,11 @@ namespace Grafico1
             }
         }
 
+        public void CreateNonActors(double x, double y, double width, double height)
+        {
+            bombs.CreateBombs(x, y, width, height);
+        }
+
         // TODO: GETTERS DE LISTAS EN WORLD
         public List<Character> GetPoliceList()
         {
@@ -70,7 +76,7 @@ namespace Grafico1
             if (list == null)
                 return null;
 
-            for(int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 // Funcion GetCharacterType();
             }

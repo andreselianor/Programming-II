@@ -13,10 +13,12 @@ namespace Grafico1
         World world;
         Character Player1;
         Character Player2;
+        NoActores Bombs;
 
         public List<Character> listPolice;
         public List<Character> listBoss;
         public List<Character> listThief;
+        public List<Character> listBombs;
 
 
         public void OnLoad(GameDelegateEvent gameEvent)
@@ -59,12 +61,20 @@ namespace Grafico1
             {
                 listThief[i].Draw(canvas);
             }
+
+            // Bombs
+            listBombs = world.bombs.ListBombs;
+            for (int i = 0; i < listBombs.Count; i++)
+            {
+                listBombs[i].Draw(canvas);
+            }
         }
 
         public void OnAnimate(GameDelegateEvent gameEvent)
         {
             listPolice = world.actores.ListPolice;
             listThief = world.actores.ListThief;
+            listBombs = world.bombs.ListBombs;
 
             // MOVEMENT
             for (int i = 0; i < listThief.Count; i++)
@@ -72,8 +82,9 @@ namespace Grafico1
 
 
             // CHASING THIEFS
-            if (listPolice[0].rectangle.IntersectionRectangle(listThief[0].rectangle))
-                listThief[0].DeleteThief();
+            if (listBombs.Count > 0)
+                if (listBombs[0].rectangle.IntersectionRectangle(listThief[0].rectangle))
+                    listThief[0].DeleteThief();
 
         }
 
@@ -116,8 +127,7 @@ namespace Grafico1
 
             if (keyboard.IsKeyDown(Keys.Space))
             {
-                // CREAR UNA BOMBA
-                //world.CreateQuieters(Player1.rectangle.X, Player1.rectangle.Y);
+                world.CreateNonActors(Player1.rectangle.X, Player1.rectangle.Y, 1, 1);
             }
 
             // PLAYER 2

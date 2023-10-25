@@ -6,7 +6,8 @@ namespace Grafico1
     {
         PLAYER,
         THIEF,
-        BOSS
+        BOSS,
+        BOMB
     }
     public class Character
     {
@@ -34,6 +35,13 @@ namespace Grafico1
             0.8,
             0.2,
             0.2,
+            0.8
+        };
+        private double[] bombColor = new double[4]
+        {
+            0.8,
+            0.8,
+            0.1,
             0.8
         };
 
@@ -82,6 +90,12 @@ namespace Grafico1
                 canvas.FillShader.SetColor(bossColor[0], bossColor[1], bossColor[2], bossColor[3]);
                 canvas.DrawRectangle(posX, posY, characterWidth, characterHeight);
             }
+
+            if (type == CharacterType.BOMB)
+            {
+                canvas.FillShader.SetColor(bombColor[0], bombColor[1], bombColor[2], bombColor[3]);
+                canvas.DrawRectangle(posX, posY, characterWidth, characterHeight);
+            }
         }
 
         public void MovePlayer(bool horizontal, bool vertical, double value)
@@ -107,9 +121,11 @@ namespace Grafico1
 
         public void DeleteThief()
         {
+            /*
             double eraser = 0.001;
             eraser -= velocity;
-            rectangle.SetWidth(eraser);
+            */
+            rectangle.SetWidth(0.01);
         }
         #endregion
     }

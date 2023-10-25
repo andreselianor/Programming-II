@@ -2,11 +2,14 @@
 {
     public class NoActores
     {
-        Rectangle r;
+        List<Character> listBombs = new List<Character>();
+        Character bomb;
 
-        public void CreateNoActers(double x, double y, double width, double height)
+        public List<Character> ListBombs => listBombs;
+        public void CreateBombs(double x, double y, double width, double height)
         {
-            r = new Rectangle(x,y, width, height);
+            bomb = new Character(CharacterType.BOMB,x, y, width, height);
+            listBombs.Add(bomb);
         }
     }
 }
