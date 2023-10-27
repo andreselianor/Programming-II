@@ -47,7 +47,7 @@ namespace Classes
 
             while (centimsResult > 0)
             {
-                if (centimsResult > 50000)
+                if (centimsResult > 50000)      // no Hardcodear -> if (centims > ToNumber(Moneda.E_100));
                 {
                     listResult = ExchangeListResult(centimsResult, listResult);
                     centimsResult = ExchangeResult(centimsResult);
