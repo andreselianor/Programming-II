@@ -68,7 +68,7 @@ namespace Grafico1
         #region Metodos
         public void Draw(ICanvas canvas)
         {
-            double posX = rectangle.X;  // TODO:DUDA DE VARIABLES
+            double posX = rectangle.X;  
             double posY = rectangle.Y;
             double characterWidth = rectangle.Width;
             double characterHeight = rectangle.Height;
@@ -116,15 +116,10 @@ namespace Grafico1
         {
             velocity += 0.001;
             rectangle.Y = (Math.Sin(velocity) * 4) + 5;
-
         }
 
         public void DeleteThief()
-        {
-            /*
-            double eraser = 0.001;
-            eraser -= velocity;
-            */
+        {            
             rectangle.SetWidth(0.01);
         }
         #endregion

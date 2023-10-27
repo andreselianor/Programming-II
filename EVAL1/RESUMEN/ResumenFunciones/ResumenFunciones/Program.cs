@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            
+            ExerciceBook.GetPositions(12500);
         }
     }
 }

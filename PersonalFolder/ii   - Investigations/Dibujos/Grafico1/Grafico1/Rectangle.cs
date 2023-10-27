@@ -70,9 +70,9 @@
             return false;                
         }
 
-        public void DeleteActors(double velocity)
+        public void DeleteActors(double value)
         {            
-            SetWidth(velocity);            
+            SetWidth(value);            
         }
     }
 }

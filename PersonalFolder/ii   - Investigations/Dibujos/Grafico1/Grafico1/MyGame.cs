@@ -4,8 +4,6 @@ namespace Grafico1
 {
     public class MyGame : UDK.IGameDelegate
     {
-
-        // ATRIBUTOS DE GAME
         double r = 1.0;
         double g = 1.0;
         double b = 1.0;
@@ -13,7 +11,7 @@ namespace Grafico1
         World world;
         Character Player1;
         Character Player2;
-        NoActores Bombs;
+        //NoActores Bombs;
 
         public List<Character> listPolice;
         public List<Character> listBoss;
@@ -81,22 +79,27 @@ namespace Grafico1
                 listThief[i].MoveIA();
 
 
-            // CHASING THIEFS
+            /* RELANTIZA EL PROGRAMA
+            // DELETING THIEFS
             if (listBombs.Count > 0)
                 if (listBombs[0].rectangle.IntersectionRectangle(listThief[0].rectangle))
                     listThief[0].DeleteThief();
+            */
 
         }
 
         public void OnKeyboard(GameDelegateEvent gameEvent, IKeyboard keyboard, IMouse mouse)
         {
+            double worldWidth = 11;
+            double worldHeight = 10;
+
             // PLAYER 1
             Player1 = world.GetPoliceList()[0];
 
             if (keyboard.IsKeyDown(Keys.Up))
             {
                 if (world.HasPlayerReachLimit(Player1))
-                    Player1.rectangle.Y = 9.00;
+                    Player1.rectangle.Y = worldHeight;
                 else
                     Player1.MovePlayer(false, true, 0.01);
             }
@@ -112,7 +115,7 @@ namespace Grafico1
             if (keyboard.IsKeyDown(Keys.Right))
             {
                 if (world.HasPlayerReachLimit(Player1))
-                    Player1.rectangle.X = 10.00;
+                    Player1.rectangle.X = worldWidth;
                 else
                     Player1.MovePlayer(true, true, 0.01);
             }
@@ -131,7 +134,7 @@ namespace Grafico1
             }
 
             // PLAYER 2
-            Player2 = world.GetPoliceList()[1];         // TODO: PROBLEMA DE ACCESO AL INDEX 1
+            Player2 = world.GetPoliceList()[1];         
 
             if (keyboard.IsKeyDown(Keys.W))
                 Player2.rectangle.Y += 0.01;

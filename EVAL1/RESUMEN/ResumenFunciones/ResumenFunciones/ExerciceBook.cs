@@ -385,14 +385,14 @@
             for (int i = 0; i <= number; i++)
             {
                 int randomNumber = r.Next(totalAscii);
-                characterNumber = '' + randomNumber;
+                //characterNumber = ' ' + randomNumber;
             }
         }
 
         // EJERCICIO 29: FUNCIONES DE CADENA DE TEXTO
 
         // EJERCICIO 30: SIMULACION DE UN RELOJ DIGITAL
-        public static string DigitalClock()
+        public static void DigitalClock()
         {
             Random r;
             r = new Random();
@@ -405,5 +405,91 @@
 
             Console.WriteLine("Su hora es:\n        {0}    :   {1}   :   {2}", hours, minutes, seconds);
         }
+
+        // EJERCICIO 31: CANTIDAD DE VOCALES 'O' DE UNA FRASE
+        public static int GetVowels(string text)
+        {
+            int count = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] == 'o')
+                    count++;
+            }
+            return count;
+        }
+
+        // EJERCICIO 32: ESTADISTICA DE VOCALES
+        public static void GetVowelsPercent(string text)
+        {
+            
+            double letterA = 0, letterE = 0, letterI = 0, letterO = 0, letterU = 0;
+            double totalLetter = 0;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                char letter = text[i];
+                switch (letter)
+                {
+                    case 'a':
+                        letterA++;
+                        break;
+                    case 'e':
+                        letterE++;
+                        break;
+                    case 'i':
+                        letterI++;
+                        break;
+                    case 'o':
+                        letterO++;
+                        break;
+                    case 'u':
+                        letterU++;
+                        break;
+                    default:
+                        totalLetter++;
+                        break;
+                }
+            }
+
+            double totalA = Math.Floor((letterA / totalLetter) * 100);
+            double totalE = Math.Floor((letterE / totalLetter) * 100);
+            double totalI = Math.Floor((letterI / totalLetter) * 100);
+            double totalO = Math.Floor((letterO / totalLetter) * 100);
+            double totalU = Math.Floor((letterU / totalLetter) * 100);
+
+            Console.WriteLine("El porcentaje de vocales de su texto es el siguiente:\n" +
+                "Vocales A: {0}\n" +
+                "Vocales E: {1}\n" +
+                "Vocales I: {2}\n" +
+                "Vocales O: {3}\n" +
+                "Vocales U: {4}\n", totalA, totalE, totalI, totalO, totalU);
+        }
+
+        // EJERCICIO 33: FACTORIAL DE UN NUMERO
+
+        // EJERCICIO 34: SERIES
+
+        // EJERCICIO 35: SUCESION DE N CUADROS
+
+        // EJERCICIO 36:  VARIOS
+        /*
+        .
+        .
+        .
+        */
+        // EJERCICIO 50: CALCULO DE POSICIONES DE UN NUMERO
+
+        public static void GetPositions(int number)
+        {
+            int count = 0;
+            while(number > 0)
+            {
+                number /= 10;
+                count++;
+            }
+            Console.WriteLine("El numero tiene {0} posiciones", count);
+        }
+
+        // EJERCICIO PAG 69
     }
 }
