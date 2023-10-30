@@ -20,5 +20,6 @@
 
         public int GetValue1 => _value1;
         public int GetValue2 => _value2;
+        public bool IsDouble => _isDouble;
     }
 }

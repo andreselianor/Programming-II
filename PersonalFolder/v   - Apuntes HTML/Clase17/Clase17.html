@@ -19,9 +19,9 @@
 
     <ul class="clase·List" style="vertical-align: top;">
 
-        <h5 class="remarks">Funciones complejas de contenedores</h5>
+        <h4 class="remarks">Funciones complejas de colecciones</h4>
         <li>
-            <b>FUNCION</b> le paso una lista de enteros y una posicion <i>'index'</i>. La funcion elimina el
+            <b>FUNCION:</b> le paso una lista de enteros y una posicion <i>'index'</i>. La funcion elimina el
             valor que se encuentra en la posicion 'index'
             <code><pre>
             '
@@ -44,7 +44,7 @@
             La función <b>'Remove()'</b> esta <b>PROHIBIDA</b>. Siempre usaremos <b>'RemoveAt()</b>
         </li>
         <li>
-            <b>Funcion</b> que le paso una lista y un valor que quiero borrar.
+            <b>FUNCION:</b> le paso una lista y un valor que quiero borrar.
             <code><pre>
             '
             <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
@@ -71,7 +71,7 @@
             Un 'IF' no es un bucle, solo 'WHILE' Y 'FOR'
         </li>
         <li>
-            <b>Funcion</b> con un punto de ruptura 'BREAK'
+            <b>FUNCION:</b> con un punto de ruptura 'BREAK'
             <code><pre>
             '
             <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
@@ -103,9 +103,7 @@
         </li>
         <li>
             <b>FUNCION:</b>Se le pasa una lista y queremos borrar de esta lista otra lista de valores que se
-            le pasan.
-        </li>
-        <li>
+            le pasan.        
             <pre><code>
             '
             <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
@@ -122,20 +120,16 @@
         
             <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
             {
-                for(int i = 0; i &lt listValues; i++)
+                for(int i = 0; i &lt listValue; i++)
                 {
-                    for(int j = 0; j &lt list; j++)
-                    {
-                        if(list[i] == list[j])
-                            list.RemoveAt(i--);
-                    }
+                    Functions.RemoveValue(list,listValues[i]);
                 }
             }
             '
             </code></pre>
         </li>
 
-        <h5 class="remarks">Consejos y Sugerencias</h5>
+        <h4 class="remarks">Consejos y Sugerencias</h4>
         <li>
             <b>CONSEJO:</b> No es adecuado contener un 'FOR' dentro de otro 'FOR'. Es mejor solución llamar
             a las funciones desde el interior del primer 'FOR'
@@ -148,12 +142,12 @@
             <b>WARNING:</b> Cuando declaramos un tipo de dato, el compilador no espera que pueda devolver
             'null'.
             <br>
-            Si añadimos <b>?</b> al final del tipo de dato, le indicamos al compilador que este datos <b>SI
+            Si añadimos <b>?</b> al final del tipo de dato, le indicamos al compilador que este dato <b>SI
                 PUEDE SER NULL</b>.
             <br>
-            int[]? --> PUEDE SER NULL
+            int[]? --> ES ACONSEJABLE VALIDAR EL PARAMETRO DE ENTRADA.
             <br>
-            int[] --> NO DEBERÍA SER NULL
+            int[] --> NO DEBERÍA SER NULL.
         </li>
     </ul>
 </body>

@@ -19,97 +19,83 @@
 
 
     <ul class="clase·List">
-        <h4 class="remarks">Funciones para listas/arrays</h4>
+        <h4 class="remarks">Binary Search</h4>
         <li>
-            <b>FUNCIÓN:</b> Calcula la media de los valores de un array.
+            <b>FUNCIÓN:</b> Consiste en una función que se le pasa una lista o arrays de enteros <b>ordenada</b> y te
+            devuelve 'true or false' si el número se encuentra en dicha lista
         </li>
+        <li>
+            Funciona con Listas o Arrays.
+        </li>
+        <li>
+            Solo funciona <b>si la lista está ordenada.</b>
+        </li>
+        <li>
+            El algoritmo es el siguiente:
+        </li>
+        <ol>
+            <li>
+                Busco el punto medio de la lista.
+            </li>
+            <li>
+                Comparo el valor dado con el punto medio. Si son iguales devuelvo 'true'.
+            </li>
+            <li>
+                Si el número es <i>mayor:</i> Desplazo el <b>valor mínimo</b> una posición por delante del punto medio.
+            <br>
+                Si el número es <i>menor:</i> Desplazo el <b>valor máximo</b> una posición por delante del punto medio.
+            <br>
+                Vuelvo a calcular el punto medio.
+            </li>
+            <li>
+                Este algoritmo se repite hasta que encuentro el parámetro dado o el <b>valor mínimo</b> es igual o mayor que el <b>valor máximo.</b>
+            </li>
+        </ol>
+        <li><b>EJEMPLO</b></li>
         <pre><code>
+            1.- Lista dada: [0,2,4,6,8] 
+            Parametro dado: 6 <i>Es el número que queremos encontrar</i>
+            Posiciones: [0,1,2,3,4] 
+            Posición media: (0 + 4) / 2 = <b>2</b>
+            Valor en posición [2] = <b>4</b>
+
+            2.- Comparamos valores: 6 = 4? <b>false</b> 
+            
+            3.- Desplazamos el valor minimo: Posición media + 1  = <b>3</b> 
+
+            4.- Repetimos el algoritmo.
+
+            1'.- Calculamos de nuevo el valor medio: (3 + 4) / 2 = 3 
+            2'.- Comparamos valores: 6 = 6? <b>'true'</b> 
+            El número que buscabamos <b>sí</b> está en la lista.
+
             '
-            <b>public static double GetAverage(double [] array)</b>
+            <b>public static bool BinarySearch(List&ltint&gt list, int number)</b>
             {
-                double aux = 0.0;
+                if(list == null || list.Count == 0)
+                    return null;
+                
+                int minPosition = 0;
+                int maxPosition = list.Count - 1;
+                int midPosition;
 
-                for(int i = 0; i &lt array.Length; i++)
+                while(minPosition &le; maxPosition)
                 {
-                    aux += array[i];
-                }
+                    midPosition = (minPosition + maxPosition) / 2;
 
-                return aux / array.Length;
+                    if(midPosition == number)
+                        return true;
+                    if(number &gt midPosition)                    
+                        minPosition = midPosition + 1;
+                    else
+                        maxPosition = midPosition - 1;                    
+                }
+                return false;
             }                                                                        
             '
             </code></pre>
         </li>
-        <li>
-            Es <b>MUY IMPORTANTE</b> validar los parámetros de entrada de la función.
-        </li>
-        <br>
-        <li>
-            <b>FUNCION:</b> Crear una función que calcule la media de los valores de un array, 
-            solo si superan el valor dado llamado 'Threshold'.
-            <pre><code>
-            '
-            <b>public static double GetThresholdMedian(double [] array, double Threshold)</b>
-            {
-                double aux = 0.0;
-                int count = 0;
-
-                for(int i = 0; i &lt array.Length; i++)
-                {
-                    if(array[i] > Threshold)
-                    {
-                        aux += array[i];
-                        count ++;
-                    }
-                }
-                return aux / count;
-            }                                                                        
-            '
-            </code></pre>
-        </li>
-        <li>
-            <b>FUNCION:</b> Crear una función que devuelva el número de veces que se 
-            repite el número de mayor valor.
-            <pre><code>
-            '
-            <b>public static int GetMaxNumberRepeated(List&ltint&gt list)</b>
-            {
-                int result = 0;
-                int maxNumber;
-                maxNumber = GetMajor(list);    
-    
-                for (int i = 0; i &lt list.Count; i++)
-                {
-                    if (list[i] == maxNumber)
-                        result++;
-                }
-                return result;
-            }                                                                        
-            '
-            </code></pre>
-        </li>
-        <li>
-            <b>FUNCION:</b> Devuelve la lista que se le pasa 
-            por parametro en orden inverso.
-            <pre><code>
-            '
-            <b>public static List&ltint&gt list GetReverseList(List&ltint&gt list)</b>
-                {
-                    if (list == null || list.Count &lt 0)
-                        return null;
         
-                    List&ltint&gt result = new List&ltint&gt();
-        
-                    for (int i = list.Count; i &ge; 0; i--)
-                    {
-                        result.Add(i);
-                    }
-                    return result;
-                }                                                                        
-            '
-            </code></pre>
-        </li>
-    </ul>
-
 </body>
 
 </html>

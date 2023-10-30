@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 17</title>
+    <title>Clase 18</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,148 +12,219 @@
 
 <body>
     <header>
-        <h1>Clase 17</h1>
-        <h3>Viernes, 13 Octubre 2023</h3>
+        <h1>Clase 18</h1>
+        <h3>Lunes, 16 Octubre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
     <ul class="clase·List" style="vertical-align: top;">
 
-        <h5 class="remarks">Funciones complejas de contenedores</h5>
+        <h4 class="remarks">Instalación de paquetes Nuget</h4>
         <li>
-            <b>FUNCION</b> le paso una lista de enteros y una posicion <i>'index'</i>. La funcion elimina el
-            valor que se encuentra en la posicion 'index'
-            <code><pre>
-            '
-            <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
-            {
-                list.RemoveAt(index);
-            }
-            
-            // Elimina el elemento que esta en la <b>posicion 'index'</b>
+            Primero necesitamos una carpeta con nuestros archivos 'Nuget'. En este caso, necesitamos el 'UDK'
+        </li>
+        <li>
+            Descomprimimos y borramos el archivo 'macOS'.
+        </li>
+        <li>
+            No es conveniente cambiar el nombre del '6.0'.
+        </li>
+        <li>
+            Ahora abrimos el Visual Studio y creamos un proyecto nuevo.
+        </li>
+        <li>
+            Buscamos en el explorador de la derecha el archivo de nuestra solución y pulsamos el botón derecho. Buscamos
+            la opción de 'administrar paquetes nuget'.
+        </li>
+        <li>
+            En la pestaña de instalado no debería parecer ningún archivo.
+        </li>
+        <li>
+            Pulsamos la rueda de opciones arriba a la derecha, para entrar en la pantalla donde añadiremos una nueva
+            dirección nuget.
+        </li>
+        <li>
+            Es importante <b>no borrar</b> los archivos ya existentes. Esto causa serios problemas. En lugar de eso,
+            escogemos un nuevo nombre y examinamos nuestro ordenador para añadir nuestra carpeta propia de 'nuget'
+        </li>
+        <li>
+            Ahora examinamos en la pantalla de administrador y seleccionamos los paquetes suministrador. Instalamos.
+        </li>
+        <li>
+            En nuestro caso necesitamos los siguientes paquetes: <b>UDK</b> y <b>OpenAl.Soft version 1.19.1</b>
+        </li>
+        <li>
+            Instalamos los dos paquetes y ahora ya podemos usar nuestro framework gráfico.
+        </li>
+        <li>
+            En caso que el IDE no reconozca los nuevos 'nuget' instalados, debemos borrar la cache de los existentes.
+            Esta opción se encuentra en /Herramientas/Opciones/Administrador de paquetes nuget/Borrar todas las caches
+            de nuget.
+        </li>
+    </ul>
+    <ul class="clase·List" style="vertical-align: top;">
 
-            <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
-            {
-                list.Remove(index);
-            }
-            '
-            // Elimina el elemento cuyo <b>valor es 'index'</b>
-            </pre></code>
+        <h4 class="remarks">Continuación clase Delfín</h4>
+        <li>
+            Creamos con la interfaz gráfica un videojuego de Policías y ladrones.
         </li>
         <li>
-            La función <b>'Remove()'</b> esta <b>PROHIBIDA</b>. Siempre usaremos <b>'RemoveAt()</b>
+            La clase <b>'Character'</b> diseña <i>un único personaje.</i>
         </li>
         <li>
-            <b>Funcion</b> que le paso una lista y un valor que quiero borrar.
-            <code><pre>
-            '
-            <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
-            {
-                if (list == null)
-                    return;
-    
-                for (int i = 0; i &lt list.Count; i++)
-                {
-                    if (list[i] == value)
-                    {
-                        list.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-            '
-            </code></pre>
+            Añadimos un 'public enum' para definir el tipo de personaje que se crea con cada instancia: policia o
+            ladrón.
         </li>
         <li>
-            Si le introduzco un punto de ruptura <b>'break'</b> inmediatamente sale del bucle donde está
-            anidado.
-            <br>
-            Un 'IF' no es un bucle, solo 'WHILE' Y 'FOR'
+            Es bueno que los 'enum' sigan la guía de estilo Java y se escriban con Mayúsculas
         </li>
         <li>
-            <b>Funcion</b> con un punto de ruptura 'BREAK'
-            <code><pre>
-            '
-            <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
-            {
-                <i>for(int i = 0; i &lt list.Count; i++)</i>
-                {
-                    list.RemoveAt(i);
-                    i--;
-                    break;          // Rompe el bucle anidado 'FOR'
-                }                            
-            }
-            '
-            </code></pre>
-        </li>
-        <li>
-            IMPORTANTE: Si utilizamos i++ ó i-- como una <b>expresion</b> su funcionamiento es distinto al
-            habitual:
-            <br>
-            <b>i++</b>
-            <br>
-            Primero la variable asignada es <b>IGUAL</b> a 'i' y cuando se evalua toda la expresión se
-            <b>INCREMENTA</b> la 'i'.
-            <br>
-            <b>++i</b>
-            <br>
-            Primero la variable asignada es el <b>INCREMENTO</b> de 'i' y cuando se evalua toda la expresión
-            se
-            <b>INCREMENTA</b> la 'i'.
-        </li>
-        <li>
-            <b>FUNCION:</b>Se le pasa una lista y queremos borrar de esta lista otra lista de valores que se
-            le pasan.
-        </li>
-        <li>
+            El código es el siguiente:
             <pre><code>
             '
-            <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
+            <b>public enum CharacterType</b>
             {
-                for(int j = 0; j &lt listValues; j++)
-                {
-                    for(int i = 0; i &lt list; i++)
-                    {
-                        if(list[i] == list[j])
-                            list.RemoveAt(i--);
-                    }
-                }
+                POLICE,
+                THIEF                    
             }
-        
-            <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
+            <b>public class Character</b>
             {
-                for(int i = 0; i &lt listValues; i++)
-                {
-                    for(int j = 0; j &lt list; j++)
-                    {
-                        if(list[i] == list[j])
-                            list.RemoveAt(i--);
-                    }
-                }
+                // define la instancia de un <b>ÚNICO</b> Character
+            }
+            '
+            </code></pre>
+        </li>
+        <li>
+            NOTA: un string es una cadena de texto. El tipo 'string' proviene de la clase 'String' que es invisible para
+            el usuario.
+        </li>
+        <li>
+            un 'string' es realmente un 'String[]'. Es el <i>runtime</i> quien se encarga de simplificar su
+            funcionamiento.
+        </li>
+        <li>
+            El warning de un posible valor 'null' se quita marcando el tipo con el signo de interrogante '?'
+        </li>
+        <li>
+            Creamos un personaje y le damos atributos
+            <pre><code>
+            '
+            <b>public class Character</b>
+            {
+                public string name;
+                public CharacterType type;
+            }
+            <b>public class Program</b>
+            {
+                Character c1 = new Character();
+                Character c2 = c1;
+                // En este momento solo hay <i>UN</i> personaje y <i>DOS</i> variables apuntando al mismo personaje.
+                c1.name = "Poli1";
+                c1.type = CharacterType.POLICE;
+
+                // Creo una lista de Character
+                List&ltCharacter&gt list;
+                list = new List&ltCharacter&gt();
+                list.Add(c1);
             }
             '
             </code></pre>
         </li>
 
-        <h5 class="remarks">Consejos y Sugerencias</h5>
-        <li>
-            <b>CONSEJO:</b> No es adecuado contener un 'FOR' dentro de otro 'FOR'. Es mejor solución llamar
-            a las funciones desde el interior del primer 'FOR'
+        <div class="breakPage"></div>
+
+        <li><b>IMPORTANTE:</b> Si apuntamos todas las referencias al objeto hacia 'NULL' se destruye el objeto:
+            c1 = null; c2 = null; entonces se destruye el objeto.
+        </li>
+        <li><b>IMPORTANTE:</b> Si hemos añadido un objeto a la lista, el objeto se mantiene dentro de la lista.
         </li>
         <li>
-            Si trabajas con 'Listas' es mejor no devolver nada. Por otro lado si trabajas con 'Arrays' lo
-            normal es devolver un 'Array'
+            Cada objeto de una lista es un número que apunta a una dirección de la memoria. Las variables simplemente
+            apuntan hacia ese número almacenado.        
+        <pre><code>
+            '
+            <b>public class Program</b>
+            {
+                list.Add(new Character());      // se crea en la posicion 1
+                list[1].name = "Ana";
+                list[0].name = list[1].name;    // Ahora tengo dos objetos
+                list.add(list[0]);              // La lista tiene tres objetos, pero hay dos que apuntan a la misma referencia.
+            }
+            '
+        </code></pre>
+        </li>
+    </ul>
+    <ul class="clase·List" style="vertical-align: top;">
+
+        <h4 class="remarks">Funciones de objeto</h4>
+        <li>
+            <b>FUNCION:</b> Se le pasa una lista de personajes y un string. Quiere saber si hay algun personaje que
+            tenga ese nombre.
+            <pre><code>
+            <b>public static bool ContainsName(List&ltCharacter&gt list, string name)</b>
+            {
+                if( list == null || list.Count == 0)
+                    return null;
+
+                for(int i = 0; i &lt list.Count; i++)
+                {
+                    if(list[i].name == name)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            </code></pre>
         </li>
         <li>
-            <b>WARNING:</b> Cuando declaramos un tipo de dato, el compilador no espera que pueda devolver
-            'null'.
-            <br>
-            Si añadimos <b>?</b> al final del tipo de dato, le indicamos al compilador que este datos <b>SI
-                PUEDE SER NULL</b>.
-            <br>
-            int[]? --> PUEDE SER NULL
-            <br>
-            int[] --> NO DEBERÍA SER NULL
+            En Java no se permite comprobar que dos strings son semejantes '=='
+        </li>
+        <li>
+            <b>FUNCION:</b> Le paso una lista de Character y un string y me devuelve el primer personaje que coincida.
+            <pre><code>
+            <b>public static Character ContainsCharacter(List&ltCharacter&gt list, string name)</b>
+            {
+                if( list == null || list.Count == 0)
+                    return null;
+
+                for(int i = 0; i &lt list.Count; i++)
+                {
+                    if(list[i].name == name)
+                    {
+                        return list[i];
+                    }
+                }
+                return false;
+            }
+            </code></pre>
+        </li>
+        <li>
+            <b>FUNCION:</b> Le paso una lista de Character y me devuelve un 'true or false' si existe un duplicado.
+            <pre><code>
+            <b>public static bool ContainsDuplicate(List&ltCharacter&gt list, string name)</b>
+            {
+                if( list == null || list.Count == 0)
+                    return null;
+
+                for(int i = 0; i &lt list.Count - 1; i++)
+                {
+                    for(int j = i + 1; j &lt list.Count; j++)
+                    {
+                        if(list[i] == list[j]))
+                        {
+                            return true;
+                        }
+                    }                        
+                }
+                return false;
+            }
+            </code></pre>
+        </li>
+        <li>
+            Es aconsejable definir exactamente que representa un duplicado, ya que puede referirse a dos instancias con
+            exactamente el mismo valor de sus <b>Atributos</b>, o también puede referirse a dos variables que apuntan a
+            la misma instancia y por tanto, existe un único objeto con una <b>referencia duplicada.</b>
         </li>
     </ul>
 </body>

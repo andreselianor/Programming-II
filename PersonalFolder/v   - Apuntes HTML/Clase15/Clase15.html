@@ -19,7 +19,7 @@
 
 
     <ul class="clase·List">
-        <h5 class="remarks">Sugerencias y Advertencias</h5>
+        <h4 class="remarks">Sugerencias y Advertencias</h4>
         <li>
             Si mostramos una informacion por pantalla, hay dos opciones:
             <br>
@@ -27,14 +27,17 @@
         </li>
         <li>
             Si tenemos que mostrar información por pantalla y se trata de una serie, lo mejor es devolver <b>una
-            Lista</b>.
+                Lista</b>.
+        </li>
+        <li>
+            Debemos acordarnos siempre de validar los parámetros de entrada de una función.
         </li>
         <li>
             En caso que tengamos una función 'void' y la validación sea negativa, podemos simplemente
             devolver <b>'return'</b>.
             <pre><code>
             '
-            public static void Function(List&ltint&gt list)
+            <b>public static void Function(List&ltint&gt list)</b>
             {
                 if (list == null)
                     return;            
@@ -62,9 +65,6 @@
             Cambia el color de la fuente y del fondo de la consola.
         </li>
         <li>
-            <b>Es obligatorio validar todos los parámetros de entrada de una función.</b>
-        </li>
-        <li>
             No es necesario validar que un array o lista entren con 0 elementos. Esto solo es necesario en
             caso que queramos acceder al elemento[0]
             <pre><code>
@@ -84,18 +84,20 @@
         </li>
         <li>
             Las variables de una función <b>STATIC</b> deben declararse <b>DENTRO</b> de la propia función.
-        </li>
-        <li>
+            <br>
             No es aconsejable poner contadores <b>DENTRO</b> de un bucle <b>FOR</b>.
-        </li>
-        <li>
+            <br>
             Siempre <b>validamos las variables</b> que implican una creación de objeto mediante <i><b>'NEW'</b></i>.
         </li>
+    </ul>
 
-        <h5 class="remarks">Funcion <i>SWAP</i></h5>
-        <li>
-            <pre><code>
-            '
+    <div class="breakPage"></div>
+    
+    <ul class="clase·List">
+        <h4 class="remarks">Funciones destacadas de las listas/arrays</h4>
+        <li>Función <i>SWAP</i>.
+            <pre><code>  
+            '          
             <b>public static void Swap(List&ltint&gt list)</b>
             {
                 int aux;
@@ -106,10 +108,8 @@
             '
             </code></pre>
         </li>
-        <br>
-
-        <h5 class="remarks">Funcion <i>SORT</i></h5>
         <li>
+            Funcion <i>SORT</i>.
             <pre><code>
             '
             <b>public static void Sort(List&ltint&gt list)</b>

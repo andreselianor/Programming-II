@@ -34,3 +34,7 @@ header {
     vertical-align: top;
     width: 30vw;
 }
+
+.breakPage{
+    page-break-before: always;
+}

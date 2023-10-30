@@ -4,8 +4,8 @@
     {
         private string _name = "";
         private int _id;
-        private List<Piece> _hand = new List<Piece>();
-        private int _totalValue;
+        private List<Piece> _playerHand = new List<Piece>();
+        private int _totalPieceValue;
 
         public Player()
         {
@@ -24,12 +24,14 @@
         }
 
         public int Id => _id;
-        public List<Piece> Hand => _hand;
+        public string Name => _name;
+        public List<Piece> PlayerHand => _playerHand;
+        public int TotalValue => _totalPieceValue;
 
-        public int TotalValue => _totalValue;
-        public void SetTotalValue (int value)
+
+        public void SetHandTotalValue (int value)
         {
-            _totalValue += value;
+            _totalPieceValue += value;
         }
     }
 }

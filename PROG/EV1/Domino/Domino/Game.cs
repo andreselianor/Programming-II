@@ -11,21 +11,25 @@
 
         public void Play()
         {
+            // CREATE BOARD
             int numberPlayers = 4;
             CreatePlayers(numberPlayers);
             CreatePieces();
 
+            // INITIAL DRAW
             int shuffle = 50;
             ShufflePieces(shuffle);
             InitialDraw();
 
+            // GAME EXECUTE
             Execute();
-            FinishingGame();
 
+            // ENDGAME
+            FinishingGame();
             Console.WriteLine("El ganador es el jugador {0}", _winner.Id);
         }
 
-        #region CreateBoard
+        #region CREATE BOARD
         public void CreatePlayers(int playerNumber)
         {
             for (int i = 1; i <= playerNumber; i++)
@@ -37,9 +41,9 @@
 
         public void CreatePieces()
         {
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i <= 6; i++)
             {
-                for (int j = 0; j < 7; j++)
+                for (int j = 0; j <= 6; j++)
                 {
                     if (i == j)
                     {
@@ -57,15 +61,15 @@
         }
         #endregion
 
-        #region InitGame
+        #region INITIAL DRAW
         public void ShufflePieces(int number)
         {
-            for (int i = 0; i < number; i++)
-            {
-                Random random = new Random();
-                int position = random.Next(0, _listPieces.Count);
-                Piece pieceAux = new Piece();
+            Random random = new Random();
+            Piece pieceAux = new Piece();
 
+            for (int i = 0; i < number; i++)
+            {                
+                int position = random.Next(0, _listPieces.Count);
                 pieceAux = _listPieces[position];
                 _listPieces.RemoveAt(position);
                 _listPieces.Add(pieceAux);
@@ -78,17 +82,18 @@
             {
                 for (int j = 0; j < _listPlayers.Count; j++)
                 {
-                    _listPlayers[j].Hand.Add(_listPieces[0]);
+                    _listPlayers[j].PlayerHand.Add(_listPieces[0]);
                     _listPieces.RemoveAt(0);
                 }
             }
         }
         #endregion
 
-        #region PlayGame
+        #region GAME EXECUTE
         public void Execute()
         {
-            _playPiece = _listPlayers[0].Hand[0];
+            _playPiece = _listPlayers[0].PlayerHand[0];
+            _listPlayers[0].PlayerHand.RemoveAt(0);
 
             while (!IsGameFinished())
             {
@@ -100,15 +105,14 @@
             }
         }
 
-
         public void PlayPiece(Player player)
         {
-            for (int i = 0; i < player.Hand.Count; i++)
+            for (int i = 0; i < player.PlayerHand.Count; i++)
             {
-                if (player.Hand[i].GetValue1 == _playPiece.GetValue2)
+                if (player.PlayerHand[i].GetValue1 == _playPiece.GetValue2)
                 {
-                    _playPiece = player.Hand[i];
-                    player.Hand.RemoveAt(i);
+                    _playPiece = player.PlayerHand[i];
+                    player.PlayerHand.RemoveAt(i);
                 }
                 else
                 {
@@ -121,32 +125,34 @@
         {
             if (_listPieces.Count > 0)
             {
-                player.Hand.Add(_listPieces[0]);
+                player.PlayerHand.Add(_listPieces[0]);
                 _listPieces.RemoveAt(0);
             }
         }
-        #endregion
 
-        #region EndGame
         public bool IsGameFinished()
         {
             return _listPieces.Count == 0;
         }
+        #endregion
 
+        #region ENDGAME
         public void FinishingGame()
         {
             for (int i = 0; i < _listPlayers.Count; i++)
             {
-                for (int j = 0; j < _listPlayers[i].Hand.Count; j++)
+                for (int j = 0; j < _listPlayers[i].PlayerHand.Count; j++)
                 {
-                    _listPlayers[i].SetTotalValue(Utils.SumValue(_listPlayers[i].Hand[j].GetValue1,
-                                                                 _listPlayers[i].Hand[j].GetValue2));
+                    int valuePiece1 = _listPlayers[i].PlayerHand[j].GetValue1;
+                    int valuePiece2 = _listPlayers[i].PlayerHand[j].GetValue2;
+
+                    _listPlayers[i].SetHandTotalValue(Utils.CalculateSum(valuePiece1, valuePiece2));
                 }
             }
 
-            GetWinner2();
+            GetWinner1();
         }
-        #endregion
+
 
         public void GetWinner1()
         {
@@ -155,7 +161,6 @@
             {
                 for (int j = i + 1; j < _listPlayers.Count; j++)
                 {
-
                     if (_listPlayers[i].TotalValue > _listPlayers[j].TotalValue)
                     {
                         playerAux = _listPlayers[i];
@@ -184,9 +189,30 @@
                 }
             }
         }
+
         public void GetWinner3()
         {
+            List<int> listPuntuation = new List<int>();
 
+            foreach(Player p in _listPlayers)
+            {
+                listPuntuation.Add(p.TotalValue);
+            }
+
+            int index = 0;
+            int winnerPuntuation = listPuntuation[index];            
+
+            for(int i = 1; i < listPuntuation.Count; i++)
+            {
+                if(listPuntuation[i] < winnerPuntuation)
+                {
+                    index = i;
+                    winnerPuntuation = listPuntuation[index];
+                }
+            }
+
+            _winner = _listPlayers[index];
         }
+        #endregion
     }
 }
