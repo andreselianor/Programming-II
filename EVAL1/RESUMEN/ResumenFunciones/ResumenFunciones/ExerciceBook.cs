@@ -491,5 +491,52 @@
         }
 
         // EJERCICIO PAG 69
+
+        // EJERCICIO PAG 80
+
+        public static void AnswerSum()
+        {
+            string userQuestion = "";
+            bool endingApp = false;
+            int questionNumber;
+            int resultNumber = 0;
+
+            while (!endingApp)
+            {
+                Console.WriteLine("Introduzca un numero:");
+                userQuestion = Console.ReadLine();
+                questionNumber = Int32.Parse(userQuestion);
+                resultNumber += questionNumber;
+
+                if(questionNumber <= 0)
+                    endingApp = !endingApp;
+                Console.WriteLine("La suma de los numeros es: {0}", resultNumber);
+            }
+        }
+
+        // EJERCICIO PAG 86
+        public static int[] AddValuesArray()
+        {
+            bool endingApp = false;
+            int[] result;
+            int userAnswer;
+            int contador = 0;
+            while (!endingApp)
+            {
+                contador++;
+                result = new int[contador];
+                Console.WriteLine("Introduzca un numero:");
+                userAnswer = Int32.Parse(Console.ReadLine());
+                result[contador] = userAnswer;
+                Console.WriteLine("Pulse [0] para salir");
+                
+                userAnswer = Int32.Parse(Console.ReadLine());
+
+                if(userAnswer == 0)
+                    endingApp= true;
+            }
+
+            
+        }
     }
 }

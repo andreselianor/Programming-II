@@ -4,9 +4,12 @@
     {
         private List<DominoPiece> _listPieces = new List<DominoPiece>();
 
-        public void ExtractPiece(int index)
+        public DominoPiece ExtractPiece(int index)
         {
+            // VALIDAR
+            DominoPiece piece = _listPieces[index];
             _listPieces.RemoveAt(index);
+            return piece;
         }
 
         public void ExtractPiece()
