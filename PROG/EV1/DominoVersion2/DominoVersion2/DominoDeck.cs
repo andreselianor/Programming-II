@@ -4,9 +4,11 @@
     {
         private List<DominoPiece> _listPieces = new List<DominoPiece>();
 
-        public DominoPiece ExtractPiece(int index)
+        public DominoPiece? ExtractPiece(int index)
         {
-            // VALIDAR
+            if (index < 0 || index >= _listPieces.Count)
+                return null;
+
             DominoPiece piece = _listPieces[index];
             _listPieces.RemoveAt(index);
             return piece;
