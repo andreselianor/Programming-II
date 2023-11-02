@@ -4,9 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Internet i1 = new Internet();
-            i1.SetDictionary2();
-            i1.ToStringData();
+            string[] chiquis;
+            chiquis = Arrays.CreateArray();
+            Arrays.ListArray(chiquis);
+
+            string[] coupling;
+            string[] minisimas;
+            (coupling,minisimas) = Arrays.CreateHobbies();
+            Arrays.ShuffleResult(coupling,minisimas, chiquis);
         }
     }
 }
