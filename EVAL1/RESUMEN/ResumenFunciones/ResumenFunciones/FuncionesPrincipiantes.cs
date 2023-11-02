@@ -1,6 +1,6 @@
-﻿namespace BegginersFunctions
+﻿namespace ResumenFunciones
 {
-    public class Functions
+    public class FuncionesPrincipiantes
     {
         #region Funcion 1 · Funcion que devuelve el menor de dos numeros
 
@@ -14,7 +14,7 @@
         #endregion
 
         #region Funcion 2 · Funcion que devuelve verdadero si un numero es par
- 
+
         public static bool IsEven(int number)
         {
             return (number % 2 == 0);
@@ -41,7 +41,7 @@
         {
             int result = 0;
 
-            for (int i = 0; i <= number/2; i++)
+            for (int i = 0; i <= number / 2; i++)
             {
                 if (IsEven(i))
                     result = (2 * i);
@@ -96,7 +96,7 @@
         #endregion
 
         #region Funcion 8 · Funcion que devuelve el productorio de un numero
-        
+
         public static int GetProductory(int number)
         {
             int result = 1;

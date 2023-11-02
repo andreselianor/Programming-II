@@ -71,10 +71,10 @@
         public static int GetMinor(List<int> list)
         {
             if (list == null || list.Count == 0)
-                return 0;                
+                return 0;
 
             int result = list[0];
-            for (int i = 0; i < list.Count; i++)    
+            for (int i = 0; i < list.Count; i++)
             {
                 if (list[i] < result)
                     result = list[i];
@@ -418,22 +418,21 @@
             }
         }
 
-        /*
-         * FUNCION PARA COMPROBAR
-        public static void RemoveValues(List<int> list, List<int> listValues)
+        public static void RemoveValuesAlter(List<int> list, List<int> listValues)
         {
             if (list == null)
                 return;
 
-            for (int j = 0, int i = 0; j < listValues.Count; j++)
+            for (int i = 0, j = 0; i < listValues.Count; i++)
             {
-                for (int i = 0; i < list.Count; i++)
+                while(j < listValues.Count)
                 {
-                    if (list[i] == list[j])
+                    if (list[i] == listValues[j])
                         list.RemoveAt(i--);
+                    j++;
                 }
+                j = 0;
             }
         }
-        */
     }
 }

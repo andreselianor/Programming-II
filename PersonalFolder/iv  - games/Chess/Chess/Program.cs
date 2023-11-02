@@ -1,4 +1,4 @@
-﻿namespace DominoVersion2
+﻿namespace Chess
 {
     internal class Program
     {
