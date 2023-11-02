@@ -518,7 +518,7 @@
         public static int[] AddValuesArray()
         {
             bool endingApp = false;
-            int[] result;
+            int[] result = new int[4];
             int userAnswer;
             int contador = 0;
             while (!endingApp)
@@ -535,8 +535,7 @@
                 if(userAnswer == 0)
                     endingApp= true;
             }
-
-            
+            return result;            
         }
     }
 }
