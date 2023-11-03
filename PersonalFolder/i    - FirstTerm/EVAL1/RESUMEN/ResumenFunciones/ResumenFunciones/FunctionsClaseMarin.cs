@@ -2,7 +2,7 @@
 
 namespace ResumenFunciones
 {
-    public class Functions
+    public class FunctionsClaseMarin
     {
 
         // Funcion que devuelve 'true' o 'false' si un número es MENOR que otro
@@ -353,6 +353,13 @@ namespace ResumenFunciones
                 }
             }
 
+            return result;
+        }
+
+        public static string FunctionTernary(int number)
+        {
+            string result = "";
+            result = (number > 5) ? "Mas de cinco" : "Menos de cinco";
             return result;
         }
     }

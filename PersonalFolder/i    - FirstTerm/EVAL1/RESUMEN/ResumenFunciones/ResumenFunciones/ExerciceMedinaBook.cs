@@ -1,6 +1,6 @@
 ﻿namespace ResumenFunciones
 {
-    public class ExerciceBook
+    public class ExerciceMedinaBook
     {
         // EJERCICIOS DE PROGRAMACION EN CONSOLA. PATRICIO MEDINA. C#
 

@@ -1,6 +1,6 @@
 ﻿namespace ResumenFunciones
 {
-    public class Extras
+    public class ExerciseCabanesBook
     {
         // FUNCIONES ENCONTRADAS EN INTERNET
         // FUNCION: Comprueba si un texto es un Palindromo
@@ -31,20 +31,6 @@
             return true;
         }
 
-
-        // FUNCION: Concatenar texto
-
-        public static void Concatenate(string text1, string text2, string text3)
-        {
-            Console.WriteLine("Frase completa:");
-            Console.WriteLine(text1 + text2 + text3);
-
-            Console.WriteLine("Frase 1 y 2");
-            Console.WriteLine("{0} , {1}", text1, text2);
-
-            Console.WriteLine("Frase 1 y 3");
-            Console.WriteLine($"Frase {text1} , {text3}");
-        }
 
         // NACHO CABANES EJERCICIO 1.11.2
         // TABLA DE MULTIPLICAR
@@ -277,7 +263,7 @@
         public static int CalculateMCD(int number1, int number2)
         {
             int result = 1;
-            int minor = Functions.GetMinor(number1, number2);
+            int minor = FunctionsClaseMarin.GetMinor(number1, number2);
             for(int i = 2; i < minor; i++)
             {
                 if(number1 % i == 0 && number2 % i == 0)
@@ -362,5 +348,3 @@
         }
     }
 }
-
-

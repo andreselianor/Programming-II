@@ -8,6 +8,8 @@
         private ColorType _color;
         private int _movementCount;
 
+        private List<ChessPosition> _positionList = new List<ChessPosition>();
+
         public enum FigureType
         {
             PAWN,
@@ -24,16 +26,34 @@
             WHITE
         }
 
+        #region Constructores
+        public ChessFigure()
+        {
+
+        }
+
         public ChessFigure(int x, int y)
         {
             _x = x;
             _y = y;
         }
 
+        public ChessFigure(int x, int y, ColorType color, FigureType figureType)
+        {
+            _x = x;
+            _y = y;
+            _color = color;
+            _figureType = figureType;
+        }
+        #endregion
+
+
         public int X => _x;
         public int Y => _y;
+        public List<ChessPosition> ListAvailablePosition => _positionList;
 
 
+        #region Methods
         public bool IsValid()
         {
             return (X > 0 && X < 9 && Y > 0 || Y < 9);
@@ -69,5 +89,6 @@
         {
 
         }
+        #endregion
     }
 }

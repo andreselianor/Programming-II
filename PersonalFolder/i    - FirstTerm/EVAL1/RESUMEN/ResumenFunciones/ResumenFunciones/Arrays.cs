@@ -5,9 +5,9 @@
         public static string[] CreateArray()
         {
             string[] result = new string[3];
-            result[0] = "Mirmidona";
-            result[1] = "Beastie";
-            result[2] = "Pianola";
+            result[0] = "Real Madrid";
+            result[1] = "Barcelona";
+            result[2] = "Athletico de Madrid";
             return result;
         }
 
@@ -19,19 +19,19 @@
             }
         }
 
-        public static (string[], string[]) CreateHobbies()
+        public static (string[], string[]) CreateAttack()
         {
             string[] result = new string[3]
             {
-                "Chicos",
-                "Chicas",
-                "Chiques"
+                "Bale",
+                "Messi",
+                "Griezmann"
             };
             string[] result2 = new string[3]
             {
                 "Running",
-                "Painting",
-                "Playing"
+                "Scoring",
+                "Dribbling"
             };
 
             return (result, result2);
@@ -43,18 +43,11 @@
 
             for (int i = 0; i < 3; i++)
             {
-                count = GetRandom();
+                count = Utils.GetRandom();
                 Console.WriteLine(array3[i]);
                 Console.WriteLine("Couples :" + array1[count]);
                 Console.WriteLine("Practices: " + array2[count]);
             }
         }
-
-        public static int GetRandom()
-        {
-            Random random = new Random();
-            return random.Next(0, 3);
-        }
-    }
-            
+    }            
 }

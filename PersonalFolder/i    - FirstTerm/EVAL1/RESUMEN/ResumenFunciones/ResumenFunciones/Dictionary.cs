@@ -1,6 +1,6 @@
 ﻿namespace ResumenFunciones
 {
-    public class Internet
+    public class Dictionary
     {
         public Dictionary<int, string> _dictionary = new Dictionary<int, string>();
         public Dictionary<char, string> _dictionary2 = new Dictionary<char, string>();
