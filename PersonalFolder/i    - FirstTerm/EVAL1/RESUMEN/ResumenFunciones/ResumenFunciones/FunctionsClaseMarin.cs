@@ -121,7 +121,7 @@ namespace ResumenFunciones
             for (int i = 2; i < number; i++)
             {
                 if (number % i == 0)
-                    return false;                
+                    return false;
             }
             return true;
         }
@@ -326,7 +326,7 @@ namespace ResumenFunciones
                 Console.WriteLine("Error de validacion. Array introducida es null");
                 return new int[0];
             }
-                               
+
 
             int[] result;
             int count = 0;
@@ -337,7 +337,7 @@ namespace ResumenFunciones
                 if (IsEven(array[i]))
                     count++;
             }
-            
+
             // Creamos un array cuya longitud es igual al numero de pares encontrados
             result = new int[count];
             int contador = 0;
@@ -362,5 +362,18 @@ namespace ResumenFunciones
             result = (number > 5) ? "Mas de cinco" : "Menos de cinco";
             return result;
         }
+
+        public enum DayWeek
+        {
+            MONDAY,
+            TUESDAY,
+            WEDNESDAY,
+            THURSDAY,
+            FRIDAY,
+            SATURDAY,
+            SUNDAY
+        }
+
+        public static int GetDayWeek(DayOfWeek dayWeek) => (int)dayWeek;
     }
 }

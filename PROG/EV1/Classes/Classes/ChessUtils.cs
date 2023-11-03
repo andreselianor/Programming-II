@@ -17,16 +17,12 @@
 
             if (targetX == figure.X + 1 && (targetY == figure.Y + 2 || targetY == figure.Y - 2))
                 return true;
+            
+            if (IsFigureAt(targetX, targetY, list))
+                return false;
 
-            ChessFigure targetFigure;
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                targetFigure = list[i];
-
-                if (figure.X == targetFigure.X && figure.Y == targetFigure.Y)
-                    return false;
-            }
+            if (!IsOnTheTable(targetX, targetY))
+                return false;
 
             return false;
         }
@@ -113,6 +109,11 @@
             return null;
         }
 
-        public static bool IsOnTheTable(int x, int y) => (x > 0 && x < 9 && y > 0 && y < 9);        
+        public static int GetFigureCount(List<ChessFigure> list)
+        {
+            return list.Count;
+        }
+
+        public static bool IsOnTheTable(int x, int y) => (x > 0 && x < 9 && y > 0 && y < 9);
     }
 }

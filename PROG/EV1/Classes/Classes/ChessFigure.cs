@@ -57,7 +57,7 @@
         public bool IsValid()
         {
             return (X > 0 && X < 9 && Y > 0 || Y < 9);
-        }
+        } 
 
         public int GetMovementCount()
         {
