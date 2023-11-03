@@ -9,12 +9,16 @@ namespace Pintar01
         double b = 1.0;
         double a = 1.0;
 
+        int turn = 0;
+
         bool loveMeter = false;
 
         Board board;
 
         public void OnAnimate(GameDelegateEvent gameEvent)
         {
+
+
         }
 
         public void OnDraw(GameDelegateEvent gameEvent, ICanvas canvas)
@@ -22,15 +26,19 @@ namespace Pintar01
             canvas.Clear(r, g, b, a);
             canvas.Camera.SetRectangle(-1, -1, 12, 12);
 
-            board.DrawBoard(canvas);
 
-            board.DrawLoveMeter(canvas,loveMeter);
+
+            board.DrawLoveMeter(canvas, loveMeter);
+
+            
+                board.DrawBoard(canvas, turn);
+
 
         }
 
         public void OnKeyboard(GameDelegateEvent gameEvent, IKeyboard keyboard, IMouse mouse)
         {
-            if(mouse.Y > 300)
+            if (mouse.Y > 300)
             {
                 loveMeter = false;
             }
@@ -38,6 +46,11 @@ namespace Pintar01
             {
                 loveMeter = true;
             }
+            if (mouse.IsDown(MouseButton.Button1))
+            {
+                turn++;
+            }
+
         }
 
         public void OnLoad(GameDelegateEvent gameEvent)
