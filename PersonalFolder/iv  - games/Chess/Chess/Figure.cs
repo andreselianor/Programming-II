@@ -18,8 +18,7 @@
 
     public class Figure
     {
-        private int _x;
-        private int _y;
+        protected Position _position = new Position();
         private ColorType _color;
         private FigureType _type;
         private int _movementCount;
@@ -27,10 +26,14 @@
 
         public Figure(int x, int y, ColorType color, FigureType type)
         {
-            _x = x;
-            _y = y;
+            _position.SetPosition(x, y);
             _color = color;
             _type = type;
+        }
+
+        public virtual void MovePawn()
+        {
+            _movementCount++;
         }
     }
 }
