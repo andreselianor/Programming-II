@@ -47,10 +47,11 @@
         }
         #endregion
 
-
+        #region Properties
         public int X => _x;
         public int Y => _y;
         public List<ChessPosition> ListAvailablePosition => _positionList;
+        #endregion
 
 
         #region Methods

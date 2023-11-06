@@ -31,9 +31,13 @@
             _type = type;
         }
 
-        public virtual void MovePawn()
+        public virtual void MoveFigure()
         {
             _movementCount++;
         }
+
+        public Position Position => _position;
+        public FigureType FigureType => _type;
+        public ColorType ColorType => _color;
     }
 }

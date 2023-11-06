@@ -8,6 +8,13 @@ namespace Farm
         {
         }
     }
+    public enum AnimalType
+    {
+        DUCK,
+        CHICKEN,
+        COW,
+        HORSE
+    }
     public class Stable
     {
         private int _zone;
@@ -16,102 +23,20 @@ namespace Farm
 
     public class Hour
     {
-        private DateTime date;       // mejor con tipo de dato 'date'?        
+        private DateTime date;
     }
 
-    interface IAnimal { }
-
-    interface IFlyingAnimal : IAnimal { }
-
-    interface ITerrestrialAnimal : IAnimal { }
-
-    public class Cow: ITerrestrialAnimal
+    public class Animal
     {
-        private bool _isVaccined;
-        private string? _id;
-        private Stable? _stable;
-        private double _weight;
-        private bool isTerrestrial = true;
-        private bool isFlyer = false;
-        private DateTime _pasturateTime;
-
-        public string? ID => _id;
-        public double Weigth
-        {
-            get { return _weight; }
-            set { _weight = value; }
-        }
-
-        public void SetStable(Stable newStable)
-        {
-            _stable = newStable;
-        }
-
-        public string GetType()
-        {
-            return _id.ToString();
-        }
-    }
-
-    public class Duck: IFlyingAnimal, ITerrestrialAnimal 
-    {
-        private bool _isVaccined;
-        private string? _id;
-        private Stable _stable;
-        private double _weight;
-        private bool isTerrestrial = true;
-        private bool isFlyer = true;
-        private DateTime _oviparationTime;
-
-        public string? ID => _id;
-        public double Weigth
-        {
-            get { return _weight; }
-            set { _weight = value; }
-        }
-        public void SetStable(Stable newStable)
-        {
-            _stable = newStable;
-        }
-        public string GetType()
-        {
-            return _id.ToString();
-        }
-    }
-    public class Chickens: IFlyingAnimal, ITerrestrialAnimal
-    {
-        private bool _isVaccined;
-        private string? _id;
-        private Stable _stable;
-        private double _weight;
-        private bool isTerrestrial = true;
-        private bool isFlyer = true;
-        private DateTime _oviparationTime;
-
-        public string? ID => _id;
-        public double Weigth
-        {
-            get { return _weight; }
-            set { _weight = value; }
-        }
-        public void SetStable(Stable newStable)
-        {
-            _stable = newStable;
-        }
-        public string GetType()
-        {
-            return _id.ToString();
-        }
-    }
-    public abstract class Horse: ITerrestrialAnimal
-    {
-        private bool _isVaccined;
+        protected bool _isVaccined;
         protected string? _id;
-        protected Stable _stable;
         protected double _weight;
-        private bool isTerrestrial = true;
-        private bool isFlyer = false;
+        protected AnimalType _animalType;
+
+        protected Stable? _stable;
+        
         protected DateTime _pasturateTime;
+        protected DateTime _oviparationTime;
 
         public string? ID => _id;
         public double Weigth
@@ -119,27 +44,76 @@ namespace Farm
             get { return _weight; }
             set { _weight = value; }
         }
-        public abstract double GetQualification();
-        public abstract void SetStable(Stable newStable);
+        public string GetTypeId()
+        {
+            return _id.ToString();
+        }
+        public void SetStable(Stable newStable)
+        {
+            _stable = newStable;
+        }
 
-        public abstract string GetType();
+        public AnimalType GetTypeAnimal() => _animalType; 
+    }
+
+    interface IFlyingAnimal
+    {
+        bool isFlying();
+    }
+
+    interface ITerrestrialAnimal 
+    { 
+        bool isTerrestrial();
+    }
+
+    public class Cow : Animal, ITerrestrialAnimal
+    {
+        public bool isTerrestrial()
+        {
+            return true;
+        }        
+    }
+
+    public class Duck : Animal, IFlyingAnimal, ITerrestrialAnimal
+    {
+        public bool isTerrestrial()
+        {
+            return true;
+        }
+
+        public bool isFlying()
+        {
+            return true;
+        }
+    }
+    public class Chickens : Animal, IFlyingAnimal, ITerrestrialAnimal
+    {
+        public bool isTerrestrial()
+        {
+            return true;
+        }
+
+        public bool isFlying()
+        {
+            return true;
+        }
+    }
+    public abstract class Horse : Animal, ITerrestrialAnimal
+    {        
+        public abstract double GetQualification();
+        public abstract bool isTerrestrial();
     }
 
     public class HorseDomated : Horse
     {
         private int _domatedDate;
-
         override public double GetQualification()
         {
             return _domatedDate;
         }
-        override public void SetStable(Stable newStable)
+        public override bool isTerrestrial()
         {
-            _stable = newStable;
-        }
-        override public string GetType()
-        {
-            return _id.ToString();
+            return true;
         }
     }
 
@@ -149,13 +123,9 @@ namespace Farm
         {
             return _weight / 2;
         }
-        override public void SetStable(Stable newStable)
+        public override bool isTerrestrial()
         {
-            _stable = newStable;
-        }
-        override public string GetType()
-        {
-            return _id.ToString();
+            return true;
         }
     }
 }

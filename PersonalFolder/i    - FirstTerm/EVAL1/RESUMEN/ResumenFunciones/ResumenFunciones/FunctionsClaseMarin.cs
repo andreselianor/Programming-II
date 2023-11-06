@@ -1,9 +1,105 @@
 ﻿using System;
 
 namespace ResumenFunciones
-{
+{    
     public class FunctionsClaseMarin
     {
+        public DayWeek dia;
+        public int numero;
+
+        #region Funciones Principiantes
+        // Funcion 1 · Funcion que devuelve el menor de dos numeros
+        public static int GetMinor(int number1, int number2)
+        {
+            if (number1 <= number2)
+                return number1;
+            return number2;
+        }
+             
+        // Funcion 2 · Funcion que devuelve verdadero si un numero es par
+        public static bool IsEven(int number)
+        {
+            return (number % 2 == 0);
+        }
+
+        // Funcion 3 · Funcion que devuelve el menor de tres numeros
+        public static int GetMinest(int number1, int number2, int number3)
+        {
+            if (number1 <= number2 && number1 <= number3)
+                return number1;
+            if (number2 <= number3)
+                return number2;
+            else
+                return number3;
+        }
+
+        // Funcion 4 · Serie que imprime por consola la serie 0, -2, 4, -6, 8
+        public static void PrintSerie(int number)
+        {
+            int result = 0;
+
+            for (int i = 0; i <= number / 2; i++)
+            {
+                if (IsEven(i))
+                    result = (2 * i);
+                else
+                    result = (-2 * i);
+                Console.WriteLine(result);
+            }
+        }
+
+        // Funcion 5 · Funcion que devuelve verdadero si un numero es primo
+        public static bool IsPrime(int number)
+        {
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
+        }
+
+        // Funcion 6 · Funcion que imprime en consola los valores de la serie Collatz
+        public static void Collatz(int number)
+        {
+            int result = number;
+            Console.WriteLine(result);
+            while (result != 1)
+            {
+                if (IsEven(result))
+                    result /= 2;
+                else
+                    result = (result * 3) + 1;
+                Console.WriteLine(result);
+            }
+        }
+        
+
+        // Funcion 7 · Funcion que devuelve el sumatorio de un numero
+        public static int GetSummatory(int number)
+        {
+            int result = 0;
+            for (int i = 1; i <= number; i++)
+            {
+                result += i;
+            }
+            return result;
+        }
+        
+
+        // Funcion 8 · Funcion que devuelve el productorio de un numero
+        public static int GetProductory(int number)
+        {
+            int result = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                result *= i;
+            }
+            return result;
+        }
+        #endregion
+
+        #region Funciones Elementales
 
         // Funcion que devuelve 'true' o 'false' si un número es MENOR que otro
         public static bool IsMinor(int number1, int number2)
@@ -18,7 +114,7 @@ namespace ResumenFunciones
         }
 
         // Funcion auxiliar que devuelve verdadero si es un número PAR
-        public static bool IsEven(int number)
+        public static bool IsEvenAlternative(int number)
         {
             if (number % 2 == 0)
                 return true;
@@ -30,8 +126,9 @@ namespace ResumenFunciones
         {
             return (number % 2 != 0);
         }
+        #endregion
 
-
+        #region Funciones de bucles
         // Funcion Sumatory con un bucle WHILE
         public static int GetSumatoryWhile(int number)
         {
@@ -99,36 +196,11 @@ namespace ResumenFunciones
                 Console.WriteLine(result);
             }
         }
-
-        // Funcion Secuencia con una funcion reservada MATH.POW
-        public static void GetSequence3(int number)
-        {
-            int result = -2, printNumber, count = 0;
-
-            while (result < number)
-            {
-                result += 2;
-                printNumber = result * (int)Math.Pow(-1, count);
-                Console.WriteLine(printNumber);
-                count++;
-            }
-        }
-
-        // Funcion que devuelve si un numero es Primo
-        // TODO: Numero Primo
-        public static bool IsPrime(int number)
-        {
-            for (int i = 2; i < number; i++)
-            {
-                if (number % i == 0)
-                    return false;
-            }
-            return true;
-        }
-
+        #endregion
+       
         #region Funciones Repaso
         // FUNCION que devuelve el menor de dos numeros
-        public static int GetMinor(int number1, int number2)
+        public static int GetMinorAlternative(int number1, int number2)
         {
             if (number1 <= number2)
                 return number1;
@@ -136,7 +208,7 @@ namespace ResumenFunciones
         }
 
         // FUNCION que devuelve el menor de tres numeros
-        public static int GetMinest(int number1, int number2, int number3)
+        public static int GetMinestAlternative(int number1, int number2, int number3)
         {
             if (number1 <= number2 && number1 <= number3)
                 return number1;
@@ -146,20 +218,6 @@ namespace ResumenFunciones
                 return number3;
         }
 
-        // FUNCION que imprime por consola la serie 0, -2, 4, -6, 8
-        public static void PrintSerie(int number)
-        {
-            int result = 0;
-
-            for (int i = 0; i <= number / 2; i++)
-            {
-                if (IsEven(i))
-                    result = (2 * i);
-                else
-                    result = (-2 * i);
-                Console.WriteLine(result);
-            }
-        }
 
         // FUNCION que devuelve verdadero si un numero es primo
         public static bool IsPrimeFirst(int number)
@@ -189,7 +247,7 @@ namespace ResumenFunciones
 
 
         // FUNCION que devuelve el sumatorio de un numero
-        public static int GetSummatory(int number)
+        public static int GetSummatoryAlternative(int number)
         {
             int result = 0;
             for (int i = 1; i <= number; i++)
@@ -201,7 +259,7 @@ namespace ResumenFunciones
 
 
         //FUNCION que devuelve el productorio de un numero
-        public static int GetProductory(int number)
+        public static int GetProductoryAlternative(int number)
         {
             int result = 1;
             for (int i = 1; i <= number; i++)
@@ -212,9 +270,35 @@ namespace ResumenFunciones
         }
         #endregion
 
+        #region Funciones series
+        // Funcion Secuencia con una funcion reservada MATH.POW
+        public static void GetSequence3(int number)
+        {
+            int result = -2, printNumber, count = 0;
+
+            while (result < number)
+            {
+                result += 2;
+                printNumber = result * (int)Math.Pow(-1, count);
+                Console.WriteLine(printNumber);
+                count++;
+            }
+        }
+
+        // Funcion que devuelve si un numero es Primo
+        // TODO: Numero Primo
+        public static bool IsPrimeAlternative(int number)
+        {
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
+        }
         // Funcion que devuelve la serie Collatz
         // TODO: Funcion Collatz
-        public static List<int> Collatz(int number)
+        public static List<int> CollatzAlternative(int number)
         {
             List<int> list = new List<int>();
             int result = number;
@@ -268,7 +352,9 @@ namespace ResumenFunciones
             }
             return result;
         }
+        #endregion
 
+        #region Ordenar listas
         // Funcion que ejecuta un SWAP(intercambio) entre dos elementos
         // TODO: Funcion Swap
         public static void Swap(List<int> list)
@@ -355,6 +441,50 @@ namespace ResumenFunciones
 
             return result;
         }
+        #endregion
+
+        #region Funciones Strings
+        public static string StringFunction1(string a, string b)
+        {
+            return a + b;
+        }
+
+        public static string StringFunction2(int number)
+        {
+            string result = "0";
+            for (int i = 0; i < number; i++)
+            {
+                result += "," + (i + 1);
+            }
+            return result;
+        }
+
+        public static string StringFunction3(int number)
+        {
+            string result = "1";
+            int aux = 1;
+            for (int i = 0; i < number; i++)
+            {
+                aux *= 2;
+                result += "," + aux;
+            }
+            return result;
+        }
+
+        public static void Concatenate(string text1, string text2, string text3)
+        {
+            Console.WriteLine("Frase1 , 2 y 3");
+            Console.WriteLine(text1 + ", " + text2 + ", " + text3);
+
+            Console.WriteLine("Frase1 y 2");
+            Console.WriteLine("{0} , {1}", text1, text2);
+
+            Console.WriteLine("Frase2 y 3");
+            Console.WriteLine($"{text2} , {text3}");
+        }
+        #endregion
+
+        #region Funciones Varias
 
         public static string FunctionTernary(int number)
         {
@@ -375,5 +505,6 @@ namespace ResumenFunciones
         }
 
         public static int GetDayWeek(DayOfWeek dayWeek) => (int)dayWeek;
+        #endregion
     }
 }

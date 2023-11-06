@@ -13,17 +13,49 @@
 <body>
     <header>
         <h1>Clase 22</h1>
-        <h3>Lunes, 22 Octubre 2023</h3>
+        <h3>Viernes, 27 Octubre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
     <ul class="clase·List">
 
-        <h5 class="remarks">Clase practica</h5>
+        <h4 class="remarks">Clase practica</h4>
         <li>
-				Clase práctica para terminar el movimiento de los personajes
+            Un 'enum' es un 'int' camuflado. Podemos acceder a su indice si hacemos casting de (int)
+            <pre><code>
+            'public static int MonedaToInt(Moneda moneda)
+            {
+                return (int)Moneda;
+            }
+
+            public static Moneda IntToMoneda(int centims)
+            {
+                return (Moneda)centims;
+            }
+            '
+         </code></pre>
         </li>
-              
+        <li>
+            Los atributos de clase se inicializan justo cuando se crea la clase que contiene el Objeto.
+        </li>
+        <li>
+            Se puede modificar el <b>constructor</b> de la clase desde su propio <b>constructor estático</b>.
+        <pre><code>
+            'public class CoinChange
+            {
+                private static int _monedasChange;
+
+                <b>static CoinChange(int quantity)</b>
+                {
+                    _monedasChange = quantity;
+                }
+            }
+            '
+        </code></pre>
+        </li>
+        <li>
+            El constructor de clase no lleva <b>public</b> y además es siempre <b>static</b>.
+        </li>
     </ul>
 </body>
 

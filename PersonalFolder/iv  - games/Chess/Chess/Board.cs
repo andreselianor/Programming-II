@@ -1,4 +1,6 @@
-﻿namespace Chess
+﻿using System.Diagnostics.Metrics;
+
+namespace Chess
 {
     public class Board
     {
@@ -28,36 +30,54 @@
             while (true)
             {
                 Figure figure = new Figure(1, 1, ColorType.RED, FigureType.PAWN);
-                SelectFigure(_figureList);
+                SelectFigure(5,5);
                 MoveFigure(figure);
 
-                SelectFigure(_figureList);
+                SelectFigure(5,5);
                 MoveFigure(figure);
             }
         }
         #endregion
 
         #region Selecting / Moving Pieces
-        public void SelectFigure(List<Figure> listFigure)
+        public Figure? SelectFigure(int x, int y)
         {
-
+            for(int i = 0; i < _figureList.Count; i++)
+            {
+                if (_figureList[i].Position.X == x && _figureList[i].Position.Y == y)
+                    return _figureList[i];
+            }
+            return null;
         }
 
         public void MoveFigure(Figure figure)
         {
-            figure.MovePawn();
+            figure.MoveFigure();
         }
         #endregion
 
         #region Victory Conditions
-        public bool IsWinner()
+        public ColorType IsWinner()
         {
-            return (IsKingDead());
+            Figure winner = null;
+            for (int i = 0; i < _figureList.Count; i++)
+            {
+                if (_figureList[i].FigureType == FigureType.KING)
+                    winner = _figureList[i];
+            }
+            return winner.ColorType;
         }
 
         public bool IsKingDead()
         {
-            return false;
+            int counter = 0;
+            for(int i = 0; i < _figureList.Count; i++)
+            {
+                if (_figureList[i].FigureType == FigureType.KING)
+                    counter++;
+            }
+
+            return (counter == 2);
         }
         #endregion
 
@@ -74,10 +94,10 @@
         }
         public void CreateRocks()
         {
-            Figure f1 = new Rock(1, 2, ColorType.RED, FigureType.ROCK);
-            Figure f2 = new Rock(1, 2, ColorType.WHITE, FigureType.ROCK);
-            Figure f3 = new Rock(8, 2, ColorType.RED, FigureType.ROCK);
-            Figure f4 = new Rock(8, 2, ColorType.WHITE, FigureType.ROCK);
+            Figure f1 = new Rock(1, 1, ColorType.RED, FigureType.ROCK);
+            Figure f2 = new Rock(1, 1, ColorType.WHITE, FigureType.ROCK);
+            Figure f3 = new Rock(8, 1, ColorType.RED, FigureType.ROCK);
+            Figure f4 = new Rock(8, 1, ColorType.WHITE, FigureType.ROCK);
             _figureList.Add(f1);
             _figureList.Add(f2);
             _figureList.Add(f3);
@@ -85,17 +105,38 @@
         }
         public void CreateBishops()
         {
-
+            Figure f1 = new Bishop(3, 1, ColorType.RED, FigureType.BISHOP);
+            Figure f2 = new Bishop(3, 1, ColorType.WHITE, FigureType.BISHOP);
+            Figure f3 = new Bishop(6, 1, ColorType.RED, FigureType.BISHOP);
+            Figure f4 = new Bishop(6, 1, ColorType.WHITE, FigureType.BISHOP);
+            _figureList.Add(f1);
+            _figureList.Add(f2);
+            _figureList.Add(f3);
+            _figureList.Add(f4);
         }
 
         public void CreateKnights()
         {
-
+            Figure f1 = new Knight(2, 1, ColorType.RED, FigureType.KNIGHT);
+            Figure f2 = new Knight(2, 1, ColorType.WHITE, FigureType.KNIGHT);
+            Figure f3 = new Knight(7, 1, ColorType.RED, FigureType.KNIGHT);
+            Figure f4 = new Knight(7, 1, ColorType.WHITE, FigureType.KNIGHT);
+            _figureList.Add(f1);
+            _figureList.Add(f2);
+            _figureList.Add(f3);
+            _figureList.Add(f4);
         }
 
         public void CreateQueenKing()
         {
-
+            Figure f1 = new Queen(4, 1, ColorType.RED, FigureType.QUEEN);
+            Figure f2 = new Queen(4, 1, ColorType.WHITE, FigureType.QUEEN);
+            Figure f3 = new King(5, 1, ColorType.RED, FigureType.KING);
+            Figure f4 = new King(5, 1, ColorType.WHITE, FigureType.KING);
+            _figureList.Add(f1);
+            _figureList.Add(f2);
+            _figureList.Add(f3);
+            _figureList.Add(f4);
         }
         #endregion
     }

@@ -14,7 +14,7 @@
             _availableMovements.Clear();
         }
 
-        public override void MovePawn()
+        public override void MoveFigure()
         {
 
         }

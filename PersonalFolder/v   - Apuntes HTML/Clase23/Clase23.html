@@ -12,18 +12,75 @@
 
 <body>
     <header>
-        <h1>Clase 22</h1>
-        <h3>Lunes, 22 Octubre 2023</h3>
+        <h1>Clase 23</h1>
+        <h3>Martes, 24 Octubre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
     <ul class="clase·List">
-
-        <h5 class="remarks">Clase practica</h5>
+        <h4 class="remarks">Clase 'Jar'</h4>
+        <pre><code>
+            '
+            JAR
+            _capacity: double
+            _quantity: double
+            -----------------
+            +SetQuantity(quantity): double
+            +GetQuantity(): double
+            +SetCapacity(value)
+            +GetCapacity(): double
+            +GetPercent(): double
+            +GetRemining(): double
+            +AddQuantity(value): void
+            '
+        </code></pre>
         <li>
-				Clase práctica para terminar el movimiento de los personajes
+            'SetQuantity': Se le pasa una cantidad. Devuelve la cantidad que sobra
         </li>
-              
+        <li>
+            'GetPercent': Devuelve el porcentaje sobrante
+        </li>
+        <li>
+            'AddQuantity': Se le pasa la cantidad que añadimos a la jarra.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Clase 'Machine'</h4>
+        <pre><code>
+            '
+            COFFEEMACHINE
+            _state: Estado
+            -----------------
+            +GetState(): Estado
+            +ChangeToNextState(): void
+            '
+        </code></pre>
+        <li>
+            dom(Estado): (esperando, procesando_Moneda, retirando_producto, devolviendo_cambio)
+        </li>
+        <li>
+            En el constructor se inicia el objeto en estado 'esperando'.
+        </li>
+        <li>
+            La forma óptima de diseñar la función Change() es con un 'Switch'
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Clase 'Moneda'</h4>
+        <pre><code>
+            '
+            COINCHANGE            
+            +(static)ToNumber(coin:Moneda): int
+            +(static)ToMoneda(int:centims): Moneda
+            +(static)GetReturnChange(int:centims): List&ltMoneda&gt
+            '
+        </code></pre>
+        <li>
+            dom(Moneda): (Euro_50000,[...], Euro_1)
+        </li>
+        <li>
+            Un 'enum' no puede empezar por número, ni símbolo.
+        </li>
     </ul>
 </body>
 

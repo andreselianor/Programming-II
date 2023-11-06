@@ -2,9 +2,8 @@
 {
     public class ExerciseCabanesBook
     {
-        // FUNCIONES ENCONTRADAS EN INTERNET
+        #region Recursos Internet
         // FUNCION: Comprueba si un texto es un Palindromo
-        // https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-palindromo
 
         public static bool IsPalindrome(string texto)
         {
@@ -22,7 +21,6 @@
         }
 
         // FUNCION: Indicar si un elemento esta dentro de un array
-        // https://www.discoduroderoer.es/ejercicios-propuestos-y-resueltos-funciones-y-metodos-c-sharp/
 
         public static bool ContainsElement(int[,] array, int row, int column)
         {
@@ -30,8 +28,9 @@
                 return false;
             return true;
         }
+        #endregion
 
-
+        #region Manual Nacho Cabanes
         // NACHO CABANES EJERCICIO 1.11.2
         // TABLA DE MULTIPLICAR
 
@@ -347,4 +346,5 @@
                 $"Le corresponde un abono de {workHours * euroHour} € debido a su antiguedad de {oldness} años.");
         }
     }
+    #endregion
 }

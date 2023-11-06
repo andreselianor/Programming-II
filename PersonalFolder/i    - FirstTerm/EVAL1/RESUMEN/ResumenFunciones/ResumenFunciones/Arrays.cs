@@ -43,7 +43,7 @@
 
             for (int i = 0; i < 3; i++)
             {
-                count = Utils.GetRandom();
+                count = Utils.GetRandom(1,3);
                 Console.WriteLine(array3[i]);
                 Console.WriteLine("Couples :" + array1[count]);
                 Console.WriteLine("Practices: " + array2[count]);
