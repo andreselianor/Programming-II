@@ -1,4 +1,0 @@
-ajedrez
-diagramas de clase
-namespaces
-pintar
