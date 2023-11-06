@@ -3,27 +3,41 @@
     public class EmGame
     {
         private Warzone _scenary;
-        private bool _teamWinner;
+        private int _teamWinner;
+        private int _widthScenary = 100;
+        private int _heightScenary = 100;
 
-        public void CreateScenary()
+        public void Load()
         {
-            _scenary = new Warzone();
-        }
+            CreateScenary(_widthScenary, _heightScenary);
 
-        public void Play()
-        {
-            while (TeamsFighting())
+            while (AreTeamsFighting())
             {
                 _scenary.Team1Fight();
                 _scenary.Team2Fight();
                 _scenary.TeamHealer();
                 _scenary.TeamMorale();
+
+                _scenary.FinalPhase();                
             }
+
+            WinnerPlayer(_teamWinner);
         }
 
-        public bool TeamsFighting()
+        public void CreateScenary(int widthScenary, int heightScenary)
         {
-            return true;
+            _scenary = new Warzone(widthScenary, heightScenary);
+        }
+
+        public bool AreTeamsFighting()
+        {
+            
+            return (_scenary.PlayerDefeated() == 0);
+        }
+
+        public string WinnerPlayer(int teamNumber)
+        {
+            return $"El ganador es el jugador {teamNumber}";
         }
     }
 }

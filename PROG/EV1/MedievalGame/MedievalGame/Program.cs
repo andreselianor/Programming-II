@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             EmGame game = new EmGame();
-            game.Play();
+            game.Load();
         }
     }
 }
