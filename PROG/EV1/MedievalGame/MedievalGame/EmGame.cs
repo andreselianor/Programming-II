@@ -2,7 +2,7 @@
 {
     public class EmGame
     {
-        private Warzone _scenary;
+        private Warzone _warzone;
         private int _teamWinner;
         private int _widthScenary = 100;
         private int _heightScenary = 100;
@@ -13,12 +13,10 @@
 
             while (AreTeamsFighting())
             {
-                _scenary.Team1Fight();
-                _scenary.Team2Fight();
-                _scenary.TeamHealer();
-                _scenary.TeamMorale();
-
-                _scenary.FinalPhase();                
+                public void ExecuteTurn()
+                {
+                    
+                }
             }
 
             WinnerPlayer(_teamWinner);
@@ -26,13 +24,18 @@
 
         public void CreateScenary(int widthScenary, int heightScenary)
         {
-            _scenary = new Warzone(widthScenary, heightScenary);
+            _warzone = new Warzone(widthScenary, heightScenary);
         }
 
+        public void ExecuteTurn()
+        {
+            for (int i = 0; i < _warriorList.Count; i++)
+                _warriorList[i].ExecuteRound(_warzone);
+        }
         public bool AreTeamsFighting()
         {
             
-            return (_scenary.PlayerDefeated() == 0);
+            return (_warzone.PlayerDefeated() == 0);
         }
 
         public string WinnerPlayer(int teamNumber)
