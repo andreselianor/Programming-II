@@ -26,15 +26,22 @@
         public int X => _x;
         public int Y => _y;
 
-        public void ExecuteTurn(Warzone warzone)
+        public void SetPosition(int x, int y)
         {
+            _x = x;
+            _y = y;
+        }
+                
+        public void ExecuteWarrior(Warzone warzone)
+        {
+            int index = 5;
             if (_tryAttack > 50)
             {
-                Attack();
+                Attack(warzone.GetWarriorAt(index));
             }
             else
             {
-                Move();
+                Move(1,1);
             }
         }
 
@@ -44,11 +51,9 @@
             enemy._life -= attack + _armor;
         }
 
-        public void Move(Warrior enemy)
+        public void Move(int x, int y)
         {
-
+            SetPosition(x, y);
         }
-
-
     }
 }

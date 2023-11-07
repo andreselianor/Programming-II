@@ -3,44 +3,50 @@
     public class EmGame
     {
         private Warzone _warzone;
-        private int _teamWinner;
-        private int _widthScenary = 100;
-        private int _heightScenary = 100;
+
+        private int _widthWarzone = 100;
+        private int _heightWarzone = 100;
+
+        private bool _areWarriorsAlive;
+        private string _winner;
 
         public void Load()
         {
-            CreateScenary(_widthScenary, _heightScenary);
+            CreateWarzone(_widthWarzone, _heightWarzone);
 
-            while (AreTeamsFighting())
+            while (_areWarriorsAlive)
             {
-                public void ExecuteTurn()
-                {
-                    
-                }
+                ExecuteTurn(_warzone);
+                ExecuteFinalPhase();
             }
 
-            WinnerPlayer(_teamWinner);
+            WinnerPlayer(_winner);
         }
 
-        public void CreateScenary(int widthScenary, int heightScenary)
+        public void CreateWarzone(int widthScenary, int heightScenary)
         {
             _warzone = new Warzone(widthScenary, heightScenary);
         }
 
-        public void ExecuteTurn()
+        public void ExecuteTurn(Warzone warzone)
         {
-            for (int i = 0; i < _warriorList.Count; i++)
-                _warriorList[i].ExecuteRound(_warzone);
-        }
-        public bool AreTeamsFighting()
-        {
-            
-            return (_warzone.PlayerDefeated() == 0);
+            List<Warrior> warriorsList;
+            warriorsList = _warzone.GetWarriorList();
+            for (int i = 0; i < warriorsList.Count; i++)
+            {
+                warriorsList[i].ExecuteWarrior(_warzone);
+            }
         }
 
-        public string WinnerPlayer(int teamNumber)
+        public void ExecuteFinalPhase()
         {
-            return $"El ganador es el jugador {teamNumber}";
+            if (_warzone.GetWarriorListCount() == 1)
+                _winner = "El ganador es: ";
+        }
+
+        public string WinnerPlayer(string Team)
+        {
+            return $"El ganador es el equipo {Team}";
         }
     }
 }

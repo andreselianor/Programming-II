@@ -50,5 +50,15 @@ namespace MedievalGame
                     _warriorList.RemoveAt(i);
             }
         } 
+
+        public List<Warrior> GetWarriorList()
+        {
+            return _warriorList;
+        }
+
+        public int GetWarriorsAlive()
+        {
+            return _warriorList.Count;
+        }
     }
 }
