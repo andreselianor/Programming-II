@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.Metrics;
+﻿using OpenTK.Core;
+using System.Diagnostics.Metrics;
+using UDK;
 
 namespace Chess
 {
@@ -30,10 +32,10 @@ namespace Chess
             while (true)
             {
                 Figure figure = new Figure(1, 1, ColorType.RED, FigureType.PAWN);
-                SelectFigure(5,5);
+                SelectFigure(5, 5);
                 MoveFigure(figure);
 
-                SelectFigure(5,5);
+                SelectFigure(5, 5);
                 MoveFigure(figure);
             }
         }
@@ -42,7 +44,7 @@ namespace Chess
         #region Selecting / Moving Pieces
         public Figure? SelectFigure(int x, int y)
         {
-            for(int i = 0; i < _figureList.Count; i++)
+            for (int i = 0; i < _figureList.Count; i++)
             {
                 if (_figureList[i].Position.X == x && _figureList[i].Position.Y == y)
                     return _figureList[i];
@@ -71,7 +73,7 @@ namespace Chess
         public bool IsKingDead()
         {
             int counter = 0;
-            for(int i = 0; i < _figureList.Count; i++)
+            for (int i = 0; i < _figureList.Count; i++)
             {
                 if (_figureList[i].FigureType == FigureType.KING)
                     counter++;
@@ -137,6 +139,29 @@ namespace Chess
             _figureList.Add(f2);
             _figureList.Add(f3);
             _figureList.Add(f4);
+        }
+        #endregion
+
+        #region Visuals
+        public void BoardPaint(ICanvas canvas)
+        {
+            for (int i = 1; i < 9; i++)
+            {
+                for (int j = 1; j < 9; j++)
+                {
+                    if (Utils.IsEven(i + j))
+                    {
+                        canvas.FillShader.SetColor(0, 0, 0, 1);
+                        canvas.DrawRectangle(i, j, 1, 1);
+                    }
+
+                    else
+                    {
+                        canvas.FillShader.SetColor(1, 1, 1, 1);
+                        canvas.DrawRectangle(i, j, 1, 1);
+                    }
+                }
+            }
         }
         #endregion
     }

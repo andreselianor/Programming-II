@@ -12,6 +12,11 @@
         private int _weaponPower;
         private WeaponType _weaponType;
 
+        public Weapon(WeaponType weapon)
+        {
+            _weaponType = weapon;
+        }
+
         public WeaponType Type => _weaponType;
 
         public static int GetDamage(WeaponType weaponType)

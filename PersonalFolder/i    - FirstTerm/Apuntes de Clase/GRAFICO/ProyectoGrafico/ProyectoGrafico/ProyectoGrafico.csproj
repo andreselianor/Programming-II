@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="10.18\**" />
+    <Compile Remove="10.20\**" />
+    <Compile Remove="10.21\**" />
+    <Compile Remove="10.22\**" />
+    <EmbeddedResource Remove="10.18\**" />
+    <EmbeddedResource Remove="10.20\**" />
+    <EmbeddedResource Remove="10.21\**" />
+    <EmbeddedResource Remove="10.22\**" />
+    <None Remove="10.18\**" />
+    <None Remove="10.20\**" />
+    <None Remove="10.21\**" />
+    <None Remove="10.22\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenAL.Soft" Version="1.19.1" />
+    <PackageReference Include="UDK" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

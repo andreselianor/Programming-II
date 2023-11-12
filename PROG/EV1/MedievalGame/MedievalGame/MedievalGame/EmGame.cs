@@ -10,6 +10,7 @@
         {
             CreateBoard();
 
+            /*
             bool areTeamsFighting = true;
             while (areTeamsFighting)
             {
@@ -17,7 +18,9 @@
                 areTeamsFighting = FinishTurn();
             }            
 
-            FinishGame();
+            Team? winnerTeam = FinishGame();
+            Console.WriteLine($"El equipo ganador es: {winnerTeam}");
+            */
         }
 
 

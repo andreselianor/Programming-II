@@ -1,4 +1,6 @@
-﻿namespace MedievalGame
+﻿using UDK;
+
+namespace MedievalGame
 {
     public enum WarriorType
     {
@@ -18,14 +20,12 @@
         private WarriorType _type;
         private Team _team;
 
-
-
         public Warrior()
         {
 
         }
 
-        public Warrior(int x, int y, int life, WarriorType type, WeaponType weapon, Team team)
+        public Warrior(int x, int y, int life, WarriorType type, Weapon weapon, Team team)
         {
             position.SetPosition(x, y);
             _life = life;
@@ -33,8 +33,6 @@
             _weapon = weapon;
             _team = team;
         }
-
-
 
         public Team Team => _team;
 
@@ -51,6 +49,12 @@
         public void Move(int x, int y)
         {
             position.SetPosition(x, y);
+        }
+
+        public void PaintWarrior(ICanvas canvas)
+        {
+            canvas.FillShader.SetColor(1, 0, 0, 1);
+            canvas.DrawRectangle(position.X, position.Y, 0.9, 0.9);
         }
     }
 }

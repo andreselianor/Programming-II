@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResumenFunciones", "ResumenFunciones\ResumenFunciones.csproj", "{A6B45048-5327-4390-9B06-71C22F32230F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaNamespace", "PruebaNamespace\PruebaNamespace.csproj", "{3C4EC06B-2348-4043-ACD1-1E255CF0FE9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6B45048-5327-4390-9B06-71C22F32230F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B45048-5327-4390-9B06-71C22F32230F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B45048-5327-4390-9B06-71C22F32230F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B45048-5327-4390-9B06-71C22F32230F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C4EC06B-2348-4043-ACD1-1E255CF0FE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C4EC06B-2348-4043-ACD1-1E255CF0FE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C4EC06B-2348-4043-ACD1-1E255CF0FE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C4EC06B-2348-4043-ACD1-1E255CF0FE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {235B407E-4184-4FA1-BA97-43DDAD96A118}
+	EndGlobalSection
+EndGlobal
