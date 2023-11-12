@@ -5,7 +5,7 @@ namespace ResumenFunciones
     public class FunctionsClaseMarin
     {
         public DayWeek dia;
-        public int numero;
+        public int numero;        
 
         #region Funciones Principiantes
         // Funcion 1 · Funcion que devuelve el menor de dos numeros
