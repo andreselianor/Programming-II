@@ -5,14 +5,14 @@ namespace MedievalGame
     public enum Team
     {
         LIGHT,
-        DARK           
+        DARK
     }
 
     public class Warzone
     {
-        private List<Warrior> _listWarrior = new List<Warrior>();        
+        private List<Warrior> _listWarrior = new List<Warrior>();
 
-
+        #region Constructores
         public Warzone()
         {
             CreateTeamLight(1);
@@ -24,31 +24,31 @@ namespace MedievalGame
             CreateTeamLight(squadCount);
             CreateTeamDark(squadCount);
         }
+        #endregion
 
-        public List<Warrior> ListPlayers => _listWarrior;
-
+        #region Properties
+        public List<Warrior> ListWarrior => _listWarrior;
+        #endregion
 
         public void CreateTeamLight(int squadCount)
         {
             int humanLife = 10, dwarfLife = 15, elfLife = 25, orcLife = 8;
-            for(int i = 0; i < squadCount; i++)
+            for (int i = 0; i < squadCount; i++)
             {
                 Warrior warrior;
                 Weapon weapon = new Weapon(WeaponType.SWORD);
 
-                warrior = new Warrior(i,1, humanLife, WarriorType.HUMAN, weapon, Team.LIGHT);
+                warrior = new Warrior(i, 8, humanLife, WarriorType.HUMAN, weapon, Team.LIGHT);
                 _listWarrior.Add(warrior);
 
-                /*
-                warrior = new Warrior(i, 1, dwarfLife, WarriorType.DWARF, WeaponType.MAZE, Team.LIGHT);
+                warrior = new Warrior(i + 3, 8, dwarfLife, WarriorType.DWARF, weapon, Team.LIGHT);
                 _listWarrior.Add(warrior);
 
-                warrior = new Warrior(i, 1, elfLife, WarriorType.ELF, WeaponType.BOW, Team.LIGHT);
+                warrior = new Warrior(i + 4, 8, elfLife, WarriorType.ELF, weapon, Team.LIGHT);
                 _listWarrior.Add(warrior);
 
-                warrior = new Warrior(i, 1, orcLife, WarriorType.ORC, WeaponType.PUNCH, Team.LIGHT);
+                warrior = new Warrior(i + 7, 8, orcLife, WarriorType.ORC, weapon, Team.LIGHT);
                 _listWarrior.Add(warrior);
-                */
             }
         }
 
@@ -60,29 +60,40 @@ namespace MedievalGame
                 Warrior warrior;
                 Weapon weapon = new Weapon(WeaponType.SWORD);
 
-                warrior = new Warrior(i, 9, humanLife, WarriorType.HUMAN, weapon, Team.DARK);
+                warrior = new Warrior(i, 3, humanLife, WarriorType.HUMAN, weapon, Team.DARK);
                 _listWarrior.Add(warrior);
 
-                /*
-                warrior = new Warrior(i, 1, dwarfLife, WarriorType.DWARF, WeaponType.MAZE, Team.DARK);
+                warrior = new Warrior(i + 2, 3, dwarfLife, WarriorType.DWARF, weapon, Team.DARK);
                 _listWarrior.Add(warrior);
 
-                warrior = new Warrior(i, 1, elfLife, WarriorType.ELF, WeaponType.BOW, Team.DARK);
+                warrior = new Warrior(i + 3, 3, elfLife, WarriorType.ELF, weapon, Team.DARK);
                 _listWarrior.Add(warrior);
 
-                warrior = new Warrior(i, 1, orcLife, WarriorType.ORC, WeaponType.PUNCH, Team.DARK);
+                warrior = new Warrior(i + 5, 3, orcLife, WarriorType.ORC, weapon, Team.DARK);
                 _listWarrior.Add(warrior);
-                */
             }
         }
 
+        public void Move()
+        {
+
+        }
+
+        public void Attack()
+        {
+
+        }
+
+        #region PaintMethods
         public void PaintWarzone(ICanvas canvas)
         {
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                for(int j = 0; j < 10; j++)
+                for (int j = 0; j < 10; j++)
                 {
-                    canvas.FillShader.SetColor(0, 0, 0, 1);
+                    double r = 0.0, g = 0.4, b = 0.4, a = 0.5;
+
+                    canvas.FillShader.SetColor(r, g, b, a);
                     canvas.DrawRectangle(i, j, 0.9, 0.9);
                 }
             }
@@ -90,10 +101,11 @@ namespace MedievalGame
 
         public void PaintWarriors(ICanvas canvas)
         {
-            for(int i = 0; i < ListPlayers.Count; i++)
+            for (int i = 0; i < ListWarrior.Count; i++)
             {
-                ListPlayers[i].PaintWarrior(canvas);
+                ListWarrior[i].PaintWarrior(canvas);
             }
         }
+        #endregion
     }
 }

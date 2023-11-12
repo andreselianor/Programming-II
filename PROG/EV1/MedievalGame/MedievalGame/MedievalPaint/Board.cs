@@ -6,9 +6,12 @@ namespace MedievalPaint
     public class Board : IGameDelegate
     {
         Warzone warzone = new Warzone();
+
+        #region OnAnimate
         public void OnAnimate(GameDelegateEvent gameEvent)
         {
         }
+        #endregion
 
         public void OnDraw(GameDelegateEvent gameEvent, ICanvas canvas)
         {
@@ -20,6 +23,7 @@ namespace MedievalPaint
 
         }
 
+        #region OnKeyboard / OnLoad / OnUnload
         public void OnKeyboard(GameDelegateEvent gameEvent, IKeyboard keyboard, IMouse mouse)
         {
         }
@@ -31,5 +35,6 @@ namespace MedievalPaint
         public void OnUnload(GameDelegateEvent gameEvent)
         {
         }
+        #endregion
     }
 }

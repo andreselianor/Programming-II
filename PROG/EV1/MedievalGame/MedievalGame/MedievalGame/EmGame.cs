@@ -3,14 +3,12 @@
     public class EmGame
     {
         private Warzone warzone;
-        private Team _winnerTeam;
-        
+
 
         public void Play()
         {
             CreateBoard();
-
-            /*
+            
             bool areTeamsFighting = true;
             while (areTeamsFighting)
             {
@@ -18,54 +16,54 @@
                 areTeamsFighting = FinishTurn();
             }            
 
-            Team? winnerTeam = FinishGame();
-            Console.WriteLine($"El equipo ganador es: {winnerTeam}");
-            */
+            Team? winnerTeam = WinnerTeam();
+            Console.WriteLine($"El equipo ganador es: {winnerTeam}");            
         }
 
 
         public void CreateBoard()
         {
-            int SquadCount = 2;
+            int SquadCount = 1;
             warzone = new Warzone(SquadCount);
+        }
+
+        public void ExecuteTurn()
+        {
+            warzone.Move();
+            warzone.Attack();
         }
 
         public bool FinishTurn()
         {
             int warriorsList1 = 0, warriorsList2 = 0;
-            for (int i = 0; i < warzone.ListPlayers.Count; i++)
+            for (int i = 0; i < warzone.ListWarrior.Count; i++)
             {
-                if (warzone.ListPlayers[i].Team == Team.LIGHT)
+                if (warzone.ListWarrior[i].Team == Team.LIGHT)
                     warriorsList1++;
-                if (warzone.ListPlayers[i].Team == Team.DARK)
+                if (warzone.ListWarrior[i].Team == Team.DARK)
                     warriorsList2++;
             }
 
             return (warriorsList1 == 0 || warriorsList2 == 0);
         }
 
-        public Team? FinishGame()
+        public Team? WinnerTeam()
         {
-            int warriorsList1 = 0, warriorsList2 = 0;
-            for(int i = 0; i < warzone.ListPlayers.Count; i++)
+            int warriorsCountTeam1 = 0, warriorsCountTeam2 = 0;
+            for(int i = 0; i < warzone.ListWarrior.Count; i++)
             {
-                if (warzone.ListPlayers[i].Team == Team.LIGHT)
-                    warriorsList1++;
-                if (warzone.ListPlayers[i].Team == Team.DARK)
-                    warriorsList2++;
+                if (warzone.ListWarrior[i].Team == Team.LIGHT)
+                    warriorsCountTeam1++;
+                if (warzone.ListWarrior[i].Team == Team.DARK)
+                    warriorsCountTeam2++;
             }
 
-            if (warriorsList1 == 0)
+            if (warriorsCountTeam1 == 0)
                 return Team.DARK;
-            if (warriorsList2 == 0)
+            if (warriorsCountTeam2 == 0)
                 return Team.LIGHT;
             else
                 return null;
-        }
-
-        public void ExecuteTurn()
-        {
-
-        }
+        }        
     }
 }

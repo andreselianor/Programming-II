@@ -20,6 +20,7 @@ namespace MedievalGame
         private WarriorType _type;
         private Team _team;
 
+        #region Constructor
         public Warrior()
         {
 
@@ -33,8 +34,14 @@ namespace MedievalGame
             _weapon = weapon;
             _team = team;
         }
+        #endregion
 
         public Team Team => _team;
+
+        public void Move(int x, int y)
+        {
+            position.SetPosition(x, y);
+        }
 
         public void Attack(Warrior warrior)
         {
@@ -45,16 +52,45 @@ namespace MedievalGame
                 warrior = null;
         }
 
-
-        public void Move(int x, int y)
-        {
-            position.SetPosition(x, y);
-        }
-
+        #region PaintMethods
         public void PaintWarrior(ICanvas canvas)
         {
-            canvas.FillShader.SetColor(1, 0, 0, 1);
-            canvas.DrawRectangle(position.X, position.Y, 0.9, 0.9);
+            if(_type == WarriorType.HUMAN)
+            {
+                double r = 1.0, g = 1.0, b = 0.5, a = 1.0;
+                double scale = 0.9;
+
+                canvas.FillShader.SetColor(r, g, b, a);
+                canvas.DrawRectangle(position.X, position.Y, scale, scale);
+            }
+
+            if (_type == WarriorType.DWARF)
+            {
+                double r = 1.0, g = 0.3, b = 0.3, a = 1.0;
+                double scale = 0.9;
+
+                canvas.FillShader.SetColor(r, g, b, a);
+                canvas.DrawRectangle(position.X, position.Y, scale, scale);
+            }
+
+            if (_type == WarriorType.ELF)
+            {
+                double r = 0.3, g = 1.0, b = 0.4, a = 1.0;
+                double scale = 0.9;
+
+                canvas.FillShader.SetColor(r, g, b, a);
+                canvas.DrawRectangle(position.X, position.Y, scale, scale);
+            }
+
+            if (_type == WarriorType.ORC)
+            {
+                double r = 0.5, g = 0.3, b = 0.2, a = 1.0;
+                double scale = 0.9;
+
+                canvas.FillShader.SetColor(r, g, b, a);
+                canvas.DrawRectangle(position.X, position.Y, scale, scale);
+            }
         }
+        #endregion
     }
 }
