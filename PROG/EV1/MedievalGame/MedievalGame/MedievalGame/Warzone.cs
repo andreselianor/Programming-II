@@ -1,4 +1,5 @@
-﻿using UDK;
+﻿using FreeTypeSharp.Native;
+using UDK;
 
 namespace MedievalGame
 {
@@ -72,6 +73,106 @@ namespace MedievalGame
                 warrior = new Warrior(i + 5, 3, orcLife, WarriorType.ORC, weapon, Team.DARK);
                 _listWarrior.Add(warrior);
             }
+        }
+
+        public int GetWarriorsCount()
+        {
+            return _listWarrior.Count;
+        }
+
+        public Warrior GetWarriorAt(int index)
+        {
+            return _listWarrior[index];
+        }
+
+        public Warrior? GetWarriorAt(int positionX, int positionY)
+        {
+            Warrior warriorResult;
+
+            for (int i = 0; i < _listWarrior.Count; i++)
+            {
+                warriorResult = _listWarrior[i];
+                if (warriorResult.Position.X == positionX &&
+                    warriorResult.Position.Y == positionY)
+                    return warriorResult;
+            }
+            return null;
+        }
+        public bool IsWarriorAt(int positionX, int positionY)
+        {
+            return (GetWarriorAt(positionX, positionY) != null);
+        }
+
+        public int GetWarriorsCountAroundFocus(int positionX, int positionY)
+        {
+            int result = 0;
+
+            for (int i = positionX - 1; i < positionX + 1; i++)
+            {
+                for (int j = positionY - 1; j < positionY + 1; j++)
+                {
+                    if (GetWarriorAt(i, j) != null)
+                        result++;
+                }
+            }
+            return result;
+        }
+
+        public List<Warrior> GetWarriorsAroundFocus(int positionX, int positionY)
+        {
+            List<Warrior> listResult = new List<Warrior>();
+            Warrior warriorElement;
+
+            for (int i = positionX - 1; i < positionX + 1; i++)
+            {
+                for (int j = positionY - 1; j < positionY + 1; j++)
+                {
+                    warriorElement = GetWarriorAt(i, j);
+                    listResult.Add(warriorElement);
+                }
+            }
+            return listResult;
+        }
+
+        public List<Warrior> GetEnemiesAroundFocus(int positionX, int positionY)
+        {          
+
+            Warrior? warriorFocus = GetWarriorAt(positionX, positionY);
+            Warrior? warriorEnemy;
+
+            List<Warrior> listResult = new List<Warrior>();
+
+            for (int i = positionX - 1; i < positionX + 1; i++)
+            {
+                for (int j = positionY - 1; j < positionY + 1; j++)
+                {
+                    warriorEnemy = GetWarriorAt(i, j);
+
+                    if (warriorEnemy.Team != warriorFocus.Team)
+                        listResult.Add(warriorEnemy);
+                }
+            }
+            return listResult;
+        }
+
+        public List<Warrior> GetFriendAroundFocus(int positionX, int positionY)
+        {
+            Warrior warriorFocus = GetWarriorAt(positionX, positionY); ;
+            Warrior warriorFriend;
+
+            List<Warrior> listResult = new List<Warrior>();
+
+            for (int i = positionX - 1; i < positionX + 1; i++)
+            {
+                for (int j = positionY - 1; j < positionY + 1; j++)
+                {
+                    warriorFriend = GetWarriorAt(i, j);
+
+                    if (warriorFriend.Team == warriorFocus.Team)
+                        listResult.Add(warriorFriend);
+                }
+            }
+            return listResult;
         }
 
         public void Move()

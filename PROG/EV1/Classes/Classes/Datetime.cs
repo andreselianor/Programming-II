@@ -14,12 +14,12 @@
     public class Datetime
     {
         private int _day;
-        private int _hour;
-        private int _minute;
-        private int _second;
         private int _month;
         private int _year;
-
+        private int _second;
+        private int _minutes;
+        private int _hour; 
+        
 
         #region Constructores
         public Datetime()
@@ -34,18 +34,39 @@
             _year = year;
         }
 
-        public Datetime(int day, int month, int year, int second, int minute, int hour)
+        public Datetime(int day, int month, int year, int second, int minutes, int hour)
         {
             _day = day;
             _month = month;
             _year = year;
             _second = second;
-            _minute = minute;
+            _minutes = minutes;
             _hour = hour;
         }
         #endregion
 
-        public Datetime Clone(Datetime datetime)
+        #region Properties
+        public int Day => _day;
+        public int Month => _month;
+        public int Year => _year;
+        public int Second => _second;
+        public int Minutes => _minutes;
+        public int Hour => _hour;
+        #endregion
+
+        public Datetime Clone()
+        {
+            Datetime result = new Datetime();
+            result._day = _day;
+            result._month = _month;
+            result._year = _year;
+            result._second = _second;
+            result._minutes = _minutes;
+            result._hour = _hour;
+            return result;
+        }
+
+        public static Datetime Clone(Datetime datetime)
         {
             return datetime;
         }
@@ -54,14 +75,9 @@
         {
             if (this._day == datetime._day &&
                 this._month == datetime._month &&
-                this._year == datetime._year)
-                return true;
-
-            if (this._day == datetime._day &&
-                this._month == datetime._month &&
                 this._year == datetime._year &&
                 this._second == datetime._second &&
-                this._minute == datetime._minute &&
+                this._minutes == datetime._minutes &&
                 this._hour == datetime._hour)
                 return true;
             return false;
@@ -71,16 +87,22 @@
         {
             if (_day < 1 || _day > 32)
                 return false;
+
             if (_month < 1 || _month > 13)
                 return false;
+
             if (_year < 1970)
                 return false;
+
             if (_second < 0 || _second > 60)
                 return false;
-            if (_minute < 0 || _minute > 60)
+
+            if (_minutes < 0 || _minutes > 60)
                 return false;
+
             if (_hour < 0 || _hour > 24)
                 return false;
+
             return true;
         }
 
@@ -108,12 +130,9 @@
             return false;
         }
 
-        #region Getters
-        #endregion
-
-        public string ToString()
+        override public string ToString()
         {
-            return _day.ToString();
+            return "" + this;
         }
 
 
@@ -194,7 +213,7 @@
             if (_second == 60)
             {
                 _second = 0;
-                _minute++;
+                _minutes++;
             }
             else
             {

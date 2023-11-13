@@ -37,6 +37,7 @@ namespace MedievalGame
         #endregion
 
         public Team Team => _team;
+        public Position Position => position;
 
         public void Move(int x, int y)
         {
