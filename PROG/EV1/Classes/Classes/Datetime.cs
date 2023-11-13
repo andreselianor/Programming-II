@@ -45,23 +45,35 @@
         }
         #endregion
 
-        public void Clone()
+        public Datetime Clone(Datetime datetime)
         {
-
+            return datetime;
         }
 
-        public void Equals(Datetime datetime)
+        public bool Equals(Datetime datetime)
         {
+            if (this._day == datetime._day &&
+                this._month == datetime._month &&
+                this._year == datetime._year)
+                return true;
 
+            if (this._day == datetime._day &&
+                this._month == datetime._month &&
+                this._year == datetime._year &&
+                this._second == datetime._second &&
+                this._minute == datetime._minute &&
+                this._hour == datetime._hour)
+                return true;
+            return false;
         }
 
         public bool IsValid()
         {
-            if (_day < 0 || _day > 32)
+            if (_day < 1 || _day > 32)
                 return false;
-            if (_month < 0 || _month > 13)
+            if (_month < 1 || _month > 13)
                 return false;
-            if (_year < 0)
+            if (_year < 1970)
                 return false;
             if (_second < 0 || _second > 60)
                 return false;
@@ -99,9 +111,9 @@
         #region Getters
         #endregion
 
-        public void ToString()
+        public string ToString()
         {
-            string day = _day.ToString();
+            return _day.ToString();
         }
 
 
@@ -119,13 +131,13 @@
             if (month == 4 ||
                 month == 6 ||
                 month == 9 ||
-                month == 11) 
+                month == 11)
                 return 30;
 
             if (month == 2 && IsLeap(year))
                 return 29;
             else
-                return 29;
+                return 28;
         }
 
         public static int GetDaysCountAlt(int year, int month)
@@ -149,13 +161,8 @@
 
                 case 2:
                     if (IsLeap(year))
-                    {
                         return 29;
-                    }
-                    else
-                    {
-                        return 28;
-                    }
+                    return 28;
             }
             return 0;
         }
@@ -178,13 +185,13 @@
             {
                 _day++;
             }
-                
+
 
         }
 
         public void IncrementSeconds()
         {
-            if(_second == 60)
+            if (_second == 60)
             {
                 _second = 0;
                 _minute++;
