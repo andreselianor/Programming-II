@@ -24,8 +24,50 @@
             Clase práctica para comenzar a diseñar la logica del juego medieval.
         </li>
         <li>
-            Clase principal es warrior.
+            <b>Jerarquía entre clases</b>
 		</li>
+        <li>
+            Weapon->Composicion->Warrior->Composicion->Warzone->Composicion->Game
+        </li>
+        <li>
+            <b>Clase Game:</b>
+            <br>
+            Contiene las reglas del juego. El funcionamiento más general de todo el programa
+        </li>
+        <li>
+            <b>Clase Warzone:</b>
+            <br>
+            -ListWarriors: ListWarriors
+            -width: int
+            -height: int
+            +CreateWarriors(count, type: int): ListWarrior
+            +RemoveAt(index: int): void
+            +MoveWarrior(Warrior, x, y : int): void
+        </li>
+        <li>
+            <b>Clase Warrior</b>
+            <br>
+            -x, -y : int
+            -listWeapons: ListWeapon
+            -life: int
+            -accuraccy: double
+            -winner: int
+            -lucky: double
+            -team: TeamType
+            <br>
+            Dom (TeamType): (HUMAN, ELF, DWARF, ORC)
+        </li>
+        <li>
+            <b>Clase Weapon:</b>
+            <br>
+            -WeaponType: WeaponType
+            +GetType(): WeaponType
+            +GetDamage(): int
+            +GetReloadTime(): int
+            +CoolDown(): int
+            <br>
+            Dom (WeaponType): (PUNCH, SWORD, MACE, BOW)
+        </li>
     </ul>
 </body>
 

@@ -21,11 +21,37 @@
 
         <h5 class="remarks">Medieval Game</h5>
         <li>
-            Clase práctica para continuar con el juego Medieval
+            Dentro de la clase 'Weapon' es util la función 'GetDistance'. Es una función 'Static' que se resuelve con la
+            función Math.Sqrt()
         </li>
         <li>
-		
-		</li>
+            Dentro de la clase 'Warzone', la función 'ExecuteTurn(Warzone)' recibe el parámetro de un 'Warzone warzone'.
+            Esto permite que las clases que utilizan la función 'Execute', que son mas concretas, tengan la información
+            de todo el programa, o de las clases más abstractas.
+            <br>
+            Dentro de 'warzone' está toda la información que necesita, tales como listas, armas o movimientos.
+        </li>
+        <li>
+            Dos funciones 'casi obligatorias' son el 'GetWarriorCount()' y 'GetWarriorAt(index)'. Estas funciones se
+            diseñan casi al mismo tiempo.
+        </li>
+        <li>
+            Son muy útiles las funciones que ordenan las listas de un modo determinado: por tipo, por distancia, por arma, por indice, etc...
+        </li>
+        <li>
+            Otras funciones son: 'GetElementsAround()', 'GetWarriorAround()', 'GetWarriorsInside()',
+            'GetWarriorsSortByDistance()'
+        </li>
+        <li>
+            Estas funciones se crean dentro de la clase 'Warzone' porque son de uso <b>'Global'</b> para todo el
+            programa y para cada una de las clases mas concretas del programa.
+        </li>
+        <li>
+            El diseño de lo <b>Abstracto hacia lo Concreto</b>, se denomina <b>Top-Down</b>. 
+        </li>
+        <li>
+            Al contrario, de lo <b>Concreto hacia lo Abstracto</b>, se denomina <b>Down-Top</b>.
+        </li>
     </ul>
 </body>
 
