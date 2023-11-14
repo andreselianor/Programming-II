@@ -33,12 +33,15 @@ namespace ChessPaint
             canvas.DrawImage(imageRedPawn, 5, 2, 1, 1);
             canvas.DrawImage(imageWhitePawn, 5, 7, 1, 1);
             canvas.DrawImage(imageWhitePawn, 4, 7, 1, 1);
+			
+			
         }
 
         #region OnKeyboard
         public void OnKeyboard(GameDelegateEvent gameEvent, IKeyboard keyboard, IMouse mouse)
         {
-
+			// NUEVO IMPORTANTE
+			var pos = gameEvent.coordinateConversor.ViewToWorld(mouse.X, mouse.Y);
         }
         #endregion
 
