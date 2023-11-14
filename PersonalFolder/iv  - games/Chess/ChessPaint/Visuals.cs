@@ -6,7 +6,11 @@ namespace ChessPaint
     public class Visuals : IGameDelegate
     {
         Board board = new Board();
-
+        // PINTAR PIEZAS
+        UDK.IImage? imageBlackPawn;
+        UDK.IImage? imageWhitePawn;
+        UDK.IImage? imageRedPawn;
+            
         #region OnAnimate
         public void OnAnimate(GameDelegateEvent gameEvent)
         {
@@ -21,18 +25,8 @@ namespace ChessPaint
 
             board.BoardPaint(canvas);
 
-            // PINTAR PIEZAS
-            UDK.IImage? imageBlackPawn;
-            UDK.IImage? imageWhitePawn;
-            UDK.IImage? imageRedPawn;
 
-            string pathBlack = "../../../resources/blackPawn.png";
-            string pathRed = "../../../resources/redPawn.png";
-            string pathWhite = "../../../resources/whitePawn.png";
 
-            imageBlackPawn = gameEvent.canvasContext.LoadImageFromFile(pathBlack);
-            imageRedPawn = gameEvent.canvasContext.LoadImageFromFile(pathRed);
-            imageWhitePawn = gameEvent.canvasContext.LoadImageFromFile(pathWhite);
 
             canvas.DrawImage(imageBlackPawn, 4, 2, 1, 1);
             canvas.DrawImage(imageBlackPawn, 3, 2, 1, 1);
@@ -51,6 +45,13 @@ namespace ChessPaint
         #region OnLoad / OnUnload
         public void OnLoad(GameDelegateEvent gameEvent)
         {
+            string pathBlack = "../../../resources/blackPawn.png";
+            string pathRed = "../../../resources/redPawn.png";
+            string pathWhite = "../../../resources/whitePawn.png";
+
+            imageBlackPawn = gameEvent.canvasContext.LoadImageFromFile(pathBlack);
+            imageRedPawn = gameEvent.canvasContext.LoadImageFromFile(pathRed);
+            imageWhitePawn = gameEvent.canvasContext.LoadImageFromFile(pathWhite);
 
         }
 
