@@ -71,6 +71,12 @@
             return datetime;
         }
 
+        public Datetime Clone2()
+        {
+            Datetime datetime = new Datetime(_day,_month,_year,_second,_minutes,_hour);
+            return datetime;
+        }
+
         public bool Equals(Datetime datetime)
         {
             if (this._day == datetime._day &&
@@ -133,7 +139,7 @@
         // DUDA
         override public string ToString()
         {
-            return "" + this;
+            return "" + _hour + ":" + _minutes + " " + _day + " " + _month + " " + _year;
         }
 
 
@@ -222,15 +228,8 @@
 
         public void GetDayOfWeek()
         {
-            // https://www.almanac.com/how-find-day-week
-            int lastDigits = LastDigits(_year);
-        }
-
-        public static int LastDigits(int year)
-        {
-            string lastDigits = "" + year;
-            string result = "" + lastDigits[2] + lastDigits[3];
-            return Int32.Parse(result);
-        }
+            /* https://www.almanac.com/how-find-day-week */
+            int lastDigits = Utils.LastDigits(_year);
+        }        
     }
 }
