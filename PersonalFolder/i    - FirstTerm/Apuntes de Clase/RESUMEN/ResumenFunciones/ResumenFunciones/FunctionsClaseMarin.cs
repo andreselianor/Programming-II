@@ -486,32 +486,35 @@ namespace ResumenFunciones
         public static void SingularText(string text1)
         {
             Console.WriteLine(@"Todo este texto es literal / & + text1. Se consigue con @");
+            Console.WriteLine("El texto que inicia con \"$\" permite introducir variables dentro del formato");
             Console.WriteLine("Este texto escapa \"con barras inclinadas\" (\\)");
-            Console.WriteLine("Podemos sustituir un texto con la funcion \"Replace()\"");
             Console.WriteLine("El parametro \"\\r\" sirve para mover el cursor a la izquierda del todo");
             Console.WriteLine("El parametro \"\\n\" sirve para cambiar de linea");
-            Console.WriteLine("El parametro \"\\b\" crea un espacio y el parametro \"\\t\" crea un tabulado");
+            Console.WriteLine("El parametro \"\\b\" crea un espacio");
+            Console.WriteLine("El parametro \"\\t\" crea un tabulado");
         }
 
-        public static void StringReplace(string text)
+        public static void StringReplace(string text, string word, string replace)
         {
-            Console.WriteLine("El metodo \"string.Replace(text)\" reemplaza el 'texto' de un 'string'");
-            Console.WriteLine("Texto Original: {0}", text);
-            string result = text.Replace("[INFO]: ", "");
+            Console.WriteLine("El metodo \"string.Replace(texto, alternative)\" reemplaza el 'texto' por un 'alternative'");
+            string result = text.Replace(word, replace);
             Console.WriteLine(result);
         }
 
         public static void StringIndexOf(string text)
         {
+            Console.WriteLine("El metodo \"string.IndexOf(text)\" nos indica la posicion del string 'text'");
             int result = text.IndexOf("=");
             Console.WriteLine(text);
             Console.WriteLine("El = ocupa la posicion numero: {0}", result);
         }
 
-        public static void StringSubstring(string text)
+        public static void StringSubstring(string text, int index1, int index2)
         {
-            Console.WriteLine("Texto original: {0}", text);
-            Console.WriteLine(text.Substring(0, 5));
+            Console.WriteLine("El metodo \"string.Substring(index1, index2)\" devuelve el texto que se encuentra entre index1 y index2");
+            Console.WriteLine(text);
+            Console.WriteLine(text.Substring(index1, index2));
+            Console.WriteLine(text.Substring(index1));
         }
 
         public static void StringRemove(string text)
@@ -521,6 +524,18 @@ namespace ResumenFunciones
             Console.WriteLine(result);
             result = text.Remove(5, 7);
             Console.WriteLine(result);
+        }
+
+        public static void StringChangeCase(string text)
+        {
+            Console.WriteLine(text);
+            Console.WriteLine("Puedes devolver todo el texto en minusculas: " + text.ToLower());
+            Console.WriteLine("Puedes devolver todo el texto en mayusculas: " + text.ToUpper());
+        }
+
+        public static void StringTrim(string text)
+        {
+            Console.WriteLine("La funcion \"text.Trim()\" elimina los espacios en blanco antes y despues de los caracteres");
         }
         #endregion
 
