@@ -130,6 +130,7 @@
             return false;
         }
 
+        // DUDA
         override public string ToString()
         {
             return "" + this;
@@ -204,8 +205,6 @@
             {
                 _day++;
             }
-
-
         }
 
         public void IncrementSeconds()
@@ -223,7 +222,15 @@
 
         public void GetDayOfWeek()
         {
+            // https://www.almanac.com/how-find-day-week
+            int lastDigits = LastDigits(_year);
+        }
 
+        public static int LastDigits(int year)
+        {
+            string lastDigits = "" + year;
+            string result = "" + lastDigits[2] + lastDigits[3];
+            return Int32.Parse(result);
         }
     }
 }
