@@ -1,0 +1,48 @@
+﻿{
+  "sequences": {
+    "terrain": "terrain.json"
+  },
+  "nine_patches": {
+    "terrain": "np_terrain.json",
+    "water": "np_water.json"
+  },
+
+  "layers": [
+    {
+      "name": "ground",
+      "maps": [
+        {
+          "text_file": "map.txt",
+          "values": ".",
+          "sprite": {
+            "source": "terrain"
+          }
+        },
+        {
+          "text_file": "map.txt",
+          "values": "C",
+          "nine_patch": {
+            "source": "terrain"
+          }
+        },
+        {
+          "text_file": "map.txt",
+          "values": "A",
+          "clazz": "water_limit",
+          "nine_patch": {
+            "source": "water"
+          }
+        },
+        {
+          "text_file": "map.txt",
+          "values": "A",
+          "clazz": "water_limit",
+          "sprite": {
+            "source": "water"
+          }
+        }
+
+      ]
+    }
+  ]
+}
