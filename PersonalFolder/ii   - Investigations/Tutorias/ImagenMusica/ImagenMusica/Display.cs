@@ -12,7 +12,6 @@ namespace ImagenMusica
         // TESTING
         UDK.ISound? sound;
         UDK.IMusic? music;
-        UDK.IFontFace? fontFace;
         UDK.IPlayer? player;
 
         public void OnAnimate(GameDelegateEvent gameEvent)
@@ -52,9 +51,12 @@ namespace ImagenMusica
 
             
             // cambiar opacidad para realizar fundidos
-            canvas.DrawImage(image1, 0, 7, 3, 3);
+            
             canvas.DrawImage(image2, 5, 5, 3, 3);
-            canvas.DrawImage(image3, 7, 0, 3, 3);            
+            canvas.DrawImage(image3, 7, 0, 3, 3);
+
+            canvas.FillShader.SetImage(image1,new rgba_f64(0,0,0,opacity));
+            canvas.DrawRectangle(rect);
         }
 
         #region OnLoad / OnKeyboard
@@ -64,21 +66,24 @@ namespace ImagenMusica
 
         public void OnLoad(GameDelegateEvent gameEvent)
         {
-
+            /*
             string path = "../../../resources/heygirl.ogg";
             // SOUND
             sound = gameEvent.audioContext.LoadSound(path);
+            */
 
-            // MUSIC
+            /* MUSIC
             URI uripath = new URI();    // Assembly, path, bool
             music = gameEvent.audioContext.LoadMusic(uripath);
             music = gameEvent.audioContext.LoadMusic(path);
+            */
 
-            // PLAYER
+            /* PLAYER
             player = gameEvent.audioThread.AcquirePlayer();
             player?.SetSound(music, true, false).Play();
 
             music.
+            */
         }
 
         public void OnUnload(GameDelegateEvent gameEvent)
