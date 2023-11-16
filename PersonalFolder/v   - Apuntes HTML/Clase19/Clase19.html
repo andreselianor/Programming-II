@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 17</title>
+    <title>Clase 19</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,150 +12,43 @@
 
 <body>
     <header>
-        <h1>Clase 17</h1>
-        <h3>Viernes, 13 Octubre 2023</h3>
+        <h1>Clase 19</h1>
+        <h3>Martes, 17 Octubre 2023</h3>
     </header>
     <a href="../index.html">Indice</a>
 
     <ul class="clase·List" style="vertical-align: top;">
 
-        <h5 class="remarks">Funciones complejas de contenedores</h5>
+        <h4 class="remarks">Funciones complejas de contenedores</h4>
         <li>
-            <b>FUNCION</b> le paso una lista de enteros y una posicion <i>'index'</i>. La funcion elimina el
-            valor que se encuentra en la posicion 'index'
-            <code><pre>
-            '
-            <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
-            {
-                list.RemoveAt(index);
-            }
-            
-            // Elimina el elemento que esta en la <b>posicion 'index'</b>
-
-            <b>public static void RemoveElement(List&ltint&gt list, int index)</b>
-            {
-                list.Remove(index);
-            }
-            '
-            // Elimina el elemento cuyo <b>valor es 'index'</b>
-            </pre></code>
+            Es util borrar la cache cada vez que cambiamos los paquetes nugget. Se encuentra en Herramientas / Opciones
+            / Administrar Paquetes Nugget / Borrar todas las caches
         </li>
         <li>
-            La función <b>'Remove()'</b> esta <b>PROHIBIDA</b>. Siempre usaremos <b>'RemoveAt()</b>
-        </li>
+            El mejor lugar para cargar datos y variables de una aplicación gráfica es 'OnLoad()'
         <li>
-            <b>Funcion</b> que le paso una lista y un valor que quiero borrar.
-            <code><pre>
-            '
-            <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
-            {
-                if (list == null)
-                    return;
-    
-                for (int i = 0; i &lt list.Count; i++)
-                {
-                    if (list[i] == value)
-                    {
-                        list.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-            '
-            </code></pre>
-        </li>
-        <li>
-            Si le introduzco un punto de ruptura <b>'break'</b> inmediatamente sale del bucle donde está
-            anidado.
-            <br>
-            Un 'IF' no es un bucle, solo 'WHILE' Y 'FOR'
-        </li>
-        <li>
-            <b>Funcion</b> con un punto de ruptura 'BREAK'
-            <code><pre>
-            '
-            <b>public static void RemoveValue(List&ltint&gt list, int value)</b>
-            {
-                <i>for(int i = 0; i &lt list.Count; i++)</i>
-                {
-                    list.RemoveAt(i);
-                    i--;
-                    break;          // Rompe el bucle anidado 'FOR'
-                }                            
-            }
-            '
-            </code></pre>
-        </li>
-        <li>
-            IMPORTANTE: Si utilizamos i++ ó i-- como una <b>expresion</b> su funcionamiento es distinto al
-            habitual:
-            <br>
-            <b>i++</b>
-            <br>
-            Primero la variable asignada es <b>IGUAL</b> a 'i' y cuando se evalua toda la expresión se
-            <b>INCREMENTA</b> la 'i'.
-            <br>
-            <b>++i</b>
-            <br>
-            Primero la variable asignada es el <b>INCREMENTO</b> de 'i' y cuando se evalua toda la expresión
-            se
-            <b>INCREMENTA</b> la 'i'.
-        </li>
-        <li>
-            <b>FUNCION:</b>Se le pasa una lista y queremos borrar de esta lista otra lista de valores que se
-            le pasan.
-        </li>
-        <li>
+            Las funciones 'Random' que vamos a utilizar son dos:
             <pre><code>
             '
-            <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
+            public static int GetRandomInt(int min, int max)
             {
-                for(int j = 0; j &lt listValues; j++)
-                {
-                    for(int i = 0; i &lt list; i++)
-                    {
-                        if(list[i] == list[j])
-                            list.RemoveAt(i--);
-                    }
-                }
+                return random.Next(min,max);
             }
-        
-            <b>public static void RemoveValues(List&ltint&gt list, List&ltint&gt listValues)</b>
+
+            public static double GetRandomDouble()
             {
-                for(int i = 0; i &lt listValues; i++)
-                {
-                    for(int j = 0; j &lt list; j++)
-                    {
-                        if(list[i] == list[j])
-                            list.RemoveAt(i--);
-                    }
-                }
+                return random.NextDouble();
+            }
+
+            public static double GetRandomDouble(int min, int max)
+            {
+                return random.NextDouble() * (max + min) + min;
             }
             '
             </code></pre>
         </li>
-
-        <h5 class="remarks">Consejos y Sugerencias</h5>
-        <li>
-            <b>CONSEJO:</b> No es adecuado contener un 'FOR' dentro de otro 'FOR'. Es mejor solución llamar
-            a las funciones desde el interior del primer 'FOR'
-        </li>
-        <li>
-            Si trabajas con 'Listas' es mejor no devolver nada. Por otro lado si trabajas con 'Arrays' lo
-            normal es devolver un 'Array'
-        </li>
-        <li>
-            <b>WARNING:</b> Cuando declaramos un tipo de dato, el compilador no espera que pueda devolver
-            'null'.
-            <br>
-            Si añadimos <b>?</b> al final del tipo de dato, le indicamos al compilador que este datos <b>SI
-                PUEDE SER NULL</b>.
-            <br>
-            int[]? --> PUEDE SER NULL
-            <br>
-            int[] --> NO DEBERÍA SER NULL
-        </li>
     </ul>
+
 </body>
 
 </html>
