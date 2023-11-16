@@ -5,7 +5,6 @@
         #region Manual Nacho Cabanes
         // NACHO CABANES EJERCICIO 0.1
         // FUNCION: Comprueba si un texto es un Palindromo
-
         public static bool IsPalindrome(string texto)
         {
             int j = texto.Length - 1;
@@ -23,7 +22,6 @@
 
         // NACHO CABANES EJERCICIO 0.2
         // FUNCION: Indicar si un elemento esta dentro de un array
-
         public static bool ContainsElement(int[,] array, int row, int column)
         {
             if (array.GetLength(0) != row)
@@ -35,7 +33,6 @@
 
         // NACHO CABANES EJERCICIO 1.11.2
         // TABLA DE MULTIPLICAR
-
         public static void MultiplicateChart(int number)
         {
             for (int i = 0; i < 11; i++)
@@ -46,7 +43,6 @@
 
         // NACHO CABANES EJERCICIO 1.11.4
         // CONVERSOR DE GRADOS A CELSIUS
-
         public static (double, double) CalculateConversion(double celsius)
         {
             double Kelvin;
@@ -60,7 +56,6 @@
 
         // NACHO CABANES 2.1.8.1-2
         // OPERADOR TERNARIO
-
         public static double GetAbsolute(double number)
         {
             double result = number > 0 ? number : -number;
@@ -74,7 +69,6 @@
 
         // NACHO CABANES 2.1.9.1
         // OPERADOR SWITCH
-
         public static string TextChar(char letter)
         {
             switch (letter)
@@ -91,7 +85,6 @@
         }
 
         // EJERCICIO CHARACTER
-
         public static int GetCharNumber(char character)
         {
             return (int)character;
@@ -103,7 +96,6 @@
         }
 
         // PROGRAMA RETO ADIVINAR EL NUMERO
-
         public static void GuessNumber()
         {
             Random r1 = new Random();
@@ -266,7 +258,6 @@
         // FUNCION QUE CALCULA EL MCD
         // MCD es el mayor numero que divide todos los elementos
         // TODO: [EXAMEN] Funcion MCD
-
         public static int CalculateMCD(int number1, int number2)
         {
             int result = 1;
@@ -282,7 +273,6 @@
         }
 
         // FUNCION QUE ACEPTA 5 NUMEROS Y EXTRAE SU MEDIA
-
         public static int CalculateAverage(int n1, int n2, int n3, int n4, int n5)
         {
             return (n1 + n2 + n3 + n4 + n5) / 5;
