@@ -1,6 +1,6 @@
 ﻿namespace ResumenFunciones
 {
-    public class ExerciceMedinaBook
+    public class ExerciseMedinaBook
     {
         // EJERCICIOS DE PROGRAMACION EN CONSOLA. PATRICIO MEDINA. C#
 
@@ -43,18 +43,18 @@
             string divisionResult = "La division de los numeros es: " + division;
 
             double module = number1 % number2;
-            // string moduleResult = ("El modulo de los numeros es {0}", module.ToString());        //DUDA
+            string moduleResult = String.Format("El modulo de los numeros es {0}", module.ToString());
             return result;
         }
 
         // EJERCICIO 4: OPERACIONES BASICAS II
-        public static double CalculateBasicsii(double orderQuantity, double orderPrice)
+        public static double CalculateBasicsV2(double orderQuantity, double orderPrice)
         {
             return orderQuantity * orderPrice;
         }
 
         // EJERCICIO 4bis: OPERACIONES BASICAS II
-        public static double CalculateBasicsiiBis(int hamburgers, int fries, int drinks)
+        public static double CalculateBasicsV2bis(int hamburgers, int fries, int drinks)
         {
             double priceHamburgers = hamburgers * 9.90;
             double priceFries = fries * 4.50;
@@ -100,22 +100,21 @@
         // EJERCICIO 8: DEVOLVER EL MAYOR DE DOS NUMEROS
         public static double GetMajor(double number1, double number2)
         {
-            double result = number1 > number2 ? number1 : number2;
-            /*
-             * if(number1 > number2)
-             *      return number1;
-             * return number2;
-            */
+            /*  Patron del tipo if(...)else  */
+
+            double result = number1 > number2 ? number1 : number2;            
             return result;
         }
 
-        // EJERCICIO 9: DEVOLVER EL MAYOR DE TRES NUMERO
+        // EJERCICIO 9: DEVOLVER EL MAYOR DE TRES NUMEROS
+        // TODO: [EXAMEN] Funcion dentro de funcion
         public static double GetMajorSerie(double number1, double number2, double number3)
         {
             return (GetMajor(GetMajor(number1, number2), number3));
         }
 
         // EJERCICIO 10: MAQUINA DE CAMBIAR DINERO
+        // TODO: [EXAMEN] Funcion que calcula restos de divisiones
         public static string ChangeMoney(int money)
         {
             int moneyChange = money;
@@ -176,7 +175,8 @@
         // EJERCICIO 13: CALCULO DE TARIFA TELEFONICA
 
         // EJERCICIO 14: TIPO DE TRIANGULO SEGUN SUS LADOS
-        public static string GETTRIANGLETYPE(double side1, double side2, double side3)
+        // TODO: [EXAMEN] Definicion de tipo de triangulo
+        public static string GetTriangleType(double side1, double side2, double side3)
         {
             if (side1 == side2 && side1 == side3)
                 return "El triangulo es equilatero";
@@ -187,11 +187,16 @@
         }
 
         // EJERCICIO 15: EJERCICIO PROPUESTO
+        // TODO: [EXAMEN] Operadores ternarios
         public static string WelcomeBack(string name)
         {
+            // Operador ternario
+            string result = name == "Dimitri" ? "Bienvenido de vuelta" : "Lo siento, le he confundido";
+
+            // Instruccion condicional
             if (name == "Furby")
-                return "Bienvenido de vuelta, Furby";
-            return "Lo siento, no te CONOZCO";
+                return "Bienvenido de vuelta";
+            return "Lo siento, le he confundido";
         }
 
         // EJERCICIO 16: EJERCICIOS SOBRE LOS DIAS DE LA SEMANA
@@ -207,18 +212,21 @@
             Console.WriteLine("Por favor, responda las siguientes preguntas, asi podremos indicarle cual es su estado civil");
 
             Console.WriteLine("¿Cuanto suma 5 + 10?");
-            int count = 0;
 
+            int count = 0;
             string answer1 = Console.ReadLine();
+
+
             if (answer1 == "15")
                 count++;
 
             switch (count)
             {
                 case 0:
-                    return "Usted está casado seguro!";
+                    return "Su estado civil es casado";
             }
-            return "A ti no te gusta jugar al domino";
+
+            return "Su estado civil es soltero";            
         }
 
         // EJERCICIO 18: CALCULATE QUALIFICATION
@@ -272,6 +280,30 @@
             return "No es un caracter";
         }
 
+        public static string IsVowelV2(char letter)
+        {
+            if (letter >= 'A' && letter <= 'z')
+
+                switch (letter)
+                {
+                    case 'a':
+                    case 'e':
+                    case 'i':
+                    case 'o':
+                    case 'u':
+                    case 'A':
+                    case 'E':
+                    case 'I':
+                    case 'O':
+                    case 'U':
+                        return "Se trata de una vocal";
+
+                    default:
+                        return "Se trata de una consonante";
+                }
+
+            return "No es un caracter alfabetico";
+        }
         // EJERCICIO 20:  CALCULA LA TABLA DE MULTIPLICAR Y LA TABLA DE POTENCIAS DE UN NUMERO
         public static void GetProductTable(int number)
         {
@@ -288,7 +320,7 @@
             }
         }
 
-        // EJERCICIO 21: AREAS DE UN HOSPITALL
+        // EJERCICIO 21: AREAS DE UN HOSPITAL
 
         // EJERCICIO 22: SUMA DE NUMEROS PARES E IMPARES
         public static void CalculateSumEvenOdd(int number)
@@ -326,7 +358,9 @@
 
             int totalSum = 0;
             for (int i = 0; i < list.Count; i++)
+            {
                 totalSum += list[i];
+            }                
 
             return totalSum;
         }
@@ -374,19 +408,25 @@
         }
 
         // EJERCICIO 28: SERIES DE NUMEROS Y CARACTERES ASCII
+        // TODO: [EXAMEN] Series de characters y strings
         public static void GetSerieAscii(int number)
         {
             Random r;
             r = new Random();
 
-            char characterNumber;
+            string characterString = "";
+            char characterLetter = ' ';
             int totalAscii = 255;
 
             for (int i = 0; i <= number; i++)
             {
                 int randomNumber = r.Next(totalAscii);
-                //characterNumber = ' ' + randomNumber;
-            }
+                characterString = "" + randomNumber;
+                characterLetter = (char)randomNumber;
+
+                Console.WriteLine(characterString);
+                Console.WriteLine(characterLetter);
+            }            
         }
 
         // EJERCICIO 29: FUNCIONES DE CADENA DE TEXTO
@@ -403,7 +443,9 @@
             minutes = r.Next(60);
             hours = r.Next(24);
 
-            Console.WriteLine("Su hora es:\n        {0}    :   {1}   :   {2}", hours, minutes, seconds);
+            Console.WriteLine("Su hora " +
+                "es:\n        {0}    :   {1}   :   {2}",
+                hours, minutes, seconds);
         }
 
         // EJERCICIO 31: CANTIDAD DE VOCALES 'O' DE UNA FRASE
@@ -471,12 +513,8 @@
 
         // EJERCICIO 35: SUCESION DE N CUADROS
 
-        // EJERCICIO 36:  VARIOS
-        /*
-        .
-        .
-        .
-        */
+        // EJERCICIO 36: VARIOS
+        
         // EJERCICIO 50: CALCULO DE POSICIONES DE UN NUMERO
 
         public static void GetPositions(int number)

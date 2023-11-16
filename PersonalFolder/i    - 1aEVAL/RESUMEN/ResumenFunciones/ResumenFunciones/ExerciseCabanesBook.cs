@@ -2,35 +2,37 @@
 {
     public class ExerciseCabanesBook
     {
-        #region Recursos Internet
+        #region Manual Nacho Cabanes
+        // NACHO CABANES EJERCICIO 0.1
         // FUNCION: Comprueba si un texto es un Palindromo
 
         public static bool IsPalindrome(string texto)
         {
-            if (texto == "" || texto == null)
-                return false;
-
             int j = texto.Length - 1;
+
             for (int i = 0; i < texto.Length; i++)
             {
                 if (texto[i] != texto[j])
+                    return false;
+                if (texto == "")
                     return false;
                 j--;
             }
             return true;
         }
 
+        // NACHO CABANES EJERCICIO 0.2
         // FUNCION: Indicar si un elemento esta dentro de un array
 
         public static bool ContainsElement(int[,] array, int row, int column)
         {
-            if (array.GetLength(0) > row)       // DUDA: PUEDO UTILIZAR GETLENGTH? PORQUE NO EVALUA?
+            if (array.GetLength(0) != row)
                 return false;
+            if (array.GetLength(1) != column)
+                return false;            
             return true;
         }
-        #endregion
 
-        #region Manual Nacho Cabanes
         // NACHO CABANES EJERCICIO 1.11.2
         // TABLA DE MULTIPLICAR
 
@@ -45,7 +47,7 @@
         // NACHO CABANES EJERCICIO 1.11.4
         // CONVERSOR DE GRADOS A CELSIUS
 
-        public static (double,double) CalculateConversion(double celsius)
+        public static (double, double) CalculateConversion(double celsius)
         {
             double Kelvin;
             double Fahrenheit;
@@ -61,7 +63,7 @@
 
         public static double GetAbsolute(double number)
         {
-            // double result = number > 0 ? number : -number;
+            double result = number > 0 ? number : -number;
             return number > 0 ? number : -number;
         }
 
@@ -88,14 +90,16 @@
             }
         }
 
-        public static int GetCharNumber(string text)    // DUDA
+        // EJERCICIO CHARACTER
+
+        public static int GetCharNumber(char character)
         {
-            return Int32.Parse(text);
+            return (int)character;
         }
 
-        public static bool IsMajorChar(char text)
+        public static bool IsMajorChar(char character, char character2)
         {
-            return ('z' < text);
+            return (character > character2);
         }
 
         // PROGRAMA RETO ADIVINAR EL NUMERO
@@ -130,9 +134,9 @@
         public static void UnitConversor()
         {
             bool exit = false;
+
             while (!exit)
             {
-                string choice = "";
                 Console.WriteLine("¿Que conversor quiere utilizar?:");
                 Console.WriteLine("[0]Euros a Dolares\n" +
                     "[1]Celsius a Fahrenheit\n" +
@@ -140,12 +144,14 @@
                     "[3]Centimetros a Pulgadas\n" +
                     "[4]Caballos de vapor a Kilovatios\n" +
                     "[5]Salir");
-                choice = Console.ReadLine();
+
+                string choice = Console.ReadLine();
 
                 if (choice == "5")
                 {
                     exit = true;
                 }
+
                 else
                 {
                     Console.WriteLine("Introduzca la cantidad:");
@@ -188,8 +194,9 @@
             }
             Console.WriteLine(count);
         }
-              
+
         // CONTROL CONTINUE
+        // TODO: [EXAMEN] control de bucles con 'continue'
         public static void ContinueFunction()
         {
             for (int i = 2; i < 20; i++)
@@ -211,20 +218,20 @@
 
             foreach (char letter in text)
             {
-                conteo = letter == 'n' ? count1++ : count1 += 0;
-                conteo = letter == 'v' ? count2++ : count2 += 0;
-                conteo = letter == 'i' ? count3++ : count3 += 0;
+                conteo = letter == 'a' ? count1++ : count1 += 0;
+                conteo = letter == 'b' ? count2++ : count2 += 0;
+                conteo = letter == 'c' ? count3++ : count3 += 0;
                 resto++;
             }
-            Console.WriteLine("Jugadora 1: " + count1);
-            Console.WriteLine("Jugadora 2: " + count2);
-            Console.WriteLine("Jugadora 3: " + count3);
+            Console.WriteLine("Jugadorx 1: " + count1);
+            Console.WriteLine("Jugadorx 2: " + count2);
+            Console.WriteLine("Jugadorx 3: " + count3);
             Console.WriteLine("Banca: " + resto);
         }
 
-        // TODO: Funcion MCM
         // FUNCION QUE CALCULA EL MCM
         // Es el numero mas pequeño de los multiplos comunes
+        // TODO: [EXAMEN] Funcion MCM
         public static int CalculateMCM(int number1, int number2)
         {
             int result = 1;
@@ -237,6 +244,7 @@
             return result;
         }
 
+        // TODO: [EXAMEN] Funcion MCM
         public static int CalculateMCM(List<int> list)
         {
             int result = 1;
@@ -244,28 +252,28 @@
 
             for (int i = 2; i < minor; i++)
             {
-                for(int j = 0; j < list.Count; j++)
+                for (int j = 0; j < list.Count; j++)
                 {
                     if (list[j] % i == 0)
                         result = i;
                     else
                         result = 1;
-                }               
+                }
             }
             return result;
         }
 
-        // TODO: Funcion MCD
         // FUNCION QUE CALCULA EL MCD
         // MCD es el mayor numero que divide todos los elementos
+        // TODO: [EXAMEN] Funcion MCD
 
         public static int CalculateMCD(int number1, int number2)
         {
             int result = 1;
             int minor = FunctionsClaseMarin.GetMinor(number1, number2);
-            for(int i = 2; i < minor; i++)
+            for (int i = 2; i < minor; i++)
             {
-                if(number1 % i == 0 && number2 % i == 0)
+                if (number1 % i == 0 && number2 % i == 0)
                 {
                     result *= i;
                 }
@@ -281,7 +289,7 @@
         }
 
         // FUNCION QUE CALCULA LA SUPERFICIE Y EL AREA DE UN CIRCULO DE RADIO DADO
-        public static (double,double) GetCircle(double radius)
+        public static (double, double) GetCircle(double radius)
         {
             double length = 2 * 3.14 * radius;
             double area = 3.14 * radius * radius;
@@ -298,7 +306,7 @@
         public static int CalculateVowels(string text)
         {
             int result = 0;
-            for(int i = 0; i < text.Length; i++)
+            for (int i = 0; i < text.Length; i++)
             {
                 result += CountVowels(text[i]);
             }
