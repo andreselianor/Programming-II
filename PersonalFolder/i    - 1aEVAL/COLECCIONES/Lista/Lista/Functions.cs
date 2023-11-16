@@ -121,7 +121,6 @@ namespace Lista
 
 
         // FUNCION que ordena una lista de forma ascendente
-        //TODO
         public static List<int> SortPersonal(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -290,7 +289,6 @@ namespace Lista
                 Console.WriteLine(array[i]);
             }
         }
-
         public static int[] AddValuetoArray(int[] array, int number)
         {
             if (array == null)
@@ -306,11 +304,6 @@ namespace Lista
             }
             result[array.Length] = number;
             return result;
-        }
-
-        public static bool IsMinor(int number1, int number2)
-        {
-            return number1 < number2;
         }
 
         public static void Swap(List<int> list)

@@ -18,10 +18,68 @@
     <a href="../index.html">Indice</a>
 
     <ul class="clase·List">
-
-        <h5 class="remarks">Medieval Game</h5>
+        <h4 class="remarks">Recordatorios</h4>
         <li>
-           
+            Habitualmente una función de objeto, que lleva <b>'void'</b> no tiene parametros de entrada.
+        </li>
+        <li>
+            Al revés, una función de clase, que lleva <b>'static'</b> recibe todos los datos de entrada por parámetros.
+        </li>
+        <li>
+            Utilizamos tres barras '///' para documentar funciones. Le indicamos el uso de la función, los parámetros
+            que recibe y el retorno.
+        </li>
+        <li>
+            La instrucción <b>'break'</b> coloca la linea de compilación fuera del bucle más inmediato. Los bucles son 'while' y 'for'.
+        </li>
+		<li>
+			Podemos averiguar el valor numérico de un 'char' mediante un casting de 'int'. <br>
+			<code><pre>
+			charExample = 'b';
+			int characterNumber = (int)charExample;
+			</pre></code>
+			A la inversa también funciona, averiguar qué char es un numero en concreto.
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Clase 'Datetime'</h4>
+        <li>
+            Diseño de una nueva clase, llamada <b>'Datetime'</b>. Tiene los siguientes atributos:
+            <pre><code>
+            -day: int
+            -month: int
+            -year: int
+            -seconds: int
+            -minutes: int
+            -hours: int
+            
+            +Datetime()
+            +Datetime(day, month, year)
+            +Datetime(day, month, year, seconds, minutes, hours)
+
+            +Clone(): Datetime
+            +Equals(Datetime): bool
+            +IsValid(): bool
+            +IsLeap(): bool
+            +IsLeap'static'(year: int): bool
+            +ToString(): string
+            +GetDaysCount'static'(year, month): int
+            +IncrementDay(): int
+            +IncrementSecond(): int
+            +GetDayOfWeek(): DayOfTheWeek
+           </code></pre>
+        </li>
+        <li>
+            Datetime mide los momentos en los que ocurre algún hecho.
+        </li>
+        <li>
+            Las fechas se almacenan con enteros. Todas se miden contando los segundos desde la fecha: 1 de Enero de 1970
+        </li>
+        <li>
+            Los constructores que mantienen un mismo orden son más accesibles.
+        </li>
+        <li>
+            La función 'static' del año bisiesto requiere de un parametro, ya que es imposible acceder desde un objeto
+            año.
         </li>
     </ul>
 </body>
