@@ -2,63 +2,82 @@
 {
     public class Dictionary
     {
-        public Dictionary<int, string> _dictionary = new Dictionary<int, string>();
-        public Dictionary<char, string> _dictionary2 = new Dictionary<char, string>();
-
-        public void SetDictionary()
+        public Dictionary<int, string> presetDictionary1 = new Dictionary<int, string>
         {
-            _dictionary.Add(0, "Maria");
-            _dictionary.Add(1, "Efigenio");
-            _dictionary.Add(2, "Carcelen");
-            _dictionary[3] = "Eulalio";
+            [0] = "Portero",
+            [1] = "Central",
+            [2] = "Central Derecho"
+        };
+
+        public Dictionary<int, string> presetDictionary2 = new Dictionary<int, string>
+        {
+            {9,"Delantero" }, {10, "Punta" }, {11,"Falso Nueve" }
+        };
+
+        public Dictionary<char, string> newPresetDictionary = new Dictionary<char, string>();
+
+        public static Dictionary<int, string> AddValueToDictionary(Dictionary<int, string> dictionary, int key, string value)
+        {
+            dictionary.Add(key, value);
+            return dictionary;
         }
 
-        public void SetDictionary2()
+        public void AddValueToDictionary(int key, string value)
         {
-            _dictionary2.Add('a', "Bollylomples");
-            _dictionary2.Add('e', "VisiMisi");
-            _dictionary2.Add('i', "Bobina");
+            presetDictionary1.Add(key, value);
+            presetDictionary2.Add(key, value);
         }
 
+        public static void ListDictionary(Dictionary<int,string> dictionary)
+        {
+            foreach (KeyValuePair<int,string> item in dictionary)
+            {
+                Console.WriteLine("" + item.Key + " : " + item.Value);
+            }
+        }  
+        
         public void ListDictionary()
         {
-            foreach (KeyValuePair<int,string> item in _dictionary)
+            foreach(KeyValuePair<int,string> item in presetDictionary1)
             {
-                Console.WriteLine("" + item.Key + " " + item.Value);
+                Console.WriteLine("" + item.Key + " : " + item.Value);
+            }
+
+            foreach (KeyValuePair<int, string> item in presetDictionary2)
+            {
+                Console.WriteLine("" + item.Key + " : " + item.Value);
             }
         }
 
-        public void ListDictionary2()
+        public static string GetValue(Dictionary<int, string> dictionary, int number)
         {
-            foreach(var item in _dictionary2)
-            {
-                Console.WriteLine("" + item.Key + " " + item.Value);
-            }
+            return dictionary[number];
         }
 
-        public void GetListDictionary(int number)
+        public (string,string) GetValue(int number)
         {
-            Console.WriteLine(_dictionary[number]);
+            return (presetDictionary1[number], presetDictionary2[number]); 
         }
 
+        /*
         public void GetListDictionary2(int number)
         {
-            Console.WriteLine(_dictionary2['a']);
-            KeyValuePair<char, string> result = _dictionary2.ElementAt(number);
+            Console.WriteLine(dictionary2['a']);
+            KeyValuePair<int, string> result = dictionary2.ElementAt(number);
             Console.WriteLine(result.Key);
             Console.WriteLine(result.Value);
-        }
+        }*/
 
-        public void GetDateNow()
-        {            
-            Console.WriteLine(DateTime.Now);
-        }
 
-        public void ToStringData()
+        public static void ToStringData(Dictionary<int, string> dictionary)
         {
-            char char1  = _dictionary2.ElementAt(0).Key;
-            string result = char1.ToString();
-            Console.WriteLine(result);
+            int key  = dictionary.ElementAt(0).Key;
+            string result = key.ToString();
+
+            string value = dictionary.ElementAt(0).Value;
+            string resultValue = value.ToString();
+
+            Console.WriteLine(result + ", " + resultValue);
         }
     }
 }
