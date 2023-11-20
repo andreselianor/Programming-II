@@ -4,25 +4,26 @@ namespace ResumenFunciones
 {    
     public class FunctionsClaseMarin
     {
-        public DayWeek dia;
-        public int numero;        
 
         #region Funciones Principiantes
-        // Funcion 1 · Funcion que devuelve el menor de dos numeros
+        // FUNCION 1 ·
+        // Funcion que devuelve el menor de dos numeros.
         public static int GetMinor(int number1, int number2)
         {
             if (number1 <= number2)
                 return number1;
             return number2;
         }
-             
-        // Funcion 2 · Funcion que devuelve verdadero si un numero es par
+
+        // FUNCION 2 ·
+        // Funcion que devuelve verdadero si un numero es par.
         public static bool IsEven(int number)
         {
             return (number % 2 == 0);
         }
 
-        // Funcion 3 · Funcion que devuelve el menor de tres numeros
+        // FUNCION 3 ·
+        // Funcion que devuelve el menor de tres numeros.
         public static int GetMinest(int number1, int number2, int number3)
         {
             if (number1 <= number2 && number1 <= number3)
@@ -33,10 +34,11 @@ namespace ResumenFunciones
                 return number3;
         }
 
-        // Funcion 4 · Serie que imprime por consola la serie 0, -2, 4, -6, 8
+        // FUNCION 4 ·
+        // Serie que imprime por consola la serie 0, -2, 4, -6, 8.
         public static void PrintSerie(int number)
         {
-            int result = 0;
+            int result;
 
             for (int i = 0; i <= number / 2; i++)
             {
@@ -48,7 +50,8 @@ namespace ResumenFunciones
             }
         }
 
-        // Funcion 5 · Funcion que devuelve verdadero si un numero es primo
+        // FUNCION 5 ·
+        // TODO: [EXAMEN] Funcion 'bool' si un numero es primo.
         public static bool IsPrime(int number)
         {
             for (int i = 2; i < number; i++)
@@ -59,11 +62,13 @@ namespace ResumenFunciones
             return true;
         }
 
-        // Funcion 6 · Funcion que imprime en consola los valores de la serie Collatz
+        // FUNCION 6 ·
+        // Funcion que imprime en consola los valores de la serie Collatz.
         public static void Collatz(int number)
         {
             int result = number;
             Console.WriteLine(result);
+
             while (result != 1)
             {
                 if (IsEven(result))
@@ -73,21 +78,24 @@ namespace ResumenFunciones
                 Console.WriteLine(result);
             }
         }
-        
 
-        // Funcion 7 · Funcion que devuelve el sumatorio de un numero
+
+        // FUNCION 7 ·
+        // Funcion que devuelve el sumatorio de un numero.
         public static int GetSummatory(int number)
         {
             int result = 0;
+
             for (int i = 1; i <= number; i++)
             {
                 result += i;
             }
             return result;
         }
-        
 
-        // Funcion 8 · Funcion que devuelve el productorio de un numero
+
+        // FUNCION 8 ·
+        // Funcion que devuelve el productorio de un numero.
         public static int GetProductory(int number)
         {
             int result = 1;
@@ -101,19 +109,22 @@ namespace ResumenFunciones
 
         #region Funciones Elementales
 
-        // Funcion que devuelve 'true' o 'false' si un número es MENOR que otro
+        // FUNCION 9 ·
+        // Devuelve un 'bool' si un número es MENOR que otro.
         public static bool IsMinor(int number1, int number2)
         {
             return number1 < number2;
         }
 
-        // Funcion que devuelve 'true' o 'false' si un número es MAYOR que otro
+        // FUNCION 10 ·
+        // Devuelve un 'bool' si un número es MAYOR que otro.
         public static bool IsMajor(int number1, int number2)
         {
             return number1 > number2;
         }
 
-        // Funcion auxiliar que devuelve verdadero si es un número PAR
+        // FUNCION 11 ·
+        // Funcion auxiliar que devuelve un 'bool' si un número PAR.
         public static bool IsEvenAlternative(int number)
         {
             if (number % 2 == 0)
@@ -121,7 +132,8 @@ namespace ResumenFunciones
             return false;
         }
 
-        // Funcion auxiliar que devuelve verdadero si es un numero IMPAR
+        // FUNCION 12 ·
+        // Funcion auxiliar que devuelve un 'bool' si un numero es IMPAR.
         public static bool IsOdd(int number)
         {
             return (number % 2 != 0);
@@ -129,7 +141,8 @@ namespace ResumenFunciones
         #endregion
 
         #region Funciones de bucles
-        // Funcion Sumatory con un bucle WHILE
+        // FUNCION 13 ·
+        // Funcion Sumatory con un bucle WHILE.
         public static int GetSumatoryWhile(int number)
         {
             int result = 0;
@@ -143,7 +156,8 @@ namespace ResumenFunciones
             return result;
         }
 
-        // Funcion Sumatory con un bucle FOR
+        // FUNCION 14 ·
+        // Funcion Sumatory con un bucle FOR.
         public static int GetSumatoryFor(int number)
         {
             int result = 0;
@@ -154,7 +168,8 @@ namespace ResumenFunciones
             return result;
         }
 
-        // Funcion Secuencia con un bucle WHILE
+        // FUNCION 15 ·
+        // Funcion Secuencia con un bucle WHILE.
         public static void GetSequenceWhile(int number)
         {
             int count = 0;
@@ -177,7 +192,8 @@ namespace ResumenFunciones
             }
         }
 
-        // Funcion Secuencia con un bucle FOR
+        // FUNCION 16 ·
+        // Funcion Secuencia con un bucle FOR.
         public static void GetSequenceFor(int number)
         {
             int result;
@@ -199,7 +215,8 @@ namespace ResumenFunciones
         #endregion
        
         #region Funciones Repaso
-        // FUNCION que devuelve el menor de dos numeros
+        // FUNCION 17 ·
+        // Devuelve el menor de dos numeros.
         public static int GetMinorAlternative(int number1, int number2)
         {
             if (number1 <= number2)
@@ -207,7 +224,15 @@ namespace ResumenFunciones
             return number2;
         }
 
-        // FUNCION que devuelve el menor de tres numeros
+        // FUNCION 18 ·
+        // Funcion anterior con operador ternario.
+        public static int GetMinorTernary(int number1, int number2)
+        {
+            return number1 < number2 ? number1 : number2;
+        }
+
+        // FUNCION 19 ·
+        // Devuelve el menor de tres numeros.
         public static int GetMinestAlternative(int number1, int number2, int number3)
         {
             if (number1 <= number2 && number1 <= number3)
@@ -218,8 +243,8 @@ namespace ResumenFunciones
                 return number3;
         }
 
-
-        // FUNCION que devuelve verdadero si un numero es primo
+        // FUNCION 20 ·
+        // Devuelve un 'bool' si un numero es primo.
         public static bool IsPrimeFirst(int number)
         {
             for (int i = 2; i < number; i++)
@@ -230,11 +255,13 @@ namespace ResumenFunciones
             return true;
         }
 
-        //FUNCION que imprime en consola los valores de la serie Collatz
-        public static void Collatz0(int number)
+        //FUNCION 21 ·
+        //Imprime en consola los valores de la serie Collatz.
+        public static void CollatzV2(int number)
         {
             int result = number;
             Console.WriteLine(result);
+
             while (result != 1)
             {
                 if (IsEven(result))
@@ -245,8 +272,8 @@ namespace ResumenFunciones
             }
         }
 
-
-        // FUNCION que devuelve el sumatorio de un numero
+        // FUNCION 22 ·
+        // Devuelve el sumatorio de un numero.
         public static int GetSummatoryAlternative(int number)
         {
             int result = 0;
@@ -257,8 +284,8 @@ namespace ResumenFunciones
             return result;
         }
 
-
-        //FUNCION que devuelve el productorio de un numero
+        //FUNCION 23 ·
+        //Devuelve el productorio de un numero.
         public static int GetProductoryAlternative(int number)
         {
             int result = 1;
@@ -271,7 +298,8 @@ namespace ResumenFunciones
         #endregion
 
         #region Funciones series
-        // Funcion Secuencia con una funcion reservada MATH.POW
+        // FUNCION 24 ·
+        // Funcion Secuencia con un metodo reservado 'MATH.POW'.
         public static void GetSequence3(int number)
         {
             int result = -2, printNumber, count = 0;
@@ -285,8 +313,8 @@ namespace ResumenFunciones
             }
         }
 
-        // Funcion que devuelve si un numero es Primo
-        // TODO: Numero Primo
+        // FUNCION 25 ·
+        // Devuelve 'bool' si un numero es Primo.
         public static bool IsPrimeAlternative(int number)
         {
             for (int i = 2; i < number; i++)
@@ -296,8 +324,8 @@ namespace ResumenFunciones
             }
             return true;
         }
-        // Funcion que devuelve la serie Collatz
-        // TODO: Funcion Collatz
+        // FUNCION 26 ·
+        // Devuelve la serie Collatz.
         public static List<int> CollatzAlternative(int number)
         {
             List<int> list = new List<int>();
@@ -317,8 +345,9 @@ namespace ResumenFunciones
             return list;
         }
 
+        // FUNCION 27 ·
         // Serie de Fibonacci con un numero determinado de resultados
-        // TODO: Serie Fibonacci
+        // TODO: [EXAMEN] Serie Fibonacci.
         public static string FibonacciFOR(int number)
         {
             string result = "0,1";
@@ -336,7 +365,8 @@ namespace ResumenFunciones
             return result;
         }
 
-        // Serie de Fibonacci mientras sea menor que un numero de resultados
+        // FUNCION 28 ·
+        // Serie de Fibonacci mientras sea menor que un numero de resultados.
         public static string FibonacciWHILE(int number)
         {
             string result = "0,1";
@@ -355,8 +385,9 @@ namespace ResumenFunciones
         #endregion
 
         #region Ordenar listas
-        // Funcion que ejecuta un SWAP(intercambio) entre dos elementos
-        // TODO: Funcion Swap
+        // FUNCION 29 ·
+        // Funcion que ejecuta un 'SWAP' entre dos elementos.
+        // TODO: [EXAMEN] Funcion Swap. 
         public static void Swap(List<int> list)
         {
             int aux;
@@ -365,11 +396,12 @@ namespace ResumenFunciones
             list[1] = aux;
         }
 
-        // Funcion que ejecuta un SORT(ordenar) una lista
-        // TODO: Funcion Sort
+        // FUNCION 30 ·
+        // Funcion que ejecuta un metodo 'SORT' una lista.
+        // TODO: [EXAMEN] Funcion Sort.
         public static void Sort(List<int> list)
         {
-            if (list == null)
+            if (list == null || list.Count == 0)
                 return;
 
             int aux;
@@ -390,9 +422,16 @@ namespace ResumenFunciones
             }
         }
 
-        // Funcion que devuelve los elementos pares de una lista
+        // FUNCION 31 ·
+        // Devuelve los elementos pares de una lista.
         public static List<int> GetListOdd(List<int> list)
         {
+            if (list == null)
+                return null;
+
+            if (list.Count == 0)
+                return new List<int>() { 0 };
+
             List<int> result = new List<int>();
 
             for (int i = 0; i < list.Count; i++)
@@ -403,16 +442,13 @@ namespace ResumenFunciones
             return result;
         }
 
-        // Funcion que devuelve los elementos pares de un array
-        // OJO NIVEL MEDIO EXAMEN
+        // FUNCION 32 ·
+        // Devuelve los elementos pares de un array.
+        // [EXAMEN] Posible ejercicio de arrays.
         public static int[] GetListOdd(int[] array)
         {
             if (array == null)
-            {
-                Console.WriteLine("Error de validacion. Array introducida es null");
-                return new int[0];
-            }
-
+                return new int[0];            
 
             int[] result;
             int count = 0;
@@ -426,10 +462,9 @@ namespace ResumenFunciones
 
             // Creamos un array cuya longitud es igual al numero de pares encontrados
             result = new int[count];
-            int contador = 0;
-
 
             // Introducimos los elementos pares dentro de un nuevo array
+            int contador = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 if (IsEven(array[i]))
@@ -441,106 +476,9 @@ namespace ResumenFunciones
 
             return result;
         }
-        #endregion
-
-        #region Funciones Strings
-        public static string StringFunction1(string a, string b)
-        {
-            return a + b;
-        }
-
-        public static string StringFunction2(int number)
-        {
-            string result = "0";
-            for (int i = 0; i < number; i++)
-            {
-                result += "," + (i + 1);
-            }
-            return result;
-        }
-
-        public static string StringFunction3(int number)
-        {
-            string result = "1";
-            int aux = 1;
-            for (int i = 0; i < number; i++)
-            {
-                aux *= 2;
-                result += "," + aux;
-            }
-            return result;
-        }
-
-        public static void Concatenate(string text1, string text2, string text3)
-        {
-            Console.WriteLine("Frase1 , 2 y 3");
-            Console.WriteLine(text1 + ", " + text2 + ", " + text3);
-
-            Console.WriteLine("Frase1 y 2");
-            Console.WriteLine("{0} , {1}", text1, text2);
-
-            Console.WriteLine("Frase2 y 3");
-            Console.WriteLine($"{text2} , {text3}");
-        }
-
-        public static void SingularText(string text1)
-        {
-            Console.WriteLine(@"Todo este texto es literal / & + text1. Se consigue con @");
-            Console.WriteLine("El texto que inicia con \"$\" permite introducir variables dentro del formato");
-            Console.WriteLine("Este texto escapa \"con barras inclinadas\" (\\)");
-            Console.WriteLine("El parametro \"\\r\" sirve para mover el cursor a la izquierda del todo");
-            Console.WriteLine("El parametro \"\\n\" sirve para cambiar de linea");
-            Console.WriteLine("El parametro \"\\b\" crea un espacio");
-            Console.WriteLine("El parametro \"\\t\" crea un tabulado");
-        }
-
-        public static void StringReplace(string text, string word, string replace)
-        {
-            Console.WriteLine("El metodo \"string.Replace(texto, alternative)\" reemplaza el 'texto' por un 'alternative'");
-            string result = text.Replace(word, replace);
-            Console.WriteLine(result);
-        }
-
-        public static void StringIndexOf(string text)
-        {
-            Console.WriteLine("El metodo \"string.IndexOf(text)\" nos indica la posicion del string 'text'");
-            int result = text.IndexOf("=");
-            Console.WriteLine(text);
-            Console.WriteLine("El = ocupa la posicion numero: {0}", result);
-        }
-
-        public static void StringSubstring(string text, int index1, int index2)
-        {
-            Console.WriteLine("El metodo \"string.Substring(index1, index2)\" devuelve el texto que se encuentra entre index1 y index2");
-            Console.WriteLine(text);
-            Console.WriteLine(text.Substring(index1, index2));
-            Console.WriteLine(text.Substring(index1));
-        }
-
-        public static void StringRemove(string text)
-        {
-            Console.WriteLine(text);
-            string result = text.Remove(5);
-            Console.WriteLine(result);
-            result = text.Remove(5, 7);
-            Console.WriteLine(result);
-        }
-
-        public static void StringChangeCase(string text)
-        {
-            Console.WriteLine(text);
-            Console.WriteLine("Puedes devolver todo el texto en minusculas: " + text.ToLower());
-            Console.WriteLine("Puedes devolver todo el texto en mayusculas: " + text.ToUpper());
-        }
-
-        public static void StringTrim(string text)
-        {
-            Console.WriteLine("La funcion \"text.Trim()\" elimina los espacios en blanco antes y despues de los caracteres");
-        }
-        #endregion
+        #endregion        
 
         #region Funciones Varias
-
         public static bool IsLeapYear(int year)
         {
             if (year % 4 == 0)
@@ -575,6 +513,10 @@ namespace ResumenFunciones
         }
 
         public static int GetDayWeek(DayOfWeek dayWeek) => (int)dayWeek;
+
+        public DayWeek dia;
+        public int numero;
+
         #endregion
     }
 }

@@ -2,9 +2,9 @@
 {
     public class ExerciseMedinaBook
     {
-        // EJERCICIOS DE PROGRAMACION EN CONSOLA. PATRICIO MEDINA. C#
 
-        // EJERCICIO 1. INVERTIR NUMERO DE DOS CIFRAS.
+        // EJERCICIO 1.
+        // Invertir un número de dos cifras.
         public static int ChangeOrder(int number)
         {
             string numberCharacter = number.ToString();
@@ -16,8 +16,8 @@
             return Int32.Parse(invert);
         }
 
-        // EJERCICIO 2. INVERTIR NUMERO DE TRES CIFRAS.
-        // Se puede emplear la funcion del ejercicio1
+        // EJERCICIO 2.
+        // Invertir un número de tres cifras.
         public static int ChangeOrderVersion(int number)
         {
             string numberCharacter = number.ToString();
@@ -29,7 +29,8 @@
             return Int32.Parse(invert);
         }
 
-        // EJERCICIO 3: OPERACIONES BASICAS
+        // EJERCICIO 3:
+        // Operaciones básicas.
         public static string CalculateBasics(double number1, double number2)
         {
             string result = "";
@@ -47,13 +48,16 @@
             return result;
         }
 
-        // EJERCICIO 4: OPERACIONES BASICAS II
+        // EJERCICIO 4:
+        // Operaciones básicas ii
         public static double CalculateBasicsV2(double orderQuantity, double orderPrice)
         {
             return orderQuantity * orderPrice;
         }
 
-        // EJERCICIO 4bis: OPERACIONES BASICAS II
+        // EJERCICIO 4bis:
+        // Operaciones básicas iii
+
         public static double CalculateBasicsV2bis(int hamburgers, int fries, int drinks)
         {
             double priceHamburgers = hamburgers * 9.90;
@@ -63,8 +67,9 @@
             return priceHamburgers + priceFries + priceDrinks;
         }
 
-        // EJERCICIO 5: OPERACIONES BASICAS III
-        // USAR LA CLASE MATH
+        // EJERCICIO 5:
+        // Operaciones básicas iv.
+        // Uso de la clase 'Math'.
         public static double CalculateBasicsiii(double number, int choice)
         {
             double result = 0.0;
@@ -89,32 +94,35 @@
             return result;
         }
 
-        // EJERCICIO 6: FORMATOS DE SALIDA
+        // EJERCICIO 6: Formatos de salida.
 
-        // EJERCICIO 7: EJERCICIO PROPUESTO
+        // EJERCICIO 7:
+        // Cálculo de operación compleja.
         public static double CalculateOperation(double number1, double number2)
         {
             return (number1 + number2) * (number1 - number2);
         }
 
-        // EJERCICIO 8: DEVOLVER EL MAYOR DE DOS NUMEROS
+        // EJERCICIO 8:
+        // Devolver el mayor de dos números.
         public static double GetMajor(double number1, double number2)
         {
-            /*  Patron del tipo if(...)else  */
+            //  Patron del tipo if(...)else,
+            //  es mejor resolverlo con operador ternario 
 
-            double result = number1 > number2 ? number1 : number2;            
+            double result = number1 > number2 ? number1 : number2;
             return result;
         }
 
-        // EJERCICIO 9: DEVOLVER EL MAYOR DE TRES NUMEROS
-        // TODO: [EXAMEN] Funcion dentro de funcion
+        // EJERCICIO 9: Devolver el mayor de tres números.
+        // TODO: [EXAMEN] Funcion dentro de funcion.
         public static double GetMajorSerie(double number1, double number2, double number3)
         {
             return (GetMajor(GetMajor(number1, number2), number3));
         }
 
-        // EJERCICIO 10: MAQUINA DE CAMBIAR DINERO
-        // TODO: [EXAMEN] Funcion que calcula restos de divisiones
+        // EJERCICIO 10: Programa de máquina para realizar cambio de moneda.
+        // TODO: [EXAMEN] Funcion que calcula restos de divisiones.
         public static string ChangeMoney(int money)
         {
             int moneyChange = money;
@@ -155,13 +163,15 @@
             return result;
         }
 
-        // EJERCICIO 11: CALCULO DE INGRESO POR HIJO DISCAPACITADO
+        // EJERCICIO 11:
+        // Cálculo de ingreso por hijo discapacitado.
         public static double CalculateDiscapacity(int numberSons, double quantity)
         {
             return numberSons * quantity;
         }
 
-        // EJERCICIO 12: CALCULO DE NUMERO INTERMEDIO
+        // EJERCICIO 12:
+        // Cálculo de número intermedio.
         public static int GetMediumValue(int number1, int number2, int number3)
         {
             if (number1 < number2 && number2 < number3)
@@ -172,10 +182,10 @@
                 return number3;
         }
 
-        // EJERCICIO 13: CALCULO DE TARIFA TELEFONICA
+        // EJERCICIO 13: Calculo de tarifa telefonica.
 
-        // EJERCICIO 14: TIPO DE TRIANGULO SEGUN SUS LADOS
-        // TODO: [EXAMEN] Definicion de tipo de triangulo
+        // EJERCICIO 14: Tipo de triangulo según sus lados.
+        // TODO: [EXAMEN] Definicion de tipo de triangulo.
         public static string GetTriangleType(double side1, double side2, double side3)
         {
             if (side1 == side2 && side1 == side3)
@@ -186,26 +196,28 @@
                 return "El triangulo es escaleno";
         }
 
-        // EJERCICIO 15: EJERCICIO PROPUESTO
-        // TODO: [EXAMEN] Operadores ternarios
+        // EJERCICIO 15: Ejercicio Propuesto.
+        // TODO: [EXAMEN] Operadores ternarios.
         public static string WelcomeBack(string name)
         {
             // Operador ternario
             string result = name == "Dimitri" ? "Bienvenido de vuelta" : "Lo siento, le he confundido";
 
             // Instruccion condicional
-            if (name == "Furby")
+            if (name == "Dimitri")
                 return "Bienvenido de vuelta";
             return "Lo siento, le he confundido";
         }
 
-        // EJERCICIO 16: EJERCICIOS SOBRE LOS DIAS DE LA SEMANA
+        // EJERCICIO 16:
+        // Calculas dias de la semana.
         public static DateTime CalculateDates(DateTime date)
         {
             return date;
         }
 
-        // EJERCICIO 17: EJERCICIO PARA CALCULAR SU ESTADO CIVIL
+        // EJERCICIO 17:
+        // Calcular el estado civil de una personen.
         public static string GetCivilState(string name)
         {
             Console.WriteLine($"Bienvenido al asesor de estados civiles, {name}");
@@ -226,10 +238,11 @@
                     return "Su estado civil es casado";
             }
 
-            return "Su estado civil es soltero";            
+            return "Su estado civil es soltero";
         }
 
-        // EJERCICIO 18: CALCULATE QUALIFICATION
+        // EJERCICIO 18:
+        // Calcular la calificacion de un examen.
         public static string CalculateQualification(int number)
         {
             switch (number)
@@ -256,7 +269,8 @@
             }
         }
 
-        // EJERCICIO 19: PROGRAMA QUE TE INDICA QUE TIPO DE CARACTER SE LE PASA POR PARAMETROS
+        // EJERCICIO 19:
+        // Programa que indica que tipo de caracter se le pasa por parametros.
         public static string IsVowel(char letter)
         {
             if (70 < letter && letter < 140)
@@ -304,7 +318,8 @@
 
             return "No es un caracter alfabetico";
         }
-        // EJERCICIO 20:  CALCULA LA TABLA DE MULTIPLICAR Y LA TABLA DE POTENCIAS DE UN NUMERO
+        // EJERCICIO 20:
+        // Calcular las tablas de multiplicar y las potencias de un número dado.
         public static void GetProductTable(int number)
         {
             for (int i = 0; i < 10; i++)
@@ -320,9 +335,10 @@
             }
         }
 
-        // EJERCICIO 21: AREAS DE UN HOSPITAL
+        // EJERCICIO 21: Áreas de un hospital.
 
-        // EJERCICIO 22: SUMA DE NUMEROS PARES E IMPARES
+        // EJERCICIO 22:
+        // Suma de números pares e impares.
         public static void CalculateSumEvenOdd(int number)
         {
             int evenNumber = 0;
@@ -338,7 +354,8 @@
                 "La suma de los numeros impares es: {1}", evenNumber, oddNumber);
         }
 
-        // EJERCICIO 23: VARIAS TABLAS DE MULTIPLICAR
+        // EJERCICIO 23:
+        // Calcular las tablas de multiplicar de una lista de enteros.
         public static void GetMultipleProduct(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -350,7 +367,8 @@
             }
         }
 
-        // EJERCICIO 24: SUMA DE N NUMEROS
+        // EJERCICIO 24:
+        // Suma de los números que contiene una lista de enteros.
         public static int GetNSum(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -360,12 +378,13 @@
             for (int i = 0; i < list.Count; i++)
             {
                 totalSum += list[i];
-            }                
+            }
 
             return totalSum;
         }
 
-        // EJERCICIO 25: AVERIGUAR EL MAYOR Y EL MENOR DE N NUMEROS
+        // EJERCICIO 25:
+        // Averiguar el número mayor y el número menor de una lista de enteros.
         public static (double, double) GetMajorMinor(List<double> list)
         {
             if (list == null || list.Count == 0)
@@ -385,9 +404,10 @@
             return (list[0], list[list.Count - 1]);
         }
 
-        // EJERCICIO 26: SERIE DE FIBONACCI
+        // EJERCICIO 26: Serie de Fibonacci.
 
-        // EJERCICIO 27: CALCULAR LAS NOTAS MEDIAS DE UNOS ESTUDIANTES
+        // EJERCICIO 27:
+        // Calcular las notas medias de una lista de notas de examen.
         public static void CalculateAverageClass(List<double> list)
         {
             Random r;
@@ -407,8 +427,8 @@
             }
         }
 
-        // EJERCICIO 28: SERIES DE NUMEROS Y CARACTERES ASCII
-        // TODO: [EXAMEN] Series de characters y strings
+        // EJERCICIO 28: Series de números y carácteres ASCII.
+        // TODO: [EXAMEN] Series de characters y strings.
         public static void GetSerieAscii(int number)
         {
             Random r;
@@ -426,12 +446,13 @@
 
                 Console.WriteLine(characterString);
                 Console.WriteLine(characterLetter);
-            }            
+            }
         }
 
-        // EJERCICIO 29: FUNCIONES DE CADENA DE TEXTO
+        // EJERCICIO 29: Funciones de cadenas de texto.
 
-        // EJERCICIO 30: SIMULACION DE UN RELOJ DIGITAL
+        // EJERCICIO 30:
+        // Simulación de un reloj digital.
         public static void DigitalClock()
         {
             Random r;
@@ -448,7 +469,8 @@
                 hours, minutes, seconds);
         }
 
-        // EJERCICIO 31: CANTIDAD DE VOCALES 'O' DE UNA FRASE
+        // EJERCICIO 31:
+        // Cantidad de vocales 'o' de un texto dado.
         public static int GetVowels(string text)
         {
             int count = 0;
@@ -460,10 +482,11 @@
             return count;
         }
 
-        // EJERCICIO 32: ESTADISTICA DE VOCALES
+        // EJERCICIO 32:
+        // Programa que devuelve la estadística de vocales en un texto.
         public static void GetVowelsPercent(string text)
         {
-            
+
             double letterA = 0, letterE = 0, letterI = 0, letterO = 0, letterU = 0;
             double totalLetter = 0;
 
@@ -507,20 +530,21 @@
                 "Vocales U: {4}\n", totalA, totalE, totalI, totalO, totalU);
         }
 
-        // EJERCICIO 33: FACTORIAL DE UN NUMERO
+        // EJERCICIO 33: Factorial de un número.
 
-        // EJERCICIO 34: SERIES
+        // EJERCICIO 34: Series.
 
-        // EJERCICIO 35: SUCESION DE N CUADROS
+        // EJERCICIO 35: Sucesión de N cuadros.
 
-        // EJERCICIO 36: VARIOS
-        
-        // EJERCICIO 50: CALCULO DE POSICIONES DE UN NUMERO
+        // EJERCICIO 36: Varios.
+
+        // EJERCICIO 50:
+        // Calcular el número de posiciones de un número dado.
 
         public static void GetPositions(int number)
         {
             int count = 0;
-            while(number > 0)
+            while (number > 0)
             {
                 number /= 10;
                 count++;
@@ -528,9 +552,8 @@
             Console.WriteLine("El numero tiene {0} posiciones", count);
         }
 
-        // EJERCICIO PAG 69
-
-        // EJERCICIO PAG 80
+        // EJERCICIO PAG 80:
+        // Responder a una suma.
         public static void AnswerSum()
         {
             string userQuestion = "";
@@ -545,13 +568,14 @@
                 questionNumber = Int32.Parse(userQuestion);
                 resultNumber += questionNumber;
 
-                if(questionNumber <= 0)
+                if (questionNumber <= 0)
                     endingApp = !endingApp;
                 Console.WriteLine("La suma de los numeros es: {0}", resultNumber);
             }
         }
 
-        // EJERCICIO PAG 86
+        // EJERCICIO PAG 86:
+        // Añadir valores a un array.
         public static int[] AddValuesArray()
         {
             bool endingApp = false;
@@ -566,13 +590,13 @@
                 userAnswer = Int32.Parse(Console.ReadLine());
                 result[contador] = userAnswer;
                 Console.WriteLine("Pulse [0] para salir");
-                
+
                 userAnswer = Int32.Parse(Console.ReadLine());
 
-                if(userAnswer == 0)
-                    endingApp= true;
+                if (userAnswer == 0)
+                    endingApp = true;
             }
-            return result;            
+            return result;
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Colecciones
     {
-        // FUNCION que devuelve el numero de los valores de una lista mayores de 0
+        // FUNCION que devuelve el numero de los valores de una lista mayores de 0.
         public static int GetGreaterThanZero(List<double> list)
         {
             if (list == null || list.Count == 0)
@@ -18,7 +18,7 @@
             return result;
         }
 
-        // FUNCION que devuelve el numero de los valores de un array mayores de 0
+        // FUNCION que devuelve el numero de los valores de un array mayores de 0.
         public static int GetGreaterThanZero(double[] array)
         {
             if (array == null || array.Length == 0)
@@ -34,7 +34,7 @@
             return result;
         }
 
-        // FUNCION que devuelve true si una lista contiene un numero dado
+        // FUNCION que devuelve true si una lista contiene un numero dado.
         public static bool ContainsNumber(List<int> list, int number)
         {
             if (list == null)
@@ -48,11 +48,11 @@
             return false;
         }
 
-        // Funcion que devuelve el valor máximo de una lista
+        // Funcion que devuelve el valor máximo de una lista.
         public static int GetMajor(List<int> list)
         {
             if (list == null || list.Count == 0)
-                return int.MinValue;                //  int.MinValue es el número más pequeño de tipo 'int'
+                return int.MinValue;               
 
             int result = list[0];
             for (int i = 1; i < list.Count; i++)
@@ -63,7 +63,7 @@
             return result;
         }
 
-        // Funcion que devuelve el valor mínimo de una lista
+        // Funcion que devuelve el valor mínimo de una lista.
         public static int GetMinor(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -78,11 +78,11 @@
             return result;
         }
 
-        // FUNCION que devuelve el índice del numero mayor de una lista
+        // FUNCION que devuelve el índice del numero mayor de una lista.
         public static int GetIndexMajor(List<int> list)
         {
             if (list == null || list.Count == 0)
-                return -1;                          //  retorno de -1 para indices
+                return -1;                          
 
             int index = 0;
 
@@ -94,6 +94,7 @@
             return index;
         }
 
+        // FUNCION que devuelve el índice del numero mayor de una lista V2.0.
         public static int GetIndexMajorV2(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -112,8 +113,8 @@
             return index;
         }
 
-
-        // FUNCION que devuelve true si una lista está ordenada de forma ascendente
+        // FUNCION que devuelve true si una lista está ordenada de forma ascendente.
+        // TODO: [EXAMEN] Función que devuelve un booleano si está ordenada.
         public static bool IsOrdered(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -128,7 +129,7 @@
             return result;
         }
 
-        // FUNCION Realiza un SWAP entre elementos de la lista
+        // FUNCION que realiza un SWAP entre elementos de la lista.
         // TODO: [EXAMEN] Funcion que realiza un SWAP.
         public static void Swap(List<int> list)
         {
@@ -139,8 +140,8 @@
             list[1] = aux;
         }
 
-        // FUNCION que ordena una lista de forma ascendente
-        // TODO: [EXAMEN] Ordenar una lista de forma ascendente
+        // FUNCION que ordena una lista de forma ascendente.
+        // TODO: [EXAMEN] Ordenar una lista de forma ascendente.
         public static List<int>? Sort(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -162,6 +163,8 @@
             return list;
         }
 
+        // FUNCION que ordena una lista de forma ascendente.
+        // TODO: [EXAMEN] Ordenar una lista de forma ascendente V2.0.
         public static List<int>? SortV2(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -183,8 +186,8 @@
             return list;
         }
 
-        // FUNCION Binary Search con listas
-        // TODO: [EXAMEN] Binary Search
+        // FUNCION Binary Search con listas.
+        // TODO: [EXAMEN] Binary Search.
         public static bool BinarySearch(List<int> list, int number)
         {
             if (list == null || list.Count == 0)
@@ -209,7 +212,8 @@
             return false;
         }
 
-        // FUNCION Binary search con arrays
+        // FUNCION Binary search con arrays.
+        // TODO: [EXAMEN] Binary Search.
         public static bool BinarySearch(double[] array, double number)
         {
             if (array == null || array.Length == 0)
@@ -234,7 +238,7 @@
             return false;
         }
 
-        // FUNCION que devuelve el valor medio de un array
+        // FUNCION que devuelve el valor medio de un array.
         public static double GetAverage(double[] array)
         {
             if (array == null)
@@ -252,7 +256,7 @@
             return aux / array.Length;
         }
 
-        // FUNCION que devuelve el mayor medio de los elementos de un array que superen el threshold
+        // FUNCION que devuelve el mayor medio de los elementos de un array que superen el threshold.
         public static double GetThresholdAverage(double[] array, double Threshold)
         {
             if (array == null)
@@ -279,7 +283,7 @@
             return aux / count;
         }
 
-        // FUNCION que devuelve el numero de repeticiones de valores de una lista
+        // FUNCION que devuelve el numero de repeticiones de valores de una lista.
         public static int GetMaxNumberRepeated(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -296,7 +300,7 @@
             return result;
         }
 
-        // FUNCION que devuelve una lista ordenada de forma inversa
+        // FUNCION que devuelve una lista ordenada de forma inversa.
         public static List<int>? GetReverseList(List<int> list)
         {
             if (list == null || list.Count == 0)
@@ -311,7 +315,7 @@
             return result;
         }
 
-        // FUNCION reverse con arrays
+        // FUNCION que devuelve un array ordenado de forma inversa.
         public static int[] GetReverseArray(int[] array)
         {
             int[] result = new int[array.Length];
@@ -323,27 +327,10 @@
                 auxiliar++;
             }
             return result;
-        }
+        }        
 
-        // FUNCION para imprimir series
-        public static void PrintList(List<int> list)
-        {
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i]);
-            }
-        }
-
-        public static void PrintList(int[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.WriteLine(array[i]);
-            }
-        }
-
-        // FUNCION que añade un valor a un array
-        // TODO: [EXAMEN] Añadir un valor a un array
+        // FUNCION que añade un valor a un array.
+        // TODO: [EXAMEN] Añadir un valor a un array.
         public static int[] AddValuetoArray(int[] array, int number)
         {
             int[] result;
@@ -364,26 +351,16 @@
             return result;
         }
 
-        // FUNCION que elimina un elemento de la posicion indicada de una lista de enteros
-        // TODO: [EXAMEN] Funcion que elimina el valor que está en una posicion indicada
-        public static void RemovePosition(List<int> list, int index)
+        // FUNCION que elimina un valor que le paso por parametros de la lista.
+        // TODO: [EXAMEN] Funcion que elimina el valor que ocupa un valor dado 'index'.
+        public static void RemoveAt(List<int> list, int index)
         {
-            if (list == null || index < 0)
-                return;
-
-            list.RemoveAt(index);
-        }
-
-        // FUNCION que elimina un valor que le paso por parametros de la lista
-        // TODO: [EXAMEN] Funcion 'RemoveAt'
-        public static void RemoveAt(List<int> list, int value)
-        {
-            if (list == null)
+            if (list == null ||index < 0)
                 return;
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i] == value)
+                if (list[i] == index)
                 {
                     list.RemoveAt(i);
                     i--;
@@ -391,7 +368,7 @@
             }
         }
 
-        // FUNCION anterior que utiliza la ruptura BREAK
+        // FUNCION 'RemoveAt' que utiliza una instruccion 'BREAK'.
         public static void RemoveElementBreak(List<int> list, int value)
         {
             if (list == null)
@@ -408,8 +385,8 @@
             }
         }
 
-        // FUNCION que borra un elemento de un array
-        // TODO: [EXAMEN] Borrar un elemento de un array
+        // FUNCION que borra un elemento de un array.
+        // TODO: [EXAMEN] Borrar un elemento de un array.
         public static int[]? RemoveValueFromArray(int[] array, int value)
         {
             if (array == null || array.Length == 0)
@@ -433,34 +410,8 @@
             return result;
         }
 
-        public static bool IsDequal(int number1, int number2)
-        {
-            return (number1 != number2);
-        }
-
-        public static int CountArray(int[] array, int value)
-        {
-            int count = 0;
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (IsDequal(array[i], value))
-                    count++;
-            }
-            return count;
-        }
-
-        public static void MakeArray(int[] array, int value)
-        {
-            int capacity = CountArray(array, value);
-            int[] result = new int[capacity];
-            for (int i = 0; i < capacity; i++)
-                if (IsDequal(value, array[i]))
-                    result[i] = value;
-        }
-
-        // FUNCION que elimina de una lista, una lista de valores
-        // TODO: [EXAMEN] Eliminar una lista de valores de una lista dada
+        // FUNCION que elimina de una lista, una lista de valores.
+        // TODO: [EXAMEN] Eliminar valores de una lista.
         public static void RemoveValues(List<int> list, List<int> listValues)
         {
             if (list == null)
@@ -476,6 +427,7 @@
             }
         }
 
+        // FUNCION que elimina de una lista, una lista de valores V2.0.
         public static void RemoveValuesV2(List<int> list, List<int> listValues)
         {
             if (list == null)
@@ -490,6 +442,52 @@
                     j++;
                 }
                 j = 0;
+            }
+        }
+        // FUNCION que cuenta los elementos de un array.
+        public static int CountArray(int[] array, int value)
+        {
+            int count = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (IsDequal(array[i], value))
+                    count++;
+            }
+            return count;
+        }
+
+        // FUNCION que crea un array nuevo.
+        public static void MakeArray(int[] array, int value)
+        {
+            int capacity = CountArray(array, value);
+            int[] result = new int[capacity];
+            for (int i = 0; i < capacity; i++)
+                if (IsDequal(value, array[i]))
+                    result[i] = value;
+        }
+
+        // FUNCION que devuelve un booleano si dos numeros son iguales.
+        public static bool IsDequal(int number1, int number2)
+        {
+            return (number1 != number2);
+        }              
+
+        // FUNCION que imprime Listas en consola.
+        public static void PrintList(List<int> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+        }
+
+        // FUNCION que imprime Arrays en consola.
+        public static void PrintList(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
             }
         }
     }

@@ -1,7 +1,8 @@
 ﻿namespace ResumenFunciones
 {
     public class Dictionary
-    {
+    {       
+        // CONSTRUCTORES
         public Dictionary<int, string> presetDictionary1 = new Dictionary<int, string>
         {
             [0] = "Portero",
@@ -16,6 +17,8 @@
 
         public Dictionary<char, string> newPresetDictionary = new Dictionary<char, string>();
 
+
+        // ADD VALUES
         public static Dictionary<int, string> AddValueToDictionary(Dictionary<int, string> dictionary, int key, string value)
         {
             dictionary.Add(key, value);
@@ -28,17 +31,31 @@
             presetDictionary2.Add(key, value);
         }
 
-        public static void ListDictionary(Dictionary<int,string> dictionary)
+        // GETTERS        
+
+        public static string GetValue(Dictionary<int, string> dictionary, int number)
         {
-            foreach (KeyValuePair<int,string> item in dictionary)
+            return dictionary[number];
+        }
+
+        public (string, string) GetValue(int number)
+        {
+            return (presetDictionary1[number], presetDictionary2[number]);
+        }
+
+
+        // LISTING DICTIONARIES
+        public static void ListDictionary(Dictionary<int, string> dictionary)
+        {
+            foreach (KeyValuePair<int, string> item in dictionary)
             {
                 Console.WriteLine("" + item.Key + " : " + item.Value);
             }
-        }  
-        
+        }
+
         public void ListDictionary()
         {
-            foreach(KeyValuePair<int,string> item in presetDictionary1)
+            foreach (KeyValuePair<int, string> item in presetDictionary1)
             {
                 Console.WriteLine("" + item.Key + " : " + item.Value);
             }
@@ -49,29 +66,16 @@
             }
         }
 
-        public static string GetValue(Dictionary<int, string> dictionary, int number)
+        public void ListDictionary(int index)
         {
-            return dictionary[number];
-        }
-
-        public (string,string) GetValue(int number)
-        {
-            return (presetDictionary1[number], presetDictionary2[number]); 
-        }
-
-        /*
-        public void GetListDictionary2(int number)
-        {
-            Console.WriteLine(dictionary2['a']);
-            KeyValuePair<int, string> result = dictionary2.ElementAt(number);
+            Console.WriteLine(presetDictionary1[index]);
+            KeyValuePair<int, string> result = presetDictionary1.ElementAt(index);
             Console.WriteLine(result.Key);
             Console.WriteLine(result.Value);
-        }*/
-
-
-        public static void ToStringData(Dictionary<int, string> dictionary)
+        }
+        public static void ToString(Dictionary<int, string> dictionary)
         {
-            int key  = dictionary.ElementAt(0).Key;
+            int key = dictionary.ElementAt(0).Key;
             string result = key.ToString();
 
             string value = dictionary.ElementAt(0).Value;

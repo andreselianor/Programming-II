@@ -8,87 +8,94 @@
     }
 
     public class Dolphin
-    {
-        /*      ATRIBUTOS        */
+    {        
+        // SECCION 1: Atributos.
 
-        public double size;
-        public double life;
-        public double lifeCapacity;
+        private double _size;
+        private double _life;
+        private double _lifeCapacity;
 
-        public string name = "";
-        public ColorType Color;
+        private string _name = "";
+        private ColorType _Color;        
 
 
-        /*      CONSTRUCTOR      */
+        // SECCION 2: Constructores.
+        public Dolphin()
+        {
+
+        }
 
         public Dolphin(double currentLife, double maxLifeCapacity)
         {
-            life = currentLife;
-            lifeCapacity = maxLifeCapacity;
+            _life = currentLife;
+            _lifeCapacity = maxLifeCapacity;
         }
 
-
-        /*      FUNCIONES        */
-        // Funcion que devuelve la vida restante
-        // en tantos por cien
-
-        public double GetLifePercent()
+        public Dolphin(double currentLife, double maxLifeCapacity, double size)
         {
-            return (life / lifeCapacity) * 100;
+            _life = currentLife;
+            _lifeCapacity = maxLifeCapacity;
+            _size = size;
         }
 
 
-        // Funcion que devuelve la vida restante
-        // en tantos por uno
-
-        public double GetLifePercentOne()
-        {
-            return (life / lifeCapacity);
-        }
-
-        // GETTERS AND SETTERS
-
+        // SECCION 3: Getters & Setters.
         public double GetLife()
         {
-            return life;
+            return _life;
         }
 
         public void SetLife(int value)
         {
-            this.life = value;
+            _life = value;
         }
 
-
-        // SETTERS CON VALIDACION DE PARAMETROS
-        /*
-            CASO 1: CLAMPEAR/SATURAR, llevamos los valores a sus límites posibles
-            CASO 2: Comprobamos que los valores son CORRECTOS => establecemos el VALUE
-            CASO 3: Comprobamos que los valores son INCORRECTOS => Lanzamos un error
+        /* 
+            SETTERS CON VALIDACION DE PARAMETROS.
+        
+            CASO 1: CLAMPEAR/SATURAR, llevamos los valores a sus límites posibles.
+            CASO 2: Comprobamos que los valores son CORRECTOS => establecemos el VALUE.
+            CASO 3: Comprobamos que los valores son INCORRECTOS => Lanzamos un error.
         */
-
         public void SetLifeCase1(int value)
         {
             if (value < 0.0)
-                this.life = 0;
-            else if (value > lifeCapacity)
-                this.life = lifeCapacity;
+                _life = 0;
+            else if (value > _lifeCapacity)
+                _life = _lifeCapacity;
             else
-                this.life = value;
+                _life = value;
         }
 
         public void SetLifeCase2(int value)
         {
-            if (0.0 <= value && value <= lifeCapacity)
-                this.life = value;
+            if (0.0 <= value && value <= _lifeCapacity)
+                _life = value;
             // else
             // el programa no hace nada                
         }
 
         public void SetLifeCase3(int value)
         {
-            if (value < 0.0 || value > lifeCapacity)
+            if (value < 0.0 || value > _lifeCapacity)
                 throw new Exception("Error de validacion de parametros");
-            this.life = value;
+            _life = value;
+        }
+
+
+        // SECCION 4: Metodos.
+
+        // FUNCION que devuelve el porcentaje de vida.
+        // Tantos por 1.
+        public double GetLifePercentOne()
+        {
+            return (_life / _lifeCapacity);
+        }
+        
+        // Tantos por 100.
+        public double GetLifePercent()
+        {
+            return (_life / _lifeCapacity) * 100;
         }
     }
 }
