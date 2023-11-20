@@ -5,17 +5,11 @@
         static void Main(string[] args)
         {
             BigNumber test1 = new BigNumber(125);
+            BigNumber test2 = new BigNumber(875);
+            BigNumber result;
+            result = BigNumber.Sum(test1, test2);
 
-            test1.ShowBigNumberRow();
-            
-
-            BigNumber test2 = new BigNumber(156789123);
-
-            test2.ShowBigNumberRow();
-
-
-            BigNumber test4 = BigNumber.Sum(test1, test2);
-            test4.ShowBigNumberRow();
+            result.ShowBigNumberReverse();
         }
     }
 }

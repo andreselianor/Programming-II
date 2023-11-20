@@ -5,6 +5,7 @@ namespace BigNumbers
     public class BigNumber
     {
         private List<int> _list = new List<int>();
+        private int _restNumber;
 
 
 
@@ -29,11 +30,11 @@ namespace BigNumbers
 
         #region Set BigNumber
         public void Set(long bigNumber)
-        {            
+        {
             long nextBigNumber;
             int numberList;
 
-            while(bigNumber > 0)
+            while (bigNumber > 0)
             {
                 numberList = (int)bigNumber % 10;
                 nextBigNumber = (int)bigNumber / 10;
@@ -47,7 +48,7 @@ namespace BigNumbers
         public void Set(string bigNumberString)
         {
             int bigNumberCount = 0;
-            foreach(char c in bigNumberString)
+            foreach (char c in bigNumberString)
             {
                 bigNumberCount++;
             }
@@ -108,50 +109,84 @@ namespace BigNumbers
         #region Utils
         public void ShowBigNumber()
         {
-            foreach(int number in _list)
-            {
-                Console.WriteLine(number + " ");
-            }
-            Console.WriteLine("\n");
-        }
-
-        public void ShowBigNumberRow()
-        {
             foreach (int number in _list)
             {
                 Console.Write(number + " ");
             }
             Console.WriteLine("\n");
-
         }
+
+        public void ShowBigNumberReverse()
+        {
+
+            for (int i = _list.Count - 1; i >= 0; i--)
+            {
+                Console.Write(_list[i] + " ");
+            }
+
+            Console.WriteLine("\n");
+        }
+
         #endregion
 
         #region Funciones Calculate
+
+
         public static BigNumber Sum(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult = new BigNumber();
+
+            int resultPartialSum;
+            int restPartialSum;
             int result;
 
-            for(int i = 0; i < 10; i++)
+            int longitud1 = bigNumber1.GetDigitCount();
+            int longitud2 = bigNumber2.GetDigitCount();
+
+
+            int longitud = GetSumNumbersDigit(bigNumber1, bigNumber2);
+            int count = 0;
+
+            while (count <= longitud)
             {
-                int number1 = 0, number2 = 0;
-
-                if(bigNumber1.GetDigitCount() > i)
+                if(longitud1 > count && longitud2 > count)
                 {
-                    number1 = bigNumber1.GetDigitAt(i);
+                    resultPartialSum = bigNumber1._list[count] + bigNumber2._list[count];
+                    restPartialSum = resultPartialSum > 9 ? resultPartialSum / 10 : resultPartialSum;
+
+                    bigNumberResult._list.Add(result);
+                    count++;
                 }
 
-                if (bigNumber2.GetDigitCount() > i)
+                else if (longitud1 > count && longitud2 < count)
                 {
-                    number2 = bigNumber2.GetDigitAt(i);
+                    bigNumberResult._list.Add(bigNumber2._list[count]);
+                    count++;
                 }
 
-                result = number1 + number2;
-                bigNumberResult._list.Add(result);
+                else if (longitud1 < count && longitud2 > count)
+                {
+                    bigNumberResult._list.Add(bigNumber1._list[count]);
+                    count++;
+                }
+
+                else
+                {
+                    bigNumberResult._list.Add(1);
+                    count++;
+                }
+
             }
             return bigNumberResult;
         }
 
+        public static int GetSumNumbersDigit(BigNumber bigNumber1, BigNumber bigNumber2)
+        {
+            int longitud1 = bigNumber1.GetDigitCount();
+            int longitud2 = bigNumber2.GetDigitCount();
+
+            return longitud1 > longitud2 ? longitud1 : longitud2;
+        }
         #endregion
 
 
