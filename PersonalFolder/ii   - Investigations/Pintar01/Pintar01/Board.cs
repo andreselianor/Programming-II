@@ -20,16 +20,11 @@ namespace Pintar01
         public double bLove = 1.0;
         public double aLove = 0.8;
 
-        public rect2d_f64  rectangle = new rect2d_f64(0,0,1,1);
-        public RectMode mode1 = new RectMode();
-        public ShapeMode shape1 = new ShapeMode();
+        public Element elements;
 
         public void DrawBoard(ICanvas canvas)
         {
-            canvas.FillShader.SetColor(0, 0, 1, 1);
-            canvas.Mask.PushCircle(rectangle,mode1,shape1);
-            canvas.DrawRectangle(rectangle);
-            canvas.Mask.Pop();
+            
 
             /*
             canvas.FillShader.SetColor(1, 0, 0, a);
