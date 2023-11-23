@@ -185,7 +185,7 @@ namespace BigNumbers
             return count;
         }
 
-        public static BigNumber AddList(List<BigNumber> listBigNumbers)
+        public static BigNumber AddNumbersList(List<BigNumber> listBigNumbers)
         {
             int BigNumberCount = listBigNumbers.Count;
 
@@ -203,22 +203,22 @@ namespace BigNumbers
         {
             BigNumber bigNumberResult;
 
-            BigNumber BiggerMultOperator = GetBiggerMultiplicator(bigNumber1, bigNumber2);
+            BigNumber BiggerMultOperator = GetBiggerOperando(bigNumber1, bigNumber2);
             BigNumber SmallerMultOperator = BiggerMultOperator == bigNumber1 ? bigNumber2 : bigNumber1;
 
             List<BigNumber> listOperators;
             listOperators = GetListOperators(BiggerMultOperator, SmallerMultOperator);
 
-            for(int i = 0;  i <= SmallerMultOperator.GetDigitCount() - 1; i++)
+            for (int i = 0; i <= SmallerMultOperator.GetDigitCount() - 1; i++)
             {
                 listOperators[i] = InsertZero(listOperators[i], i);
             }
-            bigNumberResult = AddList(listOperators);
+            bigNumberResult = AddNumbersList(listOperators);
 
             return bigNumberResult;
         }
 
-        public static BigNumber GetBiggerMultiplicator(BigNumber bigNumber1, BigNumber bigNumber2)
+        public static BigNumber GetBiggerOperando(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             int Count1 = bigNumber1.GetDigitCount();
             int Count2 = bigNumber2.GetDigitCount();
@@ -231,7 +231,7 @@ namespace BigNumbers
             List<BigNumber> listResult = new List<BigNumber>();
             BigNumber bigNumberResult;
 
-            for(int i = 0; i < SmallerMultOperator.GetDigitCount(); i++)
+            for (int i = 0; i < SmallerMultOperator.GetDigitCount(); i++)
             {
                 bigNumberResult = MulOperation(BiggerMultOperator, SmallerMultOperator._list[i]);
                 listResult.Add(bigNumberResult);
@@ -244,10 +244,10 @@ namespace BigNumbers
             BigNumber resultBigNumber = new BigNumber();
             int result;
             int rest = 0;
-            foreach(int i in bignumber._list)
+            foreach (int i in bignumber._list)
             {
                 result = i * number + rest;
-                while(result >= 9)
+                while (result >= 9)
                 {
                     rest++;
                     result -= 10;
@@ -260,8 +260,8 @@ namespace BigNumbers
         public static BigNumber InsertZero(BigNumber bigNumber, int ZeroCount)
         {
             BigNumber result = new BigNumber();
-            
-            for(int i = 0; i < ZeroCount; i++)
+
+            for (int i = 0; i < ZeroCount; i++)
             {
                 result._list.Add(0);
             }
@@ -272,51 +272,57 @@ namespace BigNumbers
             return result;
         }
 
-        /*
-        public static BigNumber Mul(BigNumber bigNumber1, BigNumber bigNumber2)
+        public static BigNumber Sub(BigNumber bigNumber1, BigNumber bigNumber2)
+        {
+            BigNumber bigNumberResult;
+
+            BigNumber BiggerMultOperator = GetBiggerOperando(bigNumber1, bigNumber2);
+            BigNumber SmallerMultOperator = BiggerMultOperator == bigNumber1 ? bigNumber2 : bigNumber1;
+
+            bigNumberResult = SubOperation(BiggerMultOperator, SmallerMultOperator);
+
+            return bigNumberResult;
+        }
+        public static BigNumber SubOperation(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult = new BigNumber();
+            int subCount = bigNumber1.GetDigitCount();
+            int operatorUpper;
+            int operatorLower;
 
-            BigNumber bigNumberMajor;
-            BigNumber bigNumberMinor;
-            List<BigNumber> listPartial = new List<BigNumber>();
+            int countRestDown = 0;
+            int result;
 
-            int Count1 = bigNumber1.GetDigitCount();
-            int Count2 = bigNumber2.GetDigitCount();
 
-            int largerCount, smallerCount;
-
-            if (Count1 > Count2)
+            for (int i = 0; i < subCount; i++)
             {
-                largerCount = Count1;
-                smallerCount = Count2;
-                bigNumberMajor = bigNumber1;
-                bigNumberMinor = bigNumber2;
-            }
-            else
-            {
-                largerCount = Count2;
-                smallerCount = Count1;
-                bigNumberMajor = bigNumber2;
-                bigNumberMinor = bigNumber1;
-            }
+                operatorUpper = bigNumber1.GetDigitAt(i);
 
-            for (int i = 0; i <= smallerCount; i++)
-            {
-                BigNumber bigNumberPartial = new BigNumber();
-                MakeMul(bigNumberMajor, bigNumberMinor.GetDigitAt(i));
-                listPartial.Add(bigNumberPartial);
-            }
+                if (i >= bigNumber2.GetDigitCount())
+                    operatorLower = 0;
+                else
+                    operatorLower = bigNumber2.GetDigitAt(i);
 
-            for (int i = 0; i <= smallerCount; i++)
-            {
+                operatorLower += countRestDown;
 
+                if (operatorUpper >= operatorLower)
+                {
+                    result = operatorUpper - operatorLower;
+                    bigNumberResult._list.Add(result);
+                    countRestDown = 0;
+                }
+                else
+                {
+                    countRestDown = 1;
+                    result = (10 + operatorUpper) - operatorLower;
+                    bigNumberResult._list.Add(result);
+                }
             }
 
+            return bigNumberResult;
 
+        }
 
-            int numberDigitsBigNumber = GetMaxCountBigNumber(Count1, Count2);
-        }*/
 
         #endregion
     }

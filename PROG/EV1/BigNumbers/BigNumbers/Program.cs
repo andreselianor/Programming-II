@@ -20,9 +20,9 @@
             result = BigNumber.AddList(listSum);
             */
 
-            BigNumber test1 = new BigNumber(1800000);
-            BigNumber test2 = new BigNumber(400);
-            BigNumber result = BigNumber.Mul(test1, test2);
+            BigNumber test1 = new BigNumber(2000);
+            BigNumber test2 = new BigNumber(50);
+            BigNumber result = BigNumber.Sub(test1, test2);
             result.ShowBigNumberReverse();
         }
     }
