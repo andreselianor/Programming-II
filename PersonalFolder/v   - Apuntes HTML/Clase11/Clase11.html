@@ -24,13 +24,14 @@
             tipos básicos.
         </li>
         <li>
-            Las colecciones pueden se clasifican según su funcionamiento: Arrays, Listas, Diccionarios, Árboles
+            Las colecciones pueden se clasifican según su método para almacenar datos: Arrays, Listas, Diccionarios,
+            Árboles.
         </li>
         <li>
-            Es importante recordar que las <b>colecciones se almacenan en una variable de tipo número,
-                que apunta a una direccion de memoria.</b>
+            Es importante recordar que las <b>colecciones se almacenan en una variable propia del compilador, de tipo 'int',
+                que apunta a una direccion de memoria, donde se almacenan realmente los datos.</b>
             <br>
-            Es en este lugar reservado de la memoria donde se guarda la información sobre la colección y sus elmentos.
+            Es en este lugar reservado de la memoria donde se guarda la información sobre la colección y sus elementos.
         </li>
         <br>
 
@@ -39,12 +40,11 @@
             Son las colecciones más importantes.
         </li>
         <li>
-            Su funcionamiento es similar al de un objeto, creado a partir de la clase LIST.
+            Su funcionamiento es similar al de un objeto, creado a partir de la clase <b>LIST.</b>
         </li>
         <li>
-            El objeto LIST se crea en el momento que hacemos <b>NEW</b>. Esto quiere decir que la asignación a una
-            variable
-            no crea el objeto en sí mismo.
+            El objeto <b>LIST</b> se crea en el momento que hacemos <b>'NEW'</b>. Esto quiere decir que la asignación a una
+            variable <b>NO</b>> crea el objeto en sí mismo.
         </li>
         <li>
             Ejemplo de creación de lista
@@ -54,9 +54,11 @@
             {
                 List&ltint&gt list;            // se crea una variable llamada 'l'
                                            // de tipo 'Lista de enteros'
-                list = new List&ltint&gt();    // se crea la lista en una direccion de la memoria
+
+                list = new List&ltint&gt();    // se crea la lista en una direccion de la memoria.
+
                 list = null;               // l apunta a la nada,
-                                           // se destruye la lista del programa
+                                           // se destruye la lista del programa.
             }                          
             '
             </code></pre>
@@ -67,45 +69,45 @@
             '
             <b>public void UseList()</b>
             {
-                <b>Add(element)</b>     // añade 'element' al final de la lista
+                <b>Add(element)</b>         // añade 'element' al final de la lista.
 
                 list.Add(40);
                 list.Add(-10);
                 list.Add(3);
                                         // list: [40,-10,3]
                 
-                <b>Remove(element)</b>  // elimina el objeto 'element' de la lista
-                <b>RemoveAt(index)</b>  // elimina el elemento que se encuentra 
-                                        // en la posición 'index'
+                <b>Remove(element)</b>      // elimina el objeto 'element' de la lista.
+                <b>RemoveAt(index)</b>      // elimina el elemento que se encuentra 
+                                            // en la posición 'index'.
 
                 l.RemoveAt(2);
                                         // list: [40,-10]
 
-                <b>l[i] = value</b>     // Actualiza el valor del elemento 'i' de una lista
+                <b>l[i] = value</b>         // Actualiza el valor del elemento 'i' de una lista.
 
                 l[0] = 60;
                 int i = 1;
                 l[i + 0] = 3;
                                         // list: [60,3]
 
-                <b>l.Count</b>          // Hace el conteo del número de elementos 
-                                        // que hay en una lista
+                <b>l.Count</b>              // Hace el conteo del número de elementos 
+                                            // que hay en una lista.
 
                 int n = l.Count;
                                         // n = 2
 
-                <b>l.Insert(index, element)</b>   // Inserta 'element' en la posicion 'index'
+                <b>l.Insert(index, element)</b>     // Inserta 'element' en la posicion 'index'
 
                 l.Insert(1, -20);
                                         // list: [60,-20,3]
 
-                <b>l[1] = l[2]</b>      // el elemento de la posicion 1 es igual 
-                                        // al elemento de la posicion 2
+                <b>l[1] = l[2]</b>          // el elemento de la posicion 1 es igual 
+                                            // al elemento de la posicion 2.
 
                                         // list: [60,3,3]
 
-                <b>l.Clear()</b>        // Se eliminan todos los elementos de la lista. 
-                                        // Vacia la lista
+                <b>l.Clear()</b>            // Se eliminan todos los elementos de la lista. 
+                                            // Vacia la lista.
 
                                         // list: [0]
             }                           
@@ -113,14 +115,14 @@
             </code></pre>
         </li>
         <li>
-            Las ventajas de una <b>LISTA</b> es que pueden contener tantos elementos como necesitemos en su interior,
-            esto es, no tienen límite de capacidad. Son más sencillas y ágiles de trabajar que el resto de colecciones.
+            Las ventajas de una <b>LISTA</b> consiste en que puede contener tantos elementos como necesitemos en su interior,
+            esto es, <b>no tienen límite de capacidad.</b> Son más sencillas y ágiles de trabajar que el resto de colecciones.
             Su principal uso es para tratar con datos que se almacenan y se destruyen de manera dinámica.
         </li>
         <br>
         <h4 class="remarks">Arrays</h4>
         <li>
-            Son colecciones de elementos, rígidas y estáticas, del tipo que se indique en su definición.
+            Son colecciones de elementos, <b>rígidas y estáticas,</b> del tipo que se indique en su definición.
             Tienen la característica particular que no permiten cambiar el tamaño de la colección, ni añadir o eliminar
             elementos posteriormente a su creación. De hecho, es obligatorio definir su tamaño en el momento que creamos
             el objeto.
@@ -169,7 +171,7 @@
             </code></pre>
         </li>
         <li>
-            'list' es solo el puntero que apunta una dirección de la RAM donde se almacenan los datos particulares.
+            <b>'list'</b> es solo el puntero que apunta una dirección de la RAM donde se almacenan los datos particulares.
             Realmente es un número entero, por ejemplo 380.000. Esto quiere decir que hasta que no hacemos el 'NEW' no
             estamos creando ninguna lista
         </li>

@@ -19,62 +19,138 @@
 
 
     <ul class="clase·List">
-        <h4 class="remarks">Continuación de estudio Funciones de clase</h4>
+        <h4 class="remarks">Funciones de clase. Repaso de algunas de las más importantes.</h4>
         <li>
-            <b>FUNCION:</b> Imprimir por pantalla la Serie Collatz
+            <b>FUNCION 1:</b> Devuelve el menor de dos numeros.
             <pre><code>
-            '
-            public class Functions
-            {
-                <b>public static void Collatz(int number)</b>
-                {                    
-                    int result = number;
-                    Console.WriteLine(result);
+        '
+        public static int GetMinor(int number1, int number2)
+        {
+            if (number1 <= number2)
+                return number1;
+            return number2;
+        }
+        '
+    </code></pre>
+        </li>
+        <li>
+            <b>FUNCION 2:</b> Devuelve verdadero si un numero es par.
+            <pre><code>
+        '
+        public static bool IsEven(int number)
+        {
+            return (number % 2 == 0);
+        }
+        '
+    </code></pre>
+        </li>
+        <li>
+            <b>FUNCION 3:</b> Devuelve el menor de 3 números.
+            <pre><code>
+        '
+        public static int GetMinest(int number1, int number2, int number3)
+        {
+            if (number1 <= number2 && number1 <= number3)
+                return number1;
+            if (number2 <= number3)
+                return number2;
+            else
+                return number3;
+        }
+        '
+    </code></pre>
+        </li>
+        <li>
+            <b>FUNCION 4:</b> Imprime por consola la serie 0, -2, 4, -6, 8.
+            <pre><code>
+        '
+        public static void PrintSerie(int number)
+        {
+            int result;
 
-                    while(result != 1)
-                    {
-                        if(IsEven(result))
-                            result /= 2;
-                        else
-                            result = (result * 3) + 1;
-                        
-                        Console.WriteLine(result);
-                    }                    
-                }
+            for (int i = 0; i <= number / 2; i++)
+            {
+                if (IsEven(i))
+                    result = (2 * i);
+                else
+                    result = (-2 * i);
+                Console.WriteLine(result);
             }
-            '
+        }
+        '
+    </code></pre>
+        </li>
+        <li>
+            <b>FUNCION 5:</b> Devuelve verdadero si un número es primo.
+            <pre><code>
+    '
+        public static bool IsPrime(int number)
+        {
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
+        }
+    '
+    </code></pre>
+        </li>
+        <li>            
+            <b>FUNCION 6:</b> Imprime la series'Collatz'.
+            <pre><code>
+        '
+        public static void Collatz(int number)
+        {
+            int result = number;
+            Console.WriteLine(result);
+
+            while (result != 1)
+            {
+                if (IsEven(result))
+                    result /= 2;
+                else
+                    result = (result * 3) + 1;
+                Console.WriteLine(result);
+            }
+        }
+        '
+        </code></pre>
+        </li>
+        <li>
+            <b>FUNCION 7:</b> Imprime el sumatorio de un número.
+            <pre><code>
+        '
+        public static int GetSummatory(int number)
+        {
+            int result = 0;
+
+            for (int i = 1; i <= number; i++)
+            {
+                result += i;
+            }
+            return result;
+        }
+        '
+        </code></pre>
+        </li>
+        <li>
+            <b>FUNCION 8:</b> Imprime el productorio de un número.
+            <pre><code>
+        '
+        public static int GetProductory(int number)
+        {
+            int result = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                result *= i;
+            }
+            return result;
+        }
+        '
         </code></pre>
         </li>
     </ul>
-
-    <ul class="clase·List">
-        <h4 class="remarks">Funciones ejemplos</h4>
-        <li>
-            1.- Devolver el menor de 2 números.
-        </li>
-        <li>
-            2.- Devolver verdadero si un número es par.
-        </li>
-        <li>
-            3.- Devolver el menor de 3 números.
-        </li>
-        <li>
-            4.- Imprimir la siguiente serie por consola: 0, -2, 4, -6, 8, -10.
-        </li>
-        <li>
-            5.- Devolver verdadero si un número es primo.
-        </li>
-        <li>
-            6.- Imprimir la serie de COLLATZ por pantalla.
-        </li>
-        <li>
-            7.- Función Sumatorio.
-        </li>
-        <li>
-            8.- Función Productorio.
-        </li>
-    </ul>
-
 </body>
 
 </html>
