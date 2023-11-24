@@ -21,7 +21,31 @@
 
         <h4 class="remarks">Clase 'Big Numbers'</h4>
         <li>
-           Implementar la clase especial de calculo 'Big Numbers'
+            Implementar la clase especial de calculo 'Big Numbers'
+            <pre><code>
+            '
+              BIGNUMBER
+            -----------------
+            -listBigNumber: list&ltint&gt
+            -----------------
+            +BigNumber(long)
+            +BigNumber(string)
+            +Set(long): void
+            +Set(string): void
+            +ToString(): strings
+            +GetDigitCount(): int
+            +GetDigitAt(index: int):int
+            +Add(BigNumber, BigNumber)
+            +Sub(BigNumber, BigNumber)
+            +Mul(BigNumber, BigNumber)
+            +Div(BigNumber, BigNumber)
+            +Mod(BigNumber, BigNumber)
+            '
+        </code></pre>
+        </li>
+        <li>
+            El metodo 'Set()' se realiza mediante la division sucesiva del numero entre 10. El resto es el digito y el
+            resultado pertenece a la siguiente decena.
         </li>
     </ul>
 </body>
