@@ -4,16 +4,15 @@
     {
         static void Main(string[] args)
         {
-            int[] array = new int[] { 1, 2, 3, 4, 5 };
-
-            Console.WriteLine(array[^1]);
-
-            Range range = 2..4;
-            foreach (int i in array[range])
+            //   int[] array = Exam.MakeArray(5);
+            // Exam.ListArray(array);
+            List<int> list = new List<int>
             {
-                Console.WriteLine(i);
-            }
-            
+                100,
+                50,
+                0
+            };
+            list = Exam.SortList(list);
         }
     }
 }
