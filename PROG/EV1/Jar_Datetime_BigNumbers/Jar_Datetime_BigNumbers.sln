@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jar_Datetime_BigNumbers", "Jar_Datetime_BigNumbers\Jar_Datetime_BigNumbers.csproj", "{61F7EA55-489E-410E-B72F-9C7242B88368}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61F7EA55-489E-410E-B72F-9C7242B88368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F7EA55-489E-410E-B72F-9C7242B88368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F7EA55-489E-410E-B72F-9C7242B88368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F7EA55-489E-410E-B72F-9C7242B88368}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82CC7FA2-5707-4CFC-8E8A-30AF8093D62E}
+	EndGlobalSection
+EndGlobal

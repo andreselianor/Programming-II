@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#Page {
+    margin: 50px;
+}
+
+#index·Title {
+    border-bottom: 1px solid black;
+}
+
+#index·List {
+    padding: 4vw 4vw;
+}
+
+.listDays {
+    list-style: circle;
+    padding-top: 1vh;
+}
+
+.listTasks {
+    list-style: disc;
+}
+
+.index·TableDays td {
+    vertical-align: top;
+    padding: 1vw 3vw;
+    width: 24vw;
+}

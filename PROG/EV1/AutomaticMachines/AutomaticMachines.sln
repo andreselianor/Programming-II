@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomaticMachines", "AutomaticMachines\AutomaticMachines.csproj", "{5A1FA490-0185-4989-B38A-628599A3C177}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A1FA490-0185-4989-B38A-628599A3C177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A1FA490-0185-4989-B38A-628599A3C177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A1FA490-0185-4989-B38A-628599A3C177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A1FA490-0185-4989-B38A-628599A3C177}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0138AFE1-29A0-4BE8-8865-191803E83D98}
+	EndGlobalSection
+EndGlobal

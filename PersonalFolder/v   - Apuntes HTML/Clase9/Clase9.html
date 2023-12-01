@@ -6,11 +6,11 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Clase 9</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='all' href='../resources/HTML/ClaseCss.css'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
 </head>
 
-<body>
+<body id="Page">
     <header>
         <h1>Clase 9</h1>
         <h3>Jueves, 28 Septiembre 2023</h3>
@@ -22,106 +22,106 @@
         <li>
             <b>FUNCIÓN:</b> Devuelve la concatenación de dos strings.
             <pre><code>
-            '
-            <b>public static string Concat(string a, string b)</b>
-            {
-                return a + b;
-            }
-            '
+        '
+        <b>public static string Concat(string a, string b)</b>
+        {
+            return a + b;
+        }
+        '
             </code></pre>
         </li>
         <li>
             <b>FUNCIÓN:</b> devuelve una serie de números.
             <pre><code>
-            '
-            <b>public static string Concat(int number)</b>
+        '
+        <b>public static string Concat(int number)</b>
+        {
+            string result = "0";
+            for(int i = 0; i &lt number; i++)
             {
-                string result = "0";
-                for(int i = 0; i &lt number; i++)
-                {
-                    result += "," + i;
-                }
-                return result;
+                result += "," + i;
             }
-            '
+            return result;
+        }
+        '
             </code></pre>
         </li>
         <li>
             <b>FUNCIÓN:</b> devuelve una serie de números.
             <pre><code>
-            '
-            <b>public static string Concat(int number)</b>
+        '
+        <b>public static string Concat(int number)</b>
+        {
+            string result = "0";
+            int multiplicador = 1;
+            for(int i = 0; i &lt number; i++)
             {
-                string result = "0";
-                int multiplicador = 1;
-                for(int i = 0; i &lt number; i++)
-                {
-                    multiplicador *= 2;
-                    result += "," + multiplicador;
-                }
-                return result;
+                multiplicador *= 2;
+                result += "," + multiplicador;
             }
-            '
+            return result;
+        }
+        '
             </code></pre>
         </li>
         <li>
             <b>FUNCIÓN:</b> realiza distintas concatenaciones con variables.
             <pre><code>
-            '
-            <b>public static void Concatenate(string text1, string text2, string text3)</b>
-            {
-                Console.WriteLine("Frase1 , 2 y 3");
-                string result1 = (text1 + ", " + text2 + ", " + text3);
-    
-                Console.WriteLine("Frase1 y 2");
-                string result2 = ("{0} , {1}", text1, text2);
-    
-                Console.WriteLine("Frase2 y 3");
-                string result3 = ($"{text2} , {text3}");
-            }
-            '
+        '
+        <b>public static void Concatenate(string text1, string text2, string text3)</b>
+        {
+            Console.WriteLine("Frase1 , 2 y 3");
+            string result1 = (text1 + ", " + text2 + ", " + text3);
+
+            Console.WriteLine("Frase1 y 2");
+            string result2 = ("{0} , {1}", text1, text2);
+
+            Console.WriteLine("Frase2 y 3");
+            string result3 = ($"{text2} , {text3}");
+        }
+        '
             </code></pre>
         </li>
         <li>
             <pre><code>
-                '
-                public static void SingularText(string text1)
-                {
-                    Console.WriteLine(@"Todo este texto es literal / & + text1. Se consigue con @");
-                    Console.WriteLine("El texto que inicia con \"$\" permite introducir variables dentro del formato");
-                    Console.WriteLine("Este texto escapa \"con barras inclinadas\" (\\)");
-                    Console.WriteLine("El parametro \"\\r\" sirve para mover el cursor a la izquierda del todo");
-                    Console.WriteLine("El parametro \"\\n\" sirve para cambiar de linea");
-                    Console.WriteLine("El parametro \"\\b\" crea un espacio");
-                    Console.WriteLine("El parametro \"\\t\" crea un tabulado");
-                }
-                '
-                </code></pre>
-        </li>
-        <li>
-            <pre><code>
-                '
-                public static void StringReplace(string text, string word, string replace)
-                {
-                    Console.WriteLine("El metodo \"string.Replace(texto, alternative)\" reemplaza el 'texto' por un 'alternative'");
-                    string result = text.Replace(word, replace);
-                    Console.WriteLine(result);
-                }
-                '
+        '
+        public static void SingularText(string text1)
+        {
+            Console.WriteLine(@"Todo este texto es literal / & + text1. Se consigue con @");
+            Console.WriteLine("El texto que inicia con \"$\" permite introducir variables dentro del formato");
+            Console.WriteLine("Este texto escapa \"con barras inclinadas\" (\\)");
+            Console.WriteLine("El parametro \"\\r\" sirve para mover el cursor a la izquierda del todo");
+            Console.WriteLine("El parametro \"\\n\" sirve para cambiar de linea");
+            Console.WriteLine("El parametro \"\\b\" crea un espacio");
+            Console.WriteLine("El parametro \"\\t\" crea un tabulado");
+        }
+        '
             </code></pre>
         </li>
         <li>
             <pre><code>
-                    '
-                    public static void StringIndexOf(string text)
-                    {
-                        Console.WriteLine("El metodo \"string.IndexOf(text)\" nos indica la posicion del string 'text'");
-                        int result = text.IndexOf("=");
-                        Console.WriteLine(text);
-                        Console.WriteLine("El = ocupa la posicion numero: {0}", result);
-                    }
-                    '
-                </code></pre>
+        '
+        public static void StringReplace(string text, string word, string replace)
+        {
+            Console.WriteLine("El metodo \"string.Replace(texto, alternative)\" reemplaza el 'texto' por un 'alternative'");
+            string result = text.Replace(word, replace);
+            Console.WriteLine(result);
+        }
+        '
+            </code></pre>
+        </li>
+        <li>
+            <pre><code>
+        '
+        public static void StringIndexOf(string text)
+        {
+            Console.WriteLine("El metodo \"string.IndexOf(text)\" nos indica la posicion del string 'text'");
+            int result = text.IndexOf("=");
+            Console.WriteLine(text);
+            Console.WriteLine("El = ocupa la posicion numero: {0}", result);
+        }
+        '
+        </code></pre>
         </li>
         <li>
             <pre><code>
@@ -162,7 +162,7 @@
             Console.WriteLine("Puedes devolver todo el texto en mayusculas: " + text.ToUpper());
         }
         '
-    </code></pre>
+        </code></pre>
         </li>
         <li>
             <pre><code>
