@@ -11,12 +11,12 @@ namespace Classes
         #region Constructores
         public BigNumber(long bigNumber)
         {
-            Set(bigNumber);
+            SetLong(bigNumber);
         }
 
         public BigNumber(string bigNumber)
         {
-            Set(bigNumber);
+            SetString(bigNumber);
         }
 
         public BigNumber()
@@ -28,7 +28,7 @@ namespace Classes
 
 
         #region Set BigNumber
-        public void Set(long bigNumber)
+        public void SetLong(long bigNumber)
         {
             int digit;
 
@@ -41,7 +41,7 @@ namespace Classes
             }
         }
 
-        public void Set(string bigNumberString)
+        public void SetString(string bigNumberString)
         {
             int bigNumberCount = 0;
             foreach (char c in bigNumberString)
@@ -122,21 +122,26 @@ namespace Classes
 
 
         #region Calculate
+        // Función que realiza la suma de dos BigNumbers
         public static BigNumber Add(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult = new BigNumber();
 
+            // Recogemos el número de dígitos de cada operando
             int Count1 = bigNumber1.GetDigitCount();
             int Count2 = bigNumber2.GetDigitCount();
 
-            int numberDigitsBigNumber = GetMaxCountBigNumber(Count1, Count2);
+            // El operando de mayor número de digitos se coloca arriba
+            int MaxDigitsBigNumber = GetMaxCountBigNumber(Count1, Count2);
 
             int operatorSum1;
             int operatorSum2;
             int operatorRest = 0;
             int result;
 
-            for (int i = 0; i < numberDigitsBigNumber; i++)
+
+            // Añado ceros si el número tiene menos dígitos que el máximo.
+            for (int i = 0; i < MaxDigitsBigNumber; i++)
             {
                 if (i >= Count1)
                     operatorSum1 = 0;
@@ -149,32 +154,42 @@ namespace Classes
                     operatorSum2 = bigNumber2._list[i];
 
 
+                // Funcion que realiza la suma de cada operando
                 result = MakeSum(operatorSum1, operatorSum2, operatorRest);
 
+
+                // Si supera el 9 se resta una decena a la suma.
                 if (result > 9)
                 {
                     operatorRest = GetRest(result);
                     result -= 10;
                 }
 
+                // añade el resultado a la lista de BigNumber
                 bigNumberResult._list.Add(result);
             }
+
             if (operatorRest > 0)
                 bigNumberResult._list.Add(operatorRest);
 
             return bigNumberResult;
         }
 
+        // Devuelve el operando de mayor tamaño.
         public static int GetMaxCountBigNumber(int Count1, int Count2)
         {
             return Count1 > Count2 ? Count1 : Count2;
         }
 
+
+        // Función que realiza la suma de los operandos.
         public static int MakeSum(int operator1, int operator2, int operatorRest)
         {
             return operator1 + operator2 + operatorRest;
         }
 
+
+        // Función que devuelve el número de decenas que pasan de 9
         public static int GetRest(int number)
         {
             int count = 0;
@@ -187,6 +202,7 @@ namespace Classes
             return count;
         }
 
+        // Función que añade un valor a la lista resultado de BigNumber
         public static BigNumber AddNumbersList(List<BigNumber> listBigNumbers)
         {
             int BigNumberCount = listBigNumbers.Count;
@@ -201,16 +217,20 @@ namespace Classes
             return result;
         }
 
+        // Función que realiza la multiplicacion de dos 'BigNumber'
         public static BigNumber Mul(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult;
 
+            // Se ordenan los operandos, el 'BigNumber' mayor arriba y el 'BigNumber' menor abajo.
             BigNumber BiggerMultOperator = GetBiggerOperando(bigNumber1, bigNumber2);
             BigNumber SmallerMultOperator = BiggerMultOperator == bigNumber1 ? bigNumber2 : bigNumber1;
 
+            // Se crea una lista con los operandos que se suman en las lineas de resultado.
             List<BigNumber> listOperators;
             listOperators = GetListOperators(BiggerMultOperator, SmallerMultOperator);
 
+            // Se añaden ceros a las líneas que se suman
             for (int i = 0; i <= SmallerMultOperator.GetDigitCount() - 1; i++)
             {
                 listOperators[i] = InsertZero(listOperators[i], i);
@@ -220,6 +240,7 @@ namespace Classes
             return bigNumberResult;
         }
 
+        // Función que devuelve el 'BigNumber' de mayor valor
         public static BigNumber GetBiggerOperando(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             int Count1 = bigNumber1.GetDigitCount();
@@ -228,6 +249,7 @@ namespace Classes
             return Count1 > Count2 ? bigNumber1 : bigNumber2;
         }
 
+        // Funcion que crea una lista
         public static List<BigNumber> GetListOperators(BigNumber BiggerMultOperator, BigNumber SmallerMultOperator)
         {
             List<BigNumber> listResult = new List<BigNumber>();
@@ -241,6 +263,7 @@ namespace Classes
             return listResult;
         }
 
+        // Funcion que realiza la operacion de la multiplicacion de un 'BigNumber' con el valor del operando de menor tamaño.
         public static BigNumber MulOperation(BigNumber bignumber, int number)
         {
             BigNumber resultBigNumber = new BigNumber();
@@ -259,6 +282,7 @@ namespace Classes
             return resultBigNumber;
         }
 
+        // Función que añade ceros a las lineas de resultado de la multiplicación.
         public static BigNumber InsertZero(BigNumber bigNumber, int ZeroCount)
         {
             BigNumber result = new BigNumber();
@@ -274,6 +298,8 @@ namespace Classes
             return result;
         }
 
+
+        // Función que ordena los sumandos
         public static BigNumber Sub(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult;
@@ -285,6 +311,8 @@ namespace Classes
 
             return bigNumberResult;
         }
+
+        // Funcion que realiza la resta
         public static BigNumber SubOperation(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult = new BigNumber();
