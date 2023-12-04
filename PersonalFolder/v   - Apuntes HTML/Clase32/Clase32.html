@@ -35,8 +35,10 @@
 		<li>
 			Podemos averiguar el valor numérico de un 'char' mediante un casting de 'int'. <br>
 			<code><pre>
+
 			charExample = 'b';
 			int characterNumber = (int)charExample;
+            
 			</pre></code>
 			A la inversa también funciona, averiguar qué char es un numero en concreto.
     </ul>
@@ -44,18 +46,20 @@
         <h4 class="remarks">Clase 'Datetime'</h4>
         <li>
             Diseño de una nueva clase, llamada <b>'Datetime'</b>. Tiene los siguientes atributos:
-            <pre><code>
+            <pre><code>                
+            DATETIME
+            -----------------
             -day: int
             -month: int
             -year: int
             -seconds: int
             -minutes: int
             -hours: int
-            
+            -----------------
             +Datetime()
             +Datetime(day, month, year)
             +Datetime(day, month, year, seconds, minutes, hours)
-
+            -----------------
             +Clone(): Datetime
             +Equals(Datetime): bool
             +IsValid(): bool
