@@ -5,7 +5,7 @@ namespace BasuGrafica
     public class Filter
     {
         // Esta función realiza una inversion de colores. 
-        // Para ello calculamos el valor inverso de cada canal de color.
+        // Para ello calculamos el valor complementario hasta 1.
         public static void InvertFilter(string fromPath, string toPath)
         {
             EditableImageHighPrecission source = new EditableImageHighPrecission(fromPath);
@@ -26,6 +26,7 @@ namespace BasuGrafica
 
             destination.SaveToFile(toPath);
         }
+
 
         // Filtro que guarda una imagen en escala de grises.
         public static void GreyscaleFilter(string fromPath, string toPath)
@@ -50,6 +51,7 @@ namespace BasuGrafica
 
             destination.SaveToFile(toPath);
         }
+
 
         // Filtro que satura los canales de color de una imagen.
         public static void SaturateFilter(string fromPath, string toPath, double saturation)

@@ -13,6 +13,8 @@ namespace MedievalGame
     {
         private List<Warrior> _listWarrior = new List<Warrior>();
 
+
+
         #region Constructores
         public Warzone()
         {
@@ -26,6 +28,8 @@ namespace MedievalGame
             CreateTeamDark(squadCount);
         }
         #endregion
+
+
 
         #region Properties
         public List<Warrior> ListWarrior => _listWarrior;
@@ -98,6 +102,7 @@ namespace MedievalGame
             }
             return null;
         }
+
         public bool IsWarriorAt(int positionX, int positionY)
         {
             return (GetWarriorAt(positionX, positionY) != null);
@@ -117,6 +122,7 @@ namespace MedievalGame
             }
             return result;
         }
+
 
         public List<Warrior> GetWarriorsAroundFocus(int positionX, int positionY)
         {
@@ -184,6 +190,8 @@ namespace MedievalGame
         {
 
         }
+
+
 
         #region PaintMethods
         public void PaintWarzone(ICanvas canvas)

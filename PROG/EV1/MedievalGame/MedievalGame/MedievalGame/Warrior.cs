@@ -20,6 +20,8 @@ namespace MedievalGame
         private WarriorType _type;
         private Team _team;
 
+
+
         #region Constructor
         public Warrior()
         {
@@ -35,6 +37,8 @@ namespace MedievalGame
             _team = team;
         }
         #endregion
+
+
 
         public Team Team => _team;
         public Position Position => position;
@@ -52,6 +56,8 @@ namespace MedievalGame
             if (warrior._life <= 0)
                 warrior = null;
         }
+
+
 
         #region PaintMethods
         public void PaintWarrior(ICanvas canvas)
