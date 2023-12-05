@@ -1,0 +1,41 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#Page {
+    width: 21cm;
+    margin: 1cm;
+}
+
+body {
+    padding-left: 30px;
+}
+
+header {
+    width: 85vw;
+    border-bottom: 1px solid black;
+}
+
+.clase·List {
+    padding: 2vh 3vw;
+    width: 80vw;
+}
+
+.clase1·Link {
+    padding: 5vh 5vw;
+    width: 60vw;
+}
+
+.remarks {
+    color: chocolate;
+}
+
+.clase·Column {
+    vertical-align: top;
+    width: 30vw;
+}
+
+.breakPage {
+    page-break-before: always;
+}
