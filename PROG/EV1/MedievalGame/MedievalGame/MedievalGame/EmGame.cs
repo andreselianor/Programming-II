@@ -7,8 +7,10 @@
 
         public void Play()
         {
+            // Javi: Esto yo no lo pondría aquí
             CreateBoard();
-            
+
+            // Javi: Esta variable te la puedes ahorrar
             bool areTeamsFighting = true;
             while (areTeamsFighting)
             {
@@ -33,6 +35,7 @@
             warzone.Attack();
         }
 
+        // Javi: Mal nombre de función
         public bool FinishTurn()
         {
             int warriorsList1 = 0, warriorsList2 = 0;
@@ -47,14 +50,16 @@
             return (warriorsList1 == 0 || warriorsList2 == 0);
         }
 
+        // Javi: GetWinnerTeam
         public Team? WinnerTeam()
         {
+            // Javi: mal nombre de variables
             int warriorsCountTeam1 = 0, warriorsCountTeam2 = 0;
             for(int i = 0; i < warzone.ListWarrior.Count; i++)
             {
                 if (warzone.ListWarrior[i].Team == Team.LIGHT)
                     warriorsCountTeam1++;
-                if (warzone.ListWarrior[i].Team == Team.DARK)
+                if (warzone.ListWarrior[i].Team == Team.DARK) // Javi: else?
                     warriorsCountTeam2++;
             }
 
