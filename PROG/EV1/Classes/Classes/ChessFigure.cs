@@ -8,6 +8,7 @@
         private ColorType _color;
         private int _movementCount;
 
+        // Javi: Probablemente este atributo esté muy mal
         private List<ChessPosition> _positionList = new List<ChessPosition>();
 
         public enum FigureType
