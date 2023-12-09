@@ -27,6 +27,7 @@
 
         public DominoPiece GetPieceAt(int index)
         {
+            // Javi: index
             return _listPieces[index];  
         }
 
