@@ -13,6 +13,7 @@
 
         public static DominoPiece? CreateDominoPiece(int value1, int value2)
         {
+            // Javi: incorrecta
             if (value1 < 0 || value1 > 7)
                 return null;
             if (value2 < 0 || value2 > 7)
