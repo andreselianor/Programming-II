@@ -44,6 +44,7 @@ namespace Classes
         public void SetString(string bigNumberString)
         {
             int bigNumberCount = 0;
+            // Javi: el string tiene una property Length
             foreach (char c in bigNumberString)
             {
                 bigNumberCount++;
@@ -66,11 +67,13 @@ namespace Classes
 
         public int GetDigitAt(int index)
         {
+            // Javi: control del index
             return _list[index];
         }
 
         public List<int> GetBigNumber()
         {
+            // Javi: NOOOOOOOO!!!!!!!!!!!!!!!!!!
             return _list;
         }
 
@@ -82,6 +85,7 @@ namespace Classes
 
 
         #region Clone
+        // Javi: Función totalmente errónea
         public BigNumber Clone(BigNumber bigNumber)
         {
             return bigNumber;
@@ -90,6 +94,7 @@ namespace Classes
         public BigNumber CloneV2()
         {
             BigNumber bigNumber = new BigNumber();
+            // Javi: mal
             bigNumber._list = _list;
             return bigNumber;
         }
@@ -143,6 +148,7 @@ namespace Classes
             // Añado ceros si el número tiene menos dígitos que el máximo.
             for (int i = 0; i < MaxDigitsBigNumber; i++)
             {
+                // Javi: Demasiadas lineas
                 if (i >= Count1)
                     operatorSum1 = 0;
                 else
@@ -155,12 +161,14 @@ namespace Classes
 
 
                 // Funcion que realiza la suma de cada operando
+                // Javi: Creo que esta función es innecesaria, ..., lo deja más complicado
                 result = MakeSum(operatorSum1, operatorSum2, operatorRest);
 
 
                 // Si supera el 9 se resta una decena a la suma.
                 if (result > 9)
                 {
+                    // Javi: Usar una función aquí ...
                     operatorRest = GetRest(result);
                     result -= 10;
                 }
@@ -218,6 +226,7 @@ namespace Classes
         }
 
         // Función que realiza la multiplicacion de dos 'BigNumber'
+        // Javi: Has probado esta función?
         public static BigNumber Mul(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult;
@@ -241,6 +250,7 @@ namespace Classes
         }
 
         // Función que devuelve el 'BigNumber' de mayor valor
+        // Javi: Función incompleta
         public static BigNumber GetBiggerOperando(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             int Count1 = bigNumber1.GetDigitCount();
@@ -300,6 +310,7 @@ namespace Classes
 
 
         // Función que ordena los sumandos
+        // Javi: Me pasa también la multiplicación, ..., pero dos funciones que son iguales, ..., públicas, ..., no sé cual es la buena
         public static BigNumber Sub(BigNumber bigNumber1, BigNumber bigNumber2)
         {
             BigNumber bigNumberResult;
