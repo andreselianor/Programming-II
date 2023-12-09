@@ -109,6 +109,7 @@
             return true;
         }
 
+        // Javi: No se puede hacer en una linea?
         public bool IsLeap()
         {
             if (_year % 4 == 0)
@@ -121,6 +122,7 @@
             return false;
         }
 
+        // Javi: No se puede hacer en una línea
         public static bool IsLeap(int year)
         {
             if (year % 4 == 0)
@@ -138,7 +140,7 @@
             return "" + _hour + ":" + _minutes + " " + _day + " " + _month + " " + _year;
         }
 
-
+        // Javi: Otra vez, ..., función duplicada
         public static int GetDaysCount(int year, int month)
         {
             if (month == 1 ||
@@ -220,6 +222,7 @@
             {
                 _second++;
             }
+            // Javi:  incompleto, ..., y si los minutos pasan de 660?
         }
 
         public void GetDayOfWeek()
