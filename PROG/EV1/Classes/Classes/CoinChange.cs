@@ -127,6 +127,7 @@ namespace Classes
             return listResult;
         }
 
+        // Javi: esto funciona !?!??!?!?!?!? O_O
         public static int GetChangeRemaining(int centims)
         {
             switch (centims)
