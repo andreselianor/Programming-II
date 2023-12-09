@@ -62,6 +62,7 @@ namespace MedievalGame
         #region PaintMethods
         public void PaintWarrior(ICanvas canvas)
         {
+            // Javi: copy paste peligroso, hacer funciones
             if(_type == WarriorType.HUMAN)
             {
                 double r = 1.0, g = 1.0, b = 0.5, a = 1.0;
