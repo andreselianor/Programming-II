@@ -25,9 +25,6 @@ namespace ChessPaint
 
             board.BoardPaint(canvas);
 
-
-
-
             canvas.DrawImage(imageBlackPawn, 4, 2, 1, 1);
             canvas.DrawImage(imageBlackPawn, 3, 2, 1, 1);
             canvas.DrawImage(imageRedPawn, 5, 2, 1, 1);
