@@ -95,6 +95,7 @@ namespace MedievalGame
 
             for (int i = 0; i < _listWarrior.Count; i++)
             {
+                // Javi: mejor crea la variable aquí
                 warriorResult = _listWarrior[i];
                 if (warriorResult.Position.X == positionX &&
                     warriorResult.Position.Y == positionY)
@@ -116,6 +117,7 @@ namespace MedievalGame
             {
                 for (int j = positionY - 1; j < positionY + 1; j++)
                 {
+                    // Javi: cuentas la posicion central también?
                     if (GetWarriorAt(i, j) != null)
                         result++;
                 }
@@ -123,7 +125,7 @@ namespace MedievalGame
             return result;
         }
 
-
+        // Javi: Duplicada?
         public List<Warrior> GetWarriorsAroundFocus(int positionX, int positionY)
         {
             List<Warrior> listResult = new List<Warrior>();
@@ -144,6 +146,7 @@ namespace MedievalGame
         {          
 
             Warrior? warriorFocus = GetWarriorAt(positionX, positionY);
+            // Javi: y si es null?
             Warrior? warriorEnemy;
 
             List<Warrior> listResult = new List<Warrior>();
@@ -164,6 +167,7 @@ namespace MedievalGame
         public List<Warrior> GetFriendAroundFocus(int positionX, int positionY)
         {
             Warrior warriorFocus = GetWarriorAt(positionX, positionY); ;
+            // Javi: Y si es null?
             Warrior warriorFriend;
 
             List<Warrior> listResult = new List<Warrior>();
