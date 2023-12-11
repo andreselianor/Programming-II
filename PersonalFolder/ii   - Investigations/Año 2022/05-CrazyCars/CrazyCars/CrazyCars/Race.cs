@@ -91,7 +91,7 @@
                 RaceObject element = new RaceObject();
                 element = GetRaceObjectAt(i);
                 if (element.Position >= _raceLength)
-                    Console.WriteLine(String.Format("El ganador es: {0}", element.Name));
+                    Console.WriteLine(String.Format("El ganador es: {0}, {1}", element.Name, element.ObjectType));
             }
         }
     }

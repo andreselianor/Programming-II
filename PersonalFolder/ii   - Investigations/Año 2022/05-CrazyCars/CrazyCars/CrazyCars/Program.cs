@@ -9,7 +9,7 @@
             double distance = 150.0;
             Game.Init(distance);
             Game.PrintRacers();
-            
+            Game.Simulate(Game);
         }
     }
 }
