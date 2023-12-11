@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 36</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 35bis</h1>
+        <h3>Martes, 5 Diciembre 2023</h3>
+    </header>
+    <a href="../index2EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Clase correccion Examen</h4>
+        <li>
+            Correcciones generales y notas importantes.
+        </li>
+        <li>
+            Un método 'Get' no modifica ni el contenido de las listas, ni los valores de un tipo. <b>Simplemente devuelve un contenido de datos.</b>
+            <br>
+            <b>LOS MÉTODOS GET <u>NO MODIFICAN</u> LOS DATOS</b>
+        </li>
+        <li>
+            Es posible crear un comportamiento establecido donde una función de objeto llame a una función de clase. Entonces si se puede repetir la función.
+            <pre><code>
+                ' 
+                public void CalculateSum()
+                {
+                    Function.CalculateSum();
+                }
+
+                public static int CalculateSum(int value1, int value2)
+                {
+                    return value1 + value2;
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Una clase llamada 'Prueba' no debe contener una instancia 'Prueba'.
+            <pre><code>
+                '
+                public class Prueba
+                {
+                    private Prueba prueba1;
+                    private List&ltPrueba&gt list;
+                    Prueba prueba1 = new Prueba();
+                    // Ninguna de estas líneas debe estar dentro de la clase.
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Prohibido el siguiente código:
+            <pre><code>
+                '
+                public int GetMethod()
+                {
+                    if(funcion)
+                        return true;
+                    return false;
+                }
+                '
+            </code></pre>
+            Se puede y debe hacer en una línea.
+        </li>
+        <li>
+            <b><i>ES REALMENTE IMPORTANTE REALIZAR VALIDACIONES DE NUESTROS PARÁMETROS</i></b>
+        </li>
+        <li>
+            Las colecciones de datos no se devuelven. Si hacemos los metodos <b>privados</b>, no es lógico dar el control de la lista al usuario.
+            <br>
+            Lo ideal es <b>crear las funciones que necesite el usuario para utilizar nuestra clase</b>. Somos nosotros los que decidimos como se utiliza nuestra clase.
+        </li>
+    </ul>
+</body>
+
+</html>
