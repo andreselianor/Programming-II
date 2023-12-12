@@ -11,7 +11,8 @@
 
         public override void Report()
         {
-            Console.WriteLine("Nani de GlamourCar:\nAvanzo tranquilamente por mi carril a 40 unidades/tiempo");
+            Console.WriteLine("Nani de GlamourCar:");
+            Console.WriteLine("Avanzo tranquilamente por mi carril a 40 km/h");
             Console.WriteLine("");
         }
     }

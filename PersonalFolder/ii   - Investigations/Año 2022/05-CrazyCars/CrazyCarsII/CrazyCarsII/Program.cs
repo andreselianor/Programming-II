@@ -12,6 +12,8 @@
 
             raceDay.InitRace();
             raceDay.ExecuteRace();
+
+            Console.ReadLine();
         }
     }
 }

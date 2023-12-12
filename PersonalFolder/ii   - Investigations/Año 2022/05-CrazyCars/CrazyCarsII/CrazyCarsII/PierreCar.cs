@@ -9,21 +9,20 @@
 
         public override void Report()
         {
+            Console.WriteLine("Pierre el maleducado de PierreCar:");
             int report = Utils.SelectReport();
             switch (report)
             {
                 case 0:
-                    Console.WriteLine("Pierre el maleducado de PierreCar:\nLa gente de hoy en día no sabe conducir. ¿Quien les entregó su permiso de conducir?");
+                    Console.WriteLine("La gente de hoy en día no sabe conducir. ¿Quien les dio su permiso de conducir?");
                     Console.WriteLine("");
                     break;
                 case 1:
-                    Console.WriteLine("Llego tarde al trabajo. Quiero pisar el acelerador pero los demás coches me lo impiden\n" +
-                        "Todo el mundo conduce horriblemente en esta ciudad\nTengo prisa");
+                    Console.WriteLine("Me salto un semáforo en rojo. Tengo prisa.");
                     Console.WriteLine("");
                     break;
                 case 2:
-                    Console.WriteLine("Esto es increbile, fijate y explicame porqué se para justo delante del semaforo en ámbar\n" +
-                        "Tengo prisa es que no se da cuenta que no pasan peatones?");
+                    Console.WriteLine("Intento adelantar por la izquierda. Creo que es mujer y no sabe conducir.");
                     Console.WriteLine("");
                     break;
                 case 3:
