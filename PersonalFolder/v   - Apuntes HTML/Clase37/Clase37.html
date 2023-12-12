@@ -12,108 +12,14 @@
 
 <body id="Page">
     <header>
-        <h1>Clase 36</h1>
-        <h3>Lunes, 11 Diciembre 2023</h3>
+        <h1>Clase 37</h1>
+        <h3>Martes, 12 Diciembre 2023</h3>
     </header>
     <a href="../index2EVAL.html">Indice</a>
 
     <ul class="clase·List">
-        <h4 class="remarks">Primera clase de Herencia</h4>
-        <li>
-            <pre><code>
-            Si tengo las siguientes clases:
-            '
-            public class Animal
-            {
-                public string color;
-            }
-
-            public class Vegetal
-            {
-                public string color;
-            }
-            '
-        </code></pre>
-            El atributo 'color' es código repetido. Esto nos indica que podemos crear una clase <b>'Padre'</b> que contenga el atributo
-            común 'color'. Es de esta clase de la que <b>'Heredan'</b> las clases hijas.
-            <pre><code>
-            '
-            public class SerVivo
-            {
-                public string color;
-            }
-
-            public class Animal : SerVivo
-            {
-                // contiene 'color' por herencia.
-            }
-
-            public class Vegetal : SerVivo
-            {
-                // contiene 'color' por herencia.
-            }
-            '        
-            </code></pre>
-            <i><b>Ser Vivo</b></i> es una clase que contiene los elementos comunes a las clases 'hijas'.
-        </li>
-    </ul>
-    <ul class="clase·List">
-        <h4 class="remarks">Ventajas de la Herencia</h4>
-        <li>
-            El código en común se escribe en la clase Padre. No tenemos código repetido.
-        </li>
-        <li>
-            El siguiente código es correcto:
-            <pre><code>
-                '
-                SerVivo a1 = new SerVivo();
-                Animal a2 = new Animal();
-                Vegetal a3 = new Vegetal();
-                '
-            </code></pre>
-            El siguiente código <b>NO es correcto.</b>
-            <pre><code>
-                '
-                Animal a4 = new SerVivo();
-                Vegetal a5 = new SerVivo();
-                '
-            </code></pre>
-            a4 y a5 son de tipo 'Hija' y la clase 'Padre' no contiene todos los elementos implementados en sus clases
-            hijas.
-            <br>
-            Es decir SerVivo no contiene los métodos de las clases hijos.
-        </li>
-        <li>
-            El código es incorrecto porque la clase <b>Padre: SerVivo</b> no contiene los métodos de la clase <b>Hijo:
-                Vegetal / Animal</b>
-        </li>
-        <li>
-            El siguiente código es correcto:
-            <pre><code>
-                '
-                SerVivo a6 = new Animal();
-                SerVivo a7 = new Vegetal();
-                List&ltSeresVivos&gt list; // Puede contener SeresVivos, Animales o Vegetales.
-                '
-            </code></pre>
-        </li>
-    </ul>
-    <ul class="clase·List">
-        <h4 class="remarks">Interfaces</h4>
-        <li>
-            Las clases, <b>que no contienen atributos</b> y todos sus métodos están <i>declarados</i>, pero no
-            <i>definidos,</i> reciben el nombre de <b><i>Interfaces</i></b>.
-            <pre><code>
-                '
-                public interface Colegio
-                {
-                    void CreateBuilding();
-                    void GetStudentsCount();
-                    void GetStudentAtClassroom(int class);
-                }
-                '
-            </code></pre>
-        </li>
+        <h4 class="remarks">Segunda clase de Herencia</h4>
+        
     </ul>
 </body>
 
