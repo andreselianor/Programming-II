@@ -19,8 +19,193 @@
 
     <ul class="clase·List">
         <h4 class="remarks">Segunda clase de Herencia</h4>
-        
+        <li>
+            Existen distintas maneras de inicializar objetos. Los constructores es una de esas maneras
+            <pre><code>
+                '
+                public class Person
+                {
+                    public string _name;
+                    public Gender gender;
+
+                    public Person()
+                    {
+
+                    }
+
+                    public Person()
+                    {
+                        _name = ""
+                        _gender = Gender.Male
+                    }
+
+                    public Person(string name, Gender gender)
+                    {
+                        _name = name;
+                        _gender = Gender;
+                    }
+
+                    public Person() : this.(string name, Gender gender)
+                    {
+
+                    }
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Estos son distintos constructores. Podemos inicializar los valores en linea o a través de los distintos
+            constructores.
+        </li>
+        <li>
+            Podemos crear una subclase que contenga propiedades de la clase superior y que además contenga sus métodos.
+            Para ello empleamos la Herencia.
+        </li>
+        <li>
+            <pre><code>
+                '
+                public class Student : Person
+                {
+
+                }
+                public class Teacher : Person
+                {
+                    
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Un constructor no debe realizar ni cálculos ni calcular Randoms. Aquí unicamente se inicializan objetos.
+        </li>
+        <li>
+            La clase <b>Base</b> es la clase de la que heredo
+        </li>
+        <li>
+            Puedo llamar a otro constructor y pasarle por parametros los valores que requiere.
+            <pre><code>
+                public Teacher (string name, Gender gender, int Bloodlust) : base(name, gender)
+                {
+                    _bloodlust = Bloodlust;
+                }
+            </code></pre>
+        </li>
+        <li>
+            La superclase de la cual heredan todas las clases es <b>'Object'</b>. Aunque no aparece explicitamente en el
+            código, el compilador lo incluye automáticamente.
+        </li>
+        <li>
+            El código 'base' siempre llama a la clase superior.
+        </li>
+        <li>
+            Es sensible al orden y nombre de los parámetros.
+        </li>
+        <li>
+            <pre><code>
+                '
+                public Person (string name, Gender = Gender.MALE)
+                {
+                    
+                }
+                '
+            </code></pre>
+            Puedo establecer un valor por defecto. En ese caso no es necesario indicarlo en los parámetros.
+        </li>
+        <li>
+            Existe una manera de realizar el inicializador de valores desde la propia creacion 'new' del objeto.
+            <pre><code>
+                '
+                public static string[] Main(string[] args)
+                {
+                    Teacher teacher1 = new Teacher();
+
+                    Teacher teacher2 = new Teacher()
+                    {
+                        _name = "Juan";
+                        _gender = Gender.MALE;
+                    };
+
+                    Teacher teacher3 = new Teacher(){"Juan", Gender.MALE};
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            La herencia <b>no se aplica a funciones de clase.</b>La herencia solo funciona con clases de objeto, es
+            decir, con aquellos elementos que realizan un 'new' para ser creados
+        </li>
     </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Properties</h4>
+        <li>
+            Funciones especialmente diseñadas para C# que nos permite simplificar los métodos para coger una función y
+            establecer un valor.
+            <pre><code>
+                '
+                public string Name
+                {
+                    get
+                    {
+                        return _name;
+                    }
+                    set
+                    {
+                        _name = value;
+                    }
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Podemos simplificar de varias maneras este codigo fuente.
+            <pre><code>
+                '
+                public int PersonCount
+                {
+                    get
+                    {
+                        return list.Count;
+                    }
+                }
+
+                public int GetPersonCount()
+                {
+                    return list.Count
+                }
+
+                public int PersonCount
+                {
+                    get
+                    {
+                        GetPersonCount();
+                    }
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            No se deben realizar validaciones dentro de las properties. A excepción de código sencillo. También es bueno
+            crear funciones auxiliares que hagan mas sencilla la tarea de nuestros compañeros.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Notas</h4>
+        <li>
+            Debemos darnos cuenta que nuestro trabajo consiste en crear funciones que utilizarán el resto de compañeros.
+            Somos nosotros los que indicamos 'cómo' deben utilizar nuestro trabajo, además de añadir las funciones que
+            sean necesarias para trabajar.
+        </li>
+        <li>
+            Las funciones básicas para trabajar con una lista son:
+            <br>
+            GetListCount()
+            <br>
+            GetElementAt(int index)
+            <br>
+            AddElement(Element element)
+            <br>
+            RemoveAt(int index)
+        </li>
 </body>
 
 </html>
