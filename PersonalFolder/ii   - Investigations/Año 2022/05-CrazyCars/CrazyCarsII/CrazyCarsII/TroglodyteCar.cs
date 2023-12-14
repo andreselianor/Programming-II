@@ -26,6 +26,14 @@
                     Console.WriteLine("");
                     break;
                 case 3:
+                    Console.WriteLine("Se suben los colegas. Me ofrecen una cerveza fria 5.0. No me resisto a darle un par de buenos tragos.");
+                    Console.WriteLine("");
+                    break;
+                case 4:
+                    Console.WriteLine("Llevo a Pierre delante. El cuerpo me pide utilizar el pito y darle un buen susto.");
+                    Console.WriteLine("");
+                    break;
+                case 5:
                     Console.WriteLine("Llevo un disco de Iron Maiden en la guantera. Por si acaso me toca llevar a alguno de la banda en el coche.");
                     Console.WriteLine("");
                     break;

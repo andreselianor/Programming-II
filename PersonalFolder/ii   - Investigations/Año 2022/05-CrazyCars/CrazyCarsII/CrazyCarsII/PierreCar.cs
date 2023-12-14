@@ -26,6 +26,14 @@
                     Console.WriteLine("");
                     break;
                 case 3:
+                    Console.WriteLine("Tomo el atajo de la calle peatonal. No hace falta respetar los límites, todos los peatones van demasiado lentos.");
+                    Console.WriteLine("");
+                    break;
+                case 4:
+                    Console.WriteLine("La chica que llevo delante está intentado aparcar. Intento ponerla nerviosa con mi presencia masculina.");
+                    Console.WriteLine("");
+                    break;
+                case 5:
                     Console.WriteLine("¡¡Realmente no se entera!!¡¡¡PIIIIII!!!Sal de mi camino, pareces un conductor, conductora de ganado!!!¡¡Aprende a conducir!!!");
                     Console.WriteLine("");
                     break;

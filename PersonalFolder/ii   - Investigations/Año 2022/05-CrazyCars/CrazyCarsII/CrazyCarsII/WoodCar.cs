@@ -25,6 +25,14 @@
                     Console.WriteLine("");
                     break;
                 case 3:
+                    Console.WriteLine("Debo detenerme completamente cuando llego al STOP.");
+                    Console.WriteLine("");
+                    break;
+                case 4:
+                    Console.WriteLine("No invado los cruces de doble sentido.");
+                    Console.WriteLine("");
+                    break;
+                case 5:
                     Console.WriteLine("Cedo el paso a una mujer agradable que circula en su cochecito rosa. Es una belleza.");
                     Console.WriteLine("");
                     break;
