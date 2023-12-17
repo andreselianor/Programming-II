@@ -2,9 +2,9 @@
 {
     public interface IBlueprint
     {
-        void AddShape(Shape shape);
+        void AddShape(IShape shape);
         int GetShapeCount();
-        IShape GetShape(int index);
+        IShape? GetShape(int index);
         void RemoveAt(int index);
         double GetArea();
     }

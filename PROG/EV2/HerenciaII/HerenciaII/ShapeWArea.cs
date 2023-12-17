@@ -1,6 +1,6 @@
 ﻿namespace HerenciaII
 {
-    public abstract class ShapeWArea : Shape
+    public class ShapeWArea : Shape
     {
         public override double GetArea()
         {

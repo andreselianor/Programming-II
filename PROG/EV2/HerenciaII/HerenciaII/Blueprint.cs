@@ -4,17 +4,12 @@
     {
         private List<IShape> _listShapes = new List<IShape>();
 
-        public void AddShape(Shape shape)
+        public void AddShape(IShape shape)       // añade un 'shape' o un 'IShape'?
         {
             if (shape == null)
                 return;
 
             _listShapes.Add(shape);
-        }
-
-        public double GetArea()
-        {
-            throw new NotImplementedException();
         }
 
         public IShape? GetShape(int index)
@@ -34,7 +29,13 @@
         {
             if (index < 0 || index >= _listShapes.Count)
                 return;
+
             _listShapes.RemoveAt(index);
+        }
+
+        public double GetArea()
+        {
+            return this.GetArea();
         }
     }
 }

@@ -1,14 +1,10 @@
 ﻿namespace HerenciaII
 {
-    public class Circle
+    public class Circle : ShapeWArea
     {
         private double _radius;
         private Point2D _center = new Point2D();
-
-        public Point2D GetCircle()
-        {
-            return _center;
-        }
+        private const double PI = Math.PI;
 
         public void SetCircle(Point2D center, double radius)
         {
@@ -16,7 +12,20 @@
             _radius = radius;
         }
 
+        public Point2D GetCircle()
+        {
+            return _center;
+        }
+
         public double Radius => _radius;
-        public Point2D Center => _center;   
+        public Point2D Center => _center;
+
+        public override double GetArea()
+        {
+            if (_radius < 0)
+                return 0;
+
+            return PI * _radius * _radius;
+        }
     }
 }

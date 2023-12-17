@@ -1,10 +1,5 @@
 ﻿namespace HerenciaII
 {
-    public enum ShapeType
-    {
-        SEGMENT,
-        AREA
-    }
     public abstract class Shape : IShape
     {
         protected Point2D position = new Point2D();
@@ -20,12 +15,6 @@
         {
             this.position = point2D;
         }
-
-
-
-        public abstract double GetArea();
-        public abstract bool HasArea();
-
 
 
         public ShapeType GetShapeType()
@@ -45,6 +34,9 @@
 
             _name = name;
         }
+
+        public abstract double GetArea();
+        public abstract bool HasArea();
 
     }
 }
