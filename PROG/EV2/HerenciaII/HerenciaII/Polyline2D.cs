@@ -34,7 +34,7 @@
             _listPoints2D.Add(pointPolyline);
         }
 
-        public void AddListPoints(List<Point2D> listPoints)
+        public void AddPolyline(List<Point2D> listPoints)
         {
             if (listPoints == null || listPoints.Count <= 0)
                 return;
