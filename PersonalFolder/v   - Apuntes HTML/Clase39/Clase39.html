@@ -22,12 +22,41 @@
         <li>
             Crear la jerarquía de clases para un programa de diseño automático de dibujo vectorial.
         </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Crea un punto 2D.</h4>
         <pre><code>
             POINT2D
             -----------
             +x : double
             +y : double
         </code></pre>
+    </ul>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Interfaz: Directiva de estructura Blueprint.</h4>
+        <code><pre>
+            &lt&ltIBlueprint&gt&gt
+            ------------------
+            +AddShape(Shape: IShape)
+            +GetShapeCont(): int
+            +GetShapeAt(int index)
+            +RemoveAt(int index)
+            +GetArea(): double
+        </pre></code>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Coleccion de Shapes.</h4>
+        <code><pre>
+            Blueprint
+            ------------------
+            -List&ltIShape&gt
+        </pre></code>
+    </ul>
+
+
+    <ul class="clase·List">
+        <h4 class="remarks">Interfaz: Directiva de estructura Shape.</h4>
         <code><pre>
             &lt&ltIShape&gt&gt
             ------------------
@@ -39,35 +68,64 @@
             +GetName(): string
             +SetName(string: name)
         </pre></code>
-        <code><pre>
-            &lt&ltIBlueprint&gt&gt
-            ------------------
-            +AddShape(Shape: IShape)
-            +GetShapeCont(): int
-            +GetShapeAt(int index)
-            +RemoveAt(int index)
-            +GetArea(): double
-        </pre></code>
+    </ul>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Forma o Shape definida.</h4>
         <code><pre>
             Shape
             ------------------
             #position: Point2D
             _name: string
         </pre></code>
+    </ul>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Shape <i>sin</i> Area.</h4>
         <code><pre>
             ShapeWithoutArea
             ------------------
         </pre></code>
+    </ul>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Shape <i>con</i> Area.</h4>
         <code><pre>
             ShapeWithArea
             ------------------
         </pre></code>
+    </ul>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Segment.</h4>
         <code><pre>
             Segment2D
             ------------------
             _from
             _to
         </pre></code>
+    </ul>
+    
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Rectangle</h4>
+        <code><pre>
+            Rectangle
+            ------------------
+            _min: Point2D
+            _max: Point2D
+            ------------------
+            +SetRectangle(Point2D point2D)
+            +GetRectangle: Point2D
+            +GetMin: Point2D
+            +GetMax: Point2D
+            +SetMax(Point2D)
+            +SetMin(Point2D)
+            +GetWidth(): double
+            +GetHeight(): double
+        </pre></code>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Circle</h4>
         <code><pre>
             Circle
             ------------------
@@ -77,6 +135,10 @@
             +SetCircle(Point2D point2D)
             +GetCircle(): Point2D
         </pre></code>
+    </ul>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Clase: Polyline.</h4>
         <code><pre>
             Polyline2D            
             ------------------
@@ -86,7 +148,7 @@
             +SetPointAt(P)
         </pre></code>
     </ul>
-    
+
 </body>
 
 </html>
