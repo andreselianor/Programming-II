@@ -1,9 +1,16 @@
 ﻿namespace HerenciaII
 {
-    public class Polyline2D : ShapeWArea
+    public class Polyline2D : ShapeWithArea
     {
         private List<Point2D> _listPoints2D = new List<Point2D>();
         private bool _isClosed;
+
+
+        public Polyline2D()
+        {
+            _shapeType = ShapeType.POLYLINE;
+        }
+
 
         // Getters
         public List<Point2D> GetPolyline()
@@ -11,7 +18,7 @@
             return _listPoints2D;
         }
 
-        public int GetPolylineCount()
+        public int GetPolylinePointsCount()
         {
             return _listPoints2D.Count;
         }
@@ -26,20 +33,12 @@
 
 
         // Setters
-        public void AddPolylinePoint(Point2D pointPolyline)
+        public void AddPointToPolyline(Point2D point)
         {
-            if (pointPolyline == null)
+            if (point == null)
                 return;
 
-            _listPoints2D.Add(pointPolyline);
-        }
-
-        public void AddPolyline(List<Point2D> listPoints)
-        {
-            if (listPoints == null || listPoints.Count <= 0)
-                return;
-
-            _listPoints2D = listPoints;
+            _listPoints2D.Add(point);
         }
 
         public void SetPointAt(Point2D point2D, int index)
@@ -48,6 +47,13 @@
                 return;
 
             _listPoints2D[index] = point2D;
+        }
+
+        public void RemovePointAt(int index)
+        {
+            if (index < 0 || index >= _listPoints2D.Count)
+                return;
+            _listPoints2D.RemoveAt(index);
         }
 
 
@@ -68,7 +74,7 @@
         }
 
 
-        public string GetPolylinePointsPrint()
+        public string GetPolylinePointsString()
         {
             string result = "";
 

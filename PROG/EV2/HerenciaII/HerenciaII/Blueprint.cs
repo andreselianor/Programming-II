@@ -4,7 +4,7 @@
     {
         private List<IShape> _listShapes = new List<IShape>();
 
-        public void AddShape(IShape shape)       // añade un 'shape' o un 'IShape'?
+        public void AddShape(IShape shape)      //DUDA QUE ENLAZA CON PROGRAM
         {
             if (shape == null)
                 return;
@@ -12,7 +12,7 @@
             _listShapes.Add(shape);
         }
 
-        public IShape? GetShape(int index)
+        public IShape? GetShapeAt(int index)
         {
             if (index < 0 || index >= _listShapes.Count)
                 return null;

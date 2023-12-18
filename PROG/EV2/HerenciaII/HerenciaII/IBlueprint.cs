@@ -4,7 +4,7 @@
     {
         void AddShape(IShape shape);
         int GetShapeCount();
-        IShape? GetShape(int index);
+        IShape? GetShapeAt(int index);
         void RemoveAt(int index);
         double GetArea();
     }

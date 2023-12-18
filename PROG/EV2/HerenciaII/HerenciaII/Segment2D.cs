@@ -1,9 +1,16 @@
 ﻿namespace HerenciaII
 {
-    internal class Segment2D : ShapeWOArea
+    internal class Segment2D : ShapeWithoutArea
     {
         private Point2D _from = new Point2D();
         private Point2D _to = new Point2D();
+
+
+        public Segment2D()
+        {
+            _shapeType = ShapeType.SEGMENT;
+        }
+
 
         public void SetSegment(Point2D pointFrom, Point2D pointTo)
         {

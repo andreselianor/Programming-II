@@ -9,7 +9,5 @@
         void SetName(string name);
         bool HasArea();
         double GetArea();
-
-
     }
 }

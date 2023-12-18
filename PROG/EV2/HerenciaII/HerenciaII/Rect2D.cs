@@ -1,19 +1,21 @@
 ﻿namespace HerenciaII
 {
-    public class Rect2D : ShapeWArea
+    public class Rect2D : ShapeWithArea
     {
         private Point2D _min = new Point2D();
         private Point2D _max = new Point2D();
 
+
         public Rect2D()
         {
-
+            _shapeType = ShapeType.RECTANGLE;
         }
 
         public Rect2D(Point2D min, Point2D max)
         {
             _min = min;
             _max = max;
+            _shapeType = ShapeType.RECTANGLE;
         }
 
 

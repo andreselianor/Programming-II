@@ -1,10 +1,10 @@
 ﻿namespace HerenciaII
 {
-    public class ShapeWOArea : Shape
+    public class ShapeWithoutArea : Shape
     {
         public override double GetArea()
         {
-            return 0;
+            return 0.0;
         }
 
         public override bool HasArea()
