@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 39</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 39</h1>
+        <h3>Viernes, 15 Diciembre 2023</h3>
+    </header>
+    <a href="../index2EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Ejercicio Propuesto</h4>
+        <li>
+            Crear la jerarquía de clases para un programa de diseño automático de dibujo vectorial.
+        </li>
+        <pre><code>
+            POINT2D
+            -----------
+            +x : double
+            +y : double
+        </code></pre>
+        <code><pre>
+            &lt&ltIShape&gt&gt
+            ------------------
+            +GetPosition()
+            +SetPosition()
+            +GetArea(): double
+            +HasArea(): bool
+            +GetShapeType(): shapeType
+            +GetName(): string
+            +SetName(string: name)
+        </pre></code>
+        <code><pre>
+            &lt&ltIBlueprint&gt&gt
+            ------------------
+            +AddShape(Shape: IShape)
+            +GetShapeCont(): int
+            +GetShapeAt(int index)
+            +RemoveAt(int index)
+            +GetArea(): double
+        </pre></code>
+        <code><pre>
+            Shape
+            ------------------
+            #position: Point2D
+            _name: string
+        </pre></code>
+        <code><pre>
+            ShapeWithoutArea
+            ------------------
+        </pre></code>
+        <code><pre>
+            ShapeWithArea
+            ------------------
+        </pre></code>
+        <code><pre>
+            Segment2D
+            ------------------
+            _from
+            _to
+        </pre></code>
+        <code><pre>
+            Circle
+            ------------------
+            _radius: double
+            _center: Point2D
+            ------------------
+            +SetCircle(Point2D point2D)
+            +GetCircle(): Point2D
+        </pre></code>
+        <code><pre>
+            Polyline2D            
+            ------------------
+            +AddPoint(Point2D point2D)
+            +GetPointCount(): int
+            +GetPointAt(int index): Point2D
+            +SetPointAt(P)
+        </pre></code>
+    </ul>
+    
+</body>
+
+</html>

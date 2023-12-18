@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 38</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 38</h1>
+        <h3>Jueves, 14 Diciembre 2023</h3>
+    </header>
+    <a href="../index2EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Tercera clase de Herencia</h4>
+        <li>
+            La herencia sirve para realizar una jerarquía de clases. Es un método rápido si tenemos que extraer
+            datos de una serie de clases.
+        </li>
+        <li>
+            Su uso se optimiza si la petición de datos se hace de forma repetitiva.
+        </li>
+        <li>
+            No es útil si los datos que vamos a consultar tienen una duración corta en el tiempo. Por ejemplo, con
+            aplicaciones
+            tipo Whatsapp no es eficiente.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Nota sobre el funcionamiento de la herencia</h4>
+        <li>
+            La instrucción:
+            <pre><code>
+                Person person1 = new Teacher();
+            </code></pre>
+            Crea un <b>Objeto</b> de tipo <b>Teacher</b> dentro de un puntero de tipo <b>Person</b> que apunta a la
+            direccion de la memoria donde se almacena dicha instancia.
+        </li>
+        <li>
+            Cuando trabajamos con objetos estamos constantemente almacenando en memoria RAM las cualidades de un objeto,
+            hacia donde apunta el puntero de la variable.
+        </li>
+        <li>
+            <b>El tipo no contiene NINGÚN DATO. Solo contiene un<i>número</i> que apunta a la dirección de memoria donde
+                se encuentran
+                los atributos y cualidades del objeto</b>
+        </li>
+        <li>
+            La variable 'person1' solo contiene un numero.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Nuevo funcionalidad de las clases</h4>
+        <li>
+            Si tenemos el siguiente metodo dentro de una clase, por ejemplo Person:
+            <pre><code>
+                '
+                public class Person
+                {
+                    public string GetFullName()
+                    {
+                        return _name;
+                    }
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Este método nos devuelve el nombre del objeto.
+        </li>
+        <li>
+            Ahora voy a permitir que cualquier hija suya pueda usar esta función
+            <pre><code>
+                '
+                public class Person
+                {
+                    public <b>virtual</b> string GetFullName()
+                    {
+                        return _name;
+                    }
+                }
+                
+                // la instrucción virtual indica que la función puede ser definida en las clases hijas
+
+                public class Teacher
+                {
+                    public <b>override</b> string GetFullName()
+                    {
+                        return "&gtPROFESOR&lt + Name + &gt/PROFESOR&lt"
+                    }
+                }
+
+                // La instrucción override indica que el método va a ser sobrescrito por la clase hija.
+                '
+            </code></pre>
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Notas prácticas</h4>
+        <li>
+            A la hora de saber cual es la función que tiene que utilizar, el compilador se dirige <b>a la última función
+                con instruccion 'override', dentro de la jerarquía de clases</b>
+        </li>
+        <li>
+            No es obligatorio que todas las clases hijas descendientes sobreescriban la funcion virtual.
+        </li>
+        <li>
+            Todos los objetos contienen en su interior un 'vtable' que indica al compilador cual es la última de las
+            funciones 'verride'
+        </li>
+        <li>
+            Si el objeto creado es ' new Teacher()' busca dentro de teacher el último metodo override hasta su la
+            superclase padre
+        </li>
+        <li>
+            Si fuera de tipo 'new Director()' buscaría desde Director hasta Person.
+        </li>
+        <li>
+            Existe la posibilidad de realizar un 'casting' sobre 'Person' para transformalo en 'Teacher'.
+        </li>
+        <li>
+            No se puede acceder a los atributos de clases hijas, pero Sí se puede acceder a sus métodos desde la
+            notación por punto
+        </li>
+        <li>
+            <b>VIRTUAL:</b> Invoca al último método definido con <b>'OVERRIDE'</b>
+        </li>
+        <li>
+            <b>Base.Metodo():</b> Invoca a la última clase superior donde se define el método.
+        </li>
+        <li>
+            'Protected': Permite el acceso a las clases hijas. Es una función pública dentro de la jerarquía de clases.
+            Es una
+            función privada fuera de la jerarquía de clases. Los Métodos también pueden ser 'protected'
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Herencia por obligación</h4>
+        <li>
+            Si quiero <b>Obligar</b> a que los hijos implementen alguna función, tengo que utilizar la instrucción
+            <b>Abstract.</b>
+        </li>
+        <li>
+            En el mismo momento que se indica una función 'abstract' es obligatorio que las hijas implementen la
+            función. Además
+            la clase se convierte en una clase 'abstract' de la cual está prohibido realizar instancias.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Funciones puramente abstractas</h4>
+        <li>
+            La siguiente clase es puramente abstracta:
+            <pre><code>
+                '
+                public class abstract Perro
+                {
+                    public abstract void Metodo1();
+                    public abstract void Metodo2();
+                    public abstract void Metodo3();
+                    public abstract void Metodo4()
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            No contiene atributos
+        </li>
+        <li>
+            Todos sus métodos son abstractos
+        </li>
+        <li>
+            A este tipo de clases s les denomina <b>'Interfaces':</b>
+        </li>
+        <li>
+            Una interfaz define las directivas que debe cumplir una función para poder heredar de esta interfaz
+        </li>
+        <pre><code>
+            '
+            public interface IPerro
+            {
+                void Metodo1();
+                void Metodo2();
+                void Metodo3();
+                void Metodo4();
+            }
+            '    
+        </code></pre>
+        <li>
+            Por reglas de estilo se añade la letra mayúscula 'I' Justo delante de su nombre.
+        </li>
+        <li>
+            Si la clase hija implementa todos sus métodos, entonces puede heredar de la interfaz.
+        </li>
+        <li>
+            Se utiliza para definir la estructura de un programa.
+        </li>
+</body>
+
+</html>
