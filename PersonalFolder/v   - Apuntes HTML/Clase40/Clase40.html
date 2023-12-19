@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 40</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 40</h1>
+        <h3>Lunes, 18 Diciembre 2023</h3>
+    </header>
+    <a href="../index2EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Correccion de la clase 'Planos'</h4>
+        <li>
+            Utilizaremos un 'enum' si los valores están muy definidos, y la lista de tipos no parece que vaya a cambiar
+            en el tiempo.
+        </li>
+        <li>
+            Si los valores del 'enum' cambian, es mejor utilizar otro recurso.
+        </li>
+        <li>
+            <b>JAMÁS devolveremos una lista o colección de datos(arrays, arboles, diccionarios).</b> Esto se debe a que
+            si devolvemos una colección, pueden modificar de manera negativa nuestros valores.
+        </li>
+        <li>
+            <b>PROHIBIDO PUBLIC LIST&lttype&gt GETLIST</b>
+        </li>
+        <li>
+            La función <b>ToString</b> es <b>MUY</b> aconsejable. Ya existe una definición de dicha función, es por ello
+            que hace falta un 'override'. Devuelve un string de datos.
+        </li>
+        <li>
+            La función <b>Equals</b> ya está definida en el lenguaje, pero tiene un comportamiento no del todo acertado.
+            Puede ser de tipo <i>superficial</i>, si los dos objetos apuntan al mismo puntero, o de tipo <i>profundidad</i> si
+            tiene en cuenta <b>todos</b> los parámetros.
+        </li>
+    </ul>
+</body>
+
+</html>
