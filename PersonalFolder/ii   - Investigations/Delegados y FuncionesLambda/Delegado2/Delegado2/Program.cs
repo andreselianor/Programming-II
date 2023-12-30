@@ -1,10 +1,12 @@
-﻿namespace Lambda1
+﻿namespace Delegado2
 {
 
     public delegate void Imprimir(string value);
     public delegate string GetText(string text);
     public delegate string DelegateMajorNumbers(int value);
     public delegate string DelegateEvenNumbers(int value);
+    public delegate void DelegateWelcome();
+    public delegate string DelegateWeather(string text);
 
     public class Ejemplo
     {
@@ -19,7 +21,7 @@
             Console.WriteLine(text);
         }
     }
-    
+
     public class Ejemplo2
     {
         public void Delegado2(string text)
@@ -48,17 +50,32 @@
         public string IsEven(int number)
         {
             if (number % 2 == 0)
-                return string.Format("El numero {0} es par",number);
+                return string.Format("El numero {0} es par", number);
             return string.Format("El numero {0} es impar", number);
         }
     }
+
+    public class Ejemplo5
+    {
+        public static void Welcome()
+        {
+            Console.WriteLine("Bienvenido, Ecos");
+        }
+
+        public static string WelcomeWeather(string msg)
+        {
+            return String.Format("El tiempo para hoy, domingo, es: {0}", msg);
+        }
+    }
+
+
     public class Program
     {
         static void Main(string[] args)
         {
-            
+
             Ejemplo test1 = new Ejemplo();
-            test1.EjemploDelegado();            
+            test1.EjemploDelegado();
 
             Ejemplo2 test2 = new Ejemplo2();
             test2.Delegado2("prueba2");
@@ -69,9 +86,15 @@
 
             Ejemplo4 test4 = new Ejemplo4();
             DelegateEvenNumbers delegado4 = new DelegateEvenNumbers(test4.IsEven);
-            string result = delegado4(3);
-            Console.WriteLine(result);
+            string result4 = delegado4(3);
+            Console.WriteLine(result4);
 
+            DelegateWelcome delegado5 = new DelegateWelcome(Ejemplo5.Welcome);
+            delegado5();
+
+            DelegateWeather delegado6 = new DelegateWeather(Ejemplo5.WelcomeWeather);
+            string result6 = delegado6("Intervalos nubosos. Posibilidad de lluvia");
+            Console.WriteLine(result6);
 
         }
     }
