@@ -5,8 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="400">
+        Title="Match Game!" Height="900" Width="400">
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <Border Grid.ColumnSpan="4"
+                Grid.Row="1"
+                BorderThickness="0,1,0,0"
+                BorderBrush="black"
+                />
+        <TextBlock Grid.Row="0"
+                   Text="Match a Pair!"
+                   Grid.ColumnSpan="4"
+                   HorizontalAlignment="center"
+                   FontSize="30px"
+                   Foreground="Red"
+                   VerticalAlignment="Center"
+                   />
+        <TextBlock HorizontalAlignment="Center" 
+                   Margin="0,0,0,0" 
+                   Grid.Row="1" 
+                   Grid.Column="0" 
+                   TextWrapping="Wrap" 
+                   Text="Animal01" 
+                   VerticalAlignment="Center"
+                   FontSize="30px"
+                   TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+                   Margin="0,0,0,0" 
+                   Grid.Row="1" 
+                   Grid.Column="1" 
+                   TextWrapping="Wrap" 
+                   Text="Animal02" 
+                   VerticalAlignment="Center"
+                   FontSize="30px"
+                   TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+                   Margin="0,0,0,0" 
+                   Grid.Row="1" 
+                   Grid.Column="2" 
+                   TextWrapping="Wrap" 
+                   Text="Animal03" 
+                   VerticalAlignment="Center"
+                   FontSize="30px"
+                   TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+                   Margin="0,0,0,0" 
+                   Grid.Row="1" 
+                   Grid.Column="3" 
+                   TextWrapping="Wrap" 
+                   Text="Animal04" 
+                   VerticalAlignment="Center"
+                   FontSize="30px"
+                   TextAlignment="Center"/>
     </Grid>
 </Window>
