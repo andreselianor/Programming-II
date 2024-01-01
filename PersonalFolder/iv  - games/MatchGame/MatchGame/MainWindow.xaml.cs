@@ -20,9 +20,35 @@ namespace MatchGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        Random random = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
+            CreateGame();
+        }
+
+        public void CreateGame()
+        {
+            List<string> listPairs = new List<string>()
+            {
+                "👩","👩",
+                "👨","👨",
+                "🧑","🧑",
+                "👧","👧",
+                "👼","👼",
+                "👩‍🦰","👩‍",
+                "👨‍🦱","👨‍🦱",
+                "👸","👸"               
+            };
+
+            foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+            {
+                int index = random.Next(listPairs.Count);
+                string nextPair = listPairs[index];
+                textBlock.Text = nextPair;
+                listPairs.RemoveAt(index);
+            }
         }
     }
 }

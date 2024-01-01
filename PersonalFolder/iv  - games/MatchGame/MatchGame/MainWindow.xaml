@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:MatchGame"
         mc:Ignorable="d"
         Title="Match Game!" Height="900" Width="400">
-    
-    <Grid>
+
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -16,26 +16,29 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <Border Grid.ColumnSpan="4"
-                Grid.Row="1"
-                BorderThickness="0,1,0,0"
-                BorderBrush="black"
-                />
-        <TextBlock Grid.Row="0"
-                   Text="Match a Pair!"
+
+        <Label Grid.Row="0"
+                   Content="Match a Pair!"
                    Grid.ColumnSpan="4"
                    HorizontalAlignment="center"
                    FontSize="30px"
                    Foreground="Red"
                    VerticalAlignment="Center"
                    />
+        
+        <Border Grid.ColumnSpan="4"
+                    Grid.Row="1"
+                    BorderThickness="0,1,0,0"
+                    BorderBrush="black"
+        />
+
+        <!--#region Cartas-->
         <TextBlock HorizontalAlignment="Center" 
                    Margin="0,0,0,0" 
                    Grid.Row="1" 
@@ -72,5 +75,119 @@
                    VerticalAlignment="Center"
                    FontSize="30px"
                    TextAlignment="Center"/>
+
+
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="2" 
+           Grid.Column="0" 
+           TextWrapping="Wrap" 
+           Text="Animal05" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="2" 
+           Grid.Column="1" 
+           TextWrapping="Wrap" 
+           Text="Animal06" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="2" 
+           Grid.Column="2" 
+           TextWrapping="Wrap" 
+           Text="Animal07" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="2" 
+           Grid.Column="3" 
+           TextWrapping="Wrap" 
+           Text="Animal08" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="3" 
+           Grid.Column="0" 
+           TextWrapping="Wrap" 
+           Text="Animal09" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="3" 
+           Grid.Column="1" 
+           TextWrapping="Wrap" 
+           Text="Animal10" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="3" 
+           Grid.Column="2" 
+           TextWrapping="Wrap" 
+           Text="Animal11" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="3" 
+           Grid.Column="3" 
+           TextWrapping="Wrap" 
+           Text="Animal12" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="4" 
+           Grid.Column="0" 
+           TextWrapping="Wrap" 
+           Text="Animal13" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="4" 
+           Grid.Column="1" 
+           TextWrapping="Wrap" 
+           Text="Animal14" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="4" 
+           Grid.Column="2" 
+           TextWrapping="Wrap" 
+           Text="Animal15" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" 
+           Margin="0,0,0,0" 
+           Grid.Row="4" 
+           Grid.Column="3" 
+           TextWrapping="Wrap" 
+           Text="Animal16" 
+           VerticalAlignment="Center"
+           FontSize="30px"
+           TextAlignment="Center"/>
+        <!--#endregion-->
+        
     </Grid>
 </Window>
