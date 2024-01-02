@@ -101,11 +101,6 @@ namespace ChessPaint
             canvas.DrawImage(imageWhiteQueen, 4, 1, 1, 1);
             canvas.DrawImage(imageWhiteKing, 5, 1, 1, 1);
 
-
-
-
-
-
         }
 
         #region OnKeyboard
@@ -114,7 +109,9 @@ namespace ChessPaint
             // NUEVO IMPORTANTE
             if (mouse.IsDown(MouseButton.Left))
             {
-               var pos = gameEvent.coordinateConversor.ViewToWorld(mouse.X, mouse.Y);
+                var pos = gameEvent.coordinateConversor.ViewToWorld(mouse.X, mouse.Y);
+                double position1 = pos.x;
+                double position2 = pos.y;
             }
         }
         #endregion
