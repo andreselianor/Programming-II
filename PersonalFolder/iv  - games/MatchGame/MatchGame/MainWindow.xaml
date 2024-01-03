@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0"
-                   Content="Match a Pair!"
+                   Content="Match a Pair Animal!"
                    Grid.ColumnSpan="4"
                    HorizontalAlignment="center"
                    FontSize="30px"
