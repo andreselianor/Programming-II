@@ -44,6 +44,9 @@
             int result31 = delegado3(4, 6);
             Console.WriteLine(result31);
 
+            Object numero = "5";
+            OperacionesMatematicas.Test1(12, numero);
+
         }
     }
 
@@ -64,6 +67,24 @@
             {
                 return number1 + number2;
             }
+        }
+
+        public static void Test1(int number, object obj1)
+        {
+            if(number is int)
+            {
+                Console.WriteLine(number);
+            }
+
+            char number2 = (char)number;
+            if (number2 is char)
+            {
+                Console.WriteLine(number);
+            }
+
+            string st1 = obj1 as string;
+            Console.WriteLine(st1);
+
         }
 
     }

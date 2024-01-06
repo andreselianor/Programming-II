@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            
+            int puntuation = ScrabbleGame.Score("aa");
         }
     }
 }
