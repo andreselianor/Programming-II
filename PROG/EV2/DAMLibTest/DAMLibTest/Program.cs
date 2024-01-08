@@ -6,7 +6,7 @@ namespace DAMLibTest
     {
         static void Main(string[] args)
         {
-            Stack<string> stack = new Stack<string>(10);
+            DAMLib.Stack<string> stack = new DAMLib.Stack<string>();
             stack.Push("Efigenio");
             stack.Push("Osvaldo");
             stack.Top();
