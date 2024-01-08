@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 43·A</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 43·A</h1>
+        <h3>Domingo, 24 Diciembre 2023</h3>
+    </header>
+    <a href="../index2EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Delegados</h4>
+        <li>
+           Ejemplos practicos numero 1
+           <pre><code>
+            '
+            public class Bienvenida
+            {
+                public static <u>void</u> MensajeBienvenida()
+                {
+                    Console.WriteLine("Este es un mensaje de bienvenida");
+                }
+            }
+
+            public class Despedida
+            {
+                public static <u>void</u> MensajeDespedida()
+                {
+                    Console.WriteLine("Este es un mensaje de despedida");
+                }
+            }
+
+            public delegate <u>void</u> MetodoDelegado()
+
+            public class program
+            {
+                public static Main()
+                {
+                    MetodoDelegado delegado1 = new MetodoDelegado(Bienvenida.MensajeBienvenida)
+                    delegado1();
+
+                    MetodoDelegado delegado2 = new MetodoDelegado(Despedida.MensajeDespedida)
+                    delegado2();
+                }
+            }
+            '
+           </code></pre>
+        </li>
+
+        <li>
+            Ejemplos practicos numero 2
+            <pre><code>
+             '
+             public class Bienvenida
+             {
+                 public static <u>string</u> MensajeBienvenida(string text)
+                 {
+                     return string.Format($"Este es un mensaje de bienvenida: {0}",text);
+                 }
+             }
+ 
+             public class Despedida
+             {
+                 public static <u>string</u> MensajeDespedida(string text)
+                 {
+                    return string.Format($"Este es un mensaje de despedida: {0}",text);
+                 }
+             }
+ 
+             public delegate <u>string</u> MetodoDelegado(string message)
+ 
+             public class program
+             {
+                 public static Main()
+                 {
+                     MetodoDelegado delegado1 = new MetodoDelegado(Bienvenida.MensajeBienvenida)
+                     string result1 = delegado1("Bienvenido de nuevo");
+                     Console.WriteLine(result1);
+ 
+                     MetodoDelegado delegado2 = new MetodoDelegado(Despedida.MensajeDespedida)
+                     string result2 = delegado2("Hasta la proxima, Ecos");
+                     Console.WriteLine(result2);
+                 }
+             }
+             '
+            </code></pre>
+         </li>
+
+         <li>
+            Ejemplos practicos numero 3
+            <pre><code>
+             '
+             public delegate <u>void</u> DelegadoImprimir(string message)
+
+             public class Imprimir
+             {
+                 public <u>void</u> MensajeBienvenida(string text)
+                 {
+                     Console.WriteLine(text);
+                 }
+
+                 public <u>void</u> MensajeDelegado(string text)
+                 {
+                    DelegadoImprimir delegado = new DelegadoImprimir(MensajeBienvenida);
+                    delegado(text);
+                 }
+             }             
+ 
+             public class program
+             {
+                 public static Main()
+                 {
+                     Imprimir test = new Imprimir();
+                     test.MensajeDelegado("Este es el texto que se imprime por consola");
+                 }
+             }
+             '
+            </code></pre>
+         </li>
+    </ul>
+</body>
+
+</html>
