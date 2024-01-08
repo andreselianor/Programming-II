@@ -16,38 +16,35 @@ using System.Windows.Threading;
 
 namespace MatchGame
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        Random random = new Random();
-
+        // variables Timer
         DispatcherTimer timer = new DispatcherTimer();
         int tenthsOfSecondsElapsed;
         int matchesFound;
 
+        // variables Random
+        Random random = new Random();
+
+        // variables pareja
+        TextBlock lastTextBlockClicked;
+        bool findingMatch = false;
+
+
         public MainWindow()
         {
             InitializeComponent();
+
             timer.Interval = TimeSpan.FromSeconds(0.1);
             timer.Tick += Timer_Tick;
+
             CreateGame();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            tenthsOfSecondsElapsed++;
-            timeTextBlock.Text = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
-            if (matchesFound == 8)
-            {
-                timer.Stop();
-                timeTextBlock.Text = timeTextBlock.Text + " - Play again?";
-            }
-        }
 
         public void CreateGame()
         {
+            // Creacion Lista de parejas
             List<string> listPairs = new List<string>()
             {
                 "👩","👩",
@@ -60,6 +57,7 @@ namespace MatchGame
                 "👸","👸"
             };
 
+            // Distribucion de parejas en el tablero
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
                 if (textBlock.Name != "timeTextBlock")
@@ -72,14 +70,14 @@ namespace MatchGame
                 }
             }
 
+            // Inicio del juego
             timer.Start();
             tenthsOfSecondsElapsed = 0;
             matchesFound = 0;
         }
 
-        TextBlock lastTextBlockClicked;
-        bool findingMatch = false;
 
+        // Funcionamiento del botón del ratón
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {          
             TextBlock textBlock = sender as TextBlock;
@@ -103,6 +101,21 @@ namespace MatchGame
             }
         }
 
+
+        // Temporizador
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            tenthsOfSecondsElapsed++;
+            timeTextBlock.Text = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+            if (matchesFound == 8)
+            {
+                timer.Stop();
+                timeTextBlock.Text = timeTextBlock.Text + " - Play again?";
+            }
+        }
+
+
+        // Reinicio del juego
         private void timeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (matchesFound == 8)
