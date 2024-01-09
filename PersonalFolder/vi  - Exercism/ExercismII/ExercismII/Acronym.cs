@@ -8,7 +8,9 @@
             string result = "";
             for (int i = 0; i < phrase.Length; i++)
             {
-                if (IsMayus(phrase[i]))
+                result += phrase[i];
+
+                if (i > 0 && IsMayus(phrase[i]))
                     result += phrase[i];
                 else if (i > 0 && IsSign(phrase[i - 1]))
                     result += phrase[i];
