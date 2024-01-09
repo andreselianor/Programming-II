@@ -6,16 +6,25 @@ namespace DAMLibTest
     {
         static void Main(string[] args)
         {
-            DAMLib.Stack<string> stack = new DAMLib.Stack<string>();
-            stack.Push("Efigenio");
-            stack.Push("Osvaldo");
-            stack.Push("Erion");
-            string result1 = stack.Top();
-            string result = stack.Pop();
-            string result2 = stack.Pop();
-            string result3 = stack.Top();
-            int result4 = stack.GetCount();
-            bool result7 = stack.IsEmpty();
+            DAMLib.Queue<int> test1 = new DAMLib.Queue<int>();
+
+            test1.Enqueue(1);
+            test1.Enqueue(2);
+            test1.Enqueue(3);
+            test1.Enqueue(4);
+            test1.Enqueue(5);
+            int number = test1.Count;
+            int number2 = test1.First;
+            int number3 = test1.Last;
+            string container = test1.ToStringEntireQueue();
+            test1.Dequeue();
+            test1.Dequeue();
+            container = test1.ToStringEntireQueue();
+            number = test1.Count;
+            number2 = test1.First;
+            number3 = test1.Last;
+            test1.Clear();
+            container = test1.ToStringEntireQueue();
         }
     }
 }
