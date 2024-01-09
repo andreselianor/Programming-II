@@ -3,7 +3,6 @@
     public class Stack<T>
     {
         private T[] _stackArray;
-        private int _count = 0;
 
         public Stack()
         {
@@ -15,47 +14,58 @@
             if (Element == null)
                 return;
 
-            T[] _stackResult = new T[_count + 1];
+            int count = _stackArray.Length;
 
-            for (int i = 0; i <= _count; i++)
+            T[] _stackResult = new T[count + 1];
+
+            for (int i = 0; i < count; i++)
             {
                 _stackResult[i] = _stackArray[i];
             }
 
-            _stackResult[_count] = Element;
+            _stackResult[count] = Element;
             _stackArray = _stackResult;
-
-            _count++;
         }
 
-        public T Pop()
+        public T? Pop()
         {
-            T result = _stackArray[_count];
-            T[] _stackResult = new T[_count - 1];
+            int count = _stackArray.Length;
 
-            for(int i = 0; i < _count - 1; i++)
+            T result = _stackArray[count - 1];
+
+            T[] _stackResult = new T[count - 1];
+
+            for(int i = 0; i < count - 1; i++)
             {
                 _stackResult[i] = _stackArray[i];
             }
 
-            _count--;
+            _stackArray = _stackResult;
+
+            if (result == null)
+                return default(T);
 
             return result;
         }
 
         public T Top()
         {
-            return _stackArray[_count];
+            T result = _stackArray[_stackArray.Length - 1];
+
+            if (result == null)
+                return default(T);
+
+            return result;
         }
 
         public bool IsEmpty()
         {
-            return _count < 0;
+            return _stackArray.Length < 0;
         }
 
         public int GetCount()
         {
-            return _count;
+            return _stackArray.Length;
         }
     }
 }
