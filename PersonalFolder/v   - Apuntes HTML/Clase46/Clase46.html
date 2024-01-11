@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 46</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 46</h1>
+        <h3>Jueves, 11 Enero 2024</h3>
+    </header>
+    <a href="../index2EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Función <b>EQUALS</b></h4>
+        <li>
+            La función por defecto de C# realiza una comparación superficial de dos elementos, comprobando que los dos
+            objetos apuntan a la misma referencia.
+        </li>
+        <li>
+            Es posible que dos objetos tengan los mismos parámetros pero apunten a dos referencias distintas (distintos 'new') y por tanto
+            la función devuelve que los objetos <b>no son los mismos</b>, cuando sus atributos son iguales.
+        </li>
+        <li>
+            Esto se arregla haciendo nuestra propia función <b>Equals</b>:
+            <pre><code>
+                '
+                public override bool Equals(Object obj)
+                {
+                    if(this == obj)
+                        return true;
+
+                    if(obj is not Student)
+                        return false;
+
+                    Student s1 = (Student)obj;
+                    if(this.Name == s1.Name)
+                        return true;
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Se comprueba que apuntan a la misma referencia.
+        </li>
+        <li>
+            Se comprueba si coinciden los tipos de datos.
+        </li>
+        <li>
+            Se comprueba que todos los atributos son iguales. Esto se llama copia en profundidad.            
+        </li>        
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Colecciones III: Set</h4>
+        <li>
+            Es un tipo de colección que <b>no admite duplicados</b>. Si se le pide un dato que no contiene,<b> no devuelve
+            nada.</b>
+        </li>
+        <li>
+            <pre><code>
+                        SET
+                *********************
+                _set
+                *********************
+                + Add(Element)
+                + Remove(Element)
+                + RemoveAt(index)
+                + IndexOf(Element)
+                + Contains(Element)
+                + Empty: bool
+                + Count: int               
+            </code></pre>
+        </li>
+        <li>
+            Siempre que nos pidan una función <b>Contains</b>, es buena idea hacer con una función <b>IndexOf</b> que
+            nos devuelva el índice del elemento. De esta forma tenemos una función útil, que ademas facilita el
+            <b>RemoveAt(index)</b>.
+        </li>
+        <li>
+            Un 'operator' nos permite modificar el comportamiento de una operación de cálculo.
+            <br>
+            '
+            public static bool operator ==(Student? s1, Student? s2)
+            {
+            return true;
+            }
+            '
+        </li>
+        <li>
+            No es habitual que una colección 'Set' contenga 'nulls'.
+        </li>
+    </ul>
+</body>
+
+</html>

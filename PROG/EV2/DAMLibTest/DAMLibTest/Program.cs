@@ -6,25 +6,18 @@ namespace DAMLibTest
     {
         static void Main(string[] args)
         {
-            DAMLib.Queue<int> test1 = new DAMLib.Queue<int>();
+            Set<int> setTest = new Set<int>();
+            setTest.Add(10);
+            setTest.Add(20);
+            setTest.Add(30);
+            setTest.Add(40);
+            setTest.Add(50);
 
-            test1.Enqueue(1);
-            test1.Enqueue(2);
-            test1.Enqueue(3);
-            test1.Enqueue(4);
-            test1.Enqueue(5);
-            int number = test1.Count;
-            int number2 = test1.First;
-            int number3 = test1.Last;
-            string container = test1.ToStringEntireQueue();
-            test1.Dequeue();
-            test1.Dequeue();
-            container = test1.ToStringEntireQueue();
-            number = test1.Count;
-            number2 = test1.First;
-            number3 = test1.Last;
-            test1.Clear();
-            container = test1.ToStringEntireQueue();
+            string result1 = setTest.ColectionToString();
+            bool result2 = setTest.Contains(50);
+            setTest.Remove(50);
+            int result3 = setTest.IndexOf(50);
+            result2 = setTest.Contains(50);
         }
     }
 }
