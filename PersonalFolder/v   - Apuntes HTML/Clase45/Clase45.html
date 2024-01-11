@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 45</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
+    <link type="icon" rel="icon" href="../resources/icono.ico">
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 45</h1>
+        <h3>Martes, 9 Enero 2024</h3>
+    </header>
+    <a href="../index2EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Properties</h4>
+        <li>
+            Hasta ahora las properties devolvían el valor de un atributo (getter) o establecían el valor de un atributo
+            (setter)
+        </li>
+        <li>
+            Se trataba de funciones creadas por el propio programador
+            <pre><code>
+                '
+                public class Student
+                {
+                    private string _name;
+
+                    public string GetName()
+                    {
+                        return _name;
+                    }
+
+                    public void SetName(string value)
+                    {
+                        _name = value;
+                    }
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            A partir de ahora vamos a utilizar el método convencional del lenguaje C#.
+        </li>
+        <li>
+            Existen varios modos de crear las properties.
+        </li>
+        <li>
+            El más completo es el siguiente:
+            <pre><code>
+                '
+                    public string Name
+                    {
+                        get
+                        {
+                            return _name;
+                        }
+
+                        set
+                        {
+                            _name = value;
+                        }
+                    }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Las properties se definen con PascalCase
+        </li>
+        <li>
+            La función no recibe parámetros, pero si dispone de cuerpo.
+        </li>
+        <li>
+            Si el cuerpo es demasiado grande, es aconsejable sacar el código en una función aparte.
+        </li>
+        <li>
+            Otra forma más sintética es la siguiente:
+            <code><pre>
+                '
+                public string Name
+                {
+                    get => _name;
+                    set => _name = value;
+                }
+                '
+            </pre></code>
+        </li>
+        <li>
+            Por último, si el atributo solo tiene un getter:
+            <pre><code>
+                '
+                public string Name => _name;
+                '
+            </code></pre>
+        </li>
+        <li>
+            Intentamos evitar los siguientes casos, por resultar demasiado complejos de leer.
+            <pre><code>
+                '
+                public string Name
+                {
+                    get { return _name;}
+                    set { _name = value;}
+                }
+
+                public string Name
+                {
+                    get;
+                    set;
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            En este último ejemplo, de forma invisible el Lenguaje está creando un atributo relacionado con este getter,
+            pero no lo estamos controlando personalmente-
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Colecciones II: Queue</h4>
+        <li>Es una colección de datos donde se encolan los elementos que vamos añadiendo, de tal forma que siempre sale el primero que ha entrado.
+        </li>
+        <li>
+            Es de tipo FIFO: First In First Out
+        </li>
+        <li>
+            Nunca se eliminan elementos.
+        </li>
+        <li>
+            Nunca se ordena la lista.
+        </li>
+        <li>
+            <pre><code>
+                QUEUE
+                *********************
+                _queue
+                *********************
+                + Enqueue(Element)
+                + Dequeue(): element
+                + First: element
+                + Last: element
+                + Count: int
+                + Clear()
+                + Empty: bool               
+            </code></pre>
+        </li>
+        <li>
+            Normalmente, una función recibe el nombre siguiendo el patrón <i>Verbo+sustantivo</i> o simplemente <i>Verbo</i>
+        </li>
+        <li>
+            Una property sigue el patrón <i>sustantivo</i> y se escribe sin parámetros.
+        </li>
+        <li>
+            Existe una instruccion que establece un valor por defecto para los valores de Genéricos, 'default(T)'.
+        </li>
+    </ul>
+</body>
+
+</html>

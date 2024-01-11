@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 43·A</title>
+    <title>Clase 44</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,120 +12,78 @@
 
 <body id="Page">
     <header>
-        <h1>Clase 43·A</h1>
-        <h3>Domingo, 24 Diciembre 2023</h3>
+        <h1>Clase 44</h1>
+        <h3>Lunes, 8 Enero 2024</h3>
     </header>
     <a href="../index2EVAL.html">Indice</a>
 
     <ul class="clase·List">
-        <h4 class="remarks">Delegados</h4>
+        <h4 class="remarks">Genéricos</h4>
         <li>
-           Ejemplos practicos numero 1
-           <pre><code>
-            '
-            public class Bienvenida
-            {
-                public static <u>void</u> MensajeBienvenida()
-                {
-                    Console.WriteLine("Este es un mensaje de bienvenida");
-                }
-            }
-
-            public class Despedida
-            {
-                public static <u>void</u> MensajeDespedida()
-                {
-                    Console.WriteLine("Este es un mensaje de despedida");
-                }
-            }
-
-            public delegate <u>void</u> MetodoDelegado()
-
-            public class program
-            {
-                public static Main()
-                {
-                    MetodoDelegado delegado1 = new MetodoDelegado(Bienvenida.MensajeBienvenida)
-                    delegado1();
-
-                    MetodoDelegado delegado2 = new MetodoDelegado(Despedida.MensajeDespedida)
-                    delegado2();
-                }
-            }
-            '
-           </code></pre>
+            Podemos establecer que una clase trabaja con <b>valores genéricos</b> desde su propia definición en el
+            programa.
         </li>
-
         <li>
-            Ejemplos practicos numero 2
+            Por convencion se utiliza la letra mayúscula <b>T</b> para indicar que son valores genéricos.
             <pre><code>
-             '
-             public class Bienvenida
-             {
-                 public static <u>string</u> MensajeBienvenida(string text)
-                 {
-                     return string.Format($"Este es un mensaje de bienvenida: {0}",text);
-                 }
-             }
- 
-             public class Despedida
-             {
-                 public static <u>string</u> MensajeDespedida(string text)
-                 {
-                    return string.Format($"Este es un mensaje de despedida: {0}",text);
-                 }
-             }
- 
-             public delegate <u>string</u> MetodoDelegado(string message)
- 
-             public class program
-             {
-                 public static Main()
-                 {
-                     MetodoDelegado delegado1 = new MetodoDelegado(Bienvenida.MensajeBienvenida)
-                     string result1 = delegado1("Bienvenido de nuevo");
-                     Console.WriteLine(result1);
- 
-                     MetodoDelegado delegado2 = new MetodoDelegado(Despedida.MensajeDespedida)
-                     string result2 = delegado2("Hasta la proxima, Ecos");
-                     Console.WriteLine(result2);
-                 }
-             }
-             '
+                '
+                public class Ejemplo&ltT&gt
+                {
+                    // Esta clase funciona con genéricos
+                }
+                '
             </code></pre>
-         </li>
-
-         <li>
-            Ejemplos practicos numero 3
+        </li>
+        <li>
+            Normalmente utilizamos genéricos si vamos a trabajar con <b>colecciones</b>.
+        </li>
+        <li>
+            Las colecciones en C# son las siguientes:
+        </li>
+        <li>
+            Listas, Arrays, Diccionarios, Stack, Queue, Tree, Set.
+        </li>
+        <li>
+            Si la clase que usamos es de tipo Genérico, debemos indicar en la instanciación del objeto, cual es el tipo
+            que reemplaza el valor genérico
             <pre><code>
-             '
-             public delegate <u>void</u> DelegadoImprimir(string message)
-
-             public class Imprimir
-             {
-                 public <u>void</u> MensajeBienvenida(string text)
-                 {
-                     Console.WriteLine(text);
-                 }
-
-                 public <u>void</u> MensajeDelegado(string text)
-                 {
-                    DelegadoImprimir delegado = new DelegadoImprimir(MensajeBienvenida);
-                    delegado(text);
-                 }
-             }             
- 
-             public class program
-             {
-                 public static Main()
-                 {
-                     Imprimir test = new Imprimir();
-                     test.MensajeDelegado("Este es el texto que se imprime por consola");
-                 }
-             }
-             '
+                '
+                Ejemplo&ltdouble&gt ejemplo1 = new Ejemplo&ltdouble&gt();
+                // El generico T se reemplaza por un tipo <b>double</b>.
+                '
             </code></pre>
-         </li>
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Colecciones I: Stack</h4>
+        <li>Es una colección de datos donde se apilan los elementos que vamos añadiendo y se extrae <b>SIEMPRE</b>
+            el último dato que hemos introducido.
+        </li>
+        <li>
+            Es de tipo LIFO: Last In First Out
+        </li>
+        <li>
+            Nunca se eliminan elementos.
+        </li>
+        <li>
+            Nunca se ordena la lista.
+        </li>
+        <li>
+            <pre><code>
+                STACK
+                *********************
+                _stack
+                *********************
+                + Push(element): void
+                + Pop(): element
+                + Top(): element
+                + IsEmpty: bool
+                + GetCount(): int                
+            </code></pre>
+        </li>
+        <li>
+            Existe una instruccion que establece un valor por defecto para los valores de Genéricos, 'default(T)'.
+        </li>
     </ul>
 </body>
 

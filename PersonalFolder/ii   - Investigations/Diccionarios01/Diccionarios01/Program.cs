@@ -1,10 +1,9 @@
-﻿namespace ExercismII
+﻿namespace Diccionarios01
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }
