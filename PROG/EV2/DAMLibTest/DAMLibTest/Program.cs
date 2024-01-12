@@ -6,7 +6,8 @@ namespace DAMLibTest
     {
         static void Main(string[] args)
         {
-            Set<int> setTest = new Set<int>();
+            /*
+            //Set<int> setTest = new Set<int>();
             setTest.Add(10);
             setTest.Add(20);
             setTest.Add(30);
@@ -18,6 +19,7 @@ namespace DAMLibTest
             setTest.Remove(50);
             int result3 = setTest.IndexOf(50);
             result2 = setTest.Contains(50);
+            */
         }
     }
 }
