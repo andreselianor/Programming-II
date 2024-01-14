@@ -20,12 +20,34 @@
     <ul class="clase·List">
         <h4 class="remarks">Significado de una Hash</h4>
         <li>
-            
-        </li> 
+            Un 'Hash' nos permite simplificar la definicion de un objeto. Por ejemplo, si un objeto es un número, el
+            resto de una division
+            seria el hash.
+        </li>
+        <li>
+            Este numero Hash no debe repetirse para elementos diferentes. Cada objeto debe tener un hash propio, si no,
+            no tendria sentido.
+        </li>
+        <li>
+            Uno de sus usos mas empleados es para guardar la contraseña de los usuarios de un servidor.
+        </li>
+        <li>
+            Si queremos comprobar si un objeto es igual a otro, en lugar de comprobar en profundidad sus atributos,
+            podemos primero
+            comprobar que tengan el mismo Hash. Solo en caso que tengan el mismo numero de referencia, comprobamos su
+            semejanza en profundidad.
+        </li>
+        <li>
+            C# contiene por defecto una clase llamada 'HashSet'. Su funcionamiento es el siguiente: comprueba el numero
+            Hash y si coincide ejecuta el metodo 'Equals'
+        </li>
+        <li>
+            Existe una norma que indica que si sobreescribes el Equals por defecto en una clase, es obligatorio sobreescribir el 'GetHashCode'
+        </li>
         <h4 class="remarks">Clase 'SetWithHash'</h4>
         <li>
             Crear una clase 'Set' que funcione con un 'Hash'
-        </li>        
+        </li>
     </ul>
 </body>
 

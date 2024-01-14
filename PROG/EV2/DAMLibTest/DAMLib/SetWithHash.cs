@@ -32,12 +32,13 @@
                 }
 
                 setResult[count] = Element;
-                hashResult[count] = Element.GetHashCode();
+                hashResult[count] = GetHashCodePersonal();
 
                 _set = setResult;
                 _hash = hashResult;
             }
         }
+
 
         public void Remove(T Element)
         {
@@ -81,6 +82,9 @@
 
             int index = IndexOf(Element);
 
+            if (index == -1)
+                return false;
+
             if (_hash[index] == Element.GetHashCode())
                 return true;
             return false;
@@ -101,6 +105,9 @@
             return -1;
         }
 
+
+        public int HashWithIndex(int index) => _hash[index];        
+
         public bool Empty => _set.Length == 0;
 
         public int Count
@@ -119,9 +126,9 @@
             return this == obj;
         }
 
-        public override int GetHashCode()
+        public int GetHashCodePersonal()
         {
-            return 133 * 533 * 224 * _set.GetHashCode() * _hash.GetHashCode();
+            return 133 * 533 * 224 * _set.GetHashCode();
         }
 
         public bool EqualsDeep(object? obj)
@@ -138,14 +145,13 @@
             //return this._hybrid == car.Hybrid;
         }
 
-        // Funcion que devuelve un string con todos los elementos de la coleccion.
         public override string ToString()
         {
             string result = "";
 
-            foreach (T element in _set)
+            for(int i = 0; i < _set.Length; i++)
             {
-                result += element + ",";
+                result += " " + _set[i] + " con Hash numero " + _hash[i];
             }
 
             return result;
