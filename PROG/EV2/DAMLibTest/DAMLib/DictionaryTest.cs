@@ -16,12 +16,35 @@
 
         public int IndexOf(string element)
         {
-            for(int i = 0; i < _dictionary.Count; i++)
-            {
-                if (_dictionary[i] == element)
-                    return i;
-            }
-            return -1;
+            return 0;
+        }
+
+        public string GetElementAt(int index)
+        {
+            return "";
+        }
+
+        public bool Contains(string element)
+        {
+            return false;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        public int Count => _dictionary.Count;
+        public bool Empty => _dictionary.Count < 0;
+
+        public override string ToString()
+        {
+            return "";
         }
     }
 }

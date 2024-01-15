@@ -1,10 +1,11 @@
-﻿namespace DAMLib
+﻿using System.Reflection.PortableExecutable;
+
+namespace DAMLib
 {
     public class SetWithHash<T>
     {
         private T[] _set;
         private int[] _hash;
-        
 
         public SetWithHash()
         {
@@ -12,7 +13,6 @@
             _hash = new int[0];
         }
 
-        // Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
         public void Add(T Element)
         {
             if (Element == null)
@@ -32,13 +32,12 @@
                 }
 
                 setResult[count] = Element;
-                hashResult[count] = GetHashCodePersonal();
+                hashResult[count] = GetHashCode();
 
                 _set = setResult;
                 _hash = hashResult;
             }
         }
-
 
         public void Remove(T Element)
         {
@@ -49,32 +48,55 @@
 
             int count = _set.Length;
             T[] arrayResult = new T[count - 1];
+            int[] hashResult = new int[count - 1];
 
-            // Posibilidad 1. Con dos bucles 'for'            
-            for (int i = 0; i < index; i++)
-            {
-                arrayResult[i] = _set[i];
-            }
-
-            for (int i = index; i < count - 2; i++)
-            {
-                arrayResult[i] = _set[i + 1];
-            }
-
-            // Posibilidad 2. Con instruccion 'continue'
-            /*
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (i == index)
+                {
                     continue;
-                arrayResult[i] = _set[i];
+                }
+                else
+                {
+                    arrayResult[i] = _set[i];
+                    hashResult[i] = _hash[i];
+                }                
             }
-            */
 
             _set = arrayResult;
+            _hash = hashResult;
         }
 
-        // Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+
+
+        public override int GetHashCode()
+        {
+            Random random = new Random();
+
+            /*
+            int maxValue = 100;
+            int randomHashCode = random.Next(0, maxValue);
+            int result = 13 * 53 * 22 * randomHashCode * (_set.Length + 1);
+            */
+            int result = 133 * 533 * 228 * GetRandomHash();
+            return result;
+        }
+
+        public int GetRandomHash()
+        {
+            int result = 0;
+
+            for(int i = 0; i < _set.Length; i++)
+            {
+                result += Int32.Parse(_set[i].ToString());
+            }
+            return result;
+        }
+
+        public int HashWithIndex(int index) => _hash[index];
+
+
+
         public bool Contains(T Element)
         {
             if (Element == null)
@@ -90,7 +112,7 @@
             return false;
         }
 
-        // Funcion que devuelve el índice del elemento que le paso por parametros.
+
         public int IndexOf(T Element)
         {
             if (Element == null)
@@ -106,8 +128,6 @@
         }
 
 
-        public int HashWithIndex(int index) => _hash[index];        
-
         public bool Empty => _set.Length == 0;
 
         public int Count
@@ -119,16 +139,14 @@
                 else
                     return _set.Length;
             }
-        }
+        }  
+
+
+
 
         public override bool Equals(Object? obj)
         {
             return this == obj;
-        }
-
-        public int GetHashCodePersonal()
-        {
-            return 133 * 533 * 224 * _set.GetHashCode();
         }
 
         public bool EqualsDeep(object? obj)
@@ -142,16 +160,15 @@
             Car car = (Car)obj;
 
             return false;
-            //return this._hybrid == car.Hybrid;
         }
 
         public override string ToString()
         {
             string result = "";
 
-            for(int i = 0; i < _set.Length; i++)
+            for (int i = 0; i < _set.Length; i++)
             {
-                result += " " + _set[i] + " con Hash numero " + _hash[i];
+                result += string.Format("El valor {0} que ocupa la posicion {1} y cuyo hash es el numero {2}\n", _set[i], i, _hash[i]);
             }
 
             return result;

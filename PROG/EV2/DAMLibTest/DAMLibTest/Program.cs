@@ -8,14 +8,16 @@ namespace DAMLibTest
         {
             SetWithHash<int> setWith = new SetWithHash<int>();
 
-            setWith.Add(1);
-            setWith.Add(2);
-            setWith.Add(3);
+            setWith.Add(10);
+            setWith.Add(20);
+            setWith.Add(30);
 
             int result1 = setWith.IndexOf(3);
-            int result2 = setWith.HashWithIndex(0);
+            int result2 = setWith.HashWithIndex(1);
             setWith.Add(3);
-            string result3 = setWith.ToString();
+            bool result4 = setWith.Contains(100);
+            setWith.Remove(150);
+            string result5 = setWith.ToString();
         }
     }
 }

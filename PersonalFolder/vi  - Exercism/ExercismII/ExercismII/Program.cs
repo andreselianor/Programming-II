@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            string[] prueba = ProteinTranslation.Proteins("UGGUGUUAUUAAUGGUUU");
+            string result = RotationalCipher.Rotate("a", 26);
 
             
         }
