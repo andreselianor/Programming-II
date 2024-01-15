@@ -13,6 +13,8 @@ namespace DAMLib
             _hash = new int[0];
         }
 
+        // Funciones imprescindibles ADD y REMOVE
+
         public void Add(T Element)
         {
             if (Element == null)
@@ -60,14 +62,14 @@ namespace DAMLib
                 {
                     arrayResult[i] = _set[i];
                     hashResult[i] = _hash[i];
-                }                
+                }
             }
 
             _set = arrayResult;
             _hash = hashResult;
         }
 
-
+        // Funciones que trabajan con el HashCode
 
         public override int GetHashCode()
         {
@@ -86,16 +88,36 @@ namespace DAMLib
         {
             int result = 0;
 
-            for(int i = 0; i < _set.Length; i++)
+            for (int i = 0; i < _set.Length; i++)
             {
                 result += Int32.Parse(_set[i].ToString());
             }
             return result;
         }
 
-        public int HashWithIndex(int index) => _hash[index];
+        public int HashWithIndex(int index)
+        {
+            return _hash[index];
+        }
 
+        // Funciones que devuelven el indice y el booleano si el numero ya existe
 
+        public int IndexOf(T Element)
+        {
+            if (Element == null)
+                return -1;
+
+            int hash = Element.GetHashCode();
+
+            for (int i = 0; i < _set.Length; i++)
+            {
+                // if (Element.GetHashCode() == _set.GetHashCode())
+
+                if (hash == _hash[i] && _set[i].Equals(Element))
+                    return i;
+            }
+            return -1;
+        }
 
         public bool Contains(T Element)
         {
@@ -113,38 +135,9 @@ namespace DAMLib
         }
 
 
-        public int IndexOf(T Element)
-        {
-            if (Element == null)
-                return -1;
+        // Funcion que devuelve un booleano si dos objetos son iguales
 
-            for (int i = 0; i < _set.Length; i++)
-            {
-                if (_set[i].Equals(Element))
-                    return i;
-            }
-
-            return -1;
-        }
-
-
-        public bool Empty => _set.Length == 0;
-
-        public int Count
-        {
-            get
-            {
-                if (_set == null)
-                    return 0;
-                else
-                    return _set.Length;
-            }
-        }  
-
-
-
-
-        public override bool Equals(Object? obj)
+        public override bool Equals(object? obj)
         {
             return this == obj;
         }
@@ -161,6 +154,24 @@ namespace DAMLib
 
             return false;
         }
+
+
+        // Properties
+
+        public bool Empty => _set.Length == 0;
+
+        public int Count
+        {
+            get
+            {
+                if (_set == null)
+                    return 0;
+                else
+                    return _set.Length;
+            }
+        }
+
+        // Funcion override del metodo ToString
 
         public override string ToString()
         {
