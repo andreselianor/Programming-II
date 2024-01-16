@@ -2,9 +2,9 @@
 {
     public class ItemSet<T>
     {
-        public Items[] _itemset;
+        private Items[] _itemset;
 
-        public class Items
+        private class Items
         {
             public T element;
             public int hash;

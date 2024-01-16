@@ -6,9 +6,7 @@ namespace DAMLibTest
     {
         static void Main(string[] args)
         {
-            ItemSet<int> itemset1 = new ItemSet<int>();
-            ItemSet<int>.Items item1 = new ItemSet<int>.Items(10,50);
-            
+            ItemSet<int> itemset1 = new ItemSet<int>();            
             int result0 = itemset1.Count;
             itemset1.Add(15);
             int result1 = itemset1.Count;
