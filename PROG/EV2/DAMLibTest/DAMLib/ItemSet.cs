@@ -1,43 +1,55 @@
-﻿namespace DAMLib
+﻿using System.Xml.Linq;
+
+namespace DAMLib
 {
     public class ItemSet<T>
     {
-        private Items[] _itemset;
+        private Item[] _itemset;
 
-        private class Items
+        private class Item
         {
             public T element;
             public int hash;
 
-            public Items(T element, int hash)
+            public Item(T element, int hash)
             {
                 this.element = element;
                 this.hash = hash;
             }
 
-            // Opcional
             public T Element => element;
             public int Hash => hash;
+
+        }
+
+        public ItemSet()
+        {
+            _itemset = Array.Empty<Item>();
         }
 
         public void Add(T element)
         {
+            if (element == null)
+                return;
+
             bool IsElementInSet = Contains(element);
 
             if (IsElementInSet)
                 return;
-
             else
                 AddElement(element);
         }
 
-        public void AddElement(T element)
+        private void AddElement(T element)
         {
-            int newLength = _itemset.Length + 1;
-            Items[] newItemArray = new Items[newLength];
+            if (element == null)
+                return;
 
-            int hash = GetHashCode(element);
-            Items newItem = new Items(element, hash);   // Llamada al constructor de Items
+            int newLength = _itemset.Length + 1;
+            Item[] newItemArray = new Item[newLength];
+
+            int hash = element.GetHashCode();
+            Item newItem = new Item(element, hash);
 
             for (int i = 0; i < newLength - 1; i++)
             {
@@ -50,8 +62,11 @@
 
         public void RemoveAt(int index)
         {
+            if (index < 0 || index >= _itemset.Length)
+                return;
+
             int newLength = _itemset.Length - 1;
-            Items[] newItemArray = new Items[newLength];
+            Item[] newItemArray = new Item[newLength];
 
 
             for (int i = 0; i < index; i++)
@@ -69,23 +84,20 @@
 
         public bool Contains(T element)
         {
-            int index = IndexOf(element);
-
-            return index > -1;
+            return IndexOf(element) >= 0;
         }
 
         public int IndexOf(T element)
         {
             if (element == null)
-                return -1;
+                return -1;            
 
-            if (_itemset == null)
-                return -1;
+            int hash = element.GetHashCode();
 
             for (int i = 0; i < _itemset.Length; i++)
             {
-                T? item = _itemset[i].element;
-                if (item.Equals(element))
+                Item item = _itemset[i];
+                if (hash == item.Hash && item.Element.Equals(element))
                 {
                     return i;
                 }
@@ -105,15 +117,9 @@
 
         public bool IsEmpty => _itemset.Length == 0;
 
-
-        public int GetHashCode(T element)
+        public override int GetHashCode()
         {
-            return 133 * 335 * element.GetHashCode();
+            return 133 * 533 * base.GetHashCode();
         }
-
-        public ItemSet()
-        {
-            _itemset = new Items[0];
-        }        
     }
 }
