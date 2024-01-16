@@ -2,23 +2,21 @@
 {
     public class ItemSet<T>
     {
-        private Items[] _items = new Items[0];
+        public Items[] _itemset;
 
-        private class Items
+        public class Items
         {
-            public T? element;
+            public T element;
             public int hash;
 
-            public Items(T? element, int hash)
+            public Items(T element, int hash)
             {
                 this.element = element;
                 this.hash = hash;
             }
 
-
-
             // Opcional
-            public T? Element => element;
+            public T Element => element;
             public int Hash => hash;
         }
 
@@ -29,25 +27,44 @@
             if (IsElementInSet)
                 return;
 
-            else            
-                AddElement(element);            
+            else
+                AddElement(element);
         }
 
         public void AddElement(T element)
         {
-            int newLength = _items.Length + 1;
+            int newLength = _itemset.Length + 1;
             Items[] newItemArray = new Items[newLength];
 
-            int hash = element.GetHashCode();
-            Items newItem = new Items(element,hash);
+            int hash = GetHashCode(element);
+            Items newItem = new Items(element, hash);   // Llamada al constructor de Items
 
-            for(int i = 0; i < newLength; i++)
+            for (int i = 0; i < newLength - 1; i++)
             {
-                newItemArray[i] = _items[i];
+                newItemArray[i] = _itemset[i];
+            }
+            newItemArray[newLength - 1] = newItem;
+
+            _itemset = newItemArray;
+        }
+
+        public void RemoveAt(int index)
+        {
+            int newLength = _itemset.Length - 1;
+            Items[] newItemArray = new Items[newLength];
+
+
+            for (int i = 0; i < index; i++)
+            {
+                newItemArray[i] = _itemset[i];
             }
 
-            newItemArray[newLength] = newItem;
-            _items = newItemArray;
+            for (int i = index; i < newLength; i++)
+            {
+                newItemArray[i] = _itemset[i + 1];
+            }
+
+            _itemset = newItemArray;
         }
 
         public bool Contains(T element)
@@ -62,9 +79,13 @@
             if (element == null)
                 return -1;
 
-            for(int i = 0; i < _items.Length; i++)
+            if (_itemset == null)
+                return -1;
+
+            for (int i = 0; i < _itemset.Length; i++)
             {
-                if(_items[i].element.Equals(_items[i]))
+                T? item = _itemset[i].element;
+                if (item.Equals(element))
                 {
                     return i;
                 }
@@ -72,7 +93,27 @@
             return -1;
         }
 
-        public int Count => _items.Length;
-        public bool IsEmpty => _items.Length == 0;
+        public int Count
+        {
+            get
+            {
+                if (_itemset == null)
+                    return 0;
+                return _itemset.Length;
+            }
+        }
+
+        public bool IsEmpty => _itemset.Length == 0;
+
+
+        public int GetHashCode(T element)
+        {
+            return 133 * 335 * element.GetHashCode();
+        }
+
+        public ItemSet()
+        {
+            _itemset = new Items[0];
+        }        
     }
 }
