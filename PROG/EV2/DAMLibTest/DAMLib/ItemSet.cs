@@ -4,13 +4,17 @@ namespace DAMLib
 {
     public class ItemSet<T>
     {
-        private Item[] _itemset;
+        public Item[] _itemset;
 
-        private class Item
+        public class Item
         {
             public T element;
             public int hash;
 
+            public Item()
+            {
+
+            }
             public Item(T element, int hash)
             {
                 this.element = element;
@@ -19,6 +23,12 @@ namespace DAMLib
 
             public T Element => element;
             public int Hash => hash;
+
+            public override int GetHashCode()
+            {
+                //return 133 * 533 * base.GetHashCode();
+                return 10;
+            }
 
         }
 
@@ -90,7 +100,7 @@ namespace DAMLib
         public int IndexOf(T element)
         {
             if (element == null)
-                return -1;            
+                return -1;
 
             int hash = element.GetHashCode();
 
@@ -119,7 +129,7 @@ namespace DAMLib
 
         public override int GetHashCode()
         {
-            return 133 * 533 * base.GetHashCode();
+            return 10;
         }
     }
 }

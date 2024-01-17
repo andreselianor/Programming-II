@@ -6,18 +6,22 @@ namespace DAMLibTest
     {
         static void Main(string[] args)
         {
-            ItemSet<int> itemset1 = new ItemSet<int>();
-            
-            itemset1.Add(150);
-            int result1 = itemset1.IndexOf(150);
-            int number = 150;
-            int result = number.GetHashCode();
+            //ItemSet<string> item1 = new ItemSet<string>();
+            //ItemSet<string>.Item elemento1 = new ItemSet<string>.Item("Corretear",11);
+            //int hash = elemento1.GetHashCode();
+            Prueba<string> prueba1 = new Prueba<string>();
+            prueba1.value = "Picapiedra";
+            int number = prueba1.value.GetHashCode();
+        }
+    }
 
-            ItemSet<string> itemset2 = new ItemSet<string>();
-
-            itemset2.Add("Juan");
-            int result10 = itemset2.IndexOf("Juan");
-            int result2 = itemset2._itemset[0].Element.GetHashCode();
+    public class Prueba<T>
+    {
+        public T value;
+        public override int GetHashCode()
+        {
+            return 10;
+            //return  133 * 533 * base.GetHashCode();
         }
     }
 }
