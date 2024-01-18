@@ -5,13 +5,28 @@ namespace DAMLibTest
     public class Program
     {
         static void Main(string[] args)
-        {
-            //ItemSet<string> item1 = new ItemSet<string>();
-            //ItemSet<string>.Item elemento1 = new ItemSet<string>.Item("Corretear",11);
-            //int hash = elemento1.GetHashCode();
+        {            
             Prueba<string> prueba1 = new Prueba<string>();
-            prueba1.value = "Picapiedra";
-            int number = prueba1.value.GetHashCode();
+            prueba1.value = "estadio";
+            int result1 = prueba1.GetHashCode();
+
+            Prueba2 prueba2 = new Prueba2();
+            prueba2.number = 50;
+            int result2 = prueba2.GetHashCode();
+
+
+
+
+            OrderedSet<int> orden1 = new OrderedSet<int>();
+            orden1.Add(100);
+            orden1.Add(50);
+
+            int number = orden1.BinarySearch(100);
+
+
+
+
+
         }
     }
 
@@ -21,7 +36,20 @@ namespace DAMLibTest
         public override int GetHashCode()
         {
             return 10;
-            //return  133 * 533 * base.GetHashCode();
+            //return  5 * base.GetHashCode();
+            //return  GetHashCode();
+        }
+    }
+
+    public class Prueba2
+    {
+        public int number;
+
+        public override int GetHashCode()
+        {
+            return 10;
+            //return  5 * base.GetHashCode();
+            //return  GetHashCode();
         }
     }
 }
