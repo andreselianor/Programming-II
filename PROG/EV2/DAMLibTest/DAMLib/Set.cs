@@ -2,7 +2,7 @@
 
 namespace DAMLib
 {
-    public class Set<T>
+    public class Set<T> : ISet<T>
     {
         private T[] _set;
         private bool _hybrid;
