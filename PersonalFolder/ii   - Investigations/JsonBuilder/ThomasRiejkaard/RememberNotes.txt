@@ -1,0 +1,3 @@
+string fileName = "../../../JsonText.Json";
+string jsonString = JsonSerializer.Serialize(_builder.ToString());
+File.AppendAllText(fileName, jsonString);
