@@ -1,6 +1,6 @@
 ﻿namespace DAMLib
 {
-    public class DictionaryTest
+    public class DictionaryAndres
     {
         private Dictionary<int,string> _dictionary= new Dictionary<int,string>();
 

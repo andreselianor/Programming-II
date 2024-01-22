@@ -1,7 +1,9 @@
- public class Test1Results
-
+﻿namespace DAMLib
+{
+    public class TestUnidadEjemplo
+    {
+        public class Test1Results
         {
-
             public bool Empty1 { get; set; }
 
             public int Count1 { get; set; }
@@ -32,16 +34,12 @@
 
         }
 
-
-
         // Test de caja blanca
 
         public static Test1Results Test1(ISet<string> set)
-
         {
 
             Test1Results results = new Test1Results();
-
             {
 
                 set.Clear();
@@ -99,5 +97,6 @@
             }
 
             return results;
-
         }
+    }
+}

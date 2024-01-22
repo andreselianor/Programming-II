@@ -93,7 +93,7 @@ namespace DAMLib
             return -1;
         }
 
-        public bool Empty => _set.Length == 0;
+        public bool IsEmpty => _set.Length == 0;
 
         public int Count
         {
@@ -140,6 +140,11 @@ namespace DAMLib
             }
 
             return result;
+        }
+
+        public void Clear()
+        {
+            _set = Array.Empty();
         }
     }
 }
