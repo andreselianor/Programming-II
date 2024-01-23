@@ -2,10 +2,10 @@
 
 namespace DAMLib
 {
-    public class Set<T> : ISet<T>
+    public class Set<T>
     {
         private T[] _set;
-        private bool _hybrid;
+        private bool _testAtribute;
 
         public Set()
         {
@@ -121,12 +121,12 @@ namespace DAMLib
             if (this == obj)
                 return true;
 
-            if (obj is not Car)
+            if (obj is not TestCar)
                 return false;
 
-            Car car = (Car)obj;
+            TestCar car = (TestCar)obj;
 
-            return this._hybrid == car.Hybrid;
+            return this._testAtribute == car.TestAtribute;
         }
 
         // Funcion que devuelve un string con todos los elementos de la coleccion.

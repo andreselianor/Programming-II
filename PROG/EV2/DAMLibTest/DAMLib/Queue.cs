@@ -4,10 +4,20 @@
     {
         private T[] _queue;
 
+
+        public int Count => _queue.Length;
+        public T First => _queue[0];
+        public T Last => _queue[Count - 1];
+        public bool Empty => _queue.Length == 0;
+
+
+
         public Queue()
         {
             _queue = new T[0];
         }
+
+
 
         public void Enqueue(T element)
         {
@@ -46,18 +56,15 @@
             _queue = arrayResult;
         }
 
-        public int Count => _queue.Length;
-        public T First => _queue[0];
-        public T Last => _queue[Count - 1];
-        public bool Empty => _queue.Length == 0;
-
-
-        public string ToStringEntireQueue()
+        public override string ToString()
         {
             string result = "";
+            int count = 1;
+
             foreach(T element in _queue)
             {
-                result += element + ", ";
+                result += $"El elemento {count} de la Queue es {element}";
+                count++;
             }
 
             return result;

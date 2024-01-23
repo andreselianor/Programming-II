@@ -4,10 +4,18 @@
     {
         private T[] _stackArray;
 
+
+        public int Count => _stackArray.Length;
+        public bool IsEmpty => _stackArray.Length == 0;
+
+
+
         public Stack()
         {
             _stackArray = new T[0];
         }
+
+
 
         public void Push(T Element)
         {
@@ -56,16 +64,6 @@
                 return default(T);
 
             return result;
-        }
-
-        public bool IsEmpty()
-        {
-            return _stackArray.Length < 0;
-        }
-
-        public int GetCount()
-        {
-            return _stackArray.Length;
         }
     }
 }

@@ -147,10 +147,10 @@ namespace DAMLib
             if (this == obj)
                 return true;
 
-            if (obj is not Car)
+            if (obj is not TestCar)
                 return false;
 
-            Car car = (Car)obj;
+            TestCar car = (TestCar)obj;
 
             return false;
         }

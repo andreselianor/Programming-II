@@ -1,6 +1,6 @@
 ﻿namespace DAMLib
 {
-    public class TestUnidadEjemplo
+    public class TestUnidadJaviEjemplo
     {
         public class Test1Results
         {
