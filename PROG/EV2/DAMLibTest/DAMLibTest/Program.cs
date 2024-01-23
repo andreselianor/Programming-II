@@ -20,7 +20,7 @@ namespace DAMLibTest
             DictionaryPersonal<int, string> diccionarioResult2 = new DictionaryPersonal<int, string>();
             DictionaryPersonal<int, string> diccionarioResult3 = new DictionaryPersonal<int, string>();
             
-            diccionarioResult1 = diccionario.Filter(() => { return true; });
+            diccionarioResult1 = diccionario.Filter(() => { return true; } );
 
             diccionarioResult2 = diccionario.Filter((key) =>
             {

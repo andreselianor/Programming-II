@@ -35,6 +35,8 @@ namespace DAMLib
 
         public int Count => _item.Length;
         public bool IsEmpty => _item.Length < 0;
+
+
         public void Clear()
         {
             _item = Array.Empty<Item>();
@@ -124,18 +126,6 @@ namespace DAMLib
             return dictionaryResult;
         }
 
-        public DictionaryPersonal<K, V> Filter(DelegateFilterWithoutParameters del)
-        {
-            DictionaryPersonal<K, V> dictionaryResult = new DictionaryPersonal<K, V>();
-
-            for (int i = 0; i < _item.Length; i++)
-            {
-                dictionaryResult.Add(_item[i].Key, _item[i].Value);
-            }
-
-            return dictionaryResult;
-        }
-
         public DictionaryPersonal<K, V> Filter(DelegateFilterKey del)
         {
             DictionaryPersonal<K, V> dictionaryResult = new DictionaryPersonal<K, V>();
@@ -147,6 +137,17 @@ namespace DAMLib
                 {
                     dictionaryResult.Add(_item[i].Key, _item[i].Value);
                 }
+            }
+
+            return dictionaryResult;
+        }
+        public DictionaryPersonal<K, V> Filter(DelegateFilterWithoutParameters del)
+        {
+            DictionaryPersonal<K, V> dictionaryResult = new DictionaryPersonal<K, V>();
+
+            for (int i = 0; i < _item.Length; i++)
+            {
+                dictionaryResult.Add(_item[i].Key, _item[i].Value);
             }
 
             return dictionaryResult;
