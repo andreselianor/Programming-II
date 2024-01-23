@@ -144,7 +144,7 @@ namespace DAMLib
 
         public void Clear()
         {
-            _set = Array.Empty();
+            _set = Array.Empty<T>();
         }
     }
 }
