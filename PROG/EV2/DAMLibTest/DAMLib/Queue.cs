@@ -52,19 +52,18 @@
 
         public void Clear()
         {
-            T[] arrayResult = new T[0];
-            _queue = arrayResult;
+            _queue = new T[0];
         }
 
         public override string ToString()
         {
             string result = "";
-            int count = 1;
+            int count = 0;
 
             foreach(T element in _queue)
             {
-                result += $"El elemento {count} de la Queue es {element}";
                 count++;
+                result += $"El elemento {count} de la Queue es: {element}\n";                
             }
 
             return result;

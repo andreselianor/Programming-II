@@ -2,7 +2,6 @@
 {
     public class Acronym
     {
-
         public static string Abbreviate(string phrase)
         {
             string result = "";

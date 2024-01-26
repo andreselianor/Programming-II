@@ -2,7 +2,7 @@
 {
     public static class BinarySearch
     {
-        public static int Find(int[] input, int value)
+        public static int GetIndexWithBinarySearch(int[] input, int value)
         {
             if (input == null || input.Length == 0)
                 return -1;
@@ -19,7 +19,6 @@
 
             while (lowerValue < middleValue && middleValue < upperValue)
             {
-
                 if (value == input[middleValue])
                     return middleValue;
 

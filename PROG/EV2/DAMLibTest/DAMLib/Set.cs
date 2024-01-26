@@ -5,20 +5,45 @@ namespace DAMLib
     public class Set<T>
     {
         private T[] _set;
-        private bool _testAtribute;
+        private bool _testAtribute;     // Atributo utilizado en la funcion EqualsDeep()
 
+
+        public bool IsEmpty => _set.Length == 0;
+        public int Count => _set.Length;
+
+
+        /* Property que controla el null
+         * 
+        public int Count
+        {
+            get
+            {
+                if (_set == null)
+                    return 0;
+                else
+                    return _set.Length;
+            }
+        }
+        */
+
+        // Constructor sin parametros
         public Set()
         {
             _set = new T[0];
         }
 
+
         // Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
         public void Add(T Element)
         {
+            if (Element == null)
+                return;
+
             if (!Contains(Element))
             {
                 int count = _set.Length;
                 T[] setResult = new T[count + 1];
+
                 for (int i = 0; i < count; i++)
                 {
                     setResult[i] = _set[i];
@@ -29,8 +54,27 @@ namespace DAMLib
             }
         }
 
+        // Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+        public bool Contains(T Element)
+        {
+            if (Element == null)
+                return false;
+
+            for (int i = 0; i < _set.Length; i++)
+            {
+                if (_set[i].Equals(Element))
+                    return true;
+            }
+
+            return false;
+        }
+
+        // Funcion que elimina el elemento que le pasamos por parametros
         public void Remove(T Element)
         {
+            if (Element == null)
+                return;
+
             int index = IndexOf(Element);
 
             if (index == -1)
@@ -63,21 +107,6 @@ namespace DAMLib
             _set = arrayResult;
         }
 
-        // Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
-        public bool Contains(T Element)
-        {
-            if (Element == null)
-                return false;
-
-            for (int i = 0; i < _set.Length; i++)
-            {
-                if (_set[i].Equals(Element))
-                    return true;
-            }
-
-            return false;
-        }
-
         // Funcion que devuelve el índice del elemento que le paso por parametros.
         public int IndexOf(T Element)
         {
@@ -93,17 +122,9 @@ namespace DAMLib
             return -1;
         }
 
-        public bool IsEmpty => _set.Length == 0;
-
-        public int Count
+        public override int GetHashCode()
         {
-            get
-            {
-                if (_set == null)
-                    return 0;
-                else
-                    return _set.Length;
-            }
+            return 133 * 533 * 224 * _testAtribute.GetHashCode();
         }
 
         public override bool Equals(Object? obj)
@@ -111,12 +132,7 @@ namespace DAMLib
             return this == obj;
         }
 
-        public override int GetHashCode()
-        {
-            return 133 * 533 * 224 * _set.GetHashCode();
-        }
-
-        public bool EqualsDeep(object? obj)
+        public bool IsEqualsInDeep(object? obj)
         {
             if (this == obj)
                 return true;
@@ -126,17 +142,19 @@ namespace DAMLib
 
             TestCar car = (TestCar)obj;
 
-            return this._testAtribute == car.TestAtribute;
+            return (this._testAtribute == car.TestAtribute);
         }
 
         // Funcion que devuelve un string con todos los elementos de la coleccion.
         public override string ToString()
         {
             string result = "";
+            int count = 0;
 
             foreach (T element in _set)
             {
-                result += element + ",";
+                count++;
+                result += $"El elemento numero {count} de la coleccion es: {element}.\n";
             }
 
             return result;

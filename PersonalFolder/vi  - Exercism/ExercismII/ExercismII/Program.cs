@@ -4,8 +4,11 @@
     {
         static void Main(string[] args)
         {
-            string result = RotationalCipher.Rotate("a", 26);
+            string[] array = new string[] { "pepe", "juan" , "Aurelio"};
+            int[] array1 = new int[] { 5,10,15,20 };
+            int number = 25;
 
+            int resultIndex = BinarySearch.GetIndexWithBinarySearch(array1, number);
             
         }
         

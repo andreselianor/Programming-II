@@ -4,15 +4,20 @@
     {
         public static bool IsIsogram(string word)
         {
+            if (word == null)
+                return false;
+
             List<char> listResult = new List<char>();
             word = word.ToLower();
+
             listResult = AddCharToList(word);
             listResult = RemoveSignFromList(listResult);
-            bool result = ContainsRepeatedChar(listResult);
+            bool result = IsCharWithoutRepeating(listResult);
+
             return result;
         }
 
-        public static List<char> AddCharToList(string word)
+        private static List<char> AddCharToList(string word)
         {
             List<char> listResult = new List<char>();
             for (int i = 0; i < word.Length; i++)
@@ -22,7 +27,7 @@
             return listResult;
         }
 
-        public static List<char> RemoveSignFromList(List<char> list)
+        private static List<char> RemoveSignFromList(List<char> list)
         {
             for (int i = 0; i < list.Count; i++)
             {
@@ -35,7 +40,7 @@
             return list;
         }
 
-        public static bool ContainsRepeatedChar(List<char> list)
+        private static bool IsCharWithoutRepeating(List<char> list)
         {
             for (int i = 0; i < list.Count - 1; i++)
             {

@@ -24,15 +24,15 @@
 
             int count = _stackArray.Length;
 
-            T[] _stackResult = new T[count + 1];
+            T[] stackResult = new T[count + 1];
 
             for (int i = 0; i < count; i++)
             {
-                _stackResult[i] = _stackArray[i];
+                stackResult[i] = _stackArray[i];
             }
 
-            _stackResult[count] = Element;
-            _stackArray = _stackResult;
+           stackResult[count] = Element;
+            _stackArray = stackResult;
         }
 
         public T? Pop()
@@ -40,18 +40,16 @@
             int count = _stackArray.Length;
 
             T result = _stackArray[count - 1];
-
-            T[] _stackResult = new T[count - 1];
-
-            for(int i = 0; i < count - 1; i++)
-            {
-                _stackResult[i] = _stackArray[i];
-            }
-
-            _stackArray = _stackResult;
-
             if (result == null)
                 return default(T);
+
+            T[] stackResult = new T[count - 1];
+            for(int i = 0; i < count - 1; i++)
+            {
+                stackResult[i] = _stackArray[i];
+            }
+
+            _stackArray = stackResult;            
 
             return result;
         }
