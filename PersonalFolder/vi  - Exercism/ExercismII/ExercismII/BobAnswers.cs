@@ -11,6 +11,7 @@
 
     public static class Bob
     {
+        // La funcion devuelve una respuesta, segun el tipo de pregunta que se realiza.
         public static string Response(string statement)
         {
             ResponseType response = StatementType(statement);
@@ -30,6 +31,7 @@
             return "Whatever.";
         }
 
+        // La funcion devuelve un tipo de pregunta, segun la sintaxis de la frase.
         public static ResponseType StatementType(string statement)
         {
             if (statement == "")
@@ -65,6 +67,7 @@
             return ResponseType.OTHER;
         }
 
+        // Funcion que devuelve verdadero si la frase contiene alguna letra.
         public static bool ContainsLetters(string statement)
         {
             for (int i = 0; i < statement.Length; i++)

@@ -2,6 +2,7 @@
 {
     public static class Isogram
     {
+        // Funcion que devuelve verdadero si una palabra es 'Isogram' o no contiene letras repetidas.
         public static bool IsIsogram(string word)
         {
             if (word == null)

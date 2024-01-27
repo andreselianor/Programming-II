@@ -1,11 +1,26 @@
 ﻿using System.Reflection.PortableExecutable;
+using System.Xml.Linq;
 
 namespace DAMLib
 {
     public class SetWithHash<T>
     {
-        private T[] _set;
-        private int[] _hash;
+        public T[] _set;
+        public int[] _hash;
+
+
+        public bool Empty => _set.Length == 0;
+        public int Count
+        {
+            get
+            {
+                if (_set == null)
+                    return 0;
+                else
+                    return _set.Length;
+            }
+        }
+
 
         public SetWithHash()
         {
@@ -13,14 +28,13 @@ namespace DAMLib
             _hash = new int[0];
         }
 
-        // Funciones imprescindibles ADD y REMOVE
 
-        public void Add(T Element)
+        public void Add(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return;
 
-            if (!Contains(Element))
+            if (!Contains(element))
             {
                 int count = _set.Length;
 
@@ -33,7 +47,7 @@ namespace DAMLib
                     hashResult[i] = _hash[i];
                 }
 
-                setResult[count] = Element;
+                setResult[count] = element;
                 hashResult[count] = GetHashCode();
 
                 _set = setResult;
@@ -69,74 +83,53 @@ namespace DAMLib
             _hash = hashResult;
         }
 
-        // Funciones que trabajan con el HashCode
 
         public override int GetHashCode()
         {
-            Random random = new Random();
-
-            /*
-            int maxValue = 100;
-            int randomHashCode = random.Next(0, maxValue);
-            int result = 13 * 53 * 22 * randomHashCode * (_set.Length + 1);
-            */
-            int result = 133 * 533 * 228 * GetRandomHash();
-            return result;
+            return 10;                        
         }
 
-        public int GetRandomHash()
-        {
-            int result = 0;
-
-            for (int i = 0; i < _set.Length; i++)
-            {
-                result += Int32.Parse(_set[i].ToString());
-            }
-            return result;
-        }
 
         public int HashWithIndex(int index)
         {
             return _hash[index];
         }
 
-        // Funciones que devuelven el indice y el booleano si el numero ya existe
 
-        public int IndexOf(T Element)
+        public int IndexOf(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return -1;
 
-            int hash = Element.GetHashCode();
+            int hash = element.GetHashCode();
+            
 
             for (int i = 0; i < _set.Length; i++)
             {
-                // if (Element.GetHashCode() == _set.GetHashCode())
-
-                if (hash == _hash[i] && _set[i].Equals(Element))
+                if (hash == _set[i].GetHashCode() && 
+                    _set[i].Equals(element))
                     return i;
             }
             return -1;
         }
 
-        public bool Contains(T Element)
+        public bool Contains(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return false;
 
-            int index = IndexOf(Element);
+            int index = IndexOf(element);
 
             if (index == -1)
                 return false;
 
-            if (_hash[index] == Element.GetHashCode())
+            if (_hash[index].GetHashCode() == element.GetHashCode())
                 return true;
             return false;
         }
 
 
         // Funcion que devuelve un booleano si dos objetos son iguales
-
         public override bool Equals(object? obj)
         {
             return this == obj;
@@ -147,31 +140,16 @@ namespace DAMLib
             if (this == obj)
                 return true;
 
-            if (obj is not TestCar)
+            if (obj is not SetWithHash<T>)
                 return false;
 
-            TestCar car = (TestCar)obj;
+            SetWithHash<T> testObj = (SetWithHash<T>)obj;
 
+            if (this._set == testObj._set && this._hash == testObj._hash)
+                return true;
             return false;
         }
 
-
-        // Properties
-
-        public bool Empty => _set.Length == 0;
-
-        public int Count
-        {
-            get
-            {
-                if (_set == null)
-                    return 0;
-                else
-                    return _set.Length;
-            }
-        }
-
-        // Funcion override del metodo ToString
 
         public override string ToString()
         {
@@ -179,7 +157,7 @@ namespace DAMLib
 
             for (int i = 0; i < _set.Length; i++)
             {
-                result += string.Format("El valor {0} que ocupa la posicion {1} y cuyo hash es el numero {2}\n", _set[i], i, _hash[i]);
+                result += string.Format("El valor {0} ocupa la posicion {1} y cuyo hash es el numero {2}\n", _set[i], i, _hash[i]);
             }
 
             return result;

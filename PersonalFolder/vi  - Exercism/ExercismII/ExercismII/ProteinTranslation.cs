@@ -15,6 +15,7 @@
 
     public static class ProteinTranslation
     {
+        // Funcion que devuelve el tipo de las proteinas que componen una cadena de nucleotidos.
         public static string[] Proteins(string strand)
         {            
             string[] arrayResult = new string[0];
@@ -49,9 +50,9 @@
             return arrayResult;
         }
 
+        // Funcion que devuelve una cadena de 3 nucleotidos.
         public static string BrokeStrand(string strand)
         {
-            // Retorna una cadena de 3 nucleotidos
             string result = "";
             for (int i = 0; i < 3; i++)
             {
@@ -60,9 +61,9 @@
             return result;
         }
 
+        // Funcion que transforma la cadena de nucleotidos en un tipo de proteina.
         public static ProteinType TranslateToProtein(string brokeStrand)
         {
-            // Traduce el nucleotido en Proteina
             if (brokeStrand == "AUG")
                 return ProteinType.Methionine;
 
@@ -92,9 +93,9 @@
             return ProteinType.Default;
         }
 
+        // Funcion que añade una proteina al array resultante.
         public static string[] AddElementToArray(string[] array, ProteinType proteinResult)
         {
-            // Añade una Proteina al array resultante
             int count = array.Length;
             string[] arrayResult = new string[count + 1];
             for (int i = 0; i < count; i++)
@@ -106,9 +107,9 @@
             return arrayResult;
         }
 
+        // Funcion que devuelve una nueva cadena sin las proteinas calculadas.
         public static string RemoveBrokeStrand(string brokeStrand)
         {
-            // Elimina la proteina de la cadena
             string result = "";
             for (int i = 3; i < brokeStrand.Length; i++)
             {
@@ -118,4 +119,3 @@
         }
     }
 }
-

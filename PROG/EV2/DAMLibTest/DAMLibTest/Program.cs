@@ -7,12 +7,13 @@ namespace DAMLibTest
     {
         static void Main(string[] args)
         {
-            DAMLib.Stack<int> stack = new DAMLib.Stack<int>();
-            stack.Push(5);
-            stack.Push(25);
-            int number = stack.Pop();
+            SetWithHash<string> set = new SetWithHash<string>();
+            set.Add("PEPE");
+            set.Add("JUAN");
+            set.Add("marilo");
+            set.Add("MARILO");
 
-
+            int number = set.IndexOf("MARILO");
         }
     }
 }
