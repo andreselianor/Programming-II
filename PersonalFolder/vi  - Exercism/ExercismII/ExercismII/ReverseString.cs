@@ -2,6 +2,7 @@
 {
     public static class ReverseString
     {
+        // Funcion que devuelve una cadena de texto al reves.
         public static string Reverse(string input)
         {
             if (input == null || input.Length == 0)

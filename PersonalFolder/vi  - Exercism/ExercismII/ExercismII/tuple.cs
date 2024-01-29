@@ -2,6 +2,7 @@ using System;
 
 public static class PhoneNumber
 {
+    // Funcion que trabaja con Tuplas y numeros de telefono.
     public static (bool IsNewYork, bool IsFake, string LocalNumber) Analyze(string phoneNumber)
     {
         bool IsNewYork = false;

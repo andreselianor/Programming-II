@@ -2,6 +2,7 @@
 {
     public static class RotationalCipher
     {
+        // Funcion que devuelve una cadena de texto codificada.
         public static string Rotate(string text, int shiftKey)
         {
             string result = "";

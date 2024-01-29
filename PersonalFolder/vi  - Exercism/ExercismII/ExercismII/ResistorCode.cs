@@ -2,6 +2,7 @@
 {
     public static class ResistorColorDuo
     {
+        // Funcion que devuelve un codigo de color de 2 digitos.
         public static int Value(string[] colors)
         {
             if (colors == null || colors.Length == 0)
@@ -15,6 +16,7 @@
             return Int32.Parse(value);
         }
 
+        // Funcion que devuelve un codigo segun el color.
         public static int CalculateValues(string resistance)
         {
             string[] reference = new string[]
