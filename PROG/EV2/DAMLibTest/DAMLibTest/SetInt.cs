@@ -1,4 +1,4 @@
-﻿namespace DAMLib
+﻿namespace DAMLibTest
 {
     public class SetInt
     {
@@ -32,9 +32,9 @@
 
         public int IndexOf(int value)
         {
-            for(int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                if (array[i].GetHashCode() == value.GetHashCode()) 
+                if (array[i].GetHashCode() == value.GetHashCode())
                     return i;
             }
             return -1;

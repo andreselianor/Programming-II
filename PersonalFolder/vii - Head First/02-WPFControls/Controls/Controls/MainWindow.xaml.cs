@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChessWPF
+namespace Controls
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
@@ -23,14 +23,6 @@ namespace ChessWPF
         public MainWindow()
         {
             InitializeComponent();
-            PaintChess();
-        }
-
-        public void PaintChess()
-        {
-            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-            mySolidColorBrush.Color = Color.FromArgb(255, 255, 255, 0);
-            Rect.Fill = mySolidColorBrush;
         }
     }
 }

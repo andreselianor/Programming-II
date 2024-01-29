@@ -8,12 +8,7 @@ namespace DAMLib
         private bool _testAtribute;     // Atributo utilizado en la funcion EqualsDeep()
 
 
-        public bool IsEmpty => _set.Length == 0;
-        public int Count => _set.Length;
-
-
-        /* Property que controla el null
-         * 
+        public bool IsEmpty => _set.Length == 0;        
         public int Count
         {
             get
@@ -24,7 +19,7 @@ namespace DAMLib
                     return _set.Length;
             }
         }
-        */
+        
 
         // Constructor sin parametros
         public Set()
@@ -34,12 +29,12 @@ namespace DAMLib
 
 
         // Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
-        public void Add(T Element)
+        public void Add(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return;
 
-            if (!Contains(Element))
+            if (!Contains(element))
             {
                 int count = _set.Length;
                 T[] setResult = new T[count + 1];
@@ -49,33 +44,33 @@ namespace DAMLib
                     setResult[i] = _set[i];
                 }
 
-                setResult[count] = Element;
+                setResult[count] = element;
                 _set = setResult;
             }
         }
 
         // Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
-        public bool Contains(T Element)
+        public bool Contains(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return false;
 
             for (int i = 0; i < _set.Length; i++)
             {
-                if (_set[i].Equals(Element))
+                if (_set[i].Equals(element))
                     return true;
             }
 
             return false;
         }
 
-        // Funcion que elimina el elemento que le pasamos por parametros
-        public void Remove(T Element)
+        // Funcion que elimina el elemento que le pasamos por parametros.
+        public void Remove(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return;
 
-            int index = IndexOf(Element);
+            int index = IndexOf(element);
 
             if (index == -1)
                 return;
@@ -83,7 +78,7 @@ namespace DAMLib
             int count = _set.Length;
             T[] arrayResult = new T[count - 1];
 
-            // Posibilidad 1. Con dos bucles 'for'            
+            // Posibilidad 1. Con dos bucles 'for'.          
             for (int i = 0; i < index; i++)
             {
                 arrayResult[i] = _set[i];
@@ -94,7 +89,7 @@ namespace DAMLib
                 arrayResult[i] = _set[i + 1];
             }
 
-            // Posibilidad 2. Con instruccion 'continue'
+            // Posibilidad 2. Con instruccion 'continue'.
             /*
             for(int i = 0; i < count; i++)
             {
@@ -108,18 +103,23 @@ namespace DAMLib
         }
 
         // Funcion que devuelve el índice del elemento que le paso por parametros.
-        public int IndexOf(T Element)
+        public int IndexOf(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return -1;
 
             for (int i = 0; i < _set.Length; i++)
             {
-                if (_set[i].Equals(Element))
+                if (_set[i].Equals(element))
                     return i;
             }
 
             return -1;
+        }
+
+        public void Clear()
+        {
+            _set = Array.Empty<T>();
         }
 
         public override int GetHashCode()
@@ -158,11 +158,6 @@ namespace DAMLib
             }
 
             return result;
-        }
-
-        public void Clear()
-        {
-            _set = Array.Empty<T>();
         }
     }
 }

@@ -5,8 +5,18 @@
         private T[] _stackArray;
 
 
-        public int Count => _stackArray.Length;
         public bool IsEmpty => _stackArray.Length == 0;
+        public int Count
+        {
+            get
+            {
+                if (_stackArray == null)
+                    return 0;
+                else
+                    return _stackArray.Length;
+            }
+
+        }
 
 
 
@@ -16,10 +26,10 @@
         }
 
 
-
-        public void Push(T Element)
+        // Funcion que introduce un elemento generico en el Stack
+        public void Push(T element)
         {
-            if (Element == null)
+            if (element == null)
                 return;
 
             int count = _stackArray.Length;
@@ -31,10 +41,11 @@
                 stackResult[i] = _stackArray[i];
             }
 
-           stackResult[count] = Element;
+           stackResult[count] = element;
             _stackArray = stackResult;
         }
 
+        // Funcion que extrae un elemento generico del Stack
         public T? Pop()
         {
             int count = _stackArray.Length;
@@ -54,12 +65,32 @@
             return result;
         }
 
+        // Funcion que devuelve el elemento superior del Stack
         public T Top()
         {
             T result = _stackArray[_stackArray.Length - 1];
 
             if (result == null)
                 return default(T);
+
+            return result;
+        }
+
+        public void Clear()
+        {
+            _stackArray = new T[0];
+        }
+
+        public override string ToString()
+        {
+            string result = "";
+            int count = 0;
+
+            foreach (T element in _stackArray)
+            {
+                count++;
+                result += $"El elemento {count} del Stack es: {element}\n";
+            }
 
             return result;
         }

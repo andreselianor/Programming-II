@@ -5,10 +5,20 @@
         private T[] _queue;
 
 
-        public int Count => _queue.Length;
         public T First => _queue[0];
         public T Last => _queue[Count - 1];
-        public bool Empty => _queue.Length == 0;
+        public bool IsEmpty => _queue.Length == 0;
+        public int Count
+        {
+            get
+            {
+                if (_queue == null)
+                    return 0;
+                else
+                    return _queue.Length;
+            }
+
+        }
 
 
 
@@ -18,7 +28,7 @@
         }
 
 
-
+        // Funcion que introduce un elemento generico en el Queue.
         public void Enqueue(T element)
         {
             int count = _queue.Length;
@@ -34,6 +44,7 @@
             _queue = _arrayResult;
         }
 
+        // Funcion que extrae un elemento del Queue.
         public T Dequeue()
         {
             int count = _queue.Length;
@@ -69,6 +80,7 @@
             return result;
         }
 
+        // Funcion que clona una Queue.
         public T[] CloneQueue(T[] queue)
         {
             T[] result = new T[queue.Length];
@@ -81,6 +93,7 @@
             return result;
         }
 
+        // Funcion que introduce un array de elementos genericos en la Queue.
         public void QueueMultipleElements(T[] elements)
         {
             int newElementsCount = elements.Length;

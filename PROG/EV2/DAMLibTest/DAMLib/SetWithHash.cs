@@ -28,7 +28,7 @@ namespace DAMLib
             _hash = new int[0];
         }
 
-
+        // Funcion que añade un elemento generico al Set. Incluye un numero entero para el hash del elemento.
         public void Add(T element)
         {
             if (element == null)
@@ -55,9 +55,10 @@ namespace DAMLib
             }
         }
 
-        public void Remove(T Element)
+        // Funcion que elimina un elemento generico del Set
+        public void Remove(T element)
         {
-            int index = IndexOf(Element);
+            int index = IndexOf(element);
 
             if (index == -1)
                 return;
@@ -83,26 +84,19 @@ namespace DAMLib
             _hash = hashResult;
         }
 
-
-        public override int GetHashCode()
-        {
-            return 10;                        
-        }
-
-
+        // Funcion que devuelve el numero Hash del elemento.
         public int HashWithIndex(int index)
         {
             return _hash[index];
         }
 
-
+        // Funcion que devuelve el indice que ocupa el elemento en el Set.
         public int IndexOf(T element)
         {
             if (element == null)
                 return -1;
 
-            int hash = element.GetHashCode();
-            
+            int hash = element.GetHashCode();            
 
             for (int i = 0; i < _set.Length; i++)
             {
@@ -113,6 +107,7 @@ namespace DAMLib
             return -1;
         }
 
+        // Funcion que devuelve verdadero o falso si el Set contiene el elemento generico.
         public bool Contains(T element)
         {
             if (element == null)
@@ -135,6 +130,7 @@ namespace DAMLib
             return this == obj;
         }
 
+        // Funcion que devuelve verdadero si dos objetos son iguales y tienen identicos atributos.
         public bool EqualsDeep(object? obj)
         {
             if (this == obj)
@@ -150,6 +146,11 @@ namespace DAMLib
             return false;
         }
 
+
+        public override int GetHashCode()
+        {
+            return 133 * 533 * 224 * _set.GetHashCode();
+        }
 
         public override string ToString()
         {

@@ -1,8 +1,9 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DAMLib
 {
-    public class DictionaryPersonal<K, V>
+    public class DictionaryCollection<K, V>
     {
         private Item[] _item = new Item[0];
 
@@ -37,13 +38,14 @@ namespace DAMLib
         public bool IsEmpty => _item.Length < 0;
 
 
-        public void Clear()
-        {
-            _item = Array.Empty<Item>();
-        }
-
+        // Funcion que añade una Key y un value. La Key no se puede repetir.
         public void Add(K key, V value)
         {
+            /*
+            if(_item.Contains(key))
+                return;
+            */
+
             int count = _item.Length;
             Item[] setResult = new Item[count + 1];
             Item element = new Item(default, default);
@@ -59,14 +61,37 @@ namespace DAMLib
             _item = setResult;
         }
 
+        //Funcion que elimina el Item que ocupa la posicion del indice indicado en parametros.
         public void RemoveAt(int index)
         {
-            _item[0].Key = default;
-            _item[0].Value = default;
+            if (index < 0 || index > _item.Length) 
+                return;
+
+            if (index == -1)
+                return;
+
+            int count = _item.Length;
+            Item[] arrayResult = new Item[count - 1];
+
+            for (int i = 0; i < index; i++)
+            {
+                arrayResult[i] = _item[i];
+            }
+
+            for (int i = index; i < count - 2; i++)
+            {
+                arrayResult[i] = _item[i + 1];
+            }
+
+            _item = arrayResult;
         }
 
+        // Funcion que devuelve el indice que ocupa el elemento de value V.
         public int IndexOf(V value)
         {
+            if (value == null)
+                return 0;
+
             for (int i = 0; i < _item.Length; i++)
             {
                 if (_item[i].Value.Equals(value))
@@ -75,6 +100,7 @@ namespace DAMLib
             return -1;
         }
 
+        // Funcion que devuelve el elemento que contiene la key indicada.
         public V GetElementAt(K key)
         {
             for (int i = 0; i < _item.Length; i++)
@@ -85,7 +111,7 @@ namespace DAMLib
             return default(V);
         }
 
-        public bool Contains(string element)
+        public bool ContainsKey(K key)
         {
             return false;
         }
@@ -95,24 +121,9 @@ namespace DAMLib
             return false;
         }
 
-        public override int GetHashCode()
+        public DictionaryCollection<K, V> Filter(DelegateFilterKeyValue del)
         {
-            return 0;
-        }
-
-        public override string ToString()
-        {
-            string result = "";
-            foreach (Item i in _item)
-            {
-                result += $"La key {i.Key}, contiene el value {i.Value}\n";
-            }
-            return result;
-        }
-
-        public DictionaryPersonal<K, V> Filter(DelegateFilterKeyValue del)
-        {
-            DictionaryPersonal<K, V> dictionaryResult = new DictionaryPersonal<K, V>();
+            DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
 
             for (int i = 0; i < _item.Length; i++)
             {
@@ -126,9 +137,9 @@ namespace DAMLib
             return dictionaryResult;
         }
 
-        public DictionaryPersonal<K, V> Filter(DelegateFilterKey del)
+        public DictionaryCollection<K, V> Filter(DelegateFilterKey del)
         {
-            DictionaryPersonal<K, V> dictionaryResult = new DictionaryPersonal<K, V>();
+            DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
 
             for (int i = 0; i < _item.Length; i++)
             {
@@ -141,9 +152,9 @@ namespace DAMLib
 
             return dictionaryResult;
         }
-        public DictionaryPersonal<K, V> Filter(DelegateFilterWithoutParameters del)
+        public DictionaryCollection<K, V> Filter(DelegateFilterWithoutParameters del)
         {
-            DictionaryPersonal<K, V> dictionaryResult = new DictionaryPersonal<K, V>();
+            DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
 
             for (int i = 0; i < _item.Length; i++)
             {
@@ -151,6 +162,29 @@ namespace DAMLib
             }
 
             return dictionaryResult;
+        }
+
+
+        public void Clear()
+        {
+            _item = Array.Empty<Item>();
+        }
+
+
+        public override int GetHashCode()
+        {
+            return 133 * 533 * 224 * _item.GetHashCode();
+        }
+
+
+        public override string ToString()
+        {
+            string result = "";
+            foreach (Item i in _item)
+            {
+                result += $"La key {i.Key}, contiene el value {i.Value}\n";
+            }
+            return result;
         }
     }
 }
