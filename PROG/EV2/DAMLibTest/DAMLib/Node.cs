@@ -80,6 +80,7 @@
         public void Detach()
         {
             this.Parent._children = null;
+            //RemoveChill()
             this._parent = null;
         }
 
