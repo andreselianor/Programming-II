@@ -4,9 +4,9 @@ namespace DAMLib
 {
     public class ItemSet<T>
     {
-        public Item[] _itemset;
+        private Item[] _itemset;
 
-        public class Item
+        private class Item
         {
             public T element;
             public int hash;
@@ -20,22 +20,26 @@ namespace DAMLib
                 this.element = element;
                 this.hash = hash;
             }
-
-            public T Element => element;
-            public int Hash => hash;
-
-            public override int GetHashCode()
-            {
-                //return 133 * 533 * base.GetHashCode();
-                return 10;
-            }
-
         }
+
+        public int Count
+        {
+            get
+            {
+                if (_itemset == null)
+                    return 0;
+                return _itemset.Length;
+            }
+        }
+
+        public bool IsEmpty => _itemset.Length == 0;
+
 
         public ItemSet()
         {
             _itemset = Array.Empty<Item>();
         }
+
 
         public void Add(T element)
         {
@@ -107,7 +111,7 @@ namespace DAMLib
             for (int i = 0; i < _itemset.Length; i++)
             {
                 Item item = _itemset[i];
-                if (hash == item.Hash && item.Element.Equals(element))
+                if (hash == item.hash && item.element.Equals(element))
                 {
                     return i;
                 }
@@ -115,21 +119,14 @@ namespace DAMLib
             return -1;
         }
 
-        public int Count
+        public void Clear()
         {
-            get
-            {
-                if (_itemset == null)
-                    return 0;
-                return _itemset.Length;
-            }
+            _itemset = new Item[0];
         }
-
-        public bool IsEmpty => _itemset.Length == 0;
 
         public override int GetHashCode()
         {
-            return 10;
+            return 133 * 533 * 224 * _itemset.GetHashCode();
         }
     }
 }

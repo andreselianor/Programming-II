@@ -7,25 +7,19 @@
         public T item;
 
 
-
+        public bool IsRoot => _parent == null;
+        public bool IsLeaf => _children.Count == 0;
+        public bool IsEmpty => item == null;
+        public int Level => GetLevel();
+        public Node<T> Root => GetRoot();
         public Node<T> Parent
         {
             get
             {
-                return _parent;
-            }
-            set
-            {
-                Node<T> parent = value;
-                SetParent(parent);
-                _parent.AddChildren(this);
+                return _parent == null ? this : _parent;
             }
         }
-        public bool IsRoot => _parent == null;
-        public bool IsLeaf => _children == null;
-        public bool IsEmpty => item == null;        
-        public int Level => GetLevel();
-        public Node<T> Root => GetRoot();
+
         public int ChildCount
         {
             get
@@ -34,25 +28,27 @@
             }
         }
 
-
-
         public Node()
         {
 
         }
 
+        public Node(Node<T> parent)
+        {
+            _parent = parent;
+        }
+
+        public Node(Node<T> parent, T content)
+        {
+            _parent = parent;
+            item = content;
+        }
+
+        // Falla al asignar children que aun no existen
         public Node(Node<T> parent, List<Node<T>> children)
         {
             _parent = parent;
             _children = children;
-        }
-
-
-        private void SetParent(Node<T> parent)
-        {
-            if (parent == null)
-                return;
-            this._parent = parent;
         }
 
         public int GetLevel()
@@ -69,7 +65,8 @@
             return _parent.GetRoot();
         }
 
-        public Node<T> GetChildren(int index)
+
+        public Node<T> GetChildrenWithIndex(int index)
         {
             if (index < 0 || index > _children.Count)
                 return null;
@@ -77,19 +74,70 @@
             return _children[index];
         }
 
-        public void Detach()
+        public int IndexOf(Node<T> node)
         {
-            this.Parent._children = null;
-            //RemoveChill()
-            this._parent = null;
+            if (node == null || _children == null)
+                return -1;
+
+            for(int i = 0; i < _children.Count; i++)
+            {
+                if (_children[i].Equals(node))
+                    return i;
+            }
+            return -1;
         }
+
+        public void RemoveChildAt(int index)
+        {
+            if (index < 0 || index >= _children.Count)
+                return;
+
+            _children[index]._parent = null;
+            _children.RemoveAt(index);
+        }
+
+        public void Unlink(Node<T> node)
+        {
+            if (node == null)
+                return;            
+
+            //Pregunta
+            Node<T> nodeParent = node._parent;
+            int index = nodeParent.IndexOf(node);
+            nodeParent.RemoveChildAt(index);
+
+            node._parent = null;
+        }
+
 
         public void AddChildren(Node<T> child)
         {
-            if (this._children == null)
-                this._children = new List<Node<T>>();
+            if (child == this._parent)
+                return;
+            if (ContainsChild(child))
+                return;
+            if (child == this)
+                return;
+            if (_children == null)
+                _children = new List<Node<T>>();
+
+            Unlink(child);
+
             this._children.Add(child);
-            child._parent = this;
+            child.SetParent(this);
+        }
+
+
+        private void SetParent(Node<T> parent)
+        {
+            if (parent == this)
+                return;
+            if (parent == null)
+                return;
+            if (this._parent == parent)
+                return;
+
+            this._parent = parent;
         }
 
 
@@ -98,24 +146,26 @@
             if (listNodes == null)
                 return;
 
-            for(int i = 0; i < listNodes.Count; i++)
+            for (int i = 0; i < listNodes.Count; i++)
             {
                 this.AddChildren(listNodes[i]);
             }
         }
 
+        public bool ContainsChild(Node<T> child)
+        {
+            return IndexOf(child) >= 0;
+        }
         
         public override string ToString()
         {
             string result = "";
 
-            T itemRoot = GetRoot().item;
-            string root = "" + itemRoot;
+            T content = item;
 
-            result += $"El nodo que contiene {itemRoot} es el nodo Root del Arbol";
+            result = $"El contenido del nodo es: {content}";
 
             return result;
         }        
     }
 }
-

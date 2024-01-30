@@ -40,11 +40,9 @@ namespace DAMLib
 
         // Funcion que añade una Key y un value. La Key no se puede repetir.
         public void Add(K key, V value)
-        {
-            /*
-            if(_item.Contains(key))
-                return;
-            */
+        {            
+            if(ContainsKey(key))
+                return;            
 
             int count = _item.Length;
             Item[] setResult = new Item[count + 1];
@@ -58,6 +56,7 @@ namespace DAMLib
 
             setResult[count].Key = key;
             setResult[count].Value = value;
+
             _item = setResult;
         }
 
@@ -103,6 +102,9 @@ namespace DAMLib
         // Funcion que devuelve el elemento que contiene la key indicada.
         public V GetElementAt(K key)
         {
+            if (key == null)
+                return default(V);
+
             for (int i = 0; i < _item.Length; i++)
             {
                 if (_item[i].Key.Equals(key))
@@ -111,13 +113,25 @@ namespace DAMLib
             return default(V);
         }
 
+
         public bool ContainsKey(K key)
         {
+            // return IndexOf >= 0;
+            if (key == null)
+                return false;
+
+            for(int i = 0; i < _item.Length;i++)
+            {
+                if (_item[i].Key.Equals(key))
+                    return true;
+            }
             return false;
         }
 
         public override bool Equals(object? obj)
         {
+            if (this == obj)
+                return true;
             return false;
         }
 
@@ -170,12 +184,10 @@ namespace DAMLib
             _item = Array.Empty<Item>();
         }
 
-
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _item.GetHashCode();
         }
-
 
         public override string ToString()
         {

@@ -2,9 +2,9 @@
 {
     public class OrderedSet<T>
     {
-        public Item[] _orderedSet;
+        private Item[] _orderedSet;
 
-        public class Item
+        private class Item
         {
             public T element;
             public int hash;
@@ -18,17 +18,20 @@
                 this.element = element;
                 this.hash = hash;
             }
-
-            public T Element => element;
-            public int Hash => hash;
-
-            public override int GetHashCode()
-            {
-                //return 133 * 533 * base.GetHashCode();
-                return 10;
-            }
-
         }
+
+
+        public int Count
+        {
+            get
+            {
+                if (_orderedSet == null)
+                    return 0;
+                return _orderedSet.Length;
+            }
+        }
+        public bool IsEmpty => _orderedSet.Length == 0;
+
 
         public OrderedSet()
         {
@@ -101,7 +104,7 @@
             {
                 for (int j = i + 1; j < count; j++)
                 {
-                    if (_orderedSet[i].Hash > _orderedSet[j].Hash)
+                    if (_orderedSet[i].hash > _orderedSet[j].hash)
                     {
                         aux = _orderedSet[i];
                         _orderedSet[i] = _orderedSet[j];
@@ -125,8 +128,8 @@
             {
                 int searchIndex = superiorIndex / inferiorIndex;
 
-                if (element.Equals(_orderedSet[searchIndex].Element))
-                    return _orderedSet[searchIndex].Element;
+                if (element.Equals(_orderedSet[searchIndex].element))
+                    return _orderedSet[searchIndex].element;
 
                 if(hash > searchIndex)
                 {
@@ -156,7 +159,7 @@
             for (int i = 0; i < _orderedSet.Length; i++)
             {
                 Item item = _orderedSet[i];
-                if (hash == item.Hash && item.Element.Equals(element))
+                if (hash == item.hash && item.element.Equals(element))
                 {
                     return i;
                 }
@@ -164,21 +167,14 @@
             return -1;
         }
 
-        public int Count
+        public void Clear()
         {
-            get
-            {
-                if (_orderedSet == null)
-                    return 0;
-                return _orderedSet.Length;
-            }
+            _orderedSet = new Item[0];
         }
-
-        public bool IsEmpty => _orderedSet.Length == 0;
 
         public override int GetHashCode()
         {
-            return 10;
+            return 133 * 533 * 224 * _orderedSet.GetHashCode();
         }
     }
 }
