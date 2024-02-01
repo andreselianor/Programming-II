@@ -5,14 +5,14 @@
     public class Node<T>
     {
         private Node<T> _parent;
-        private List<Node<T>> _children;
+        private List<Node<T>> _children *****;
         public T item;
 
 
         public bool IsRoot => _parent == null;
         public bool IsLeaf => _children.Count == 0;
         public bool IsEmpty => item == null;
-        public bool HasSiblings => _parent._children.Count > 0;
+        public bool HasSiblings => _parent._children.Count > 0 *****;
         public int Level => GetLevel();
         public Node<T> Root => GetRoot();
         public Node<T> Parent
@@ -39,12 +39,14 @@
         public Node(Node<T> parent)
         {
             _parent = parent;
+            *****
         }
 
         public Node(Node<T> parent, T content)
         {
             _parent = parent;
             item = content;
+            ****
         }
 
         // Falla al asignar children que aun no existen
@@ -52,6 +54,7 @@
         {
             _parent = parent;
             _children = children;
+            ********
         }
 
         public int GetLevel()
@@ -84,7 +87,8 @@
 
             for(int i = 0; i < _children.Count; i++)
             {
-                if (_children[i].Equals(node))
+                *****
+                if (_children[i] == node)
                     return i;
             }
             return -1;
@@ -99,7 +103,7 @@
             _children.RemoveAt(index);
         }
 
-        public void Unlink(Node<T> node)
+        public void Unlink()
         {
             if (node == null)
                 return;            
@@ -115,6 +119,8 @@
 
         public void AddChildren(Node<T> child)
         {
+            if (child == null)
+                return;
             if (child == this)
                 return;
             if (child == this._parent)
@@ -125,10 +131,10 @@
             if (_children == null)
                 _children = new List<Node<T>>();
 
-            Unlink(child);
+            child.Unlink();
 
             this._children.Add(child);
-            child.SetParent(this);
+            child._parent = this;
         }
 
 
@@ -164,11 +170,9 @@
         public List<Node<T>> Filter(DelegateFilter del)
         {
             List<Node<T>> listResult = new List<Node<T>>();
-            int number = 0;
-
             for(int i = 0; i < _children.Count; i++)
             {
-                if(del(number))
+                if(del(_children[i].Item))
                     listResult.Add(_children[i]);
             }
             return listResult;
