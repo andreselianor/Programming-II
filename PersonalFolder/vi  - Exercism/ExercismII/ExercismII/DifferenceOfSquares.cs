@@ -1,9 +1,5 @@
 ﻿namespace ExercismII
 {
-    public delegate int DelegateSquareSum(int number);
-    public delegate int DelegateSumSquares(int number);
-    public delegate int DelegateSquareMinusSum(int number);
-
     public static class DifferenceOfSquares
     {
         public static int CalculateSquareOfSum(int max)

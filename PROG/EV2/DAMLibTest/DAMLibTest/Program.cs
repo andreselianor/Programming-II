@@ -38,17 +38,14 @@ namespace DAMLibTest
             node2.AddChildren(node3);
             node3.AddChildren(node4);
 
-            bool result1 = node1.IsRoot;
-            bool result2 = node2.IsRoot;
-            bool result3 = node2.IsLeaf;
+            int result1 = node1.IndexOf(node5);
+            int result2 = node1.IndexOf(node2);
+            int result3 = node1.IndexOf(node3);
 
-            nodetest = node4.GetRoot();
-            int number = node4.GetLevel();
-            int number2 = node1.IndexOf(node2);
-            int number22 = node2.IndexOf(node3);
-            int number3 = node3.IndexOf(node4);
-            int number33 = node3.IndexOf(node5);
-            int number35 = node1.IndexOf(node5);
+            node1.RemoveChildAt(result1);
+            int number2 = node1.ChildCount;
+            node1.RemoveChildAt(0);
+            int number3 = node1.ChildCount;
         }
     }
 }

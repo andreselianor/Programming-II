@@ -1,5 +1,7 @@
 ﻿namespace DAMLib
 {
+    public delegate bool DelegateFilter(int number);
+
     public class Node<T>
     {
         private Node<T> _parent;
@@ -10,6 +12,7 @@
         public bool IsRoot => _parent == null;
         public bool IsLeaf => _children.Count == 0;
         public bool IsEmpty => item == null;
+        public bool HasSiblings => _parent._children.Count > 0;
         public int Level => GetLevel();
         public Node<T> Root => GetRoot();
         public Node<T> Parent
@@ -112,12 +115,13 @@
 
         public void AddChildren(Node<T> child)
         {
+            if (child == this)
+                return;
             if (child == this._parent)
                 return;
             if (ContainsChild(child))
                 return;
-            if (child == this)
-                return;
+            
             if (_children == null)
                 _children = new List<Node<T>>();
 
@@ -156,7 +160,25 @@
         {
             return IndexOf(child) >= 0;
         }
+
+        public List<Node<T>> Filter(DelegateFilter del)
+        {
+            List<Node<T>> listResult = new List<Node<T>>();
+            int number = 0;
+
+            for(int i = 0; i < _children.Count; i++)
+            {
+                if(del(number))
+                    listResult.Add(_children[i]);
+            }
+            return listResult;
+        }
         
+        public bool IsSameLevel(Node<T> node)
+        {
+            return this.Level == node.Level;
+        }
+
         public override string ToString()
         {
             string result = "";

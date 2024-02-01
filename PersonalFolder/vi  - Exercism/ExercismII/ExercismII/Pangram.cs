@@ -7,22 +7,22 @@
             if (input == null)
                 return false;
 
-            List<int> listResult = new List<int>();
+            string text = input.ToLower();
+            List<int> listLetters = new List<int>();
 
             for (int i = 97; i < 123; i++)
-                listResult.Add(i);
+                listLetters.Add(i);
 
             for (int i = 0; i < input.Length; i++)
-            {
-                string text = input.ToLower();
-                int charRemove = (int)text[i];
-                int index = GetIndexWithLetter(charRemove, listResult);
+            {                
+                int letterCast = (int)text[i];
+                int index = GetIndexWithLetter(letterCast, listLetters);
 
                 if (index != -1)
-                    listResult.RemoveAt(index);
+                    listLetters.RemoveAt(index);
             }
 
-            return listResult.Count == 0 ? true : false;
+            return listLetters.Count == 0 ? true : false;
         }
 
         public static int GetIndexWithLetter(int letter, List<int> list)
