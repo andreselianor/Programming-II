@@ -20,17 +20,32 @@ namespace ChessWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int[,] board;
         public MainWindow()
         {
             InitializeComponent();
+            CreateBoard();
+
             PaintChess();
+            SetRectangle();
         }
 
+        public void CreateBoard()
+        {
+            board = new int[9, 9];
+        }
+
+        public void SetRectangle()
+        {
+            Grid.SetColumn(prototype,3);
+            Grid.SetRow(prototype, 5);
+        }
+        
         public void PaintChess()
         {
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-            mySolidColorBrush.Color = Color.FromArgb(255, 255, 255, 0);
-            Rect.Fill = mySolidColorBrush;
-        }
+            mySolidColorBrush.Color = Color.FromArgb(255,200, 180, 200);
+            prototype.Fill = mySolidColorBrush;
+        }        
     }
 }

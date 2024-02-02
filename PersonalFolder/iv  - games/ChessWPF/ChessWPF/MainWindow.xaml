@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ChessWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="500">
-    <Grid>
+    <Grid Name="root">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
@@ -33,6 +33,7 @@
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <!--
         <Rectangle x:Name="Rect"
                    Grid.Column="4"
                    Grid.Row="4"></Rectangle>
@@ -69,8 +70,8 @@
                    Grid.Row="8"
                    Fill="Black" />
 
-
-
+          -->
+        <Rectangle x:Name="prototype"></Rectangle>
 
     </Grid>
 </Window>
