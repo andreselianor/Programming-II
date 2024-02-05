@@ -52,16 +52,22 @@ namespace DAMLib
         // Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
         public bool Contains(T element)
         {
+            return IndexOf(element) >= 0;
+        }
+
+        // Funcion que devuelve el índice del elemento que le paso por parametros.
+        public int IndexOf(T element)
+        {
             if (element == null)
-                return false;
+                return -1;
 
             for (int i = 0; i < _set.Length; i++)
             {
                 if (_set[i].Equals(element))
-                    return true;
+                    return i;
             }
 
-            return false;
+            return -1;
         }
 
         // Funcion que elimina el elemento que le pasamos por parametros.
@@ -102,20 +108,6 @@ namespace DAMLib
             _set = arrayResult;
         }
 
-        // Funcion que devuelve el índice del elemento que le paso por parametros.
-        public int IndexOf(T element)
-        {
-            if (element == null)
-                return -1;
-
-            for (int i = 0; i < _set.Length; i++)
-            {
-                if (_set[i].Equals(element))
-                    return i;
-            }
-
-            return -1;
-        }
 
         public void Clear()
         {
@@ -153,8 +145,8 @@ namespace DAMLib
 
             foreach (T element in _set)
             {
-                count++;
                 result += $"El elemento numero {count} de la coleccion es: {element}.\n";
+                count++;
             }
 
             return result;

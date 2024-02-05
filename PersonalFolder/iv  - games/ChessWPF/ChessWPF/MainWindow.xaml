@@ -71,7 +71,7 @@
                    Fill="Black" />
 
           -->
-        <Rectangle x:Name="prototype"></Rectangle>
-
+        <Rectangle x:Name="cell"></Rectangle>
     </Grid>
+
 </Window>

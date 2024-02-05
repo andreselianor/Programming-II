@@ -8,7 +8,6 @@ public static class SumOfMultiples
         int count = 2;
         int totalSum;
 
-        //TODO Hacen falta tantas listas distintas?
         List<int> listMultiple = new List<int>();
         List<int> listSort = new List<int>();
         List<int> listWODuplicates = new List<int>();

@@ -45,7 +45,7 @@
             _stackArray = stackResult;
         }
 
-        // Funcion que extrae un elemento generico del Stack
+        // Funcion que extrae un elemento generico del Stack.
         public T? Pop()
         {
             int count = _stackArray.Length;
@@ -87,9 +87,9 @@
             int count = 0;
 
             foreach (T element in _stackArray)
-            {
-                count++;
+            {                
                 result += $"El elemento {count} del Stack es: {element}\n";
+                count++;
             }
 
             return result;

@@ -113,7 +113,7 @@ namespace DAMLib
             return default(V);
         }
 
-
+        // Funcion que evalua si el diccionario contiene una Key determinada.
         public bool ContainsKey(K key)
         {
             // return IndexOf >= 0;
@@ -128,13 +128,13 @@ namespace DAMLib
             return false;
         }
 
+        // Funcion que devuelve si dos objetos son iguales.
         public override bool Equals(object? obj)
         {
-            if (this == obj)
-                return true;
-            return false;
+            return (this == obj);
         }
 
+        // Funcion delegada Filter que devuelve un diccionario.
         public DictionaryCollection<K, V> Filter(DelegateFilterKeyValue del)
         {
             DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
@@ -178,12 +178,13 @@ namespace DAMLib
             return dictionaryResult;
         }
 
-
+        // Funcion que elimina todo el contenido de un diccionario.
         public void Clear()
         {
             _item = Array.Empty<Item>();
         }
 
+        // Funcion que devuelve el codigo Hash de un elemento.
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _item.GetHashCode();

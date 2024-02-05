@@ -37,7 +37,5 @@
             double runnerDistance = _velocity * Utils.GetRandom();
             _position += runnerDistance;
         }
-
-
     }
 }

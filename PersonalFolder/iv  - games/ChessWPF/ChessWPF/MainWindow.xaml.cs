@@ -37,15 +37,33 @@ namespace ChessWPF
 
         public void SetRectangle()
         {
-            Grid.SetColumn(prototype,3);
-            Grid.SetRow(prototype, 5);
+            //Grid.SetColumn(prototype,3);
+            //Grid.SetRow(prototype, 5);
         }
         
         public void PaintChess()
         {
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush.Color = Color.FromArgb(255,200, 180, 200);
-            prototype.Fill = mySolidColorBrush;
-        }        
+
+            Rectangle r1 = new Rectangle();
+            r1.Fill = mySolidColorBrush;
+            cell.Fill = mySolidColorBrush;
+            Grid grid = new Grid();
+
+            for(int i = 1; i < 9;i++)
+            {
+                if (i % 2 == 0)
+                {
+                    PaintCell(i, 1);
+                }
+            }
+        } 
+        
+        public void PaintCell(int column, int row)
+        {
+            Grid.SetColumn(cell, column);
+            Grid.SetColumn(cell, row);
+        }
     }
 }

@@ -146,7 +146,7 @@ namespace DAMLib
             return false;
         }
 
-
+        // Funcion que sobreescribe la funcion que devuelve el codigo hash de un objeto.
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _set.GetHashCode();

@@ -18,7 +18,6 @@
 
             Runner winner = new Runner();
             winner = raceFirst.GetWinner();
-
         }
     }
 }

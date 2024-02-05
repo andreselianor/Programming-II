@@ -21,7 +21,6 @@
         }
 
 
-
         public Queue()
         {
             _queue = new T[0];
@@ -72,9 +71,9 @@
             int count = 0;
 
             foreach(T element in _queue)
-            {
+            {                
+                result += $"El elemento {count} de la Queue es: {element}\n";
                 count++;
-                result += $"El elemento {count} de la Queue es: {element}\n";                
             }
 
             return result;

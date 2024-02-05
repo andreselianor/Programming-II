@@ -40,15 +40,13 @@ namespace DAMLib
             _itemset = Array.Empty<Item>();
         }
 
-
+        // Funcion publica que añade un elemento al Set.
         public void Add(T element)
         {
             if (element == null)
                 return;
 
-            bool IsElementInSet = Contains(element);
-
-            if (IsElementInSet)
+            if (Contains(element))
                 return;
             else
                 AddElement(element);
@@ -74,6 +72,7 @@ namespace DAMLib
             _itemset = newItemArray;
         }
 
+        // Funcion que elimina un elemento del Set.
         public void RemoveAt(int index)
         {
             if (index < 0 || index >= _itemset.Length)
@@ -96,11 +95,13 @@ namespace DAMLib
             _itemset = newItemArray;
         }
 
+        // Funcion que comprueba si contiene un elemento.
         public bool Contains(T element)
         {
             return IndexOf(element) >= 0;
         }
 
+        // Funcion que devuelve el indice de un elemento del Set.
         public int IndexOf(T element)
         {
             if (element == null)
@@ -119,14 +120,29 @@ namespace DAMLib
             return -1;
         }
 
+        // Funcionn que elimina todo el contenido de la coleccion.
         public void Clear()
         {
             _itemset = new Item[0];
         }
 
+        // Funcion que devuelve el codigo hash de un elemento.
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _itemset.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            string result = "";
+            int count = 0;
+
+            foreach (Item item in _itemset)
+            {
+                result = $"El elemento numero {count} del Set es {item.element}";
+                count++;
+            }
+            return result;
         }
     }
 }
