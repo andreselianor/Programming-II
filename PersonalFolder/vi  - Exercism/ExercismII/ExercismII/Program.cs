@@ -4,9 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int result = DifferenceOfSquares.CalculateDifferenceOfSquares(10);
-            int result2 = DifferenceOfSquares.CalculateDifferenceOfSquares(50);
-            int result3 = DifferenceOfSquares.CalculateDifferenceOfSquares(80);
+            DateTime result = BookingBeauty.Schedule("7/25/2019 13:45:00");
         }        
     }
 }

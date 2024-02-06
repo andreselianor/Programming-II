@@ -26,8 +26,7 @@ namespace ChessWPF
             InitializeComponent();
             CreateBoard();
 
-            PaintChess();
-            SetRectangle();
+            PaintBoard();
         }
 
         public void CreateBoard()
@@ -35,35 +34,37 @@ namespace ChessWPF
             board = new int[9, 9];
         }
 
-        public void SetRectangle()
+        public void PaintBoard()
         {
-            //Grid.SetColumn(prototype,3);
-            //Grid.SetRow(prototype, 5);
-        }
-        
-        public void PaintChess()
-        {
-            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-            mySolidColorBrush.Color = Color.FromArgb(255,200, 180, 200);
+            SolidColorBrush checkerColor = new SolidColorBrush();
+            checkerColor.Color = Color.FromArgb(255, 200, 180, 200);
 
-            Rectangle r1 = new Rectangle();
-            r1.Fill = mySolidColorBrush;
-            cell.Fill = mySolidColorBrush;
-            Grid grid = new Grid();
-
-            for(int i = 1; i < 9;i++)
+            for (int i = 1; i < 9; i++)
             {
-                if (i % 2 == 0)
+                for (int j = 1; j < 9; j +=2 )
                 {
-                    PaintCell(i, 1);
+                    if (i % 2 == 0)
+                    {
+                        Rectangle r1 = new Rectangle();
+                        r1.Fill = checkerColor;
+
+                        Grid.SetRow(r1, i);
+                        Grid.SetColumn(r1, j);
+
+                        gridBoard.Children.Add(r1);
+                    }
+                    else
+                    {                        
+                        Rectangle r1 = new Rectangle();
+                        r1.Fill = checkerColor;
+
+                        Grid.SetRow(r1, i);
+                        Grid.SetColumn(r1, j + 1);
+
+                        gridBoard.Children.Add(r1);                                              
+                    }
                 }
             }
-        } 
-        
-        public void PaintCell(int column, int row)
-        {
-            Grid.SetColumn(cell, column);
-            Grid.SetColumn(cell, row);
         }
     }
 }
