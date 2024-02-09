@@ -55,8 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GlamourCar.cs" />
+    <Compile Include="PierreCar.cs" />
     <Compile Include="Race.cs" />
     <Compile Include="RaceObject.cs" />
+    <Compile Include="TroglodyteCar.cs" />
+    <Compile Include="WoodCar.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

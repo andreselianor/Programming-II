@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessWPF.resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,13 @@ namespace ChessWPF
             InitializeComponent();
             CreateBoard();
 
-            PaintBoard();
+            //PaintBoard();
+        }
+
+        public void CreatePieces()
+        {
+            Pawn pawn1 = new Pawn(1,6);
+
         }
 
         public void CreateBoard()
@@ -65,6 +72,18 @@ namespace ChessWPF
                     }
                 }
             }
+        }
+
+        public void PaintAvailableMovements()
+        {
+            SolidColorBrush availableMovements = new SolidColorBrush();
+            availableMovements.Color = Color.FromArgb(255, 200, 230, 200);
+
+        }
+
+        private void WhitePawnA_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            PaintAvailableMovements();
         }
     }
 }

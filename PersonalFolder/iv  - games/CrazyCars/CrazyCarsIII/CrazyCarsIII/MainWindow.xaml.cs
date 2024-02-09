@@ -20,58 +20,86 @@ namespace CrazyCarsIII
     /// </summary>
     public partial class MainWindow : Window
     {
-        private double _distance = 0.0;
+        private double _distance = 500.0;
+
+        GlamourCar carGlamour = new GlamourCar();
+        PierreCar carPierre = new PierreCar();
+        TroglodyteCar carTroglodyte = new TroglodyteCar();
+        WoodCar carWood = new WoodCar();
+
+
         public MainWindow()
         {
             InitializeComponent();
 
             IRace game = new Race();
-            game.StartRace(100);
+            game.StartRace(_distance);           
 
 
-            PaintRace();
-            
-            
+            PaintVisuals();
+            PaintCars();            
         }
 
-        public void PaintRace()
+
+        public void PaintVisuals()
         {
-            RaceLength.X1 = 0;
-            RaceLength.X2 = 400;
+            // Codigo para pintar la linea de la carrera
+            /*
+            AlternativeRaceLength.X1 = 0;
+            AlternativeRaceLength.X2 = _distance;
 
-            RaceLength.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumn(RaceLength, 2);
-            Grid.SetRow(RaceLength, 1);
-            Grid.SetRowSpan(RaceLength, 2);
-            RaceLength.StrokeThickness = 10;
+            AlternativeRaceLength.VerticalAlignment = VerticalAlignment.Center;
+            AlternativeRaceLength.StrokeThickness = 5;           
 
-            SolidColorBrush raceLine = new SolidColorBrush();
-            raceLine.Color = Color.FromArgb(255, 0, 0, 0);
-            RaceLength.Stroke = raceLine;
-
-            Car1.Width = 40.0;
-            Car1.Height = 40.0;
-
-            //Canvas canvas = new Canvas();
-            //canvas1.Width = 100;
-            //canvas1.Height = 100;
-            Grid.SetColumn(canvas1, 2);
-            Grid.SetRow(canvas1, 1);
-            Grid.SetRowSpan(canvas1, 2);
-            Canvas.SetLeft(Car1, _distance);
-            Canvas.SetBottom(Car1,100);
-            //Car1.VerticalAlignment = VerticalAlignment.Center;
-
-
-            SolidColorBrush car1Map = new SolidColorBrush();
-            car1Map.Color = Color.FromArgb(255, 255, 255, 0);
-            Car1.Fill = car1Map;
+            SolidColorBrush LineBrush = new SolidColorBrush();
+            LineBrush.Color = Color.FromArgb(255, 0, 0, 0);
+            AlternativeRaceLength.Stroke = LineBrush;
+            */
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void PaintCars()
         {
-            _distance += 10;
-            PaintRace();
+            PaintGlamourCar();
+            PaintPierreCar();
+            PaintTroglodyteCar();
+            PaintWoodCar();
+        }
+
+        public void PaintGlamourCar()
+        {
+            //GlamourCarVisual.Width = 30.0;
+            //GlamourCarVisual.Height = 30.0;          
+            
+            Canvas.SetLeft(GlamourCarVisual, carGlamour.Position);
+            //Canvas.SetBottom(GlamourCarVisual, canvas1.Height);
+
+            //SolidColorBrush car1Brush = new SolidColorBrush();
+            //car1Brush.Color = Color.FromArgb(255, 255, 255, 0);
+            //GlamourCarVisual.Fill = car1Brush;
+        }
+
+        public void PaintPierreCar()
+        {
+            Canvas.SetLeft(PierreCarVisual, carPierre.Position);
+        }
+
+        public void PaintTroglodyteCar()
+        {
+            Canvas.SetLeft(TroglodyteCarVisual, carTroglodyte.Position);
+        }
+
+        public void PaintWoodCar()
+        {
+            Canvas.SetLeft(WoodCarVisual, carWood.Position);
+        }
+
+        private void AdvanceClick(object sender, RoutedEventArgs e)
+        {
+            carGlamour.Simulate();
+            carPierre.Simulate();
+            carTroglodyte.Simulate();
+            carWood.Simulate();
+            PaintCars();
         }
     }
 }

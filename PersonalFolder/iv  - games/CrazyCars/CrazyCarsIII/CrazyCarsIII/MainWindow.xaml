@@ -21,22 +21,77 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Line x:Name="RaceLength"></Line>
+
+        <Line x:Name="RaceLength"
+              Grid.Row="2"
+              Grid.Column="2"
+              Stroke="Black"
+              StrokeThickness="3"
+              X1="0"
+              X2="500"
+              VerticalAlignment="Center"></Line>
+
+        <Line x:Name="AlternativeRaceLength"
+              Grid.Column="2"
+              Grid.Row="2"></Line>
 
         <Canvas x:Name="canvas1"
                 Grid.Column="2"
-                Grid.Row="1">
-            <Ellipse x:Name="Car1"></Ellipse>
+                Grid.Row="2">
+            <Ellipse x:Name="GlamourCarVisual"
+                     Width="30"
+                     Height="30"
+                     Fill="Yellow"
+                     Stroke="Black"
+                     Opacity="0.5"
+                     HorizontalAlignment="Center"
+                     Canvas.Top="28"
+                     VerticalAlignment="Top">                
+            </Ellipse>
+
+            <Ellipse x:Name="PierreCarVisual"
+                     Width="30"
+                     Height="30"
+                     Fill="Orange"
+                     Stroke="Black"
+                     Opacity="0.5"
+                     HorizontalAlignment="Center"
+                     Canvas.Top="28"
+                     VerticalAlignment="Top">
+            </Ellipse>
+
+            <Ellipse x:Name="TroglodyteCarVisual"
+                     Width="30"
+                     Height="30"
+                     Fill="Green"
+                     Stroke="Black"
+                     Opacity="0.5"
+                     HorizontalAlignment="Center"
+                     Canvas.Top="28"
+                     VerticalAlignment="Top">
+            </Ellipse>
+
+            <Ellipse x:Name="WoodCarVisual"
+                     Width="30"
+                     Height="30"
+                     Fill="Brown"
+                     Stroke="Black"
+                     Opacity="0.5"
+                     HorizontalAlignment="Center"
+                     Canvas.Top="28"
+                     VerticalAlignment="Top">
+            </Ellipse>
         </Canvas>
         <Button x:Name="Boton"
                 Grid.Column="4"
-                Content="Avance"
+                Content="Play"
                 HorizontalAlignment="Center"
                 Margin="0,10,0,0"
                 Grid.Row="3"
                 VerticalAlignment="Top"
                 Width="45"
-                Click="Button_Click" />
+                Click="AdvanceClick" />
     </Grid>
 </Window>
