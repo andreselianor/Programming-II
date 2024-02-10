@@ -131,6 +131,7 @@
                Grid.Column="7"></Label>
         <!--#endregion-->
         <!--#region Pawns-->
+        <!--
         <Image x:Name="RedPawnA"
                Source="resources/redPawn.png"
                Grid.Column="1"
@@ -197,6 +198,7 @@
                Source="resources/whitePawn.png"
                Grid.Column="8"
                Grid.Row="7"></Image>
+        -->
         <!--#endregion-->
     </Grid>
 </Window>

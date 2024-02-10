@@ -5,8 +5,8 @@ namespace ChessWPF.resources
 {
     public class Pawn
     {
-        private int _xPosition;
-        private int _yPosition;
+        public int _xPosition;
+        public int _yPosition;
 
         public Pawn(int xPosition, int yPosition)
         {

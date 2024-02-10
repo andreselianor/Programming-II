@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using static System.Net.Mime.MediaTypeNames;
 
 namespace ChessWPF
 {
@@ -25,20 +26,29 @@ namespace ChessWPF
         public MainWindow()
         {
             InitializeComponent();
+
             CreateBoard();
 
             //PaintBoard();
         }
 
-        public void CreatePieces()
-        {
-            Pawn pawn1 = new Pawn(1,6);
-
-        }
-
         public void CreateBoard()
         {
             board = new int[9, 9];
+            Pawn pawn1 = new Pawn(7, 6);
+
+            PaintPieces(pawn1);            
+        }
+
+        public void PaintPieces(Pawn pieces)
+        {
+            Image pawn1Image = new Image();
+            pawn1Image.Source = new BitmapImage(new Uri("resources/redPawn.png", UriKind.Relative));
+
+            Grid.SetRow(pawn1Image, pieces._xPosition);
+            Grid.SetColumn(pawn1Image, pieces._yPosition);
+
+            gridBoard.Children.Add(pawn1Image);
         }
 
         public void PaintBoard()

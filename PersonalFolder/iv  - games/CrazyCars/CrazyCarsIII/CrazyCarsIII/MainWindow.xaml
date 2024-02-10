@@ -12,8 +12,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"></ColumnDefinition>
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.6*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
             <ColumnDefinition Width="0.3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -24,9 +25,32 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
+
+        <Image Source="resources/pierreCar.png"
+               Grid.Row="0"/>
+        <Image Source="resources/GlamourCar.png"
+               Grid.Row="1" />
+        <Image Source="resources/woodCar.png"
+               Grid.Row="3"/>
+        <Image Source="resources/troglodytesCar.png"
+               Grid.Row="4"/>
+
+
+        <TextBlock x:Name="PierreText"
+                   Grid.Row="0"
+                   Grid.Column="2"
+                   TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock x:Name="GlamourText"
+               Grid.Row="1"
+               Grid.Column="2"
+               TextWrapping="Wrap">            
+        </TextBlock>
+
         <Line x:Name="RaceLength"
               Grid.Row="2"
               Grid.Column="2"
+              Grid.ColumnSpan="3"
               Stroke="Black"
               StrokeThickness="3"
               X1="0"
@@ -84,6 +108,7 @@
                      VerticalAlignment="Top">
             </Ellipse>
         </Canvas>
+
         <Button x:Name="Boton"
                 Grid.Column="4"
                 Content="Play"
@@ -92,6 +117,8 @@
                 Grid.Row="3"
                 VerticalAlignment="Top"
                 Width="45"
-                Click="AdvanceClick" />
+                Click="AdvanceClick">            
+        </Button>
+        
     </Grid>
 </Window>

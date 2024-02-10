@@ -93,6 +93,12 @@ namespace CrazyCarsIII
             Canvas.SetLeft(WoodCarVisual, carWood.Position);
         }
 
+        public void DisplayText()
+        {
+            PierreText.Text = "Pierre avanza maldiciendo en idiomas incomprensibles";
+            GlamourText.Text = "Penelope circula serena y segura por su carril a la velocidad recomendada";
+        }
+
         private void AdvanceClick(object sender, RoutedEventArgs e)
         {
             carGlamour.Simulate();
@@ -100,6 +106,8 @@ namespace CrazyCarsIII
             carTroglodyte.Simulate();
             carWood.Simulate();
             PaintCars();
+            DisplayText();
+            Class
         }
     }
 }
