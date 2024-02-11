@@ -1,5 +1,4 @@
-﻿using ChessWPF.resources;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using static System.Net.Mime.MediaTypeNames;
 
 namespace ChessWPF
 {
@@ -22,16 +20,21 @@ namespace ChessWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public int[,] board;
         public MainWindow()
         {
             InitializeComponent();
 
-            CreateBoard();
-
-            //PaintBoard();
+            Init();            
         }
 
+        public void Init()
+        {
+            Board board = new Board();
+            board.CreateBoard();
+            board.PaintFigures(gridBoard);
+        }
+
+        /*
         public void CreateBoard()
         {
             board = new int[9, 9];
@@ -95,5 +98,6 @@ namespace ChessWPF
         {
             PaintAvailableMovements();
         }
+        */
     }
 }

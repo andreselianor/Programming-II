@@ -6,6 +6,16 @@
         private string _address = "";
         private List<Animal> _listAnimals = new List<Animal>();
 
+        public Stable()
+        {
+
+        }
+        public Stable(string name, string address)
+        {
+            _name = name;
+            _address = address;
+        }
+
         public void AddAnimal(Animal animal)
         {
             if (animal == null)
@@ -76,6 +86,16 @@
                 count++;
             }
             return result;
+        }
+
+        public void DisplayContent()
+        {
+            string result = "";
+            foreach(Animal animal in _listAnimals)
+            {
+                result = animal.ID;
+                Console.WriteLine(result);
+            }
         }
 
         /*

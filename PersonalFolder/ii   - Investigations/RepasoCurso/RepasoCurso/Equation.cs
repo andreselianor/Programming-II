@@ -11,7 +11,8 @@
 
         }
 
-        public Equation(double a, double b, double c)        {
+        public Equation(double a, double b, double c)
+        {
             _a = a;
             _b = b;
             _c = c;

@@ -38,5 +38,7 @@
         {
             _stableReference = newStable;
         }
+
+        
     }
 }

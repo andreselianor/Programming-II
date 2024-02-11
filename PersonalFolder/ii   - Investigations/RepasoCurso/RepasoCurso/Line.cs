@@ -1,13 +1,23 @@
 ﻿namespace RepasoCurso
 {
-
     public class Line
     {
-        //Debuggear privacidad
-        private class Point2D
+        public class Point2D
         {
-            public double _x;
-            public double _y;
+            private double _x;
+            private double _y;
+
+            public double X
+            {
+                get { return _x; }
+                set { _x = value;}
+            }
+
+            public double Y
+            {
+                get { return _y; }
+                set { _y = value; }
+            }
         }
 
         private Point2D _pointA;
@@ -26,8 +36,8 @@
 
         public void MoveLeft(double distance)
         {
-            _pointA._x += distance;
-            _pointB._y += distance;
+            _pointA.X += distance;
+            _pointB.Y += distance;
         }
     }
 }

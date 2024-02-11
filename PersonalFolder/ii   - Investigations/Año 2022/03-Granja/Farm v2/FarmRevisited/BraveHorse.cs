@@ -2,6 +2,7 @@
 {
     public class BraveHorse : Horse
     {
+        private double _champion;
         public BraveHorse()
         {
             _isTerrestrial = true;

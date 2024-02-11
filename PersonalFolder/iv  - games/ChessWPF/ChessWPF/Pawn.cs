@@ -1,24 +1,43 @@
 ﻿using System.Windows.Documents;
 using System.Collections.Generic;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System;
 
-namespace ChessWPF.resources
+namespace ChessWPF
 {
-    public class Pawn
-    {
-        public int _xPosition;
-        public int _yPosition;
-
-        public Pawn(int xPosition, int yPosition)
+    public class Pawn : Figure
+    {       
+        public Pawn(Position position, Color color)
         {
-            _xPosition = xPosition;
-            _yPosition = yPosition;
+            _figureType = FigureType.PAWN;
+            _color = color;
+            _position = position;
         }
 
-        public List<int> PrintAvailableMovements()
+        public override void PaintFigure(Grid grid)
         {
-            List<int> list = new List<int>();
-            list.Add(5);
-            return list;
+            if(_color == Color.WHITE)
+            {
+                Image pawnImage = new Image();
+                pawnImage.Source = new BitmapImage(new Uri("resources/whitePawn.png", UriKind.Relative));
+
+                Grid.SetRow(pawnImage, _position.X);
+                Grid.SetColumn(pawnImage, _position.Y);
+
+                grid.Children.Add(pawnImage);
+            }
+
+            if (_color == Color.RED)
+            {
+                Image pawnImage = new Image();
+                pawnImage.Source = new BitmapImage(new Uri("resources/redPawn.png", UriKind.Relative));
+
+                Grid.SetRow(pawnImage, _position.X);
+                Grid.SetColumn(pawnImage, _position.Y);
+
+                grid.Children.Add(pawnImage);
+            }
         }
     }
 }

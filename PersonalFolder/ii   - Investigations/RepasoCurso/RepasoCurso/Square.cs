@@ -37,6 +37,9 @@
 
         public bool IntersectWithSquare(Square square)
         {
+            if (square == null)
+                return false;
+
             if(_x + _width > square._x && _x < square._x + square._width)
             {
                 return true;
