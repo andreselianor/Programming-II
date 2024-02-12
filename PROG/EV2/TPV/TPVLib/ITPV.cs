@@ -6,5 +6,7 @@
         {
             return new RAMTPV();
         }
+		
+		long AddProduct(Product product);
     }
 }
