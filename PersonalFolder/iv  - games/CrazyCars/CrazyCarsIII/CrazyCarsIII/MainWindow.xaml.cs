@@ -107,7 +107,6 @@ namespace CrazyCarsIII
             carWood.Simulate();
             PaintCars();
             DisplayText();
-            Class
         }
     }
 }

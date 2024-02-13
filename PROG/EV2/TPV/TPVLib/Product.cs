@@ -2,8 +2,13 @@
 {
     public enum IvaType
     {
-
+        GENERAL,
+        REDUCIDO,
+        SUPERREDUCIDO,
+        NINGUNO,
+        DEFAULT
     }
+
     public class Product
     {
         private long _ID;
@@ -23,8 +28,5 @@
         public int Stock { get; set; }
         public double Price { get; set; }
         public IvaType IvaType { get; set; }
-
-
-
     }
 }

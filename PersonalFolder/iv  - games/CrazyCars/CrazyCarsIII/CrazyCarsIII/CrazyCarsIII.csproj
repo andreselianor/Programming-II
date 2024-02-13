@@ -111,10 +111,7 @@
     <Resource Include="resources\woodCar.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
-      <Project>{76dd09b0-dace-44dd-a916-7871eb0c5a8d}</Project>
-      <Name>ClassLibrary1</Name>
-    </ProjectReference>
+    <Resource Include="resources\title.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
