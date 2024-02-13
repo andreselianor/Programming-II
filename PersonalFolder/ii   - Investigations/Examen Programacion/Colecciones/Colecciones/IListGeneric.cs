@@ -1,16 +1,17 @@
 ﻿namespace Colecciones
 {
-    public interface IList
+    public interface IListGeneric<T>
     {
+        // ordenar
         int GetListCount();
-        Object GetElementAt(int index);
-        int GetIndexOf(Object element);
+        T GetElementAt(int index);
+        int GetIndexOf(T element);
 
-        void AddElement(Object element);
-        void RemoveElement(Object element);
+        void AddElement(T element);
+        void RemoveElement(T element);
         void RemoveElementAt(int index);
 
-        void ContainsElement(Object element);
+        void ContainsElement(T element);
 
         bool IsEmpty();
         bool IsSort();
@@ -21,6 +22,6 @@
         void Visit();
 
         void Clear();
-        List<Object> Clone();
+        List<T> Clone();
     }
 }
