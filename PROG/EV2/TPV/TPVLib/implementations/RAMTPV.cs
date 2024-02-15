@@ -60,6 +60,18 @@ namespace TPVLib
             }
         }
 
+        public List<Product> GetProducts()
+        {
+            List<Product> cloneList = new List<Product>();
+
+            for (int i = 0; i < _listProducts.Count; i++)
+            {
+                cloneList.Add(_listProducts[i]);
+            }
+
+            return cloneList;
+        }
+
         public List<Product> GetProducts(int offset, int limit)
         {
             if (offset <= 0 || limit <= 0)

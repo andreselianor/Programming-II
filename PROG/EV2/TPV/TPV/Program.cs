@@ -6,7 +6,11 @@ namespace TPV
     {
         static void Main(string[] args)
         {
-            ITPV itpv = ITPV.CreateNewITPV();
+            ITPV tpv = ITPV.CreateNewTPV();
+            UI userInterface = new UI();
+
+
+            userInterface.UIdisplayMenu();
         }
     }
 }

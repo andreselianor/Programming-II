@@ -2,7 +2,7 @@
 {
     public interface ITPV
     {
-        static ITPV CreateNewITPV()
+        static ITPV CreateNewTPV()
         {
             return new RAMTPV();
         }
