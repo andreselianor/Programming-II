@@ -74,15 +74,14 @@ namespace CrazyCarsIII
 
         public void PaintGlamourCar()
         {
-            //GlamourCarVisual.Width = 30.0;
-            //GlamourCarVisual.Height = 30.0;          
             if (carGlamour.Position < 500)
                 Canvas.SetLeft(GlamourCarVisual, carGlamour.Position);
             else
                 Canvas.SetLeft(GlamourCarVisual, 500);
 
+            //GlamourCarVisual.Width = 30.0;
+            //GlamourCarVisual.Height = 30.0;
             //Canvas.SetBottom(GlamourCarVisual, canvas1.Height);
-
             //SolidColorBrush car1Brush = new SolidColorBrush();
             //car1Brush.Color = Color.FromArgb(255, 255, 255, 0);
             //GlamourCarVisual.Fill = car1Brush;
@@ -90,17 +89,26 @@ namespace CrazyCarsIII
 
         public void PaintPierreCar()
         {
-            Canvas.SetLeft(PierreCarVisual, carPierre.Position);
+            if (carPierre.Position < 500)
+                Canvas.SetLeft(PierreCarVisual, carPierre.Position);
+            else
+                Canvas.SetLeft(PierreCarVisual, 500);
         }
 
         public void PaintTroglodyteCar()
         {
-            Canvas.SetLeft(TroglodyteCarVisual, carTroglodyte.Position);
+            if (carTroglodyte.Position < 500)
+                Canvas.SetLeft(TroglodyteCarVisual, carTroglodyte.Position);
+            else
+                Canvas.SetLeft(TroglodyteCarVisual, 500);
         }
 
         public void PaintWoodCar()
         {
-            Canvas.SetLeft(WoodCarVisual, carWood.Position);
+            if (carWood.Position < 500)
+                Canvas.SetLeft(WoodCarVisual, carWood.Position);
+            else
+                Canvas.SetLeft(WoodCarVisual, 500);
         }
 
         public void PaintWinners()
@@ -108,6 +116,7 @@ namespace CrazyCarsIII
             if (carGlamour.Position > 500.0)
             {
                 position1.Visibility = Visibility.Visible;
+                finish.Visibility = Visibility.Visible;
                 Grid.SetRow(position1, 1);
             }
 

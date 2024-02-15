@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChessWPF"
         mc:Ignorable="d"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="MainWindow" Height="500" Width="500">
     <Grid Name="gridBoard">
         <Grid.ColumnDefinitions>
@@ -33,6 +34,9 @@
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
         <!--#region Checkers-->
+        <Label x:Name="display"
+            Grid.Row="1"
+               Grid.Column="1"></Label>
         <Label Background="PaleVioletRed"
                Grid.Row="1"
                Grid.Column="2"></Label>
@@ -108,7 +112,8 @@
         <Label Background="PaleVioletRed"
                Grid.Row="7"
                Grid.Column="2"></Label>
-        <Label Background="PaleVioletRed"
+        <Label x:Name="TestLabel"
+               Background="PaleVioletRed"
                Grid.Row="7"
                Grid.Column="4"></Label>
         <Label Background="PaleVioletRed"

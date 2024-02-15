@@ -14,9 +14,9 @@
             <ColumnDefinition Width="0.3*"></ColumnDefinition>
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
             <ColumnDefinition Width="0.6*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -63,6 +63,11 @@
                Grid.Row="2" />
         <Image x:Name="position4"
                Source="resources/position4.png"
+               Visibility="Hidden"
+               Grid.Column="6"
+               Grid.Row="2" />
+        <Image x:Name="finish"
+               Source="resources/finishLane.png"
                Visibility="Hidden"
                Grid.Column="6"
                Grid.Row="2" />

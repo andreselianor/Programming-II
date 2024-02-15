@@ -97,7 +97,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="resources\imagenes.ai" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -120,10 +119,15 @@
     <Resource Include="resources\position4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\foresterPortrait.png" />
     <Resource Include="resources\glamourPortrait.png" />
     <Resource Include="resources\pierrePortrait.png" />
     <Resource Include="resources\troglodytesPortrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\finishLane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\woodForestierPortrait.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

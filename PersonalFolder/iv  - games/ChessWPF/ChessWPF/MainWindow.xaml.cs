@@ -24,7 +24,7 @@ namespace ChessWPF
         {
             InitializeComponent();
 
-            Init();            
+            Init();
         }
 
         public void Init()
@@ -32,6 +32,22 @@ namespace ChessWPF
             Board board = new Board();
             board.CreateBoard();
             board.PaintFigures(gridBoard);
+
+            bool exit = false;
+            while (!exit)
+            {
+                double result = Mouse.GetPosition(display).X;
+                display.Content = "" + result;
+                exit = true;
+            }
+            
+
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Point p = new Point();
+            p.X = e.GetPosition(TestLabel).X;
         }
 
         /*
