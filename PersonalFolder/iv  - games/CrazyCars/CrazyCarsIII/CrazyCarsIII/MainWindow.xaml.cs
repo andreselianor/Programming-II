@@ -33,11 +33,9 @@ namespace CrazyCarsIII
             InitializeComponent();
 
             IRace game = new Race();
-            game.StartRace(_distance);           
+            game.StartRace(_distance);
 
-
-            PaintVisuals();
-            PaintCars();            
+            PaintCars();
         }
 
 
@@ -55,6 +53,10 @@ namespace CrazyCarsIII
             LineBrush.Color = Color.FromArgb(255, 0, 0, 0);
             AlternativeRaceLength.Stroke = LineBrush;
             */
+            if (carGlamour.Position < 500)
+                Canvas.SetLeft(GlamourPortrait, carGlamour.Position);
+            else
+                Canvas.SetLeft(GlamourPortrait, 500);
         }
 
         public void PaintCars()
@@ -63,14 +65,22 @@ namespace CrazyCarsIII
             PaintPierreCar();
             PaintTroglodyteCar();
             PaintWoodCar();
+
+            PaintVisuals();
+
+            PaintWinners();
+
         }
 
         public void PaintGlamourCar()
         {
             //GlamourCarVisual.Width = 30.0;
             //GlamourCarVisual.Height = 30.0;          
-            
-            Canvas.SetLeft(GlamourCarVisual, carGlamour.Position);
+            if (carGlamour.Position < 500)
+                Canvas.SetLeft(GlamourCarVisual, carGlamour.Position);
+            else
+                Canvas.SetLeft(GlamourCarVisual, 500);
+
             //Canvas.SetBottom(GlamourCarVisual, canvas1.Height);
 
             //SolidColorBrush car1Brush = new SolidColorBrush();
@@ -93,10 +103,39 @@ namespace CrazyCarsIII
             Canvas.SetLeft(WoodCarVisual, carWood.Position);
         }
 
+        public void PaintWinners()
+        {
+            if (carGlamour.Position > 500.0)
+            {
+                position1.Visibility = Visibility.Visible;
+                Grid.SetRow(position1, 1);
+            }
+
+            if (carPierre.Position > 500.0)
+            {
+                position2.Visibility = Visibility.Visible;
+                Grid.SetRow(position2, 0);
+            }
+
+            if (carWood.Position > 500.0)
+            {
+                position3.Visibility = Visibility.Visible;
+                Grid.SetRow(position3, 3);
+            }
+
+            if (carTroglodyte.Position > 500.0)
+            {
+                position4.Visibility = Visibility.Visible;
+                Grid.SetRow(position4, 4);
+            }
+        }
+
         public void DisplayText()
         {
             PierreText.Text = "Pierre avanza maldiciendo en idiomas incomprensibles";
             GlamourText.Text = "Penelope circula serena y segura por su carril a la velocidad recomendada";
+            ForestCarText.Text = "Castor y Pollux circulan con firmeza mientras afilan su hacha de captura";
+            TroglodyteText.Text = "Los trogloditas avanzan dando tumbos y golpeando cada una de sus cabezas con sus romas porras";
         }
 
         private void AdvanceClick(object sender, RoutedEventArgs e)
@@ -108,5 +147,19 @@ namespace CrazyCarsIII
             PaintCars();
             DisplayText();
         }
+
+        //public void PaintVisuals()
+        //{
+        //    // Codigo para pintar la linea de la carrera           
+        //    AlternativeRaceLength.X1 = 0;
+        //    AlternativeRaceLength.X2 = _distance;
+
+        //    AlternativeRaceLength.VerticalAlignment = VerticalAlignment.Center;
+        //    AlternativeRaceLength.StrokeThickness = 5;           
+
+        //    SolidColorBrush LineBrush = new SolidColorBrush();
+        //    LineBrush.Color = Color.FromArgb(255, 0, 0, 0);
+        //    AlternativeRaceLength.Stroke = LineBrush;            
+        //}
     }
 }

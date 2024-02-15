@@ -60,11 +60,13 @@
             return result;
         }
 
+        // Funcion que elimina todos los elementos de una Queue
         public void Clear()
         {
             _queue = new T[0];
         }
 
+        // Funcion que devuelve un string con los parametros de cada elemento de la queue
         public override string ToString()
         {
             string result = "";

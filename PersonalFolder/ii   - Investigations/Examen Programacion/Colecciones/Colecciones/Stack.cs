@@ -2,8 +2,8 @@
 {
     public class Stack<T>
     {
+      
         private T[] _stackArray;
-
 
         public bool IsEmpty => _stackArray.Length == 0;
         public int Count
@@ -17,7 +17,6 @@
             }
 
         }
-
 
 
         public Stack()
