@@ -10,10 +10,11 @@
 		long AddProduct(Product product);
         void RemoveProduct(long Id);
         Product GetProduct(long Id);
+        List<Product> GetProducts();
 
         void UpdateProductWithId(long Id, Product product);
 
-        int ProductCount { get; }
+        int ProductsCount { get; }
         List<Product> GetProducts(int offset, int limit);
     }
 }

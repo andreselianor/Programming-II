@@ -2,29 +2,21 @@
 {
     public class UI
     {
-        private bool _exit;
-        private Controller _controller = new Controller();
-        public bool Exit => _exit;
+        private bool _runningApp = true;
 
-
-        //public void UIdisplayMenu()
-        //{
-        //    SplashMenu();
-
-        //    while (!_exit)
-        //    {
-        //        MainMenu();
-        //    }
-        //}
+        public bool RunningApp()
+        {
+            return _runningApp;
+        }
 
         public void SplashMenu()
         {
-            string welcomeMessage = "Bienvenido a TPV 1.0";
+            string welcomeMessage = "Bienvenidx a TPV 1.0";
             Console.WriteLine(welcomeMessage);
             Console.ReadLine();
         }
 
-        public void MainMenu()
+        public void MainMenu(ITPV tpv)
         {
             string mainMenuMessage = "Introduzca una opcion:";
             string mainMenuMessage1 = "[1].Producto";
@@ -37,22 +29,22 @@
 
             string choice = Console.ReadLine();
             if (choice == "1")
-                ProductMenu();
+                ProductMenu(tpv);
             else if (choice == "2")
-                InvoiceMenu();
+                InvoiceMenu(tpv);
             else if (choice == "0")
-                ExitMenu();
+                _runningApp = false;
             else
-                MainMenu();
+                MainMenu(tpv);
         }
 
-        public void ProductMenu()
+        public void ProductMenu(ITPV tpv)
         {
             string ProductMessage = "Introduzca una opcion";
             string ProductMessage1 = "[1].Listar productos disponibles";
             string ProductMessage2 = "[2].Escoger Producto";
             string ProductMessage3 = "[3].Comprobar existencias";
-            string ProductMessage0 = "[0].Salir";
+            string ProductMessage0 = "[0].Menu anterior";
             Console.WriteLine(ProductMessage);
             Console.WriteLine(ProductMessage1);
             Console.WriteLine(ProductMessage2);
@@ -61,23 +53,30 @@
 
             string choice = Console.ReadLine();
             if (choice == "1")
-                _controller.DisplayProducts();
+            {
+                Console.WriteLine("Listando productos disponibles en la base de datos...");
+                DisplayingAvailableProducts(tpv);
+                ProductMenu(tpv);
+            }
             else if (choice == "2")
                 Console.WriteLine("No implementado");
             else if (choice == "3")
                 Console.WriteLine("No implementado");
             else if (choice == "0")
-                ExitMenu();
+                MainMenu(tpv);
             else
-                ProductMenu();
+            {
+                Console.WriteLine("Introduzca una opcion valida");
+                ProductMenu(tpv);
+            }
         }
 
-        public void InvoiceMenu()
+        public void InvoiceMenu(ITPV tpv)
         {
             string InvoiceMessage = "Introduzca una opcion";
             string InvoiceMessage1 = "[1].Recoger Factura";
             string InvoiceMessage2 = "[1].Comprobar facturas anteriores";
-            string InvoiceMessage0 = "[0].Salir";
+            string InvoiceMessage0 = "[0].Menu anterior";
             Console.WriteLine(InvoiceMessage);
             Console.WriteLine(InvoiceMessage1);
             Console.WriteLine(InvoiceMessage2);
@@ -89,16 +88,28 @@
             else if (choice == "2")
                 Console.WriteLine("No implementado");
             else if (choice == "0")
-                ExitMenu();
+                MainMenu(tpv);
             else
-                InvoiceMenu();
+            {
+                Console.WriteLine("Introduzca una opcion valida");
+                InvoiceMenu(tpv);
+            }
         }
         public void ExitMenu()
-        {
-            _exit = true;
+        {            
             string exitMenuMessage = "Gracias por utilizar TPV 1.0";
             Console.WriteLine(exitMenuMessage);
             Console.ReadLine();
+        }
+
+        private void DisplayingAvailableProducts(ITPV tpv)
+        {
+            List<Product> listProducts = tpv.GetProducts();
+
+            foreach (Product p in listProducts)
+            {
+                Console.WriteLine($"Producto con ID {p.ID}: {p.Name} - Cantidad en stock: {p.Stock}");
+            }
         }
     }
 }

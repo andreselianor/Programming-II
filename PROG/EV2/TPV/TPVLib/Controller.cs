@@ -7,19 +7,19 @@ namespace TPVLib
         private RAMTPV _core = new RAMTPV();
         private UI _ui = new UI();
 
-        public List<Product> DisplayProducts()
-        {
-            return _core.GetProducts();
+        public void StartProgram()
+        {            
+            UIdisplayMenu();
         }
 
         public void UIdisplayMenu()
         {
             _ui.SplashMenu();
-
-            while (!_ui.Exit)
+            while (_ui.RunningApp())
             {
-                _ui.MainMenu();
+                _ui.MainMenu(_core);
             }
+            _ui.ExitMenu();
         }
     }
 }

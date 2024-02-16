@@ -7,10 +7,8 @@ namespace TPV
         static void Main(string[] args)
         {
             ITPV tpv = ITPV.CreateNewTPV();
-            UI userInterface = new UI();
-
-
-            userInterface.UIdisplayMenu();
+            Controller appController = new Controller();
+            appController.StartProgram();
         }
     }
 }
