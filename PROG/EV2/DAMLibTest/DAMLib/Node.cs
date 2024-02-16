@@ -1,18 +1,19 @@
 ﻿namespace DAMLib
 {
-    public delegate bool DelegateFilter(int number);
+
 
     public class Node<T>
     {
         private Node<T> _parent;
-        private List<Node<T>> _children *****;
+        private List<Node<T>> _children;   // TODO
         public T item;
 
+        public delegate bool DelegateFilter(Node<T> node);
 
         public bool IsRoot => _parent == null;
         public bool IsLeaf => _children.Count == 0;
         public bool IsEmpty => item == null;
-        public bool HasSiblings => _parent._children.Count > 0 *****;
+        public bool HasSiblings => _parent._children.Count > 0; // TODO
         public int Level => GetLevel();
         public Node<T> Root => GetRoot();
         public Node<T> Parent
@@ -39,14 +40,14 @@
         public Node(Node<T> parent)
         {
             _parent = parent;
-            *****
+            // TODO
         }
 
         public Node(Node<T> parent, T content)
         {
             _parent = parent;
             item = content;
-            ****
+            // TODO
         }
 
         // Falla al asignar children que aun no existen
@@ -54,7 +55,7 @@
         {
             _parent = parent;
             _children = children;
-            ********
+            // TODO
         }
 
         public int GetLevel()
@@ -87,7 +88,7 @@
 
             for(int i = 0; i < _children.Count; i++)
             {
-                *****
+                // TODO
                 if (_children[i] == node)
                     return i;
             }
@@ -105,15 +106,12 @@
 
         public void Unlink()
         {
-            if (node == null)
-                return;            
-
             //Pregunta
-            Node<T> nodeParent = node._parent;
-            int index = nodeParent.IndexOf(node);
+            Node<T> nodeParent = _parent;
+            int index = nodeParent.IndexOf(this);
             nodeParent.RemoveChildAt(index);
 
-            node._parent = null;
+            _parent = null;
         }
 
 
@@ -172,7 +170,7 @@
             List<Node<T>> listResult = new List<Node<T>>();
             for(int i = 0; i < _children.Count; i++)
             {
-                if(del(_children[i].Item))
+                if(del(_children[i]))
                     listResult.Add(_children[i]);
             }
             return listResult;

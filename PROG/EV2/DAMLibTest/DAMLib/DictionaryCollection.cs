@@ -13,40 +13,54 @@ namespace DAMLib
 
         private class Item
         {
-            public K key;
-            public V value;
+            public K Key;
+            public V Value;
 
             public Item(K key, V value)
             {
-                this.key = key;
-                this.value = value;
-            }
-
-            public K Key
-            {
-                get { return key; }
-                set { key = value; }
-            }
-            public V Value
-            {
-                get { return value; }
-                set { this.value = value; }
+                this.Key = key;
+                this.Value = value;
             }
         }
 
         public int Count => _item.Length;
         public bool IsEmpty => _item.Length < 0;
 
+        public int GetIndexOf(V value)
+        {
+            if (value == null)
+                return 0;
 
-        // Funcion que añade una Key y un value. La Key no se puede repetir.
+            for (int i = 0; i < _item.Length; i++)
+            {
+                if (_item[i].Value.Equals(value))
+                    return i;
+            }
+            return -1;
+        }
+
+        public V? GetElementAt(K key)
+        {
+            if (key == null)
+                return default(V);
+
+            for (int i = 0; i < _item.Length; i++)
+            {
+                if (_item[i].Key.Equals(key))
+                    return _item[i].Value;
+            }
+            return default(V);
+        }
+
+
         public void Add(K key, V value)
-        {            
-            if(ContainsKey(key))
-                return;            
+        {
+            if (ContainsKey(key))
+                return;
 
             int count = _item.Length;
             Item[] setResult = new Item[count + 1];
-            Item element = new Item(default, default);
+            Item element = new Item(default, default);  // TODO: REVISAR
             setResult[count] = element;
 
             for (int i = 0; i < count; i++)
@@ -60,10 +74,9 @@ namespace DAMLib
             _item = setResult;
         }
 
-        //Funcion que elimina el Item que ocupa la posicion del indice indicado en parametros.
         public void RemoveAt(int index)
         {
-            if (index < 0 || index > _item.Length) 
+            if (index < 0 || index > _item.Length)
                 return;
 
             if (index == -1)
@@ -85,42 +98,12 @@ namespace DAMLib
             _item = arrayResult;
         }
 
-        // Funcion que devuelve el indice que ocupa el elemento de value V.
-        public int IndexOf(V value)
+        private bool ContainsKey(K key)
         {
-            if (value == null)
-                return 0;
-
-            for (int i = 0; i < _item.Length; i++)
-            {
-                if (_item[i].Value.Equals(value))
-                    return i;
-            }
-            return -1;
-        }
-
-        // Funcion que devuelve el elemento que contiene la key indicada.
-        public V GetElementAt(K key)
-        {
-            if (key == null)
-                return default(V);
-
-            for (int i = 0; i < _item.Length; i++)
-            {
-                if (_item[i].Key.Equals(key))
-                    return _item[i].Value;
-            }
-            return default(V);
-        }
-
-        // Funcion que evalua si el diccionario contiene una Key determinada.
-        public bool ContainsKey(K key)
-        {
-            // return IndexOf >= 0;
             if (key == null)
                 return false;
 
-            for(int i = 0; i < _item.Length;i++)
+            for (int i = 0; i < _item.Length; i++)
             {
                 if (_item[i].Key.Equals(key))
                     return true;
@@ -128,10 +111,48 @@ namespace DAMLib
             return false;
         }
 
-        // Funcion que devuelve si dos objetos son iguales.
+        public bool Contains(V value)
+        {
+            // return IndexOf >= 0;
+            if (value == null)
+                return false;
+
+            for (int i = 0; i < _item.Length; i++)
+            {
+                if (_item[i].Value.Equals(value))
+                    return true;
+            }
+            return false;
+        }
+
+        // Funcion que devuelve si dos DICCIONARIOS son iguales.
         public override bool Equals(object? obj)
         {
             return (this == obj);
+        }
+
+        public bool AreIdentical(object? obj)
+        {
+            // Comprueba que DOS DICCIONARIOS SON IGUALES
+            // NO COMPRUEBA SI DOS ITEMS SON IGUALES
+            if (obj == null)
+                return false;
+            if (obj is not Item)
+                return false;
+            Item identicalItem = (Item)obj;
+
+            for(int i = 0; i < _item.Length;i++)
+            {
+                if (_item[i].Key.Equals(identicalItem.Key) &&
+                    _item[i].Value.Equals(identicalItem.Value))
+                    return true;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 133 * 533 * 224 * _item.GetHashCode();
         }
 
         // Funcion delegada Filter que devuelve un diccionario.
@@ -178,16 +199,9 @@ namespace DAMLib
             return dictionaryResult;
         }
 
-        // Funcion que elimina todo el contenido de un diccionario.
         public void Clear()
         {
-            _item = Array.Empty<Item>();
-        }
-
-        // Funcion que devuelve el codigo Hash de un elemento.
-        public override int GetHashCode()
-        {
-            return 133 * 533 * 224 * _item.GetHashCode();
+            _item = new Item[0];
         }
 
         public override string ToString()

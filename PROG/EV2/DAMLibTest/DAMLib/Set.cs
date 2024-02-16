@@ -119,7 +119,7 @@ namespace DAMLib
             return 133 * 533 * 224 * _testAtribute.GetHashCode();
         }
 
-        public override bool Equals(Object? obj)
+        public override bool Equals(object? obj)
         {
             return this == obj;
         }

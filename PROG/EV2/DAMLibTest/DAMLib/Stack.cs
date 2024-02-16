@@ -4,7 +4,6 @@
     {
         private T[] _stackArray;
 
-
         public bool IsEmpty => _stackArray.Length == 0;
         public int Count
         {
@@ -15,18 +14,14 @@
                 else
                     return _stackArray.Length;
             }
-
         }
-
-
 
         public Stack()
         {
             _stackArray = new T[0];
         }
 
-
-        // Funcion que introduce un elemento generico en el Stack
+        // Funcion que introduce un elemento generico en el Stack.
         public void Push(T element)
         {
             if (element == null)
@@ -48,13 +43,14 @@
         // Funcion que extrae un elemento generico del Stack.
         public T? Pop()
         {
+            if (_stackArray == null)
+                return default(T);
+
             int count = _stackArray.Length;
 
             T result = _stackArray[count - 1];
-            if (result == null)
-                return default(T);
-
             T[] stackResult = new T[count - 1];
+
             for(int i = 0; i < count - 1; i++)
             {
                 stackResult[i] = _stackArray[i];
@@ -65,15 +61,26 @@
             return result;
         }
 
-        // Funcion que devuelve el elemento superior del Stack
-        public T Top()
+        // Funcion que devuelve el elemento superior del Stack.
+        public T? Top()
         {
-            T result = _stackArray[_stackArray.Length - 1];
-
-            if (result == null)
+            if (_stackArray == null)
                 return default(T);
 
+            T result = _stackArray[_stackArray.Length - 1];
+
             return result;
+        }
+
+        public T[] Clone()
+        {
+            int size = _stackArray.Length;
+            T[] clone = new T[size];
+            for (int i = 0; i < size; i++)
+            {
+                clone[i] = _stackArray[i];
+            }
+            return clone;
         }
 
         public void Clear()

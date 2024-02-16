@@ -8,7 +8,10 @@
         {
             return _runningApp;
         }
-
+		
+		// TODO: LLEVAR LA PARTE LOGICA A LA CLASE CONTROLLER
+		// RESCRIBIR TODA LA CLASE SIMPLEMENTE CON CWL Y CRL
+		
         public void SplashMenu()
         {
             string welcomeMessage = "Bienvenidx a TPV 1.0";
