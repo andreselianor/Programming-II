@@ -5,21 +5,93 @@ namespace TPVLib
     public class Controller
     {
         private RAMTPV _core = new RAMTPV();
-        private UI _ui = new UI();
+        private bool _isRunning = true;
 
         public void StartProgram()
-        {            
-            UIdisplayMenu();
+        {
+            UI.UISplashMenu();
+            while (_isRunning)
+            {
+                UIdisplayMainMenu();
+            }
+            UI.UIExitMenu();
         }
 
-        public void UIdisplayMenu()
+        public void UIdisplayMainMenu()
         {
-            _ui.SplashMenu();
-            while (_ui.RunningApp())
+            bool mainMenu = true;
+            int optionMenu;
+            while (mainMenu)
             {
-                _ui.MainMenu(_core);
+                UI.UIMainMenu();
+                optionMenu = Int32.Parse(Console.ReadLine());
+                if(optionMenu == 1)
+                    UIdisplayProductMenu();
+                else if(optionMenu == 2)
+                    UIdisplayInvoiceMenu();
+                else if(optionMenu == 0)
+                {
+                    mainMenu = false;
+                    _isRunning = false;
+                }                                   
             }
-            _ui.ExitMenu();
+        }
+
+        public void UIdisplayProductMenu()
+        {
+            bool productMenu = true;
+            int optionMenu;
+
+            while (productMenu)
+            {
+                UI.UIProductMenu();
+                optionMenu = Int32.Parse(Console.ReadLine());
+                if (optionMenu == 1)
+                {
+                    Console.WriteLine("Listando productos disponibles en la base de datos...");
+                    DisplayingAvailableProducts(_core);
+                }
+                if (optionMenu == 2)
+                    Console.WriteLine("No implementado");
+                else if(optionMenu == 3)
+                    Console.WriteLine("No implementado");
+                else if(optionMenu == 4)
+                    Console.WriteLine("No implementado");
+                else if(optionMenu == 0)
+                    UIdisplayMainMenu();
+                else                
+                    Console.WriteLine("Introduzca una opcion valida");                
+            }            
+        }
+
+        public void UIdisplayInvoiceMenu()
+        {
+            bool invoiceMenu = true;
+            int optionMenu;
+
+            while (invoiceMenu)
+            {
+                UI.UIInvoiceMenu();
+                optionMenu = Int32.Parse(Console.ReadLine());
+                if (optionMenu == 1)
+                    Console.WriteLine("No implementado");
+                else if (optionMenu == 2)
+                    Console.WriteLine("No implementado");
+                else if (optionMenu == 0)
+                    UIdisplayMainMenu();
+                else                
+                    Console.WriteLine("Introduzca una opcion valida");                
+            }            
+        }
+
+        private void DisplayingAvailableProducts(ITPV tpv)
+        {
+            List<Product> listProducts = tpv.GetProducts();
+
+            foreach (Product p in listProducts)
+            {
+                Console.WriteLine($"Producto con ID {p.ID}: {p.Name} - Cantidad en stock: {p.Stock}");
+            }
         }
     }
 }
