@@ -2,18 +2,21 @@
 {
     public interface IDatabase
     {
-        int GetProductsCount();
-        int IndexOf(int index);
-        Product GetProductWithID(long ID);
-
         void AddProduct(Product product);
-        void RemoveProduct(Product product);
-        void RemoveAt(int index);
+        void AddTicketHeader(TicketHeader ticketHeader);
+        void AddTicketLine(TicketLine ticketLine);
 
-        bool Contains(Product product);
+        int GetProductsCount();
+        int IndexOf(Product product);
+        Product GetProductAt(int index);
 
-        void Sort();
+        void RemoveProduct();
+        void RemoveProductAt(int index);
+
+        bool Contains();
+
         void Filter();
+        void Sort();
         void Visit();
 
         string ToString();

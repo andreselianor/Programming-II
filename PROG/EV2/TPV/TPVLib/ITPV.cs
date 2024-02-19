@@ -11,6 +11,7 @@
         void RemoveProduct(long Id);
         Product GetProduct(long Id);
         List<Product> GetProducts();
+        void AddTicket(Ticket ticket);
 
         void UpdateProductWithId(long Id, Product product);
 
