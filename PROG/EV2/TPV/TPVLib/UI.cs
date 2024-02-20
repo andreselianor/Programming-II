@@ -19,6 +19,7 @@
             Console.WriteLine(mainMenuMessage1);
             Console.WriteLine(mainMenuMessage2);
             Console.WriteLine(mainMenuMessage0);
+            Console.WriteLine();
         }
 
         public static void UIProductMenu()
@@ -33,6 +34,7 @@
             Console.WriteLine(ProductMessage2);
             Console.WriteLine(ProductMessage3);
             Console.WriteLine(ProductMessage0);
+            Console.WriteLine();
         }
 
         public static void UIInvoiceMenu()
@@ -45,6 +47,7 @@
             Console.WriteLine(InvoiceMessage1);
             Console.WriteLine(InvoiceMessage2);
             Console.WriteLine(InvoiceMessage0);
+            Console.WriteLine();
         }
         public static void UIExitMenu()
         {            

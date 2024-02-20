@@ -9,7 +9,7 @@
         public T item;
 
         public delegate bool DelegateFilter(Node<T> node);
-        public delegate bool DelegateVisit(Node<T> node);
+        public delegate void DelegateVisit(Node<T> node);
 
         public bool IsRoot => _parent == null;
         public bool IsLeaf => _children.Count == 0;
@@ -178,14 +178,14 @@
             return listResult;
         }
 
-        public void Visit(DelegateVisit del)
+        public void Visit(DelegateVisit visitor)
         {
-            for (int i = 0; i < _children.Count; i++)
-            {
-                if (del(this))
-                    Children;
-                _children[i].Visit();
-            }
+            if (visitor == null || _children == null)
+                return;
+
+            visitor(this);
+            for (int i = 0; i < _children.Count - 1; i++)
+                _children[i].Visit(visitor);
         }
 
         public bool IsSameLevel(Node<T> node)

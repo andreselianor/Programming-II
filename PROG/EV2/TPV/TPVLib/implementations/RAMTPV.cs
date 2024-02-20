@@ -3,6 +3,7 @@ namespace TPVLib
     internal class RAMTPV : ITPV
     {
         private List<Product> _listProducts = new List<Product>();
+        private List<Ticket> _listTickets = new List<Ticket>();
         //private Dictionary<int, Product> _listProductsAlternative = new Dictionary<int, Product>();
 
 
@@ -144,6 +145,17 @@ namespace TPVLib
             Product p6 = new Product();
             p6.Name = "KartTwin 60minutos";
             _listProducts.Add(p6);
+        }
+
+        public Ticket AddTicket(int barcode, TicketLine[] ticketsLine, double price)
+        {
+            Ticket ticketResult = new Ticket();
+
+            ticketResult.AddTicketHeader(barcode);
+            ticketResult.AddTicketBody(ticketsLine);
+            ticketResult.SetPrice(price);
+
+            return ticketResult;
         }
     }
 }
