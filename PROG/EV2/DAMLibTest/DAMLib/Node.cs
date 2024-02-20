@@ -9,9 +9,11 @@
         public T item;
 
         public delegate bool DelegateFilter(Node<T> node);
+        public delegate bool DelegateVisit(Node<T> node);
 
         public bool IsRoot => _parent == null;
         public bool IsLeaf => _children.Count == 0;
+        public bool Children => _children.Count == 0;
         public bool IsEmpty => item == null;
         public bool HasSiblings => _parent._children.Count > 0; // TODO
         public int Level => GetLevel();
@@ -86,7 +88,7 @@
             if (node == null || _children == null)
                 return -1;
 
-            for(int i = 0; i < _children.Count; i++)
+            for (int i = 0; i < _children.Count; i++)
             {
                 // TODO
                 if (_children[i] == node)
@@ -125,7 +127,7 @@
                 return;
             if (ContainsChild(child))
                 return;
-            
+
             if (_children == null)
                 _children = new List<Node<T>>();
 
@@ -168,14 +170,24 @@
         public List<Node<T>> Filter(DelegateFilter del)
         {
             List<Node<T>> listResult = new List<Node<T>>();
-            for(int i = 0; i < _children.Count; i++)
+            for (int i = 0; i < _children.Count; i++)
             {
-                if(del(_children[i]))
+                if (del(_children[i]))
                     listResult.Add(_children[i]);
             }
             return listResult;
         }
-        
+
+        public void Visit(DelegateVisit del)
+        {
+            for (int i = 0; i < _children.Count; i++)
+            {
+                if (del(this))
+                    Children;
+                _children[i].Visit();
+            }
+        }
+
         public bool IsSameLevel(Node<T> node)
         {
             return this.Level == node.Level;
@@ -190,6 +202,6 @@
             result = $"El contenido del nodo es: {content}";
 
             return result;
-        }        
+        }
     }
 }
