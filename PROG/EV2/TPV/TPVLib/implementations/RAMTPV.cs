@@ -157,5 +157,25 @@ namespace TPVLib
 
             return ticketResult;
         }
+
+        public int GetProductsCount()
+        {
+            return _listProducts.Count;
+        }
+
+        public Product GetProductWithId(long id)
+        {
+            for(int i = 0; i < _listProducts.Count;i++)
+            {
+                if (_listProducts[i].ID == id)
+                    return _listProducts[i];
+            }
+            return null;
+        }
+
+        public void AddTicket(IDatabase database)
+        {
+            database.AddTicket();
+        }
     }
 }

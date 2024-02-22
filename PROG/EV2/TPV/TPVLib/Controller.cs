@@ -25,6 +25,7 @@ namespace TPVLib
             {
                 UI.UIMainMenu();
                 optionMenu = Int32.Parse(Console.ReadLine());
+
                 if(optionMenu == 1)
                     UIdisplayProductMenu();
                 else if(optionMenu == 2)
@@ -33,7 +34,9 @@ namespace TPVLib
                 {
                     mainMenu = false;
                     _isRunning = false;
-                }                                   
+                }    
+                else
+                    Console.WriteLine("Introduzca una opcion valida");
             }
         }
 
@@ -46,12 +49,13 @@ namespace TPVLib
             {
                 UI.UIProductMenu();
                 optionMenu = Int32.Parse(Console.ReadLine());
+
                 if (optionMenu == 1)
                 {
                     Console.WriteLine("Listando productos disponibles en la base de datos...");
                     DisplayingAvailableProducts(_core);
                 }
-                if (optionMenu == 2)
+                else if (optionMenu == 2)
                     Console.WriteLine("No implementado");
                 else if(optionMenu == 3)
                     Console.WriteLine("No implementado");
@@ -60,7 +64,9 @@ namespace TPVLib
                 else if(optionMenu == 0)
                     UIdisplayMainMenu();
                 else                
-                    Console.WriteLine("Introduzca una opcion valida");                
+                    Console.WriteLine("Introduzca una opcion valida");
+
+                Console.WriteLine();
             }            
         }
 
@@ -73,6 +79,7 @@ namespace TPVLib
             {
                 UI.UIInvoiceMenu();
                 optionMenu = Int32.Parse(Console.ReadLine());
+
                 if (optionMenu == 1)
                     Console.WriteLine("No implementado");
                 else if (optionMenu == 2)
@@ -80,8 +87,10 @@ namespace TPVLib
                 else if (optionMenu == 0)
                     UIdisplayMainMenu();
                 else                
-                    Console.WriteLine("Introduzca una opcion valida");                
-            }            
+                    Console.WriteLine("Introduzca una opcion valida");
+
+                Console.WriteLine();
+            }
         }
 
         private void DisplayingAvailableProducts(ITPV tpv)
@@ -92,6 +101,7 @@ namespace TPVLib
             {
                 Console.WriteLine($"Producto con ID {p.ID}: {p.Name} - Cantidad en stock: {p.Stock}");
             }
+            Console.WriteLine();
         }
     }
 }

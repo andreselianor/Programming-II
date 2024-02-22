@@ -4,18 +4,24 @@ using System.Security.Cryptography.X509Certificates;
 namespace DAMLib
 {
     public class DictionaryCollection<K, V>
-    {
-        private Item[] _item = new Item[0];
+    {        
+        public delegate bool DelegateFilterWithKey(K key);
+        public delegate bool DelegateFilterWithValue(V value);
+        public delegate bool DelegateFilterWithKeyValue(K key, V value);
 
-        public delegate bool DelegateFilterKeyValue(K key, V value);
-        public delegate bool DelegateFilterWithoutParameters();
-        public delegate bool DelegateFilterKey(K key);
+
+        private Item[] _item = new Item[0];
 
         private class Item
         {
             public K Key;
             public V Value;
 
+            public Item()
+            {
+                Key = default(K);
+                Value = default(V);
+            }
             public Item(K key, V value)
             {
                 this.Key = key;
@@ -60,16 +66,13 @@ namespace DAMLib
 
             int count = _item.Length;
             Item[] setResult = new Item[count + 1];
-            Item element = new Item(default, default);  // TODO: REVISAR
-            setResult[count] = element;
+            Item element = new Item(key, value);
 
             for (int i = 0; i < count; i++)
             {
                 setResult[i] = _item[i];
             }
-
-            setResult[count].Key = key;
-            setResult[count].Value = value;
+            setResult[count] = element;
 
             _item = setResult;
         }
@@ -155,8 +158,9 @@ namespace DAMLib
             return 133 * 533 * 224 * _item.GetHashCode();
         }
 
-        // Funcion delegada Filter que devuelve un diccionario.
-        public DictionaryCollection<K, V> Filter(DelegateFilterKeyValue del)
+
+        // Funcion delegado 'Filter' que devuelve un diccionario.
+        public DictionaryCollection<K, V> Filter(DelegateFilterWithKeyValue del)
         {
             DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
 
@@ -172,7 +176,7 @@ namespace DAMLib
             return dictionaryResult;
         }
 
-        public DictionaryCollection<K, V> Filter(DelegateFilterKey del)
+        public DictionaryCollection<K, V> Filter(DelegateFilterWithKey del)
         {
             DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
 
@@ -187,13 +191,17 @@ namespace DAMLib
 
             return dictionaryResult;
         }
-        public DictionaryCollection<K, V> Filter(DelegateFilterWithoutParameters del)
+        public DictionaryCollection<K, V> Filter(DelegateFilterWithValue del)
         {
             DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
 
             for (int i = 0; i < _item.Length; i++)
             {
-                dictionaryResult.Add(_item[i].Key, _item[i].Value);
+                bool InsertIntoCollection = del(_item[i].Value);
+                if (InsertIntoCollection)
+                {
+                    dictionaryResult.Add(_item[i].Key, _item[i].Value);
+                }
             }
 
             return dictionaryResult;

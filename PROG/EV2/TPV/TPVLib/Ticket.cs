@@ -50,6 +50,6 @@
         public void SetPrice(double value)
         {
             _price = value;
-        }
+        }        
     }
 }
