@@ -5,6 +5,8 @@ namespace DAMLib
     public class Set<T>
     {
         private T[] _set;
+        private bool _testAtribute;     // Atributo utilizado en la funcion EqualsDeep()
+
 
         public bool IsEmpty => _set.Length == 0;        
         public int Count
@@ -114,7 +116,7 @@ namespace DAMLib
 
         public override int GetHashCode()
         {
-            return 133 * 533 * 224 * _set.GetHashCode();
+            return 133 * 533 * 224 * _testAtribute.GetHashCode();
         }
 
         public override bool Equals(object? obj)
@@ -132,9 +134,7 @@ namespace DAMLib
 
             TestCar car = (TestCar)obj;
 
-            //comprueba que los atributos sean identicos.
-            //return (this._testAtribute == car.TestAtribute);
-            return true;
+            return (this._testAtribute == car.TestAtribute);
         }
 
         // Funcion que devuelve un string con todos los elementos de la coleccion.

@@ -2,7 +2,7 @@
 
 namespace DAMLib
 {
-    public class OrderedSet<T>
+    public class SetOrdered<T>
     {
         private Item[] _orderedSet;
 
@@ -25,7 +25,7 @@ namespace DAMLib
         public bool IsEmpty => _orderedSet.Length == 0;
         public bool IsNull => _orderedSet == null;
 
-        public OrderedSet()
+        public SetOrdered()
         {
             _orderedSet = new Item[0];
         }
@@ -185,7 +185,7 @@ namespace DAMLib
             return 133 * 533 * 224 * _orderedSet.GetHashCode();
         }
 
-        public Item[] Clone()
+        private Item[] Clone()
         {
             int count = _orderedSet.Length;
             Item[] result = new Item[count];
