@@ -2,6 +2,31 @@
 {
     public class Queue<T>
     {
+        #region · DOCUMENTACION
+        /*  DOCUMENTACION PARA LA CLASE QUEUE · COLECCIONES DE DATOS  * /
+        
+
+        + Enqueue(T element) : void
+        Funcion que introduce un elemento generico en el QUEUE.
+        Queda establecido que el elemento se introduce en la ultima posicion del QUEUE [^1].
+        
+        + Dequeue() : T
+        Funcion que extrae el primer elemento que contiene el QUEUE.
+        Queda establecido que el primer elemento ocupa la primera posicion del QUEUE [0].
+
+        + Clone() : Queue
+        Funcion que clona un objeto 'QUEUE'
+
+        + QueueMultipleElements(T[] elements) : void
+        Funcion que introduce un array de elementos genericos en la Queue.
+
+        + override ToString() : string
+        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+        
+        */
+        #endregion
+
+
         private T[] _queue;
 
         public T First => _queue[0];
@@ -24,7 +49,6 @@
             _queue = new T[0];
         }
 
-        // Funcion que introduce un elemento generico en el Queue.
         public void Enqueue(T element)
         {
             int count = _queue.Length;
@@ -39,8 +63,6 @@
 
             _queue = _arrayResult;
         }
-
-        // Funcion que extrae un elemento del Queue.
         public T Dequeue()
         {
             int count = _queue.Length;
@@ -57,7 +79,7 @@
             return result;
         }
 
-        public T[] CloneQueue()
+        public T[] ToArray()
         {
             int size = _queue.Length;
             T[] clone = new T[size];
@@ -68,8 +90,12 @@
             }
             return clone;
         }
-
-        // Funcion que introduce un array de elementos genericos en la Queue.
+        public Queue<T> Clone() //TODO test clone
+        {
+            Queue<T> clone = new Queue<T>();
+            clone = this;
+            return clone;
+        }
         public void QueueMultipleElements(T[] elements)
         {
             int newElementsCount = elements.Length;
@@ -89,6 +115,7 @@
 
             _queue = newQueue;
         }
+
         public void Clear()
         {
             _queue = new T[0];
