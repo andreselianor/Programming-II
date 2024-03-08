@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
-
 namespace DAMLib
 {
-    public class DictionaryCollection<K, V>
+    public class Dictionary<K, V>
     {        
         public delegate bool DelegateFilterWithKey(K key);
         public delegate bool DelegateFilterWithValue(V value);
@@ -160,9 +159,9 @@ namespace DAMLib
 
 
         // Funcion delegado 'Filter' que devuelve un diccionario.
-        public DictionaryCollection<K, V> Filter(DelegateFilterWithKeyValue del)
+        public Dictionary<K, V> Filter(DelegateFilterWithKeyValue del)
         {
-            DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
+            Dictionary<K, V> dictionaryResult = new Dictionary<K, V>();
 
             for (int i = 0; i < _item.Length; i++)
             {
@@ -176,9 +175,9 @@ namespace DAMLib
             return dictionaryResult;
         }
 
-        public DictionaryCollection<K, V> Filter(DelegateFilterWithKey del)
+        public Dictionary<K, V> Filter(DelegateFilterWithKey del)
         {
-            DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
+            Dictionary<K, V> dictionaryResult = new Dictionary<K, V>();
 
             for (int i = 0; i < _item.Length; i++)
             {
@@ -191,9 +190,9 @@ namespace DAMLib
 
             return dictionaryResult;
         }
-        public DictionaryCollection<K, V> Filter(DelegateFilterWithValue del)
+        public Dictionary<K, V> Filter(DelegateFilterWithValue del)
         {
-            DictionaryCollection<K, V> dictionaryResult = new DictionaryCollection<K, V>();
+            Dictionary<K, V> dictionaryResult = new Dictionary<K, V>();
 
             for (int i = 0; i < _item.Length; i++)
             {
@@ -211,7 +210,6 @@ namespace DAMLib
         {
             _item = new Item[0];
         }
-
         public override string ToString()
         {
             string result = "";

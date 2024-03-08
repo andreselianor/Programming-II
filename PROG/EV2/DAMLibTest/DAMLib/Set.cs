@@ -1,7 +1,49 @@
 ﻿using System.Xml.Linq;
-
 namespace DAMLib
 {
+    #region · DOCUMENTACION
+    /*  DOCUMENTACION PARA LA CLASE QUEUE · COLECCIONES DE DATOS  * /
+
+    (P) bool IsEmpty;
+    (P) int Count;
+
+    |#| Set() {}
+
+    + Add(T element) : void
+    Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
+
+    + Contains(T element) : bool
+    Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+        
+    + IndexOf(T element) : int
+    Funcion que devuelve el índice del elemento que le paso por parametros.
+
+    + Remove(T element) : void
+    Funcion que elimina el elemento que le pasamos por parametros.
+    Funciona con dos bucles for.
+
+    + RemoveAlternative(T element) : void
+    Funcion que elimina el elemento que le pasamos por parametros.
+    Funciona utilizando la instruccion 'continue'.
+
+    + override GetHashCode() : int
+    Funcion que devuelve el 'Hashcode' personalizado del elemento 'this'
+
+    + override Equals(object obj) : bool
+    Funcion que devuelve verdadero o falso si un elemento es igual al this.
+
+    + IsEqualsInDeep(object obj) : bool
+    Funcion que devuelve verdadero o falso si un elemento es 'identico' al this.
+
+    + Clear() : void
+    Funcion que elimina todos los objetos del array.
+
+    + override ToString() : string
+    Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+
+    */
+    #endregion
+
     public class Set<T>
     {
         private T[] _set;
@@ -16,17 +58,13 @@ namespace DAMLib
                 else
                     return _set.Length;
             }
-        }
-        
+        }       
 
-        // Constructor sin parametros
         public Set()
         {
             _set = new T[0];
         }
 
-
-        // Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
         public void Add(T element)
         {
             if (element == null)
@@ -46,14 +84,10 @@ namespace DAMLib
                 _set = setResult;
             }
         }
-
-        // Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
         public bool Contains(T element)
         {
             return IndexOf(element) >= 0;
         }
-
-        // Funcion que devuelve el índice del elemento que le paso por parametros.
         public int IndexOf(T element)
         {
             if (element == null)
@@ -64,25 +98,21 @@ namespace DAMLib
                 if (_set[i].Equals(element))
                     return i;
             }
-
             return -1;
         }
 
-        // Funcion que elimina el elemento que le pasamos por parametros.
         public void Remove(T element)
         {
             if (element == null)
                 return;
 
             int index = IndexOf(element);
-
             if (index == -1)
                 return;
 
             int count = _set.Length;
             T[] arrayResult = new T[count - 1];
-
-            // Posibilidad 1. Con dos bucles 'for'.          
+            
             for (int i = 0; i < index; i++)
             {
                 arrayResult[i] = _set[i];
@@ -93,23 +123,28 @@ namespace DAMLib
                 arrayResult[i] = _set[i + 1];
             }
 
-            // Posibilidad 2. Con instruccion 'continue'.
-            /*
+            _set = arrayResult;
+        }
+        public void RemoveAlternative(T element)    //TODO test
+        {
+            if (element == null)
+                return;
+
+            int index = IndexOf(element);
+            if (index == -1)
+                return;
+
+            int count = _set.Length;
+            T[] arrayResult = new T[count - 1];            
+
             for(int i = 0; i < count; i++)
             {
                 if (i == index)
                     continue;
                 arrayResult[i] = _set[i];
-            }
-            */
+            }            
 
             _set = arrayResult;
-        }
-
-
-        public void Clear()
-        {
-            _set = Array.Empty<T>();
         }
 
         public override int GetHashCode()
@@ -122,22 +157,27 @@ namespace DAMLib
             return this == obj;
         }
 
-        public bool IsEqualsInDeep(object? obj)
+        public bool IsEqualsInDeep(object? obj) //TODO
         {
-            if (this == obj)
-                return true;
-
-            if (obj is not TestCar)
-                return false;
-
-            TestCar car = (TestCar)obj;
-
-            //comprueba que los atributos sean identicos.
-            //return (this._testAtribute == car.TestAtribute);
             return true;
+            //if (this == obj)
+            //    return true;
+
+            //if (obj is not DAMLibTest.Car)
+            //    return false;
+
+            //DAMLibTest.SetInt = (TestCar)obj;
+
+            ////comprueba que los atributos sean identicos.
+            ////return (this._testAtribute == car.TestAtribute);
+            //return true;
         }
 
-        // Funcion que devuelve un string con todos los elementos de la coleccion.
+
+        public void Clear()
+        {
+            _set = Array.Empty<T>();
+        }
         public override string ToString()
         {
             string result = "";
