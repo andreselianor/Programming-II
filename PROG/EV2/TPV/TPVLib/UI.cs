@@ -55,5 +55,28 @@
             Console.WriteLine(exitMenuMessage);
             Console.ReadLine();
         }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE UI · MODELO - VISTA - CONTROLADOR DE UNA APLICACION.
+        La UI se encarga de mostrar por pantalla las acciones posibles que podemos realizar sobre 
+        nuestro programa.
+        
+        ~ UISplashMenu() : void
+        Muestra la pantalla de bienvenida.
+
+        ~ UIMainMenu() : void
+        Muestra en pantalla el menu principal
+
+        ~ UIProductMenu() : void
+        Muestra el menu producto.
+
+        ~ UIInvoiceMenu() : void
+        Muestra el menu de pedidos.
+
+        ~ UIExitMenu(): void
+        Muestra el menu de cierre de sesion.
+        */
+        #endregion
     }
 }

@@ -18,38 +18,61 @@
             _ticketBody = ticketBody;
         }
 
-        public TicketHeader AddTicketHeader(int barcode)
+        public void AddTicketHeader(int barcode)
         {
-            //TicketHeader ticket = new TicketHeader(DateTime.Now, barcode);
-            TicketHeader ticket = new TicketHeader();
+            TicketHeader ticket = new TicketHeader(DateTime.Now, barcode);
 
-            ticket.Date = DateTime.Now;
-            ticket.BarCode = barcode;
-            return ticket;
+            //TicketHeader ticketAlternative = new TicketHeader();
+            //ticket.Date = DateTime.Now;
+            //ticket.BarCode = barcode;
+
+            _ticketHeader = ticket;
         }
 
-        public TicketBody AddTicketBody(TicketLine[] ticketsLine)
+        public void AddTicketBody(TicketLine[] ticketsLine)
         {
-            TicketBody ticket = new TicketBody();
-            ticket.AddTicketLine(ticketsLine);
-            return ticket;
-        }
-
-        public TicketLine AddTicketLine(double quantity, string description, long id, Product product)
+            TicketBody ticketBody = new TicketBody();
+            ticketBody.AddTicketLine(ticketsLine);
+            _ticketBody = ticketBody;
+        }  
+        
+        public void AddTicketLine(TicketLine ticketLine)
         {
-            TicketLine ticket = new TicketLine();
 
-            ticket.Quantity = quantity;
-            ticket.Description = description;
-            ticket.ID = id;
-            ticket.Product = product;
-
-            return new TicketLine();
         }
 
         public void SetPrice(double value)
         {
             _price = value;
-        }        
+        }
+
+        public double GetPrice()
+        {
+            return _price;
+        }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE CONTROLLER · MODELO - VISTA - CONTROLADOR DE UNA APLICACION.
+        El controlador se encarga de relacionar los datos de la coleccion del modelo, 
+        con la interfaz grafica del usuario.
+        
+        |#| Ticket() {}
+        |#| Ticket(TicketHeader, TicketBody) {}
+
+        + AddTicketHeader(barcode) : Ticket
+        Esta funcion añade la cabecera del ticket. Se compone de fecha y codigo de barras.
+
+        + AddTicketBody(TicketLine[]) : void
+        Esta funcion añade las lineas de cada ticket. Se compone de objetos 'TicketLine'
+
+        + SetPrice(value) : void
+        Esta funcion establece el precio total de cada Ticket.
+
+        + GetPrice(value) : void
+        Esta funcion devuelve el precio total de cada Ticket.
+        
+        */
+        #endregion
     }
 }

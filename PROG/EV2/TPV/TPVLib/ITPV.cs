@@ -6,7 +6,6 @@
         {
             return new RAMTPV();
         }
-
         int GetProductsCount();
         Product GetProductWithId(long id);
         bool ContainsProduct(Product product);

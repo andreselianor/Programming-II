@@ -23,5 +23,17 @@
             _quantity = quantity;
             _product = product;
         }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE TICKETLINE.
+        Esta clase crea las lineas precio/producto que componen el ticket.
+        Cada Linea contiene una descripcion, un id, una cantidad y un producto.
+        
+        |#| TicketHeader() {}
+        |#| TicketHeader(description, id, quantity, Product) 
+        {_description = description; _Id = id; _quantity = quantity; _product = product;}
+        */
+        #endregion
     }
 }

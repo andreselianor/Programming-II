@@ -35,7 +35,7 @@ namespace TPVLib.implementations
             if (ticketHeader == null)
                 return;
 
-            _ticket.AddTicketHeader(ticketHeader.BarCode);
+            _ticket.AddTicketHeader(ticketHeader.Barcode);
         }
 
         public void AddTicketLine(TicketLine ticketLine)
@@ -43,7 +43,8 @@ namespace TPVLib.implementations
             if (ticketLine == null)
                 return;
 
-            _ticket.AddTicketLine(ticketLine.Quantity, ticketLine.Description, ticketLine.ID, ticketLine.Product);
+            TicketBody ticketBody = new TicketBody();
+            ticketBody.AddSingleTicketLine(ticketLine.Quantity, ticketLine.Description, ticketLine.ID, ticketLine.Product);
         }
 
         public void RemoveProduct(Product product)

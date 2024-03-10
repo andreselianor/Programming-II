@@ -11,7 +11,5 @@
         void RemoveProduct(Product product);
         void RemoveProductWithId(long Id);
         void RemoveTicket(Ticket ticket);
-
-
     }
 }

@@ -1,23 +1,26 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-
-namespace TPVLib
+﻿namespace TPVLib
 {
     public class Controller
     {
-        private RAMTPV _core = new RAMTPV();
         private bool _isRunning = true;
 
-        public void StartProgram()
+        public static void RunApplication(ITPV tpv)
+        {
+            Controller controller = new Controller();
+            controller.StartProgram(tpv);
+        }
+
+        public void StartProgram(ITPV tpv)
         {
             UI.UISplashMenu();
             while (_isRunning)
             {
-                UIdisplayMainMenu();
+                UIdisplayMainMenu(tpv);
             }
             UI.UIExitMenu();
         }
 
-        public void UIdisplayMainMenu()
+        public void UIdisplayMainMenu(ITPV tpv)
         {
             bool mainMenu = true;
             int optionMenu;
@@ -27,9 +30,9 @@ namespace TPVLib
                 optionMenu = Int32.Parse(Console.ReadLine());
 
                 if(optionMenu == 1)
-                    UIdisplayProductMenu();
+                    UIdisplayProductMenu(tpv);
                 else if(optionMenu == 2)
-                    UIdisplayInvoiceMenu();
+                    UIdisplayInvoiceMenu(tpv);
                 else if(optionMenu == 0)
                 {
                     mainMenu = false;
@@ -40,7 +43,7 @@ namespace TPVLib
             }
         }
 
-        public void UIdisplayProductMenu()
+        public void UIdisplayProductMenu(ITPV tpv)
         {
             bool productMenu = true;
             int optionMenu;
@@ -53,7 +56,7 @@ namespace TPVLib
                 if (optionMenu == 1)
                 {
                     Console.WriteLine("Listando productos disponibles en la base de datos...");
-                    DisplayingAvailableProducts(_core);
+                    DisplayingAvailableProducts(tpv);
                 }
                 else if (optionMenu == 2)
                     Console.WriteLine("No implementado");
@@ -62,7 +65,7 @@ namespace TPVLib
                 else if(optionMenu == 4)
                     Console.WriteLine("No implementado");
                 else if(optionMenu == 0)
-                    UIdisplayMainMenu();
+                    UIdisplayMainMenu(tpv);
                 else                
                     Console.WriteLine("Introduzca una opcion valida");
 
@@ -70,7 +73,7 @@ namespace TPVLib
             }            
         }
 
-        public void UIdisplayInvoiceMenu()
+        public void UIdisplayInvoiceMenu(ITPV tpv)
         {
             bool invoiceMenu = true;
             int optionMenu;
@@ -85,7 +88,7 @@ namespace TPVLib
                 else if (optionMenu == 2)
                     Console.WriteLine("No implementado");
                 else if (optionMenu == 0)
-                    UIdisplayMainMenu();
+                    UIdisplayMainMenu(tpv);
                 else                
                     Console.WriteLine("Introduzca una opcion valida");
 
@@ -103,5 +106,32 @@ namespace TPVLib
             }
             Console.WriteLine();
         }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE CONTROLLER · MODELO - VISTA - CONTROLADOR DE UNA APLICACION.
+        El controlador se encarga de relacionar los datos de la coleccion del modelo, 
+        con la interfaz grafica del usuario.
+        
+        ~ Run(ITPV) : void
+        Crea un objeto controlador nuevo y ejecuta la funcion de arranque del programa.
+
+        + StartProgram(ITPV) : void
+        Funcion que muestra por pantalla el 'splash screen'.
+
+        + UIdisplayMainMenu(ITPV) : void
+        Muestra por pantalla el menu principal.
+
+        + UIdisplayProductMenu(ITPV) : void
+        Muestra por pantalla el menu productos.
+
+        + UIdisplayInvoiceMenu(ITPV) : void
+        Muestra por pantalla el menu pedidos.
+
+        - DisplayingAvailableProducts(ITPV) : void
+        Muestra por pantalla los productos disponibles.
+        
+        */
+        #endregion
     }
 }
