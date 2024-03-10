@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace DAMLib
+﻿namespace DAMLib
 {
     public class SetOrdered<T>
     {
@@ -27,14 +25,17 @@ namespace DAMLib
 
         public SetOrdered()
         {
-            _orderedSet = new Item[0];
+            _orderedSet = Array.Empty<Item>();
+        }
+        public SetOrdered(int count)
+        {
+            _orderedSet = new Item[count];
         }
 
-        public int GetItemsCOunt()
+        public int GetItemsCount()
         {
             return _orderedSet.Length;
         }
-
         public int GetIndexOf(T element)
         {
             if (element == null)
@@ -52,7 +53,6 @@ namespace DAMLib
         {
             return _orderedSet[index].Element;
         }
-
         public T GetItemWithHash(int hash)
         {
             for (int i = 0; i < _orderedSet.Length; i++)
@@ -63,20 +63,12 @@ namespace DAMLib
             return default(T);
         }
 
-        public bool Contains(T element)
-        {
-            return GetIndexOf(element) >= 0;
-        }
-
-        // Funcion que añade un elemento al Set. Despues lo ordena.
         public void Add(T element)
         {
             if (element == null)
                 return;
 
-            if (Contains(element))
-                return;
-            else
+            if (!Contains(element))
                 AddElement(element);
 
             SortSet();
@@ -97,6 +89,11 @@ namespace DAMLib
             arrayResult[newLength - 1] = newItem;
 
             _orderedSet = arrayResult;
+        }
+
+        public bool Contains(T element)
+        {
+            return GetIndexOf(element) >= 0;
         }
         public void SortSet()
         {
@@ -151,7 +148,6 @@ namespace DAMLib
             _orderedSet = newItemArray;
         }
 
-        // Funcion que realiza una busqueda binaria de un elemento segun el Hash.
         public T BinarySearch(T element)
         {
             if (element == null)
@@ -161,7 +157,6 @@ namespace DAMLib
             int count = _orderedSet.Length;
             int superiorIndex = _orderedSet[count - 1].GetHashCode();
             int inferiorIndex = _orderedSet[0].GetHashCode();
-
 
             while (superiorIndex > inferiorIndex)
             {
@@ -175,30 +170,29 @@ namespace DAMLib
                 else
                     superiorIndex = searchIndex - 1;
             }
-
             return default(T);
         }
-
-
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _orderedSet.GetHashCode();
         }
-
-        private Item[] Clone()
+        public override bool Equals(object? obj)
         {
-            int count = _orderedSet.Length;
-            Item[] result = new Item[count];
-
-            for(int i = 0; i < count; i++)
-            {
-                result[i].Element = _orderedSet[i].Element;
-                result[i].Hash = _orderedSet[i].Hash;   
-            }
-            
-            return result;
+            return this == obj;
         }
 
+        public SetOrdered<T> Clone()
+        {
+            int count = _orderedSet.Length;
+            SetOrdered<T> clone = new SetOrdered<T>(count);
+
+            for (int i = 0; i < count; i++)
+            {
+                clone._orderedSet[i].Element = _orderedSet[i].Element;
+                clone._orderedSet[i].Hash = _orderedSet[i].Hash;
+            }
+            return clone;
+        }
 
         public void Clear()
         {
@@ -216,5 +210,63 @@ namespace DAMLib
             }
             return result;
         }
+
+        #region · DOCUMENTACION
+        /* 
+        DOCUMENTACION PARA LA CLASE SETWITHORDER · COLECCIONES DE DATOS
+
+        (P) bool IsEmpty;
+        (P) bool IsNull;
+
+        |#| SetOrdered() {}
+
+        + GetItemsCount() : int
+        Devuelve el numero de items dentro del Set
+
+        + GetIndexOf(T element) : int
+        Devuelve la posicion del elemento dentro del set.
+
+        + GetItemAt(int index) : T
+        Devuelve el elemento que existe dentro de la posicion que se le indica.
+
+        + GetItemWithHash(int hash) : T
+        Devuelve el elemento que tiene el Hash indicado.
+
+        + Add(T element) : void
+        Comprueba el que elemento T no existe dentro de la colecion. 
+        Despues lo añade y entonces ordena la coleccion.
+
+        + Contains(T element) : bool
+        Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+
+        + SortSet() : void
+        Ordena el Set con los numeros hash de manera ascendente.
+
+        + Remove(T element) : void
+        Funcion que elimina el elemento que le pasamos por parametros.
+
+        + RemoveAt(int index) : void
+        Funcion que elimina el elemento que ocupa la posicion indicada.
+
+        + BinarySearch(T element) : bool
+        Funcion que busca el elemento dentro del set.
+
+        + override GetHashCode() : int
+        Funcion que devuelve el 'Hashcode' personalizado del elemento 'this'
+
+        + override Equals(object obj) : bool
+        Funcion que devuelve verdadero o falso si un elemento es igual al this.
+
+        + OrderedSet<T> Clone() : OrderedSet<T>
+        Funcion que realiza una copia de la coleccion Set.
+
+        + Clear() : void
+        Funcion que elimina todos los objetos del array.
+
+        + override ToString() : string
+        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+
+        */
+        #endregion
     }
 }

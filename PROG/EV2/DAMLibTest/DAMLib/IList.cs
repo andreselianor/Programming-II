@@ -10,14 +10,14 @@
         void RemoveElement(T element);
         void RemoveElementAt(int index);
 
-        void Contains(T element);
+        bool Contains(T element);
 
         bool IsEmpty();
         bool IsSort();
         bool IsValid();
 
-        void Sort();
-        void Filter();
+        List<T> Sort();
+        List<T> Filter();
         void Visit();
 
         void Clear();

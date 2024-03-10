@@ -1,15 +1,11 @@
-﻿using System.Reflection.PortableExecutable;
-using System.Xml.Linq;
-
-namespace DAMLib
+﻿namespace DAMLib
 {
     public class SetWithHash<T>
-    {
+    {        
         public T[] _set;
         public int[] _hash;
 
-
-        public bool Empty => _set.Length == 0;
+        public bool IsEmpty => _set.Length == 0;
         public int Count
         {
             get
@@ -21,14 +17,17 @@ namespace DAMLib
             }
         }
 
-
         public SetWithHash()
         {
             _set = new T[0];
             _hash = new int[0];
         }
+        public SetWithHash(int count)
+        {
+            _set = new T[count];
+            _hash = new int[count];
+        }
 
-        // Funcion que añade un elemento generico al Set. Incluye un numero entero para el hash del elemento.
         public void Add(T element)
         {
             if (element == null)
@@ -55,10 +54,9 @@ namespace DAMLib
             }
         }
 
-        // Funcion que elimina un elemento generico del Set
         public void Remove(T element)
         {
-            int index = IndexOf(element);
+            int index = GetIndexOf(element);
 
             if (index == -1)
                 return;
@@ -84,14 +82,12 @@ namespace DAMLib
             _hash = hashResult;
         }
 
-        // Funcion que devuelve el numero Hash del elemento.
         public int HashWithIndex(int index)
         {
             return _hash[index];
         }
 
-        // Funcion que devuelve el indice que ocupa el elemento en el Set.
-        public int IndexOf(T element)
+        public int GetIndexOf(T element)
         {
             if (element == null)
                 return -1;
@@ -107,13 +103,12 @@ namespace DAMLib
             return -1;
         }
 
-        // Funcion que devuelve verdadero o falso si el Set contiene el elemento generico.
         public bool Contains(T element)
         {
             if (element == null)
                 return false;
 
-            int index = IndexOf(element);
+            int index = GetIndexOf(element);
 
             if (index == -1)
                 return false;
@@ -122,15 +117,10 @@ namespace DAMLib
                 return true;
             return false;
         }
-
-
-        // Funcion que devuelve un booleano si dos objetos son iguales
         public override bool Equals(object? obj)
         {
             return this == obj;
         }
-
-        // Funcion que devuelve verdadero si dos objetos son iguales y tienen identicos atributos.
         public bool EqualsDeep(object? obj)
         {
             if (this == obj)
@@ -145,13 +135,16 @@ namespace DAMLib
                 return true;
             return false;
         }
-
-        // Funcion que sobreescribe la funcion que devuelve el codigo hash de un objeto.
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _set.GetHashCode();
         }
 
+        public void Clear()
+        {
+            _set = Array.Empty<T>();
+            _hash = Array.Empty<int>();
+        }
         public override string ToString()
         {
             string result = "";
@@ -163,5 +156,50 @@ namespace DAMLib
 
             return result;
         }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE SETWITHHASH · COLECCIONES DE DATOS
+        Los elementos de la coleccion contienen un numero unico llamado Hash.
+        Este numero sirve para ordenar y comprobar que no existen valores repetidos.
+
+        (P) bool IsEmpty;
+        (P) int Count;
+
+        |#| SetWithHash() {}
+        |#| SetWithHash(int count) {T[] = new T[count]; int[] = new int[count]}
+
+        + Add(T element) : void
+        Funcion que añade un elemento y un numero Hash a la coleccion.
+
+        + Remove(T element) : void
+        Funcion que elimina el elemento y el numero hash que le pasamos por parametros.
+
+        + HashWithIndex(int index) : int
+        Funcion que devuelve el numero hash de la posicion que le pasamos por parametros.
+
+        + GetIndexOf(T element) : int
+        Funcion que devuelve el indice del elemento que le pasamos por parametros.
+
+        + Contains(T element) : bool
+        Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+
+        + override GetHashCode() : int
+        Funcion que devuelve el 'Hashcode' personalizado del elemento 'this'
+
+        + override Equals(object obj) : bool
+        Funcion que devuelve verdadero o falso si un elemento es igual al this.
+
+        + EqualsDeep(object obj) : bool
+        Funcion que devuelve si dos elementos son iguales en contenido y numero Hash.
+
+        + Clear() : void
+        Funcion que elimina todos los elementos y hashes del Set.
+
+        + override ToString() : string
+        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+
+        */
+        #endregion
     }
 }

@@ -1,9 +1,7 @@
-﻿using System.Xml.Linq;
-
-namespace DAMLib
+﻿namespace DAMLib
 {
     public class SetItem<T>
-    {
+    {        
         private Item[] _itemset;
 
         private class Item
@@ -31,27 +29,21 @@ namespace DAMLib
                 return _itemset.Length;
             }
         }
-
         public bool IsEmpty => _itemset.Length == 0;
-
 
         public SetItem()
         {
             _itemset = Array.Empty<Item>();
         }
 
-        // Funcion publica que añade un elemento al Set.
         public void Add(T element)
         {
             if (element == null)
                 return;
 
-            if (Contains(element))
-                return;
-            else
+            if (!Contains(element))
                 AddElement(element);
         }
-
         private void AddElement(T element)
         {
             if (element == null)
@@ -67,12 +59,10 @@ namespace DAMLib
             {
                 newItemArray[i] = _itemset[i];
             }
-            newItemArray[newLength - 1] = newItem;
 
+            newItemArray[newLength - 1] = newItem;
             _itemset = newItemArray;
         }
-
-        // Funcion que elimina un elemento del Set.
         public void RemoveAt(int index)
         {
             if (index < 0 || index >= _itemset.Length)
@@ -81,27 +71,21 @@ namespace DAMLib
             int newLength = _itemset.Length - 1;
             Item[] newItemArray = new Item[newLength];
 
-
             for (int i = 0; i < index; i++)
             {
                 newItemArray[i] = _itemset[i];
             }
-
             for (int i = index; i < newLength; i++)
             {
                 newItemArray[i] = _itemset[i + 1];
             }
-
             _itemset = newItemArray;
         }
 
-        // Funcion que comprueba si contiene un elemento.
         public bool Contains(T element)
         {
             return IndexOf(element) >= 0;
         }
-
-        // Funcion que devuelve el indice de un elemento del Set.
         public int IndexOf(T element)
         {
             if (element == null)
@@ -120,18 +104,19 @@ namespace DAMLib
             return -1;
         }
 
-        // Funcionn que elimina todo el contenido de la coleccion.
-        public void Clear()
+        public override bool Equals(object? obj)
         {
-            _itemset = new Item[0];
+            return this == obj;
         }
-
-        // Funcion que devuelve el codigo hash de un elemento.
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _itemset.GetHashCode();
         }
 
+        public void Clear()
+        {
+            _itemset = new Item[0];
+        }
         public override string ToString()
         {
             string result = "";
@@ -144,5 +129,44 @@ namespace DAMLib
             }
             return result;
         }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE SETITEM · COLECCIONES DE DATOS.
+
+        (P) bool IsEmpty;
+        (P) int Count;
+
+        |#| SetItem() {}
+
+        + Add(T element) : void
+        Funcion que evalua si element existe dentro de la coleccion.
+
+        - AddElement(T element) : void
+        Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
+
+        + Contains(T element) : bool
+        Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+
+        + IndexOf(T element) : int
+        Funcion que devuelve el índice del elemento que le paso por parametros.
+
+        + Remove(T element) : void
+        Funcion que elimina el elemento que le pasamos por parametros.
+
+        + override GetHashCode() : int
+        Funcion que devuelve el 'Hashcode' personalizado del elemento 'this'
+
+        + override Equals(object obj) : bool
+        Funcion que devuelve verdadero o falso si un elemento es igual al this.
+
+        + Clear() : void
+        Funcion que elimina todos los objetos del array.
+
+        + override ToString() : string
+        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+
+        */
+        #endregion
     }
 }

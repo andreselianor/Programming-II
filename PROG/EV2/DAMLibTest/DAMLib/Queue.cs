@@ -2,39 +2,7 @@
 {
     public class Queue<T>
     {
-        #region · DOCUMENTACION
-        /*  DOCUMENTACION PARA LA CLASE QUEUE · COLECCIONES DE DATOS  * /
-        
-        (P) bool IsEmpty;
-        (P) int Count;
-        (P) T First;
-        (P) T Last;
-
-        |#| Queue() {}
-
-        + Enqueue(T element) : void
-        Funcion que introduce un elemento generico en el QUEUE.
-        Queda establecido que el elemento se introduce en la ultima posicion del QUEUE [^1].
-        
-        + Dequeue() : T
-        Funcion que extrae el primer elemento que contiene el QUEUE.
-        Queda establecido que el primer elemento ocupa la primera posicion del QUEUE [0].
-
-        + Clone() : Queue
-        Funcion que clona un objeto 'QUEUE'
-
-        + QueueMultipleElements(T[] elements) : void
-        Funcion que introduce un array de elementos genericos en la Queue.
-
-        + Clear() : void
-        Funcion que elimina todos los objetos del array.
-        
-        + override ToString() : string
-        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
-        
-        */
-        #endregion
-
+        // La documentacion de la clase 'Queue' se encuentra al final del fichero.
 
         private T[] _queue;
 
@@ -56,6 +24,10 @@
         {
             _queue = new T[0];
         }
+        public Queue(int count)
+        {
+            _queue = new T[count];
+        }
 
         public void Enqueue(T element)
         {
@@ -68,7 +40,6 @@
             }
 
             _arrayResult[count] = element;
-
             _queue = _arrayResult;
         }
         public T Dequeue()
@@ -83,7 +54,6 @@
             }
 
             _queue = _arrayResult;
-
             return result;
         }
 
@@ -98,10 +68,14 @@
             }
             return clone;
         }
-        public Queue<T> Clone() //TODO test clone
+        public Queue<T> Clone()
         {
-            Queue<T> clone = new Queue<T>();
-            clone = this;
+            int count = _queue.Length;
+            Queue<T> clone = new Queue<T>(count);
+            for (int i = 0; i < _queue.Length; i++)
+            {
+                clone._queue[i] = _queue[i];
+            }
             return clone;
         }
         public void QueueMultipleElements(T[] elements)
@@ -120,13 +94,12 @@
             {
                 newQueue[i + oldElementsCount] = elements[i];
             }
-
             _queue = newQueue;
         }
 
         public void Clear()
         {
-            _queue = new T[0];
+            _queue = Array.Empty<T>();
         }
         public override string ToString()
         {
@@ -141,5 +114,44 @@
 
             return result;
         }
+
+        #region · DOCUMENTACION
+        /*                                                                                   
+        DOCUMENTACION PARA LA CLASE QUEUE · COLECCIONES DE DATOS
+        Funciona según un algoritmo FIFO; Los elementos se 'extraen' segun el orden de entrada.
+
+        (P) bool IsEmpty;
+        (P) int Count;
+        (P) T First;
+        (P) T Last;
+
+        |#| Queue() {}
+        |#| Queue(int count) { Queue element = new Queue[count]}
+
+        + Enqueue(T element) : void
+        Funcion que introduce un elemento generico en el QUEUE.
+        Queda establecido que el elemento se introduce en la ultima posicion del QUEUE [^1].
+        
+        + Dequeue() : T
+        Funcion que extrae el primer elemento que contiene el QUEUE.
+        Queda establecido que el primer elemento ocupa la primera posicion del QUEUE [0].
+
+        + Clone() : Queue
+        Funcion que clona un objeto 'QUEUE'
+
+        + QueueMultipleElements(T[] elements) : void
+        Funcion que introduce un array de elementos genericos en la Queue.
+
+        + Clone() : Queue<T>
+        Funcion que devuelve una copia del objeto Queue.
+
+        + Clear() : void
+        Funcion que elimina todos los objetos del array.
+        
+        + override ToString() : string
+        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+        
+        */
+        #endregion
     }
 }

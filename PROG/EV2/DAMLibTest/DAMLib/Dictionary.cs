@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-namespace DAMLib
+﻿namespace DAMLib
 {
     public class Dictionary<K, V>
-    {        
+    {
+        // La documentacion de la clase 'Dictionary' se encuentra al final del fichero.
+
         public delegate bool DelegateFilterWithKey(K key);
         public delegate bool DelegateFilterWithValue(V value);
         public delegate bool DelegateFilterWithKeyValue(K key, V value);
-
 
         private Item[] _item = new Item[0];
 
@@ -43,8 +42,19 @@ namespace DAMLib
             }
             return -1;
         }
+        public int GetIndexOf(K key)
+        {
+            if (key == null)
+                return 0;
 
-        public V? GetElementAt(K key)
+            for (int i = 0; i < _item.Length; i++)
+            {
+                if (_item[i].Key.Equals(key))
+                    return i;
+            }
+            return -1;
+        }
+        public V? GetElementWithKey(K key)
         {
             if (key == null)
                 return default(V);
@@ -71,8 +81,8 @@ namespace DAMLib
             {
                 setResult[i] = _item[i];
             }
-            setResult[count] = element;
 
+            setResult[count] = element;
             _item = setResult;
         }
 
@@ -91,7 +101,6 @@ namespace DAMLib
             {
                 arrayResult[i] = _item[i];
             }
-
             for (int i = index; i < count - 2; i++)
             {
                 arrayResult[i] = _item[i + 1];
@@ -102,32 +111,36 @@ namespace DAMLib
 
         private bool ContainsKey(K key)
         {
-            if (key == null)
-                return false;
+            return GetIndexOf(key) >= 0;
 
-            for (int i = 0; i < _item.Length; i++)
-            {
-                if (_item[i].Key.Equals(key))
-                    return true;
-            }
-            return false;
+            // Otra opcion
+            //if (key == null)
+            //    return false;
+
+            //for (int i = 0; i < _item.Length; i++)
+            //{
+            //    if (_item[i].Key.Equals(key))
+            //        return true;
+            //}
+            //return false;
         }
 
         public bool Contains(V value)
         {
-            // return IndexOf >= 0;
-            if (value == null)
-                return false;
+            return GetIndexOf(value) >= 0;
+            
+            // Otra opcion
+            //if (value == null)
+            //    return false;
 
-            for (int i = 0; i < _item.Length; i++)
-            {
-                if (_item[i].Value.Equals(value))
-                    return true;
-            }
-            return false;
+            //for (int i = 0; i < _item.Length; i++)
+            //{
+            //    if (_item[i].Value.Equals(value))
+            //        return true;
+            //}
+            //return false;
         }
 
-        // Funcion que devuelve si dos DICCIONARIOS son iguales.
         public override bool Equals(object? obj)
         {
             return (this == obj);
@@ -135,8 +148,6 @@ namespace DAMLib
 
         public bool AreIdentical(object? obj)
         {
-            // Comprueba que DOS DICCIONARIOS SON IGUALES
-            // NO COMPRUEBA SI DOS ITEMS SON IGUALES
             if (obj == null)
                 return false;
             if (obj is not Item)
@@ -151,14 +162,11 @@ namespace DAMLib
             }
             return false;
         }
-
         public override int GetHashCode()
         {
             return 133 * 533 * 224 * _item.GetHashCode();
         }
 
-
-        // Funcion delegado 'Filter' que devuelve un diccionario.
         public Dictionary<K, V> Filter(DelegateFilterWithKeyValue del)
         {
             Dictionary<K, V> dictionaryResult = new Dictionary<K, V>();
@@ -171,10 +179,8 @@ namespace DAMLib
                     dictionaryResult.Add(_item[i].Key, _item[i].Value);
                 }
             }
-
             return dictionaryResult;
         }
-
         public Dictionary<K, V> Filter(DelegateFilterWithKey del)
         {
             Dictionary<K, V> dictionaryResult = new Dictionary<K, V>();
@@ -187,7 +193,6 @@ namespace DAMLib
                     dictionaryResult.Add(_item[i].Key, _item[i].Value);
                 }
             }
-
             return dictionaryResult;
         }
         public Dictionary<K, V> Filter(DelegateFilterWithValue del)
@@ -202,7 +207,6 @@ namespace DAMLib
                     dictionaryResult.Add(_item[i].Key, _item[i].Value);
                 }
             }
-
             return dictionaryResult;
         }
 
@@ -219,5 +223,71 @@ namespace DAMLib
             }
             return result;
         }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE DICTIONARY · COLECCIONES DE DATOS.
+        Los elementos de la coleccion se componen de:
+        Un valor <K> 'Key', unico en la coleccion que sirve con indice de la coleccion.
+        Un valor <V> 'Value', que contiene la informacion del elemento.
+
+        (P) bool IsEmpty;
+        (P) int Count;
+
+        |#| Set() {}
+
+        + GetIndexOf(V value) : int
+        Devuelve el indice del elemento que le pasamos por parametros.
+
+        + GetElementWithKey(K key) : V
+        Devuelve el elemento que tiene la Key indicada.
+
+        + Add(K key, V value) : void
+        Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
+
+        + RemoveAt(int index) : void
+        Funcion que elimina el elemento que le pasamos por parametros.
+
+        + Contains(V value) : bool
+        Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+
+        + ContainsKey(K key) : bool
+        Funcion que devuelve verdadero si existe una key determinada dentro de la coleccion.
+
+        + IndexOf(T element) : int
+        Funcion que devuelve el índice del elemento que le paso por parametros.
+
+        + Equals(object obj) : bool
+        Funcion que devuelve verdadero si dos elementos son iguales.
+
+        + AreIdentical(object obj) : bool
+        Funcion que devuelve verdadero si dos objetos son iguales en todos sus atributos.
+
+        + override GetHashCode() : int
+        Funcion que devuelve el 'Hashcode' personalizado del elemento 'this'
+
+        + override Equals(object obj) : bool
+        Funcion que devuelve verdadero o falso si un elemento es igual al this.
+
+        + IsEqualsInDeep(object obj) : bool
+        Funcion que devuelve verdadero o falso si un elemento es 'identico' al this.
+
+        + Dictionary<K, V> Filter(DelegateFilterWithKeyValue del)
+        Funcion que devuelve una nueva coleccion que contiene los elementos que filtra el usuario.
+
+        + Dictionary<K, V> Filter(DelegateFilterWithKey del)
+        El usuario le pasa una funcion que filtra elementos que tienen una key determinada.
+
+        + Dictionary<K, V> Filter(DelegateFilterWithValue del)
+        El usuario le pasa una funcion que filtra elementos que tienen un valor determinada.
+
+        + Clear() : void
+        Funcion que elimina todos los objetos del array.
+
+        + override ToString() : string
+        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+
+        */
+        #endregion
     }
 }

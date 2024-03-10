@@ -1,49 +1,6 @@
-﻿using System.Xml.Linq;
-namespace DAMLib
+﻿namespace DAMLib
 {
-    #region · DOCUMENTACION
-    /*  DOCUMENTACION PARA LA CLASE QUEUE · COLECCIONES DE DATOS  * /
-
-    (P) bool IsEmpty;
-    (P) int Count;
-
-    |#| Set() {}
-
-    + Add(T element) : void
-    Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
-
-    + Contains(T element) : bool
-    Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
-        
-    + IndexOf(T element) : int
-    Funcion que devuelve el índice del elemento que le paso por parametros.
-
-    + Remove(T element) : void
-    Funcion que elimina el elemento que le pasamos por parametros.
-    Funciona con dos bucles for.
-
-    + RemoveAlternative(T element) : void
-    Funcion que elimina el elemento que le pasamos por parametros.
-    Funciona utilizando la instruccion 'continue'.
-
-    + override GetHashCode() : int
-    Funcion que devuelve el 'Hashcode' personalizado del elemento 'this'
-
-    + override Equals(object obj) : bool
-    Funcion que devuelve verdadero o falso si un elemento es igual al this.
-
-    + IsEqualsInDeep(object obj) : bool
-    Funcion que devuelve verdadero o falso si un elemento es 'identico' al this.
-
-    + Clear() : void
-    Funcion que elimina todos los objetos del array.
-
-    + override ToString() : string
-    Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
-
-    */
-    #endregion
-
+    // La documentacion de la clase 'Set' se encuentra al final del fichero.
     public class Set<T>
     {
         private T[] _set;
@@ -63,6 +20,10 @@ namespace DAMLib
         public Set()
         {
             _set = new T[0];
+        }
+        public Set(int count)
+        {
+            _set = new T[count];
         }
 
         public void Add(T element)
@@ -125,7 +86,7 @@ namespace DAMLib
 
             _set = arrayResult;
         }
-        public void RemoveAlternative(T element)    //TODO test
+        public void RemoveAlternative(T element)
         {
             if (element == null)
                 return;
@@ -151,28 +112,45 @@ namespace DAMLib
         {
             return 133 * 533 * 224 * _set.GetHashCode();
         }
-
         public override bool Equals(object? obj)
         {
             return this == obj;
         }
-
         public bool IsEqualsInDeep(object? obj) //TODO
         {
+            if (this == obj)
+                return true;
+
+            if (obj is not Set<T>)
+                return false;
+
+            Set<T> set = (Set<T>)obj;
+
+            //comprueba que los atributos sean identicos.
+            //return (set._attribute == this._attribute);
             return true;
-            //if (this == obj)
-            //    return true;
-
-            //if (obj is not DAMLibTest.Car)
-            //    return false;
-
-            //DAMLibTest.SetInt = (TestCar)obj;
-
-            ////comprueba que los atributos sean identicos.
-            ////return (this._testAtribute == car.TestAtribute);
-            //return true;
         }
 
+        public Set<T> Clone()
+        {
+            int count = _set.Length;
+            Set<T> clone = new Set<T>(count);
+            for(int i = 0; i < _set.Length; i++)
+            {
+                clone._set[i] = _set[i];
+            }
+            return clone;
+        }
+        public T[] ToArray()
+        {
+            int count = _set.Length;
+            T[] result = new T[count];
+            for (int i = 0; i < _set.Length; i++)
+            {
+                result[i] = _set[i];
+            }
+            return result;
+        }
 
         public void Clear()
         {
@@ -191,5 +169,53 @@ namespace DAMLib
 
             return result;
         }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE SET · COLECCIONES DE DATOS.
+        En una coleccion 'Set' no se pueden introducir elementos repetidos.            
+
+        (P) bool IsEmpty;
+        (P) int Count;
+
+        |#| Set() {}
+
+        + Add(T element) : void
+        Funcion que añade un elemento SOLO en caso que no exista dentro de la coleccion.
+
+        + Contains(T element) : bool
+        Funcion que devuelve verdadero si existe el elemento dentro de la coleccion.
+
+        + IndexOf(T element) : int
+        Funcion que devuelve el índice del elemento que le paso por parametros.
+
+        + Remove(T element) : void
+        Funcion que elimina el elemento que le pasamos por parametros.
+        Funciona con dos bucles for.
+
+        + RemoveAlternative(T element) : void
+        Funcion que elimina el elemento que le pasamos por parametros.
+        Funciona utilizando la instruccion 'continue'.
+
+        + override GetHashCode() : int
+        Funcion que devuelve el 'Hashcode' personalizado del elemento 'this'.
+
+        + override Equals(object obj) : bool
+        Funcion que devuelve verdadero o falso si un elemento es igual al this.
+
+        + IsEqualsInDeep(object obj) : bool
+        Funcion que devuelve verdadero o falso si un elemento es 'identico' al this.
+
+        + Clone() : Set<T>
+        Funcion que devuelve una copia del objeto Set.
+
+        + Clear() : void
+        Funcion que elimina todos los objetos del array.
+
+        + override ToString() : string
+        Funcion que devuelve una cadena de texto con la descripcion del objeto 'QUEUE'.
+
+        */
+        #endregion
     }
 }
