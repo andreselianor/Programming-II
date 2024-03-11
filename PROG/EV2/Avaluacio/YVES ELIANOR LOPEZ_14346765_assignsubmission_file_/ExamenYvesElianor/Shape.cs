@@ -1,0 +1,42 @@
+﻿namespace ExamenBlueprint
+{
+    public class Shape : IShape
+    {
+        protected string _name = "";
+        private Color _color = new Color();        
+
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public Color Color
+        {
+            get { return _color; }
+            set { _color = value; }
+        }
+
+        // Javi: Bueno, ..., a ver, ..., esto no es lo que pide el ejercicio, ..., pero vale
+        // Lo que ocurre es que deberían ser abstract no virtual
+        public virtual bool HasArea => false;
+        public virtual double Area => 0.0;
+        public virtual double Perimeter => 0.0;
+        public virtual Point2D Center => new Point2D();
+        public virtual Rect2D Rect => new Rect2D();
+
+        public virtual void Draw(ICanvas canvas)
+        {
+            canvas.SetColor(_color);
+        }
+
+        // Javi: Has hecho un poco de trampas aquí
+        public Shape() { }
+
+        public Shape(string name, Color color)
+        {
+            _name = name;
+            _color = color;
+        }
+    }
+}
