@@ -4,8 +4,6 @@ namespace TPVLib
     {
         private List<Product> _listProducts = new List<Product>();
         private List<Ticket> _listTickets = new List<Ticket>();
-        //private Dictionary<int, Product> _listProductsAlternative = new Dictionary<int, Product>();
-
 
         public int ProductsCount => _listProducts.Count;
         public bool IsEmpty => _listProducts.Count < 0;
@@ -19,14 +17,12 @@ namespace TPVLib
         {
             if (product == null)
                 return 0;
-
             if (_listProducts.Contains(product))
                 return 0;
 
             _listProducts.Add(product);
             return product.ID;
         }
-
         public void RemoveProduct(long Id)
         {
             if (Id <= 0)
@@ -38,7 +34,6 @@ namespace TPVLib
                     _listProducts.RemoveAt(i);
             }
         }
-
         public Product GetProduct(long Id)
         {
             if (Id <= 0)
@@ -55,7 +50,6 @@ namespace TPVLib
             }
             return null;
         }
-
         public void UpdateProductWithId(long Id, Product product)
         {
             if (Id <= 0 || product == null)
@@ -67,7 +61,6 @@ namespace TPVLib
                     _listProducts[i] = product;
             }
         }
-
         public List<Product> GetProducts()
         {
             List<Product> cloneList = new List<Product>();
@@ -76,10 +69,8 @@ namespace TPVLib
             {
                 cloneList.Add(_listProducts[i]);
             }
-
             return cloneList;
         }
-
         public List<Product> GetProducts(int offset, int limit)
         {
             if (offset <= 0 || limit <= 0)
@@ -91,10 +82,8 @@ namespace TPVLib
             {
                 cloneList.Add(_listProducts[i]);
             }
-
             return cloneList;
         }
-
         public bool ContainsProduct(Product product)
         {
             if (product == null)
@@ -108,15 +97,13 @@ namespace TPVLib
             return false;
         }
 
-        private void Clear()
-        {
-            _listProducts = new List<Product>();
-        }
-
         private List<Product> Clone()
         {
             List<Product> cloneList = new List<Product>();
-            cloneList = _listProducts;
+            for (int i = 0; i < _listProducts.Count; i++)
+            {
+                cloneList[i] = _listProducts[i];
+            }            
             return cloneList;
         }
 
@@ -177,5 +164,64 @@ namespace TPVLib
         {
             database.AddTicket();
         }
+        public void Clear()
+        {
+            _listProducts = new List<Product>();
+        }
+
+        #region · DOCUMENTACION
+        /*  
+        DOCUMENTACION PARA LA CLASE RAMTPV.
+        Esta clase contiene las funciones generales. Es en la clase Database donde se implementan 
+        de manera mas concreta.
+
+        (P) ProductsCount
+        (P) IsEmpty
+
+        |#| RAMTPV(){CreateDatabase()}
+
+        + AddProduct(Product) : long
+        Añade un producto.
+
+        + RemoveProduct(Id) : void
+        Elimina un producto.
+
+        + GetProduct(Id) : Product
+        Recupera un producto.
+
+        + UpdateProductWithId(Id, Product) : void 
+        Actualiza un producto.
+
+        + GetProducts() : List<Product> 
+        Devuelve una copia de la lista de productos.
+
+        + GetProducts(int offset, int limit) : List<Product>
+        Devuelve una lista de n productos a partir de un indice.
+
+        + ContainsProduct(Product) : bool
+        Devuelve verdadero o false si la coleccion contiene un producto.
+        
+        - Clone() : List<Product> 
+        Clona la lista de productos.
+
+        + CreateDatabase() : void
+        Crea los elementos que forman la base de datos y los añade a la lista.
+
+        + AddTicket(int barcode, TicketLine[] ticketsLine, double price) : Ticket
+        Crea un ticket nuevo.
+
+        + GetProductsCount() : int
+        Devuelve el numero de elementos dentro de la lista.
+
+        + GetProductWithId(ID) : Product
+        Devuelve el producto que tiene un ID especifico.
+
+        + AddTicket(IDatabase) : void
+        Añade un ticket utilizando las funciones propias de la interfaz IDatabase
+        
+        + Clear() : void
+        Elimina todos los elementos de la base de datos.
+        */
+        #endregion
     }
 }

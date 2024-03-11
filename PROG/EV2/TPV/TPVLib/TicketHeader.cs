@@ -4,12 +4,10 @@
     {
         private DateTime _date;
         private int _barCode;
-
         public DateTime Date { get; set; }
         public int Barcode { get; set; }
 
         public TicketHeader() { }
-
         public TicketHeader(DateTime date, int barcode)
         {
             _date = date;

@@ -11,7 +11,6 @@
             _ticketHeader = new TicketHeader();
             _ticketBody = new TicketBody();
         }
-
         public Ticket(TicketHeader ticketHeader, TicketBody ticketBody)
         {
             _ticketHeader = ticketHeader;
@@ -20,6 +19,8 @@
 
         public void AddTicketHeader(int barcode)
         {
+            if (barcode < 0 || barcode > int.MaxValue)
+                return;
             TicketHeader ticket = new TicketHeader(DateTime.Now, barcode);
 
             //TicketHeader ticketAlternative = new TicketHeader();
@@ -28,24 +29,31 @@
 
             _ticketHeader = ticket;
         }
-
         public void AddTicketBody(TicketLine[] ticketsLine)
         {
+            if (ticketsLine == null)
+                return;
+
             TicketBody ticketBody = new TicketBody();
             ticketBody.AddTicketLine(ticketsLine);
             _ticketBody = ticketBody;
-        }  
-        
+        }          
         public void AddTicketLine(TicketLine ticketLine)
         {
+            if (ticketLine == null)
+                return;
 
+            TicketBody ticketResult = new TicketBody();
+            ticketResult.AddSingleTicketLine(ticketLine);
+            _ticketBody = ticketResult;
         }
 
         public void SetPrice(double value)
         {
+            if (value < 0 || value > double.MaxValue)
+                return;
             _price = value;
         }
-
         public double GetPrice()
         {
             return _price;

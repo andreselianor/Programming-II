@@ -8,7 +8,6 @@
             Console.WriteLine(welcomeMessage);
             Console.ReadLine();
         }
-
         public static void UIMainMenu()
         {
             string mainMenuMessage = "Introduzca una opcion:";
@@ -21,7 +20,6 @@
             Console.WriteLine(mainMenuMessage0);
             Console.WriteLine();
         }
-
         public static void UIProductMenu()
         {
             string ProductMessage = "Introduzca una opcion";
@@ -36,7 +34,6 @@
             Console.WriteLine(ProductMessage0);
             Console.WriteLine();
         }
-
         public static void UIInvoiceMenu()
         {
             string InvoiceMessage = "Introduzca una opcion";
