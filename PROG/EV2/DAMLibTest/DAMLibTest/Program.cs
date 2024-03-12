@@ -1,12 +1,11 @@
-﻿using DAMLib;
-using System.Text.Json;
-
-namespace DAMLibTest
+﻿namespace DAMLibTest
 {
     public class Program
     {
         static void Main(string[] args)
         {
+            // PRUEBAS Y TEST DE LA SOLUCION DAMLIB
+            /*
             Node<string> node1 = new Node<string>(null, "root");
             Node<string> node2 = new Node<string>(node1,"A");
             Node<string> node3 = new Node<string>(node2, "B");
@@ -29,7 +28,7 @@ namespace DAMLibTest
 
             int result5 = node1.GetLevel();
             int result6 = node5.GetLevel();
-            */
+            
 
             nodetest = node2.Parent;
             int number1 = node1.ChildCount;
@@ -46,6 +45,7 @@ namespace DAMLibTest
             int number2 = node1.ChildCount;
             node1.RemoveChildAt(0);
             int number3 = node1.ChildCount;
+            */
         }
     }
 }

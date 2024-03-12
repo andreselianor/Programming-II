@@ -55,7 +55,7 @@
                 return -1;
 
             for (int i = 0; i < _set.Length; i++)
-            {
+            {                
                 if (_set[i].Equals(element))
                     return i;
             }
@@ -116,7 +116,7 @@
         {
             return this == obj;
         }
-        public bool IsEqualsInDeep(object? obj) //TODO
+        public bool IsEqualsInDeep(object? obj)
         {
             if (this == obj)
                 return true;

@@ -128,24 +128,12 @@
         public bool Contains(V value)
         {
             return GetIndexOf(value) >= 0;
-            
-            // Otra opcion
-            //if (value == null)
-            //    return false;
-
-            //for (int i = 0; i < _item.Length; i++)
-            //{
-            //    if (_item[i].Value.Equals(value))
-            //        return true;
-            //}
-            //return false;
         }
 
         public override bool Equals(object? obj)
         {
             return (this == obj);
         }
-
         public bool AreIdentical(object? obj)
         {
             if (obj == null)

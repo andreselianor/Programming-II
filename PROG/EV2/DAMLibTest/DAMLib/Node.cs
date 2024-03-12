@@ -36,18 +36,15 @@
         {
 
         }
-
         public Node(Node<T> parent)
         {
             _parent = parent;
         }
-
         public Node(Node<T> parent, T content)
         {
             _parent = parent;
             item = content;
         }
-
         public Node(Node<T> parent, List<Node<T>> children)
         {
             _parent = parent;

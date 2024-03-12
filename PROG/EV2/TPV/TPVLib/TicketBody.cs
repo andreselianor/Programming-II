@@ -4,7 +4,8 @@
     {
         private TicketLine[] _ticketsLine;
 
-        public TicketLine[] TicketsLine => Clone();
+        public TicketLine[] TicketsLine => ToArray();
+        public TicketBody TicketBodyClone => Clone();
         public TicketBody()
         {
             _ticketsLine = new TicketLine[0];
@@ -48,15 +49,26 @@
             AddSingleTicketLine(ticketLine);
         }
 
-        private TicketLine[] Clone()
+        private TicketLine[] ToArray()
         {
             int count = _ticketsLine.Length;
-            TicketLine[] clone = new TicketLine[count];
+            TicketLine[] copy = new TicketLine[count];
             
             for(int i = 0; i < count; i++)
             {
-                clone[i] = _ticketsLine[i];
+                copy[i] = _ticketsLine[i];
             }
+            return copy;
+        }
+
+        private TicketBody Clone()
+        {
+            TicketBody clone = new TicketBody();
+            for (int i = 0; i < _ticketsLine.Length; i++)
+            {
+                clone._ticketsLine[i] = _ticketsLine[i];
+            }
+
             return clone;
         }
 
@@ -78,7 +90,10 @@
         + AddSingleTicketLine(quantity, description, id, Product) : void
         Añade una unica linea de ticket.
 
-        - Clone() : TicketBody
+        - ToArray() : TicketLine
+        Devuelve un array de ticketLine.
+
+        - Clone() : TickeBody
         Clona un TicketBody para devolverlos de manera segura.
         */
         #endregion

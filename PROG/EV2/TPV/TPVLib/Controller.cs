@@ -60,17 +60,18 @@
                 }
                 else if (optionMenu == 2)
                     Console.WriteLine("No implementado");
-                else if(optionMenu == 3)
+                else if (optionMenu == 3)
                     Console.WriteLine("No implementado");
-                else if(optionMenu == 4)
+                else if (optionMenu == 4)
                     Console.WriteLine("No implementado");
-                else if(optionMenu == 0)
-                    UIdisplayMainMenu(tpv);
-                else                
+                else if (optionMenu == 0)
+                    productMenu = false;
+                else
                     Console.WriteLine("Introduzca una opcion valida");
 
                 Console.WriteLine();
-            }            
+            }
+            UIdisplayMainMenu(tpv);
         }
 
         public void UIdisplayInvoiceMenu(ITPV tpv)
@@ -88,12 +89,13 @@
                 else if (optionMenu == 2)
                     Console.WriteLine("No implementado");
                 else if (optionMenu == 0)
-                    UIdisplayMainMenu(tpv);
-                else                
+                    invoiceMenu = false;
+                else
                     Console.WriteLine("Introduzca una opcion valida");
 
                 Console.WriteLine();
             }
+            UIdisplayMainMenu(tpv);
         }
 
         private void DisplayingAvailableProducts(ITPV tpv)

@@ -2,8 +2,8 @@
 {
     public class SetWithHash<T>
     {        
-        public T[] _set;
-        public int[] _hash;
+        private T[] _set;
+        private int[] _hash;
 
         public bool IsEmpty => _set.Length == 0;
         public int Count

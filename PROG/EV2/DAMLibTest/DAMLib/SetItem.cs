@@ -6,8 +6,8 @@
 
         private class Item
         {
-            public T element;
-            public int hash;
+            public T Element;
+            public int Hash;
 
             public Item()
             {
@@ -15,8 +15,8 @@
             }
             public Item(T element, int hash)
             {
-                this.element = element;
-                this.hash = hash;
+                Element = element;
+                Hash = hash;
             }
         }
 
@@ -96,7 +96,7 @@
             for (int i = 0; i < _itemset.Length; i++)
             {
                 Item item = _itemset[i];
-                if (hash == item.hash && item.element.Equals(element))
+                if (hash == item.Hash && item.Element.Equals(element))
                 {
                     return i;
                 }
@@ -124,7 +124,7 @@
 
             foreach (Item item in _itemset)
             {
-                result = $"El elemento numero {count} del Set es {item.element}";
+                result = $"El elemento numero {count} del Set es {item.Element}";
                 count++;
             }
             return result;

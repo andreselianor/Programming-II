@@ -178,7 +178,8 @@ namespace TPVLib
         (P) ProductsCount
         (P) IsEmpty
 
-        |#| RAMTPV(){CreateDatabase()}
+        |#| RAMTPV(){CreateDatabase()} => Es una alternativa a la funcion static 'CreateNewTPV()'
+        de la interfaz ITPV.
 
         + AddProduct(Product) : long
         Añade un producto.
