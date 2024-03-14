@@ -4,29 +4,17 @@
     {
         private int _up;
         private int _down;
-        private bool _IsDoble;
 
-        public int Up
-        {
-            get => _up;
-            //set => _up = value;
-        }
-        public int Down
-        {
-            get => _down;
-            //set => _down = value;
-        }
-        public bool Doble => IsDoble();
+        public int Up => _up;
+        public int Down => _down;
+        public bool Doble => _up == _down;
+        public int Value => _up + _down;
+
         public Piece() { }
         public Piece(int up, int down)
         {
             _up = up;
             _down = down;
-        }
-
-        private bool IsDoble()
-        {
-            return _up == _down;
         }
     }
 }

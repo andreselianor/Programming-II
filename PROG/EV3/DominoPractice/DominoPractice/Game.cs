@@ -151,9 +151,6 @@
         DOCUMENTACION PARA LA CLASE GAME.
         Esta clase contiene todas las funciones para simular una ronda de domino.
         
-        |#| Ticket() {}
-        |#| Ticket(numberLines) {TicketBody[] ticket = new TicketBody[numberLines]}
-
         + InitGame(IGame game) : void
         Inicia un juego nuevo de domino. Puedes indicar el numero de jugadores gracias a la variable 'numberPlayers'.
 
