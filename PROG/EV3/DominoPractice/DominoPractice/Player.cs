@@ -1,18 +1,26 @@
 ﻿namespace DominoPractice
 {
+    public enum TypePlayer
+    {
+        IMPULSIVO,
+        CONSERVADOR
+    }
     public class Player
     {
         private int _id;
         private string _name;
-        private List<Piece> _handPieces;
+        private List<Piece> _handPieces = new List<Piece>();
+        private TypePlayer _typePlayer;
 
+        public int Id => _id;
         public int PiecesCount => _handPieces.Count;
-        public int TotalSum => GetTotalSumatory();
+        public int HandPiecesSum => GetTotalSumatory();
 
         public Player() { }
         public Player(int number)
         {
             _id = number;
+            _typePlayer = SetTypePlayer(number);
         }
 
         public List<Piece> GetListPieces()
@@ -29,24 +37,36 @@
             _handPieces.Add(piece);
         }
 
-        public void Play(IGame game)
+        public Piece FirstDomino()
         {
-            Piece piece1 = game.GetPlayingPieceList()[0];
-            Piece piece2 = game.GetPlayingPieceList()[1];
+            Piece FirstPiece = _handPieces[0];
+            _handPieces.RemoveAt(0);
+            return FirstPiece;
+        }
+
+        public void SimulatePlay(IGame game)
+        {
+            List<Piece> playingPieces = game.GetPlayingPieceList();
+            Piece piece1 = playingPieces[0];
+            Piece piece2 = playingPieces[1];
             for (int i = 0; i < _handPieces.Count; i++)
             {
                 if (_handPieces[i].Up == piece1.Down)
-                {
-                    _handPieces.RemoveAt(i);
+                {                    
                     game.SetPlayingPiece(_handPieces[i], piece1);
-
-                }
-                if (_handPieces[i].Down == piece2.Up)
-                {
                     _handPieces.RemoveAt(i);
+                }
+                else if (_handPieces[i].Down == piece2.Up)
+                {
                     game.SetPlayingPiece(_handPieces[i], piece2);
+                    _handPieces.RemoveAt(i);
                 }
             }
+        }
+
+        private TypePlayer SetTypePlayer(int number)
+        {
+            return number % 2 == 0 ? TypePlayer.IMPULSIVO : TypePlayer.CONSERVADOR;
         }
         private int GetTotalSumatory()
         {
