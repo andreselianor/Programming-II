@@ -17,11 +17,11 @@
             CreatePlayers(numberPlayers);
         }
 
-        public void SimulateRound(IGame game)
+        public void InitRound(IGame game)
         {
             CreateDeck();
-            int shuffleTimes = 100;
-            ShuffleDeck(shuffleTimes);
+            ShuffleDeck();
+            ClearPlayer();
             PlayRound(game);
         }
 
@@ -87,7 +87,14 @@
             _playersList = new List<Player>();
             for (int i = 0; i < number; i++)
             {
-                _playersList.Add(new Player(i));
+                if(i % 2 == 0)
+                {
+                    _playersList.Add(new Conservative(i));
+                }
+                else
+                {
+                    _playersList.Add(new Impulsive(i));
+                }
             }
         }
 
@@ -97,7 +104,7 @@
             _deck.CreateDeck();
         }
 
-        private void ShuffleDeck(int number)
+        private void ShuffleDeck(int number = 100)
         {
             _deck.ShuffleDeck(number);
         }
@@ -116,27 +123,34 @@
             }
         }
 
+        private void ClearPlayer()
+        {
+            for(int i = 0; i < _playersList.Count; i++)
+            {
+                _playersList[i].Clear();
+            }
+        }
+
         private void Play(IGame game)
         {
             for (int i = 0; i < _playersList.Count; i++)
             {
-                _playersList[i].SimulatePlay(game);
+                _playersList[i].Simulate(game);
             }
         }
 
         private Player GetLoserPlayer()
         {
-            Player loserPlayer = new Player();
             int roundResult = 0;
             int playerValue;
+            int playerId = 0;
             for (int i = 0; i < _playersList.Count; i++)
             {
                 playerValue = _playersList[i].HandPiecesSum;
                 if (playerValue > roundResult)
-                    loserPlayer = _playersList[i];
+                    playerId = i;
             }
-
-            return loserPlayer;
+            return _playersList[playerId];
         }
 
         private void RemoveLoserPlayer(Player loserPlayer)

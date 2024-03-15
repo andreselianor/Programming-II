@@ -5,11 +5,11 @@
         IMPULSIVO,
         CONSERVADOR
     }
-    public class Player
+    public abstract class Player
     {
         private int _id;
         private string _name;
-        private List<Piece> _handPieces = new List<Piece>();
+        protected List<Piece> _handPieces = new List<Piece>();
         private TypePlayer _typePlayer;
 
         public int Id => _id;
@@ -45,103 +45,16 @@
             _handPieces.RemoveAt(0);
             return FirstPiece;
         }
-
-        public void SimulatePlay(IGame game)
+        public void Clear()
         {
-            if (_typePlayer == TypePlayer.IMPULSIVO)
-                SimulateImpulsivo(game);
-            else
-                SimulateConservador(game);
+            _handPieces = new List<Piece>();
         }
+
+        public abstract void Simulate(IGame game);
         #endregion
 
         #region FUNCIONES PRIVADAS
-        // public abstract void SimulateImpulsivo(IGame game)
-        // public abstract void SimulateConservador(IGame game)
-        // Me he dado cuenta tarde que se pedia la herencia de jugadores impulsivos y conservadores.
-        // La clase Player seria abstracta y estos metodos se implementaria en cada una de las clase dedicadas 'Conservative' y 'Impulsive'
-        // Aqui hay otra manera de hacer funcionar el domino mediante un enum que establece que tipo de jugador es cada uno.
-
-        private void SimulateImpulsivo(IGame game)
-        {
-            List<Piece> playingPieces = game.GetPlayingPieceList();
-            Piece piece1 = playingPieces[0];
-            Piece piece2 = playingPieces[1];
-
-            List<Piece> selectedPieces = SortImpulsive(_handPieces);
-
-            for (int i = 0; i < selectedPieces.Count; i++)
-            {
-                if (selectedPieces[i].Up == piece1.Down)
-                {
-                    game.SetPlayingPiece(selectedPieces[i], piece1);
-                    selectedPieces.RemoveAt(i--);
-                }
-                else if (selectedPieces[i].Down == piece2.Up)
-                {
-                    game.SetPlayingPiece(selectedPieces[i], piece2);
-                    selectedPieces.RemoveAt(i--);
-                }
-            }
-        }
-
-        private void SimulateConservador(IGame game)
-        {
-            List<Piece> playingPieces = game.GetPlayingPieceList();
-            Piece piece1 = playingPieces[0];
-            Piece piece2 = playingPieces[1];
-
-            List<Piece> selectedPieces = SortConservative(_handPieces);
-
-            for (int i = 0; i < selectedPieces.Count; i++)
-            {
-                if (selectedPieces[i].Up == piece1.Down)
-                {
-                    game.SetPlayingPiece(selectedPieces[i], piece1);
-                    selectedPieces.RemoveAt(i--);
-                }
-                else if (selectedPieces[i].Down == piece2.Up)
-                {
-                    game.SetPlayingPiece(selectedPieces[i], piece2);
-                    selectedPieces.RemoveAt(i--);
-                }
-            }
-        }
-
-        private List<Piece> SortImpulsive(List<Piece> hand)
-        {
-            List<Piece> result = new List<Piece>();
-            for (int i = 0; i < hand.Count; i++)
-            {
-                if (hand[i].Doble)
-                    result.Add(hand[i]);
-            }
-            for (int i = 0; i < hand.Count; i++)
-            {
-                result.Add(hand[i]);
-            }
-            return result;
-        }
-
-        private List<Piece> SortConservative(List<Piece> hand)
-        {
-            List<Piece> result = new List<Piece>();
-            int valuePiece = 13;
-            Piece aux;
-            for (int i = 0; i < hand.Count; i++)
-            {
-                for (int j = i + 1; j < hand.Count - 1; j++)
-                {
-                    if (hand[j].Value < valuePiece)
-                    {
-                        aux = hand[j];
-                        hand[j] = hand[j + 1];
-                        hand[j + 1] = aux;
-                    }
-                }
-            }
-            return result;
-        }
+        
         private TypePlayer SetTypePlayer()
         {
             Random random = new Random();

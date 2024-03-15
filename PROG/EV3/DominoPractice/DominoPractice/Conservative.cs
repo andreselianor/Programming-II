@@ -2,8 +2,14 @@
 {
     public class Conservative : Player
     {
-        /*
-        private void SimulateConservador(IGame game)
+        public Conservative() { }
+        public Conservative(int number) : base(number) { }
+        public override void Simulate(IGame game)
+        {
+            SimulateConservador(game);
+        }
+
+        public void SimulateConservador(IGame game)
         {
             List<Piece> playingPieces = game.GetPlayingPieceList();
             Piece piece1 = playingPieces[0];
@@ -26,7 +32,7 @@
             }
         }
 
-        private List<Piece> SortConservative(List<Piece> hand)
+        public List<Piece> SortConservative(List<Piece> hand)
         {
             List<Piece> result = new List<Piece>();
             int valuePiece = 13;
@@ -45,6 +51,5 @@
             }
             return result;
         }
-        */
     }
 }

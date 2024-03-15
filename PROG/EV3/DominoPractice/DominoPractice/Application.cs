@@ -14,7 +14,7 @@
 
             while (game.ArePlayersPlaying())
             {
-                game.SimulateRound(game);
+                game.InitRound(game);
             }
 
             UI.Winner(game.WinnerPlayer());

@@ -2,8 +2,15 @@
 {
     public class Impulsive : Player
     {
-        /*
-        private override void SimulateImpulsivo(IGame game)
+        public Impulsive() { }
+        public Impulsive(int number) : base(number) { }
+
+        public override void Simulate(IGame game)
+        {
+            SimulateImpulsivo(game);
+        }
+
+        public void SimulateImpulsivo(IGame game)
         {
             List<Piece> playingPieces = game.GetPlayingPieceList();
             Piece piece1 = playingPieces[0];
@@ -26,7 +33,7 @@
             }
         }
 
-        private List<Piece> SortImpulsive(List<Piece> hand)
+        public List<Piece> SortImpulsive(List<Piece> hand)
         {
             List<Piece> result = new List<Piece>();
             for (int i = 0; i < hand.Count; i++)
@@ -40,6 +47,5 @@
             }
             return result;
         }
-        */
     }
 }
