@@ -18,7 +18,11 @@
         protected bool _alive;
         protected ObjectType _type;
 
-        public bool IsAlive => _alive;
+        public bool Alive 
+        {
+            get => _alive;
+            set => _alive = value;
+        }        
         public ObjectType Type => _type;
         public string Name => _name;
         public double Position => _position;

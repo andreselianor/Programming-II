@@ -1,8 +1,12 @@
 ﻿namespace AutosLocos
 {
-    public delegate bool DelegateObstacle(Obstacle obstacle);
-    public delegate bool DelegateCar(Car car);
-    public delegate bool DelegateRaceObject(RaceObject raceObjects);
+
+    public delegate void DelegateCar(Car car);
+    public delegate void DelegateRaceObject(RaceObject visitor);
+    public delegate void DelegateObstacle(Obstacle obstacle);
+
+    public delegate int SortCars(Car car);
+
     public class Race : IRace
     {
         private double _raceDistance;
@@ -26,7 +30,7 @@
             {
                 SimulateStep(race);
                 RemoveDeadObstacles();
-                SetWinner();
+                SetWinner(race);
             }
             UI.DisplayWinner(_winnersList);
         }
@@ -70,37 +74,69 @@
             return _listObjects[index];
         }
 
-        public List<Obstacle> VisitObstacle(DelegateObstacle visitor)
+        public void VisitObstacle(DelegateObstacle visitor)
         {
             if (visitor == null)
-                return null;
+                return;
 
-            List<Obstacle> listResult = new List<Obstacle>();
-            foreach (RaceObject obj in _listObjects)
+            foreach (RaceObject obstacle in _listObjects)
             {
-                if (obj is not Obstacle)
-                    continue;
-                if (visitor((Obstacle)obj))
-                    listResult.Add((Obstacle)obj);
+                if (obstacle is Obstacle obs)
+                    visitor(obs);
             }
-            return listResult;
         }
 
-        public List<Car> VisitCar(DelegateCar visitor)
+        public void VisitCar(DelegateCar visitor)
         {
             if (visitor == null)
-                return null;
+                return;
 
-            List<Car> listResult = new List<Car>();
+            foreach (RaceObject car in _listObjects)
+            {
+                if (car is Car element)
+                    visitor(element);
+            }
+        }
+
+        public void VisitRaceObject(DelegateRaceObject visitor)
+        {
+            if (visitor == null)
+                return;
+
             foreach (RaceObject obj in _listObjects)
             {
-                if (obj is not Car)
-                    continue;
-                if (visitor((Car)obj))
-                    listResult.Add((Car)obj);
+                visitor(obj);
             }
-            return listResult;
         }
+
+        public List<Car> Sort()
+        {
+            List<Car> listCars = new List<Car>();
+            List<Car> result = new List<Car>();
+            Car aux;
+            for (int i = 0; i < _listObjects.Count; i++)
+            {
+                if (_listObjects[i] is Car car)
+                {
+                    listCars.Add(car);
+                }
+            }
+            for (int i = 0; i < listCars.Count - 1; i++)
+            {
+                for (int j = i + 1; j < listCars.Count; j++)
+                {
+                    if (listCars[i].Position > listCars[j].Position)
+                    {
+                        aux = listCars[i];
+                        listCars[i] = listCars[j];
+                        listCars[j] = aux;
+                    }
+                }
+            }
+            return listCars;
+        }
+
+
         #endregion
 
         #region FUNCIONES PRIVADAS
@@ -124,16 +160,16 @@
             _listObjects.Add(bombObject);
         }
 
-        private void SetWinner()
+        private void SetWinner(IRace race)
         {
-            DelegateCar del = new DelegateCar((car) => car.Position > _raceDistance);
-            List<Car> list = VisitCar(del);
-
-            for (int i = 0; i < list.Count; i++)
+            race.VisitCar(car =>
             {
-                _winnersList.Add(list[i]);
-                _IsWinner = true;
-            }
+                if (car.Position > _raceDistance)
+                {
+                    _winnersList.Add(car);
+                    _IsWinner = true;
+                }
+            });
         }
 
         private double SetInitialPosition()
@@ -143,12 +179,10 @@
 
         private void RemoveDeadObstacles()
         {
-            for (int i = 0; i < _listObjects.Count; i++)
+            for(int i = 0; i < _listObjects.Count; i++)
             {
-                if (!_listObjects[i].IsAlive)
-                {
+                if (_listObjects[i].Alive == false)
                     _listObjects.RemoveAt(i--);
-                }
             }
         }
         #endregion

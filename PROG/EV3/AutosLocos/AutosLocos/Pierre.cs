@@ -34,35 +34,9 @@
 
         private void PierreTrampPosterior(IRace race)
         {
-            List<Car> runners = SortRunners(race);
+            List<Car> runners = race.Sort();
             int position = GetPierre(runners);
             SetTrampPosterior(position, runners);
-        }
-
-        private List<Car> SortRunners(IRace race)
-        {
-            List<Car> list = new List<Car>();
-            DelegateCar del = new DelegateCar((car) => true);
-            list = race.VisitCar(del);
-
-            Car aux;
-            Car ItemI;
-            Car ItemJ;
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                for (int j = i + 1; j < list.Count; j++)
-                {
-                    ItemI = list[i];
-                    ItemJ = list[j];
-                    if (ItemI.Position > ItemJ.Position)
-                    {
-                        aux = ItemI;
-                        ItemI = ItemJ;
-                        ItemJ = aux;
-                    }
-                }
-            }
-            return list;
         }
 
         private int GetPierre(List<Car> runners)
@@ -77,12 +51,18 @@
 
         private void SetTrampPosterior(int position, List<Car> runners)
         {
-            Car car = runners[position - 1];
-            double chance = Utils.GetRandom();
-            if (chance < 0.3)
-                car.SetDisabledTurns(1);
+            if (runners[0].Type == ObjectType.PIERRECAR)
+                return;
             else
-                RisitasDropDown();
+            {
+                Car car = runners[position - 1];
+                double chance = Utils.GetRandom();
+                if (chance < 0.3)
+                    car.SetDisabledTurns(1);
+                else
+                    RisitasDropDown();
+            }
+            
         }
 
         private void RisitasDropDown()

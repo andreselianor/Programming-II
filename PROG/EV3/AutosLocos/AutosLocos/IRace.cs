@@ -12,7 +12,9 @@
 
         void PlayGame(IRace race);
 
-        List<Car> VisitCar(DelegateCar visitor);
-        List<Obstacle> VisitObstacle(DelegateObstacle visitor);
+        void VisitCar(DelegateCar visitor);
+        void VisitObstacle(DelegateObstacle visitor);
+
+        List<Car> Sort();
     }
 }

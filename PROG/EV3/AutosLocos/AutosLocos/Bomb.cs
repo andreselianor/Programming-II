@@ -17,23 +17,24 @@
             {
                 Explode(race);
                 _alive = false;
-            }                
+            }
         }
 
-        private void SetBombExploding() 
+        private void SetBombExploding()
         {
             _bombExploding = (int)Utils.GetRandom() * 10;
         }
 
         private void Explode(IRace race)
         {
-            DelegateCar del = new DelegateCar(car => Math.Abs(car.Position - this.Position) < 70);
-            List<Car> listResult = race.VisitCar(del);
-            foreach(Car car in listResult)
+            race.VisitCar(car =>
             {
-                double explodingThrow = Utils.GetRandom() * 100 - 50;
-                car.SetPosition(explodingThrow);
-            }
+                if (car.Position - this.Position < 70)
+                {
+                    double explodingThrow = Utils.GetRandom() * 100 - 50;
+                    car.SetPosition(explodingThrow);
+                }
+            });
         }
     }
 }

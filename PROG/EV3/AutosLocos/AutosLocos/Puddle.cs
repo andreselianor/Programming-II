@@ -1,4 +1,6 @@
-﻿namespace AutosLocos
+﻿using AutosLocos;
+
+namespace AutosLocos
 {
     public class Puddle : Obstacle
     {
@@ -10,16 +12,20 @@
 
         public override void Simulate(IRace race)
         {
-            DelegateCar del = new DelegateCar(car => Math.Abs(car.Position - this.Position) < 20.0);
-            List<Car> listResult = race.VisitCar(del);
-            foreach (Car car in listResult)
+            race.VisitCar(car =>
             {
-                double chance = Utils.GetRandom();
-                if(chance < 0.2)
-                {
-                    int turns = (int)Utils.GetRandom() * 3;
-                    car.SetDisabledTurns(turns);
-                }
+                if (Math.Abs(car.Position - this.Position) < 20.0)
+                    PuddleTramp(car);
+            });
+        }
+
+        private void PuddleTramp(Car car)
+        {
+            double chance = Utils.GetRandom();
+            if (chance < 0.2)
+            {
+                int turns = (int)Utils.GetRandom() * 3;
+                car.SetDisabledTurns(turns);
             }
         }
     }
