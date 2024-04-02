@@ -59,11 +59,13 @@
                 return;
             int count = Count;
             T[] result = new T[count - 1];
-            for (int i = 0; i < _array.Length; i++)
-            {
-                if (i == index)
-                    continue;
+            for (int i = 0; i < index; i++)
+            {                
                 result[i] = _array[i];
+            }
+            for(int i = index; i < _array.Length; i++)
+            {
+                result[i + 1] = _array[i];
             }
             _array = result;
         }
@@ -130,17 +132,48 @@
         }
 
 
-        public delegate int DelegateSort();
-        public ExList<T> Sort(DelegateSort comparison)
+        public delegate int DelegateSort(T item1, T item2);
+        public ExList<T> Sort(DelegateSort comparator)
         {
-            return new ExList<T>();
+            if (comparator == null)
+                return null;
+
+            ExList<T> result = new ExList<T>();
+
+            for(int i = 0; i < _array.Length - 1;i++)
+            {
+                for(int j = i + 1; j < _array.Length; j++)
+                {
+                    if(comparator(_array[i], _array[j]) > 0)
+                    {
+                        SwapItems(i, j);
+                    }
+                }
+                result.Add(_array[i]);
+            }
+
+            return result;
+        }
+
+        private void SwapItems(int i, int j)
+        {
+            T aux;
+            aux = _array[i];
+            _array[i] = _array[j];
+            _array[j] = aux;
         }
 
 
-        public delegate void DelegateVisit();
+        public delegate void DelegateVisit(T visitor);
         public void Visit(DelegateVisit visitor)
         {
+            if (visitor == null)
+                return;
 
+            for(int i = 0; i < _array.Length; i++)
+            {
+                visitor(_array[i]);
+            }
         }
 
         public T[] ToArray()
