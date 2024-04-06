@@ -1,5 +1,8 @@
-﻿namespace DelegadosResumen
+﻿using System.Security.Cryptography;
+
+namespace DelegadosResumen
 {
+    public delegate bool DelegateFilter2(int city);
     public class Country
     {
         private List<City> _citiesList = new List<City>();
@@ -18,11 +21,10 @@
         }
 
         public delegate bool DelegateFilter(string name);
-
         public List<City> Filter(DelegateFilter filter)
         {
             List<City> result = new List<City>();
-            for(int i = 0; i < _citiesList.Count;i++)
+            for (int i = 0; i < _citiesList.Count; i++)
             {
                 if (filter(_citiesList[i].Name))
                 {
@@ -30,6 +32,47 @@
                 }
             }
             return result;
+        }
+
+        
+        public List<City> Filter2(DelegateFilter2 filter)
+        {
+            List<City> result = new List<City>();
+            for (int i = 0; i < _citiesList.Count; i++)
+            {
+                if (filter(_citiesList[i]))
+                {
+                    result.Add(_citiesList[i]);
+                }
+            }
+            return result;
+        }
+
+        public delegate int DelegateSort(City c1, City c2);
+
+        public List<City> Sort(DelegateSort comparator)
+        {
+            List<City> result = new List<City>();
+            for (int i = 0; i < _citiesList.Count - 1; i++)
+            {
+                for (int j = j + 1; j < _citiesList.Count; j++)
+                {
+                    if (comparator(_citiesList[i], _citiesList[j]) >= 1)
+                    {
+                        City aux;
+                        aux = _citiesList[i];
+                        _citiesList[i] = _citiesList[j];
+                        _citiesList[j] = aux;
+                    }
+                }
+            }
+            _citiesList = result;
+            return result;
+        }
+
+        public bool Test(City city)
+        {
+            return city.Name == "Madrid";
         }
     }
 }
