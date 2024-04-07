@@ -70,9 +70,14 @@ namespace DelegadosResumen
             return result;
         }
 
-        public bool Test(City city)
+        public delegate void DelegateVisit(City city);
+
+        public void Visit()
         {
-            return city.Name == "Madrid";
+            foreach(City city in _citiesList)
+            {
+
+            }
         }
     }
 }
