@@ -5,6 +5,9 @@
         private string _name = "";
         private int _population;
 
+        public string Name => _name;
+        public int Population => _population;
+
         public City() { }
         public City(string name)
         {
@@ -15,7 +18,5 @@
             _name = name;
             _population = population;
         }
-
-        public string Name => _name;
     }
 }

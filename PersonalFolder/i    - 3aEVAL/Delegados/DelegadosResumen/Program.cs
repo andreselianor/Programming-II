@@ -4,26 +4,24 @@
     {
         static void Main(string[] args)
         {
-            Country test = new Country();
-            test.CreateCitiesList();
+            
+            FunctionCall function1 = new FunctionCall();
 
-            List<City> listFilter = test.Filter( cityName =>
-            {
-                return cityName == "Valencia";
-            });
+            /*
+            function1.CallingFirst();
+            Console.WriteLine();
 
-            foreach(City city in listFilter)
-            {
-                Console.WriteLine(city.Name);
-            }
+            function1.CallingSecond();
+            Console.WriteLine();
 
-            City testCity = new City();
+            function1.CallingThird();
+            Console.WriteLine();
 
-            DelegateFilter2 comparator = delegate (int testCity) { return testCity == 2; };
+            function1.CallingFourth();
+            */
 
-            List<City> listFilter2 = test.Filter2(comparator);
+            function1.CallingFiveth();
+            Console.WriteLine();
         }
-
-        
     }
 }

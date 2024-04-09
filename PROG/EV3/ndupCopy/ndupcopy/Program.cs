@@ -1,4 +1,4 @@
-﻿namespace ClassGenerator
+﻿namespace ndupcopy
 {
     internal class Program
     {
