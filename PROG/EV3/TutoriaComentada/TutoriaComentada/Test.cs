@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TutoriaComentada
+﻿namespace TutoriaComentada
 {
-    internal class Test
+    public class Test
     {
+
+        public void RunTest()
+        {
+
+        }
     }
 }
