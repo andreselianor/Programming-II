@@ -4,10 +4,16 @@
     {
         public void Launch()
         {
+            //display
             DisplaySplashScreen();
             DisplayQuestionCopy();
 
-            CopyOneFile();
+            //program
+            upCopy app = new upCopy();
+            
+            app.AddupFilesToList();
+            app.RemoveDuplicates();
+            app.CopyupFiles();
         }
 
 

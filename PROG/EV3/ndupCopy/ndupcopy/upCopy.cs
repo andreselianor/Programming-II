@@ -16,99 +16,88 @@
 
             return fileResult;
         }
-
-        // AÑADIR UN ARCHIVO TIPO UPFILE A LA LISTA DE VALIDOS
-
-        public void AddUpFile(upFile upFile)
-        {
-            if (upFile == null)
-                throw new ArgumentNullException("El archivo es null");
-
-            if (ListContainsUpFile(upFile))
-                return;
-            else
-                _filesList.Add(upFile);
-        }
-
-        // COMPROBAR QUE LOS ARCHIVOS SON UNICOS
-
-        public bool ListContainsUpFile(upFile upfile)
-        {
-            if (upfile == null)
-                throw new ArgumentNullException("El archivo es null");
-
-            if (upFileWithSameSize(upfile))
-                return true;
-
-            if (upFileWithSameSHA256(upfile))
-                return true;
-
-            if (upFileWithSameHash(upfile))
-                return true;
-
-            if (upFileWithSameContent(upfile))
-                return true;
-
-            return false;
-        }
-        
-
-        private bool upFileWithSameSize(upFile upfile)
-        {
-            for (int i = 0; i < _filesList.Count; i++)
-            {
-                if (_filesList[i].Size == upfile.Size)
-                    return true;
-            }
-            return false;
-        }
-
-        private bool upFileWithSameSHA256(upFile upfile)
-        {
-            for (int i = 0; i < _filesList.Count; i++)
-            {
-                if (_filesList[i].Sha256 == upfile.Sha256)
-                    return true;
-            }
-            return false;
-        }
-        private bool upFileWithSameHash(upFile upfile)
-        {
-            for (int i = 0; i < _filesList.Count; i++)
-            {
-                if (_filesList[i].Hash == upfile.Hash)
-                    return true;
-            }
-            return false;
-        }
-
-        private bool upFileWithSameContent(upFile upfile)
-        {
-            for (int i = 0; i < _filesList.Count; i++)
-            {
-                if (_filesList[i].Content == upfile.Content)
-                    return true;
-            }
-            return false;
-        }    
-
-
-        public void RemoveDuplicates()
-        {
-
-        }
-
-        // FINALIZACION DEL PROGRAMA
-
         public void SetOutputFolder(string path)
         {
             _outputFolder = path;
         }
-        public void CopyValidUpFiles()
-        {
 
+
+        // funcionamiento del programa
+        public void AddupFilesToList(upFile upFile)
+        {
+            if (upFile == null)
+                throw new ArgumentNullException("El elemento es null");
+            if (IsNotValid(upFile))
+                return;
+            else
+                _filesList.Add(upFile);
+        }
+        public void RemoveDuplicates()
+        {
+            for (int i = 0; i < _filesList.Count - 1; i++)
+            {
+                for (int j = i + 1; j < _filesList.Count; j++)
+                {
+                    if (IsFileDuplicated(_filesList[i], _filesList[j]))
+                        _filesList.RemoveAt(j--);
+                }
+            }
+        }
+        public void CopyupFiles()
+        {
+            CopyListToDestinationFolder();
+        }
+
+
+        #region FUNCIONES PRIVADAS
+        private bool IsFileDuplicated(upFile upfileOriginal, upFile upfileTarget)
+        {
+            if (upFileWithSameSize(upfileOriginal, upfileTarget))
+                return true;
+            if (upFileWithSameSHA256(upfileOriginal, upfileTarget))
+                return true;
+            if (upFileWithSameHash(upfileOriginal, upfileTarget))
+                return true;
+            if (upFileWithSameContent(upfileOriginal, upfileTarget))
+                return true;
+
+            return false;
+        }
+        private static bool upFileWithSameSize(upFile upfileOriginal, upFile upfileTarget)
+        {
+            return (upfileOriginal.Size == upfileTarget.Size);
+        }
+        private static bool upFileWithSameSHA256(upFile upfileOriginal, upFile upfileTarget)
+        {
+            return (upfileOriginal.Sha256 == upfileTarget.Sha256);
+        }
+        private static bool upFileWithSameHash(upFile upfileOriginal, upFile upfileTarget)
+        {
+            return (upfileOriginal.Hash == upfileTarget.Hash);
+        }
+        private static bool upFileWithSameContent(upFile upfileOriginal, upFile upfileTarget)
+        {
+            return (upfileOriginal.Content == upfileTarget.Content);
+        }
+        #endregion
+
+
+        // FINALIZACION DEL PROGRAMA
+        public void CopyListToDestinationFolder()
+        {
+            foreach(var file in _filesList)
+            {
+                File.Copy(file.Folder, _outputFolder);
+            }
+        }
+
+        private bool IsNotValid(upFile upfile)
+        {
+            return true;
         }
     }
+
+    //<see href="https://andreselianor.github.io/Documentation/"/>DOCUMENTACION</see>
 
     #region DOCUMENTACION
     /*

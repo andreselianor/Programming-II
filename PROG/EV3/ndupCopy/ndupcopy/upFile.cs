@@ -10,7 +10,7 @@
         private int _hash;
         private int _SHA256;
 
-
+        public string Folder => _folderPath;
         public int Date => _date;
         public int Size => _size;
         public int Hash => _hash;
@@ -36,8 +36,6 @@
             _folderPath = folderPath;
         }
     }
-
-
 
     #region DOCUMENTACION
     /*
