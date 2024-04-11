@@ -4,6 +4,9 @@
     {
         static void Main(string[] args)
         {
+            IUpCopy upCopy = new upCopy();
+            Launcher.LaunchApp(upCopy);
+
             #region PRUEBAS DE PROGRAMADOR
             /*
             
@@ -27,9 +30,6 @@
 
             */
             #endregion
-
-            IUpCopy upCopy = new upCopy();
-            Launcher.LaunchApp(upCopy);
         }
     }
     /* DOCUMENTACION DEL PROGRAMA*/

@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 47</title>
+    <title>Clase 54</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,41 +12,65 @@
 
 <body id="Page">
     <header>
-        <h1>Clase 47</h1>
+        <h1>Clase 54</h1>
         <h3>Viernes, 12 Enero 2024</h3>
     </header>
     <a href="../index2EVAL.html">Indice</a>
 
     <ul class="clase·List">
-        <h4 class="remarks">Significado de una Hash</h4>
+        <h4 class="remarks">Los 'struct' en C#</h4>
         <li>
-            Un 'Hash' nos permite simplificar la definicion de un objeto. Por ejemplo, si un objeto es un número, el
-            resto de una division
-            seria el hash.
+            Habitualmente una clase funciona con direcciones de memoria. Las variables de objeto apuntan a una dirección
+            que está en la
+            memoria RAM, que es realmente donde se almacena la información.
         </li>
         <li>
-            Este numero Hash no debe repetirse para elementos diferentes. Cada objeto debe tener un hash propio, si no,
-            no tendria sentido.
+            En un 'struct' la información se guarda en la misma 'stack' o memoria de secuencial del programa, que está
+            ordenada según una colección
+            LIFO, se libera de manera secuencial y por lo general el acceso es mucho más rápido.
         </li>
         <li>
-            Uno de sus usos mas empleados es para guardar la contraseña de los usuarios de un servidor.
+            El 'stack' no puede crecer, es de un tamaño establecido. Si se completa toda su memoria, se produce un
+            <i>StackOverflow</i>. Los datos
+            se almacenan de forma desordenada, según la memoria se ha ido liberando.
+        <li>
+            Los archivos que se crean en el 'stack' son de tipo <i>value types.</i>
+        </li>
         </li>
         <li>
-            Si queremos comprobar si un objeto es igual a otro, en lugar de comprobar en profundidad sus atributos,
-            podemos primero
-            comprobar que tengan el mismo Hash. Solo en caso que tengan el mismo numero de referencia, comprobamos su
-            semejanza en profundidad.
+            El 'heap' no tiene un tamaño establecido y los datos se colocan de manera desordenada. Cada objeto apunta a
+            una referencia, que es
+            la dirección donde esta almacenada su información.
         </li>
         <li>
-            C# contiene por defecto una clase llamada 'HashSet'. Su funcionamiento es el siguiente: comprueba el numero
-            Hash y si coincide ejecuta el metodo 'Equals'
+            Los elementos que se crean en el 'heap' son de tipo <i>reference type.</i>
         </li>
         <li>
-            Existe una norma que indica que si sobreescribes el Equals por defecto en una clase, es obligatorio sobreescribir el 'GetHashCode'
+            Un 'struct' es una clase con atributos y funciones que se guardan directament en el stack del programa, son
+            de tipo
+            value type y no guardan dirección de memoria.
         </li>
-        <h4 class="remarks">Clase 'SetWithHash'</h4>
+        <li>Sus ventajas son que su acceso es más rápido y directo, además es más económico en materia de rendimiento.
+            Entre sus desventajas está el hecho que no soportan
+            herencia ni interfaces.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Clase tipo 'record'</h4>
+    </ul>
         <li>
-            Crear una clase 'Set' que funcione con un 'Hash'
+            Un 'record' es una clase cuyos valores son de 'read-only'. Es inmutable y no permite la herencia.
+        </li>
+        <pre><code>
+            '
+            public record Student(string Name, int Age)
+            {
+
+            }
+            '
+        </code></pre>
+        <li>
+            Los parámetros Name y Age no cambian durante el funcionamiento del programa.
         </li>
     </ul>
 </body>

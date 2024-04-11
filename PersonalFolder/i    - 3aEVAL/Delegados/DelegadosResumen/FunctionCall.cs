@@ -68,12 +68,36 @@
             Country country = new Country();
             country.CreateCitiesList();
 
-            Country.DelegateFilterPlain delegado = new Country.DelegateFilterPlain(country.Filter);
-            List<City> listResult = country.Filter(delegado);
-
+            // sintaxis 1:
+            Country.DelegateSort comparator = delegate (City city1, City city2)
+                {
+                    if (city1.Population < city2.Population)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                };
+            List<City> listResult = country.Sort(comparator);
             DisplayingResult(listResult);
-        }
 
+
+            // sintaxis 2:
+            List<City> listResultALT = country.Sort((city1, city2) =>
+            {
+                if (city1.Population < city2.Population)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+            });
+            DisplayingResult(listResultALT);
+        }
 
 
         public void DisplayingResult(List<City> list)

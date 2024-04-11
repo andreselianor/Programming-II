@@ -12,41 +12,42 @@
 
 <body id="Page">
     <header>
-        <h1>Clase 47</h1>
-        <h3>Viernes, 12 Enero 2024</h3>
+        <h1>Clase 53</h1>
+        <h3>Martes, 23 Enero 2024</h3>
     </header>
     <a href="../index2EVAL.html">Indice</a>
 
     <ul class="clase·List">
-        <h4 class="remarks">Significado de una Hash</h4>
+        <h4 class="remarks">Continuacion de proyecto</h4>
         <li>
-            Un 'Hash' nos permite simplificar la definicion de un objeto. Por ejemplo, si un objeto es un número, el
-            resto de una division
-            seria el hash.
+            Es importante a la hora de realizar un programa, distinguir entre las funciones que son <b>públicas</b> y
+            cualquiera tiene
+            acceso, y las funciones que son <b>privadas</b>, y tienen un acceso restringido a nuestro criterio.
         </li>
         <li>
-            Este numero Hash no debe repetirse para elementos diferentes. Cada objeto debe tener un hash propio, si no,
-            no tendria sentido.
+            Es preferible mantener privadas las funciones que no va a utilizar nuestro usuario, para evitar
+            malentendidos y peores funcionamientos de la experiencia del programa.
         </li>
         <li>
-            Uno de sus usos mas empleados es para guardar la contraseña de los usuarios de un servidor.
+            Una función 'Sort' no crea una colección nueva, no se hace ningún 'new', solo se ordena la colección
+            preexistente.
         </li>
-        <li>
-            Si queremos comprobar si un objeto es igual a otro, en lugar de comprobar en profundidad sus atributos,
-            podemos primero
-            comprobar que tengan el mismo Hash. Solo en caso que tengan el mismo numero de referencia, comprobamos su
-            semejanza en profundidad.
+        <li>Los delegados que utilizan funciones 'Sort' reciben el nombre de 'comparator'.</li>
+        <li>Las colecciones se ordenan siguiendo los criterios de la funcion lambda que le pasa el usuario.</li>
+        <li>El delegado 'comparator' habitualmente devuelve un int, -1, 0, 1 según el elemento se coloque en la posición
+            anterior, en la misma posición o en la posición siguiente.
         </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Servidores Web</h4>
         <li>
-            C# contiene por defecto una clase llamada 'HashSet'. Su funcionamiento es el siguiente: comprueba el numero
-            Hash y si coincide ejecuta el metodo 'Equals'
-        </li>
-        <li>
-            Existe una norma que indica que si sobreescribes el Equals por defecto en una clase, es obligatorio sobreescribir el 'GetHashCode'
-        </li>
-        <h4 class="remarks">Clase 'SetWithHash'</h4>
-        <li>
-            Crear una clase 'Set' que funcione con un 'Hash'
+            Existen distintas arquitecturas para el diseño de un servidor:
+            <br>
+            <i>Java</i>: springboat.
+            <i>Javascript</i>: NodeJs.
+            <i>Go</i>: Go.
+            <i>Phyton</i>
+            <i>C#</i>: ASP.net
         </li>
     </ul>
 </body>
