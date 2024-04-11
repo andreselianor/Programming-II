@@ -1,6 +1,6 @@
 ﻿namespace ndupcopy
 {
-    public interface INDupcopy
+    public interface IUpCopy
     {
         upFile CreateUpFile(string filePath, string folderPath);
         void SetOutputFolder(string path);

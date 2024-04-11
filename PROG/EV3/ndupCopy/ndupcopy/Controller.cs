@@ -2,7 +2,7 @@
 {
     public class Controller
     {
-        public void Launch()
+        public void Launch(IUpCopy upCopy)
         {
             //display
             DisplaySplashScreen();
@@ -11,11 +11,10 @@
             //program
             upCopy app = new upCopy();
             
-            app.AddupFilesToList();
+            app.AddupFilesToList(new upFile());
             app.RemoveDuplicates();
             app.CopyupFiles();
         }
-
 
         #region FUNCIONES PRIVADAS
         private void DisplaySplashScreen()

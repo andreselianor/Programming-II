@@ -1,6 +1,6 @@
 ﻿namespace ndupcopy
 {
-    public class upCopy : INDupcopy
+    public class upCopy : IUpCopy
     {
         private List<upFile> _filesList = new List<upFile>();
         private string _outputFolder = "";
@@ -79,6 +79,12 @@
         {
             return (upfileOriginal.Content == upfileTarget.Content);
         }
+        private bool IsNotValid(upFile upfile)
+        {
+            if (upfile == null)
+                return true;
+            return false;
+        }
         #endregion
 
 
@@ -91,13 +97,7 @@
             }
         }
 
-        private bool IsNotValid(upFile upfile)
-        {
-            return true;
-        }
     }
-
-    //<see href="https://andreselianor.github.io/Documentation/"/>DOCUMENTACION</see>
 
     #region DOCUMENTACION
     /*

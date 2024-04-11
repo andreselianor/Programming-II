@@ -28,8 +28,10 @@
             */
             #endregion
 
-            Controller controllerApp = new Controller();
-            controllerApp.Launch();
+            IUpCopy upCopy = new upCopy();
+            Launcher.LaunchApp(upCopy);
         }
     }
+    /* DOCUMENTACION DEL PROGRAMA*/
+    // <see href="https://andreselianor.github.io/Documentation/">DOCUMENTACION ONLINE</see>
 }
