@@ -39,6 +39,8 @@
 
     #region DOCUMENTACION
     /*
+    // <see href="https://andreselianor.github.io/Documentation/MainApp/UpFile/UpFile.html">DOCUMENTACION ONLINE</see>
+
     [#] upFile
     Crea un archivo 'upFile' de tipo array de byte 'byte[]'
 

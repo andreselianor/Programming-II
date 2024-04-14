@@ -101,6 +101,8 @@
 
     #region DOCUMENTACION
     /*
+    // <see href="https://andreselianor.github.io/Documentation/MainApp/UpCopy/UpCopy.html">DOCUMENTACION ONLINE</see>
+
     - _filesList : List<upFile>
     Lista de archivos de tipo 'up' dentro de una coleccion 'Set' donde no existen repeticiones de archivos.
 

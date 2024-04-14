@@ -24,12 +24,12 @@
         #region FUNCIONES PRIVADAS
         private void DisplaySplashScreen()
         {
-            UI.SplashScreen();
+            View.SplashScreen();
         }
 
         private void DisplayQuestionCopy()
         {
-            UI.CopyQuestionScreen();
+            View.CopyQuestionScreen();
         }
 
         private void CopyOneFile()
@@ -44,6 +44,8 @@
 
         #region DOCUMENTACION
         /*
+        // <see href="https://andreselianor.github.io/Documentation/MainApp/Controller/controller.html">DOCUMENTACION ONLINE</see>
+
         - DisplaySplashScreen() : void
         Muestra por pantalla el 'splashScreen' de la aplicación.
 

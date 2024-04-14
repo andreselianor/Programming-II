@@ -1,6 +1,6 @@
 ﻿namespace ndupcopy
 {
-    public static class UI
+    public static class View
     {
         public static void SplashScreen()
         {
@@ -20,6 +20,8 @@
 
         #region DOCUMENTACION
         /*
+        // <see href="https://andreselianor.github.io/Documentation/MainApp/View/view.html">DOCUMENTACION ONLINE</see>
+
         - SplashScreen() : void
         Muestra la pantalla de bienvenida de la aplicación.
 
