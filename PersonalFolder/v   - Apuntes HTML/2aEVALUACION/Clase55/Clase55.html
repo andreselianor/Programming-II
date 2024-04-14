@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 47</title>
+    <title>Clase 55</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,41 +12,80 @@
 
 <body id="Page">
     <header>
-        <h1>Clase 47</h1>
-        <h3>Viernes, 12 Enero 2024</h3>
+        <h1>Clase 55</h1>
+        <h3>Viernes, 26 Enero 2024</h3>
     </header>
     <a href="../index2EVAL.html">Indice</a>
 
     <ul class="clase·List">
-        <h4 class="remarks">Significado de una Hash</h4>
+        <h4 class="remarks">Repaso 'Heap' vs ' Stack</h4>
         <li>
-            Un 'Hash' nos permite simplificar la definicion de un objeto. Por ejemplo, si un objeto es un número, el
-            resto de una division
-            seria el hash.
+            Un 'struct' permite mucha mayor cantidad de datos de fácil acceso. Además estos datos tienen una forma muy
+            estructurada.
         </li>
         <li>
-            Este numero Hash no debe repetirse para elementos diferentes. Cada objeto debe tener un hash propio, si no,
-            no tendria sentido.
+            Un 'struct' no tiene herencia ni interfaces
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">Garbage Collector</h4>
+        <li>
+            Cuando el elemento 'A' no tiene ningún puntero o referencia, el obejto se destruye.
         </li>
         <li>
-            Uno de sus usos mas empleados es para guardar la contraseña de los usuarios de un servidor.
+            El runtime de C# no borra los elementos que se guardan en el 'Heap', sino que los mete en una lista de
+            objetos 'muertos'
         </li>
         <li>
-            Si queremos comprobar si un objeto es igual a otro, en lugar de comprobar en profundidad sus atributos,
-            podemos primero
-            comprobar que tengan el mismo Hash. Solo en caso que tengan el mismo numero de referencia, comprobamos su
-            semejanza en profundidad.
+            Se trata de un comportamiento de 'Pull', donde los objetos desechados se guardan en una lista aparte, una
+            minicaché de elementos muertos.
         </li>
         <li>
-            C# contiene por defecto una clase llamada 'HashSet'. Su funcionamiento es el siguiente: comprueba el numero
-            Hash y si coincide ejecuta el metodo 'Equals'
+            Esta caché recibe el nombre de 'Garbage Collector'
         </li>
         <li>
-            Existe una norma que indica que si sobreescribes el Equals por defecto en una clase, es obligatorio sobreescribir el 'GetHashCode'
+            Aun asi, con una funcion que limpie el garbage collector, tampoco te aseguras que se destruya por completo
+            el objeto.
         </li>
-        <h4 class="remarks">Clase 'SetWithHash'</h4>
         <li>
-            Crear una clase 'Set' que funcione con un 'Hash'
+            No puedes programar el destructor porque no sabes exactamente cuando se destruye el objeto.
+        </li>
+        <li>
+            Garbage Collector es la lista de objetos muertos.
+        </li>
+        <li>
+            El algoritmo 'LRU' o 'less recently used' elimina los elementos que mas tiempo llevo sin utilizar.
+        </li>
+    </ul>
+    <ul class="clase·List">
+        <h4 class="remarks">TREE</h4>
+        <li>
+            Contenedor de manera que un nodo es el principal o 'root', del cual crecen el resto de nodos de forma
+            jerarquica descendiente.
+        </li>
+        <li>
+            El primero es el nodo 'root'.
+        </li>
+        <li>
+            Cada nodo tiene una lista de nodos, que son sus hijos o 'children'.
+        </li>
+        <li>
+            Todos los children tienen el mismo 'root'
+        </li>
+        <li>
+            Los atributos parent y children son privados. El padre del root es NULL.
+        </li>
+        <li>
+            Los elementos nodos que no tienen hijos se llaman hojas o 'leaf'
+        </li>
+        <li>
+            Las listas son privadas, nunca se devuelven.
+        </li>
+        <li>
+            Level es la posición en la estructura del árbol.
+        </li>
+        <li>
+            La función Remove es privada.
         </li>
     </ul>
 </body>
