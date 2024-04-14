@@ -2,7 +2,12 @@
 {
     public class Controller
     {
-        public void Launch(IUpCopy upCopy)
+        public static void Launch(IUpCopy upCopy)
+        {
+            Controller controller = new Controller();
+            controller.Start(upCopy);
+        }
+        public void Start(IUpCopy upCopy)
         {
             //display
             DisplaySplashScreen();

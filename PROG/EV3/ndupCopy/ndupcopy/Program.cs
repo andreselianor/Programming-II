@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             IUpCopy upCopy = new upCopy();
-            Launcher.LaunchApp(upCopy);
+            Controller.Launch(upCopy);
 
             #region PRUEBAS DE PROGRAMADOR
             /*
