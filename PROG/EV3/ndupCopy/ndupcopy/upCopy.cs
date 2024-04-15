@@ -97,6 +97,32 @@
             }
         }
 
+        public void CopyOneFile()
+        {
+            string pathOrigen = "..\\..\\..\\..\\testingApp\\filesTest\\test1.txt";
+            byte[] file = File.ReadAllBytes(pathOrigen);
+
+            string pathOutput = "..\\..\\..\\..\\testingApp\\outputTest\\outTest1.txt";
+            File.WriteAllBytes(pathOutput, file);
+        }
+        public void CopyAllInFolder()
+        {
+            string pathFolder = "..\\..\\..\\..\\testingApp\\filesTest";
+            string pathFiles = "*.*";
+
+            var result = Directory.EnumerateFiles(pathFolder, pathFiles, SearchOption.AllDirectories);
+
+            foreach (string sending in result)
+            {
+                string pathOrigen = sending;
+                byte[] file = File.ReadAllBytes(pathOrigen);
+                string fileName = sending.Substring(33);
+
+                string pathOutput = "..\\..\\..\\..\\testingApp\\outputTest\\" + fileName;
+                File.WriteAllBytes(pathOutput, file);
+            }
+        }
+
     }
 
     #region DOCUMENTACION

@@ -9,5 +9,10 @@
         void AddupFilesToList(upFile upFile);
         void RemoveDuplicates();
         void CopyupFiles();
+
+
+
+        void CopyOneFile();
+        void CopyAllInFolder();
     }
 }

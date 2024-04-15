@@ -3,22 +3,29 @@
     public class Controller
     {
         public static void Launch(IUpCopy upCopy)
-        {
-            Controller controller = new Controller();
+        {            
+            Controller controller = new Controller();            
             controller.Start(upCopy);
         }
-        public void Start(IUpCopy upCopy)
+
+        private void Start(IUpCopy upCopy)
         {
             //display
             DisplaySplashScreen();
             DisplayQuestionCopy();
 
-            //program
+            upCopy.CopyAllInFolder();
+            //upCopy.CopyOneFile();
+
+
+            /*
+            //program ALGORITMO
             upCopy app = new upCopy();
             
             app.AddupFilesToList(new upFile());
             app.RemoveDuplicates();
             app.CopyupFiles();
+            */
         }
 
         #region FUNCIONES PRIVADAS
@@ -30,15 +37,6 @@
         private void DisplayQuestionCopy()
         {
             View.CopyQuestionScreen();
-        }
-
-        private void CopyOneFile()
-        {
-            string pathOrigen = "..\\..\\..\\..\\filesTest\\test1.txt";
-            byte[] file = File.ReadAllBytes(pathOrigen);
-
-            string pathOutput = "..\\..\\..\\..\\filesTest\\outputTest\\outTest1.txt";
-            File.WriteAllBytes(pathOutput, file);
         }
         #endregion
 
