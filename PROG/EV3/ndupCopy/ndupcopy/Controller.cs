@@ -10,16 +10,23 @@
 
         private void Start(IUpCopy upCopy)
         {
-            //display
-            DisplaySplashScreen();
-            DisplayQuestionCopy();
+            // * display Screen
+            View.DisplaySplashScreen();
+            View.DisplayQuestionScreen();
 
+
+            // * app Run
             upCopy.CopyAllInFolder();
-            //upCopy.CopyOneFile();
+            // upCopy.CopyOneFile();
 
+
+            // * app Terminating
+            View.DisplayExitScreen();
+
+
+            // * app Algoritmo
 
             /*
-            //program ALGORITMO
             upCopy app = new upCopy();
             
             app.AddupFilesToList(new upFile());
@@ -27,18 +34,6 @@
             app.CopyupFiles();
             */
         }
-
-        #region FUNCIONES PRIVADAS
-        private void DisplaySplashScreen()
-        {
-            View.SplashScreen();
-        }
-
-        private void DisplayQuestionCopy()
-        {
-            View.CopyQuestionScreen();
-        }
-        #endregion
 
         #region DOCUMENTACION
         /*

@@ -2,7 +2,7 @@
 {
     public static class View
     {
-        public static void SplashScreen()
+        public static void DisplaySplashScreen()
         {
             string welcome = "Welcome to NDUPCOPY";
             string welcomeGraph = "===================";
@@ -10,11 +10,18 @@
             Console.WriteLine(welcomeGraph);
         }
 
-        public static void CopyQuestionScreen()
+        public static void DisplayQuestionScreen()
         {
-            string question = "Do you want to copy ONE file?";
-            Console.WriteLine(question);
+            string questionText = "Do you want to copy ONE file?";
+            Console.WriteLine(questionText);
             Console.WriteLine("Yes/No");
+            Console.ReadLine();
+        }
+
+        public static void DisplayExitScreen()
+        {
+            string exitText = "Saliendo de la aplicacion...";
+            Console.WriteLine(exitText);
             Console.ReadLine();
         }
 
