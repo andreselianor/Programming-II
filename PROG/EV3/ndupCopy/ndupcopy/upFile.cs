@@ -30,20 +30,19 @@
         }
 
         public static void GetPath(string path, string userFolder, out string relativePath, out string fileName)
-        {
-            
+        {            
             int userFolderCount = userFolder.Length;
+            string completeRelative = path.Substring(userFolderCount);
 
-            relativePath = path.Substring(userFolderCount);
 
             int fileNameCount = 0;
-            for (int i = relativePath.Length - 1; i > 0; i--)
+            for (int i = completeRelative.Length - 1; i > 0; i--)
             {
-                if (relativePath[i] == '\\')
+                if (completeRelative[i] == '\\')
                     break;
                 fileNameCount++;
             }
-            fileName = relativePath.Substring(relativePath.Length - fileNameCount);
+            fileName = completeRelative.Substring(completeRelative.Length - fileNameCount);
         }
     }
 

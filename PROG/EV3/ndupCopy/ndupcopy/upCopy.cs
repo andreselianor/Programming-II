@@ -11,17 +11,19 @@
         }
         public void GetPathTargetFiles()
         {
-            string originalFolder = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\tests";
+            string originalPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\tests";
+            string destinationPath = _outputFolder;
+
             string relativePath = "";
             string fileName = "";
 
-            string filesIncluded = "*.*";
+            string filterFiles = "*.*";
 
-            var searchResult = Directory.EnumerateFiles(originalFolder, filesIncluded, SearchOption.AllDirectories);
+            var searchResult = Directory.EnumerateFiles(originalPath, filterFiles, SearchOption.AllDirectories);
 
             foreach (string completeFilePath in searchResult)
             {
-                upFile.GetPath(completeFilePath, originalFolder, out relativePath, out fileName);
+                upFile.GetPath(completeFilePath, originalPath, out relativePath, out fileName);
                 upFile file = new upFile(completeFilePath, relativePath);
                 AddUpFilesToControlList(file);
             }
