@@ -20,7 +20,7 @@
 
         public static void DisplayExitScreen()
         {
-            string exitText = "Saliendo de la aplicacion...";
+            string exitText = "Pulse cualquier tecla para salir de la aplicación...";
             Console.WriteLine(exitText);
             Console.ReadLine();
         }

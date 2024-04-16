@@ -3,14 +3,14 @@
     public class upFile
     {
         private byte[] _file = Array.Empty<byte>();
-        private string _folderPath = "";
+        private string _folder = "";
 
         private int _date;
         private int _size;
         private int _hash;
         private int _SHA256;
 
-        public string Folder => _folderPath;
+        public string Folder => _folder;
         public int Date => _date;
         public int Size => _size;
         public int Hash => _hash;
@@ -19,21 +19,31 @@
 
 
         public upFile() { }
-        public upFile(string filePath, string folderPath)
-        {
-            _file = File.ReadAllBytes(filePath);
-            _folderPath = folderPath;
-        }
-
-
-        public void CreateUpFile(string filePath)
+        public upFile(string filePath)
         {
             _file = File.ReadAllBytes(filePath);
         }
-
-        public void CreateFolderPath(string folderPath)
+        public upFile(string filePath, string folder)
         {
-            _folderPath = folderPath;
+            _file = File.ReadAllBytes(filePath);
+            _folder = folder;
+        }
+
+        public static void GetPath(string path, string userFolder, out string relativePath, out string fileName)
+        {
+            
+            int userFolderCount = userFolder.Length;
+
+            relativePath = path.Substring(userFolderCount);
+
+            int fileNameCount = 0;
+            for (int i = relativePath.Length - 1; i > 0; i--)
+            {
+                if (relativePath[i] == '\\')
+                    break;
+                fileNameCount++;
+            }
+            fileName = relativePath.Substring(relativePath.Length - fileNameCount);
         }
     }
 

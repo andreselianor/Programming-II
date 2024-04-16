@@ -2,50 +2,57 @@
 {
     public class upCopy : IUpCopy
     {
-        private List<upFile> _filesList = new List<upFile>();
+        private List<upFile> _controlList = new List<upFile>();
         private string _outputFolder = "";
 
-
-        // CREAR UN ARCHIVO DE TIPO UPFILE
-        public upFile CreateUpFile(string filePath, string folderPath)
-        {
-            upFile fileResult = new upFile();
-
-            fileResult.CreateUpFile(filePath);
-            fileResult.CreateFolderPath(folderPath);
-
-            return fileResult;
-        }
         public void SetOutputFolder(string path)
         {
             _outputFolder = path;
         }
+        public void GetPathTargetFiles()
+        {
+            string originalFolder = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\tests";
+            string relativePath = "";
+            string fileName = "";
 
+            string filesIncluded = "*.*";
 
-        // funcionamiento del programa
-        public void AddupFilesToList(upFile upFile)
+            var searchResult = Directory.EnumerateFiles(originalFolder, filesIncluded, SearchOption.AllDirectories);
+
+            foreach (string completeFilePath in searchResult)
+            {
+                upFile.GetPath(completeFilePath, originalFolder, out relativePath, out fileName);
+                upFile file = new upFile(completeFilePath, relativePath);
+                AddUpFilesToControlList(file);
+            }
+        }
+        public void AddUpFilesToControlList(upFile upFile)
         {
             if (upFile == null)
                 throw new ArgumentNullException("El elemento es null");
             if (IsNotValid(upFile))
                 return;
             else
-                _filesList.Add(upFile);
+                _controlList.Add(upFile);
         }
         public void RemoveDuplicates()
         {
-            for (int i = 0; i < _filesList.Count - 1; i++)
+            for (int i = 0; i < _controlList.Count - 1; i++)
             {
-                for (int j = i + 1; j < _filesList.Count; j++)
+                for (int j = i + 1; j < _controlList.Count; j++)
                 {
-                    if (IsFileDuplicated(_filesList[i], _filesList[j]))
-                        _filesList.RemoveAt(j--);
+                    if (IsFileDuplicated(_controlList[i], _controlList[j]))
+                        _controlList.RemoveAt(j--);
                 }
             }
         }
-        public void CopyupFiles()
+        public void CopyUpFiles()
         {
-            CopyListToDestinationFolder();
+            foreach (upFile upFile in _controlList)
+            {
+                Directory.CreateDirectory(_outputFolder + upFile.Folder);
+                //File.WriteAllBytes(_outputFolder + upFile.Folder, upFile.Content);
+            }
         }
 
 
@@ -86,17 +93,11 @@
             return false;
         }
         #endregion
+    }
 
-
-        // FINALIZACION DEL PROGRAMA
-        public void CopyListToDestinationFolder()
-        {
-            foreach(var file in _filesList)
-            {
-                File.Copy(file.Folder, _outputFolder);
-            }
-        }
-
+    /*
+     * 
+     * 
         public void CopyOneFile()
         {
             string pathOrigen = "..\\..\\..\\..\\testingApp\\filesTest\\test1.txt";
@@ -122,8 +123,7 @@
                 File.WriteAllBytes(pathOutput, file);
             }
         }
-
-    }
+     * */
 
     #region DOCUMENTACION
     /*

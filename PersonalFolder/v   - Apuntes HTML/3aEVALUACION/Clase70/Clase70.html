@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 70</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../resources/Css/main.css'>
+
+</head>
+
+<body id="Page">
+    <header>
+        <h1>Clase 70</h1>
+        <h3>Lunes, 15 Abril 2024</h3>
+    </header>
+    <a href="../index3EVAL.html">Indice</a>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Introducción a las clases parciales</h4>
+        <li>
+            Las clases parciales o 'partial class' son una característica propia del lenguaje C# y puede ser útil o no
+            depende
+            de como se use.
+        </li>
+        <li>
+            Su funcionamiento es sencillo. Realizamos la definición de una clase de manera normal. Podemos establecer
+            sus atributos,
+            métodos y jerarquías de la manera que nos plazca. Entonces, si definimos la clase como <b>partial</b>,
+            podemos crear <i>otra</i>
+            clase, con el mismo nombre, que contenga funciones, métodos, atributos, etc <b>añadidos a la clase
+                original.</b>
+        </li>
+        <li>
+            Es decir, la definición de la clase se hace en secciones de programa distintas, siendo su comportamiento una
+            combinación de las
+            distintas partes.
+        </li>
+        <li>
+            La sintaxis es como sigue:
+            <pre><code>
+                '
+                public partial class Student
+                {
+                    // Definiciones
+                }
+                '
+            </code></pre>
+        </li>
+        <li>
+            Para que se comporte de manera parcial, debe tener <b>el mismo nombre de la clase.</b>
+        </li>
+        <li>
+            Su uso, se establece según la práctica de cada despacho. Principalmente podemos establecer <b>dos</b> formas
+            distintas de utilizar
+            estas funcionalidades:
+        </li>
+        <li>
+            1. Realizamos la definición de la clase según el uso que le queremos dar. Realizamos la definición completa.
+            Cuando estamos completamente
+            seguros que la clase funciona correctamente, su definición quedará guardada en un clase parcial, <b>y todas
+                los cambios o implementaciones</b>
+            de codigo nuevo que le queramos aportar a la clase, la realizamos en otra seccion. que sera 'partial' de la
+            primera
+        </li>
+        <li>
+            Es de alguna manera una copia de seguridad de un código que funciona, podemos pedirle a nuestro compañero
+            que añada 'partial' a su sección
+            y así nosotros podemos complementar la clase.
+        </li>
+        <li>
+            2. Las clases partial se pensaron en su origen para comprimir secciones de código que quedarían ocultos a la
+            vista del usuario.
+        </li>
+        <li>
+            Así en una clase 'partial' añadimos el código que hace funcionar la clase pero no queremos que se vea, y en
+            otra sección dejamos que
+            el usuario complemente su sección de código
+        </li>
+        <li>
+            Esto es lo que pasa con las 'partial class' de las aplicaciones de ventana <b>WPF.</b>
+        </li>
+    </ul>
+
+    <ul class="clase·List">
+        <h4 class="remarks">Introducción a las aplicaciones WPF</h4>
+        <li>
+            Una aplicación de ventana WPF consta de dos partes diferenciadas que producen una experiencia de aplicación
+            gráfica basada en C#
+        </li>
+        <li>
+            Una parte donde se define la <b>apariencia visual</b> de la aplicacion o parte gráfica y otra parte que
+            contiene el comportamiento
+            de la aplicación.
+        </li>
+        <li>
+            La primera se organiza con un código de tipo XML o XAML, donde se almacenan todas las variables gráficas. Se
+            suele llamar ventana 'Designer'.
+        </li>
+        <li>
+            La segunda se organiza con código fuente C#, que gestiona el funcionamiento del programa.
+        </li>
+        <li>
+            La primera parte es todo código XAML que ocupa una clase parcial dentro del 'MainWindow'.
+        </li>
+        <li>
+            La estructura jerárquica de cada uno de los elementos se almacena en lo que se denomina 'Arbol DOM' o
+            'Document Object Model'.
+        </li>
+        <li>
+            En el apartado gráfico podemos añadir botones y objetos. Mediante los eventos dirigimos los objetos 'sender'
+            hacia las funciones.
+        </li>
+        <li>
+            Los eventos <b>siempre se designan añadiendo 'on' al nombre del elemento.</b>
+        </li>
+        <li>
+            Por convención, se llama al elemento primero con el nombre de su función y luego con una nombre descriptivo.
+            Por ejemplo, un botón
+            puede recibir el nombre de 'ButtonMain', con el titulo de su función y el lugar que ocupa en el programa.
+        </li>
+    </ul>
+</body>
+
+</html>

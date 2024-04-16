@@ -11,28 +11,18 @@
         private void Start(IUpCopy upCopy)
         {
             // * display Screen
-            View.DisplaySplashScreen();
-            View.DisplayQuestionScreen();
+            //View.DisplaySplashScreen();
+            //View.DisplayQuestionScreen();
 
 
             // * app Run
-            upCopy.CopyAllInFolder();
-            // upCopy.CopyOneFile();
+            upCopy.SetOutputFolder(@"C:\Andres\DAM\Programming - II\PROG\EV3\salida1");
+            upCopy.GetPathTargetFiles();
+            upCopy.CopyUpFiles();
 
 
             // * app Terminating
-            View.DisplayExitScreen();
-
-
-            // * app Algoritmo
-
-            /*
-            upCopy app = new upCopy();
-            
-            app.AddupFilesToList(new upFile());
-            app.RemoveDuplicates();
-            app.CopyupFiles();
-            */
+            //View.DisplayExitScreen();
         }
 
         #region DOCUMENTACION
