@@ -10,9 +10,10 @@
 
         private void Start(IUpCopy upCopy)
         {
-            // * display Screen
-            //View.DisplaySplashScreen();
-            //View.DisplayQuestionScreen();
+            // display Screen
+            View.DisplaySplashScreen();
+            View.DisplaySetTargetFolder();
+            View.DisplayCopyingFiles();
 
 
             // * app Run
@@ -22,7 +23,7 @@
 
 
             // * app Terminating
-            //View.DisplayExitScreen();
+            View.DisplayExitScreen();
         }
 
         #region DOCUMENTACION

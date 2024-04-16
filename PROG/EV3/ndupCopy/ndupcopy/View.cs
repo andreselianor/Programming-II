@@ -9,19 +9,26 @@
             Console.WriteLine(welcome);
             Console.WriteLine(welcomeGraph);
         }
-
-        public static void DisplayQuestionScreen()
+        public static void DisplaySetTargetFolder()
         {
-            string questionText = "Do you want to copy ONE file?";
-            Console.WriteLine(questionText);
-            Console.WriteLine("Yes/No");
+            string text = "Please, insert the complete path of target copy destination: ";
+            Console.WriteLine(text);
+            Console.ReadLine();
+        }
+
+        public static void DisplayCopyingFiles()
+        {
+            string text = "Coping files, please stand by...";
+            Console.WriteLine(text);
             Console.ReadLine();
         }
 
         public static void DisplayExitScreen()
         {
-            string exitText = "Pulse cualquier tecla para salir de la aplicación...";
-            Console.WriteLine(exitText);
+            string exitText1 = "La copia se ha realizado con éxito.";
+            string exitText2 = "Pulse cualquier tecla para salir de la aplicación...";
+            Console.WriteLine(exitText1);
+            Console.WriteLine(exitText2);
             Console.ReadLine();
         }
 
@@ -29,12 +36,17 @@
         /*
         // <see href="https://andreselianor.github.io/Documentation/MainApp/View/view.html">DOCUMENTACION ONLINE</see>
 
-        - SplashScreen() : void
+        - DisplaySplashScreen() : void
         Muestra la pantalla de bienvenida de la aplicación.
 
-        - CopyQuestionScreen() : void
-        Pregunta que archivos quiere copiar.
+        - DisplaySetTargetFolder() : void
+        Pregunta la ruta destino de la copia de archivos.
 
+        - DisplayCopyingFiles() : void
+        Informa al usuario que la copia de los archivos se está ejecutando.
+
+        - DisplayExitScreen() : void
+        Muestra la pantalla de salida de la aplicación.
         */
         #endregion
     }

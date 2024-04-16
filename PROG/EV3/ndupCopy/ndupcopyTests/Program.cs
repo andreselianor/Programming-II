@@ -4,27 +4,46 @@
     {
         static void Main(string[] args)
         {
-            /*
-            byte[] result = File.ReadAllBytes(@"C:\Users\yveelilop\Desktop\GIT\Programming-II\PROG\EV3\ndupCopy\tests\TestOrigen\folder1\test1.txt");
-            string path = "C:\\Users\\yveelilop\\Desktop\\GIT\\Programming-II\\PROG\\EV3\\ndupCopy\\salida\\prueba\\exit\\testsalida1.txt";
-            string salida = "C:\\Users\\yveelilop\\Desktop\\GIT\\Programming-II\\PROG\\EV3\\ndupCopy\\salida\\prueba\\exit";
-            Directory.CreateDirectory(salida);
-            File.WriteAllBytes(path,result);
-            */
-            string origen = @"C:\Users\yveelilop\Desktop\GIT\Programming-II\PROG\EV3\ndupCopy\tests";
+            
+            string origen = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\UpFileTests";
+            string destino = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\copia1";
+
             var result = Directory.EnumerateDirectories(origen, "*.*", SearchOption.AllDirectories);
             foreach(string s in result)
             {
-                Program.GetPath(s);
+                CreateDirectories(s, destino, origen);
             }
-            
 
-
+            var result2 = Directory.EnumerateFiles(origen, "*.*", SearchOption.AllDirectories);
+            foreach(string s2 in result2)
+            {
+                CreateFile(s2, destino, origen);
+            }
         }
 
-        public static void GetPath(string completePath)
+        public static void CreateDirectories(string completePath, string destino, string origen)
         {
             string complete = completePath;
+            int completeint = completePath.Length;
+
+            string original = origen;
+            int originalint = original.Length;
+
+            string result = complete.Substring(originalint);
+            Directory.CreateDirectory(destino + result);
+        }
+        public static void CreateFile(string completePath, string destino, string origen)
+        {
+            string complete = completePath;
+            int completeint = completePath.Length;
+
+            string original = origen;
+            int originalint = original.Length;
+
+            string relativa = complete.Substring(originalint);
+
+            byte[] result = File.ReadAllBytes(completePath);
+            File.WriteAllBytes(destino + relativa, result);
         }
     }
 }
