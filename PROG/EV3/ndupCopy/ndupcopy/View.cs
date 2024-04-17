@@ -9,18 +9,24 @@
             Console.WriteLine(welcome);
             Console.WriteLine(welcomeGraph);
         }
-        public static void DisplaySetTargetFolder()
+        public static string DisplaySetOriginFolder()
+        {
+            string text = "Please, insert the complete path of the origin folder: ";
+            Console.WriteLine(text);
+            string userAnswer = Console.ReadLine();
+            return userAnswer;
+        }
+        public static string DisplaySetTargetFolder()
         {
             string text = "Please, insert the complete path of target copy destination: ";
             Console.WriteLine(text);
-            Console.ReadLine();
+            string userAnswer = Console.ReadLine();
+            return userAnswer;
         }
-
         public static void DisplayCopyingFiles()
         {
             string text = "Coping files, please stand by...";
             Console.WriteLine(text);
-            Console.ReadLine();
         }
 
         public static void DisplayExitScreen()

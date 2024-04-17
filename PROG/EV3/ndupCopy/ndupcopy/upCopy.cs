@@ -3,31 +3,57 @@
     public class upCopy : IUpCopy
     {
         private List<upFile> _controlList = new List<upFile>();
-        private string _outputFolder = "";
+        private string _originFolder = "";
+        private string _targetFolder = "";
 
-        public void SetOutputFolder(string path)
+        public void SetOriginPath(string path)
         {
-            _outputFolder = path;
+            _originFolder = path;
         }
-        public void GetPathTargetFiles()
+        public void SetTargetPath(string path)
         {
-            string originalPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\tests";
-            string destinationPath = _outputFolder;
-
-            string relativePath = "";
-            string fileName = "";
-
-            string filterFiles = "*.*";
-
-            var searchResult = Directory.EnumerateFiles(originalPath, filterFiles, SearchOption.AllDirectories);
-
-            foreach (string completeFilePath in searchResult)
+            _targetFolder = path;
+        }
+        public void AddToListUpFiles()
+        {
+            var result = Directory.EnumerateFiles(_originFolder, "*.*", SearchOption.AllDirectories);
+            foreach (string completePath in result)
             {
-                upFile.GetPath(completeFilePath, originalPath, out relativePath, out fileName);
-                upFile file = new upFile(completeFilePath, relativePath);
-                AddUpFilesToControlList(file);
+                upFilePath filePaths = new upFilePath();
+                filePaths.SetOriginalPath(_originFolder);
+                filePaths.SetTargetPath(_targetFolder);
+                filePaths.SetFileName(completePath);
+                filePaths.SetPartialPath(_originFolder, completePath);
+                filePaths.SetCompleteTargetPath();
+
+                upFile upFile = new upFile(filePaths, completePath);
+
+                _controlList.Add(upFile);
             }
         }
+        public void RemoveDuplicateUpFiles()
+        {
+            foreach (upFile file in _controlList)
+            {
+                Directory.CreateDirectory(file.Path._targetPath + file.Path._partialPath);
+
+            }
+        }
+        public void CopyValidUpFiles()
+        {
+            
+            foreach (upFile file in _controlList)
+            {
+
+                File.WriteAllBytes(file.Path._completeTargetPath, file.Content);
+            }
+        }
+
+
+
+
+
+
         public void AddUpFilesToControlList(upFile upFile)
         {
             if (upFile == null)
@@ -48,15 +74,6 @@
                 }
             }
         }
-        public void CopyUpFiles()
-        {
-            foreach (upFile upFile in _controlList)
-            {
-                Directory.CreateDirectory(_outputFolder + upFile.Folder);
-                //File.WriteAllBytes(_outputFolder + upFile.Folder, upFile.Content);
-            }
-        }
-
 
         #region FUNCIONES PRIVADAS
         private bool IsFileDuplicated(upFile upfileOriginal, upFile upfileTarget)

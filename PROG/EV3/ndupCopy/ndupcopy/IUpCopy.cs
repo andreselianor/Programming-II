@@ -2,15 +2,10 @@
 {
     public interface IUpCopy
     {
-        //upFile CreateUpFile(string filePath);
-        void SetOutputFolder(string path);
-
-
-        void AddUpFilesToControlList(upFile upFile);
-        void RemoveDuplicates();
-        void CopyUpFiles();
-
-
-        void GetPathTargetFiles();
+        void SetOriginPath(string originPath);
+        void SetTargetPath(string targetPath);
+        void AddToListUpFiles();
+        void RemoveDuplicateUpFiles();
+        void CopyValidUpFiles();
     }
 }

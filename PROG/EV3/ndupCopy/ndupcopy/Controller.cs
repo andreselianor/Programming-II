@@ -12,14 +12,20 @@
         {
             // display Screen
             View.DisplaySplashScreen();
-            View.DisplaySetTargetFolder();
+            string originPath = View.DisplaySetOriginFolder();
+            string targetPath = View.DisplaySetTargetFolder();
             View.DisplayCopyingFiles();
 
 
             // * app Run
-            upCopy.SetOutputFolder(@"C:\Andres\DAM\Programming - II\PROG\EV3\salida1");
-            upCopy.GetPathTargetFiles();
-            upCopy.CopyUpFiles();
+            originPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\UpFileTests";
+            targetPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\copiaPrueba";
+
+            upCopy.SetOriginPath(originPath);
+            upCopy.SetTargetPath(targetPath);
+            upCopy.AddToListUpFiles();
+            upCopy.RemoveDuplicateUpFiles();
+            upCopy.CopyValidUpFiles();
 
 
             // * app Terminating

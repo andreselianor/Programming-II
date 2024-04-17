@@ -17,12 +17,14 @@
         public int Size => _size;
         public int Hash => _hash;
         public int Sha256 => _SHA256;
+        public upFilePath Path => _path;
 
 
         public upFile() { }
-        public upFile(upFilePath path)
+        public upFile(upFilePath path, string filePath)
         {
             _path = path;
+            _file = File.ReadAllBytes(filePath);
         }
 
     }

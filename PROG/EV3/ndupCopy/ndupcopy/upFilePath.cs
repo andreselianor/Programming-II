@@ -2,26 +2,53 @@
 {
     public class upFilePath
     {
-        public string _originPath = "";
+        public string _sourcePath = "";
+        public string _targetPath = "";
         public string _partialPath = "";
+        public string _completeTargetPath = "";
         public string _fileName = "";
 
+        public upFilePath() { }
 
-        public static void GetPath(string path, string userFolder, out string relativePath, out string fileName)
+        public void SetOriginalPath(string originalPath)
         {
-            relativePath = "";
-            int userFolderCount = userFolder.Length;
-            string completeRelative = path.Substring(userFolderCount);
+            _sourcePath = originalPath;
+        }
 
+        public void SetTargetPath(string targetPath)
+        {
+            _targetPath = targetPath;
+        }
 
+        public void SetPartialPath(string originalPath, string completePath)
+        {
+            int originalPathLength = originalPath.Length;
+            string partialWithFileName = completePath.Substring(originalPathLength);
+
+            int trimFileName = partialWithFileName.Length - _fileName.Length;
+            string partialWithoutFileName = partialWithFileName.Substring(0, trimFileName);
+
+            _partialPath = partialWithoutFileName;
+        }
+
+        public void SetFileName(string completeOriginPath)
+        {
+            string fileName;
             int fileNameCount = 0;
-            for (int i = completeRelative.Length - 1; i > 0; i--)
+            for (int i = completeOriginPath.Length - 1; i > 0; i--)
             {
-                if (completeRelative[i] == '\\')
+                if (completeOriginPath[i] == '\\')
                     break;
                 fileNameCount++;
             }
-            fileName = completeRelative.Substring(completeRelative.Length - fileNameCount);
+
+            fileName = completeOriginPath.Substring(completeOriginPath.Length - fileNameCount);
+            _fileName = fileName;
+        }
+
+        public void SetCompleteTargetPath()
+        {
+            _completeTargetPath = _targetPath + _partialPath + _fileName;
         }
     }
 }
