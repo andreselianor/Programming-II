@@ -8,6 +8,8 @@
         public string _completeTargetPath = "";
         public string _fileName = "";
 
+        public string Name => _fileName;
+
         public upFilePath() { }
 
         public void SetOriginalPath(string originalPath)

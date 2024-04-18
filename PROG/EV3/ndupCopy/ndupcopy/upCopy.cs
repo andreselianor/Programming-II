@@ -33,34 +33,6 @@
         }
         public void RemoveDuplicateUpFiles()
         {
-            foreach (upFile file in _controlList)
-            {
-                Directory.CreateDirectory(file.Path._targetPath + file.Path._partialPath);
-
-            }
-        }
-        public void CopyValidUpFiles()
-        {
-            
-            foreach (upFile file in _controlList)
-            {
-
-                File.WriteAllBytes(file.Path._completeTargetPath, file.Content);
-            }
-        }
-
-
-        public void AddUpFilesToControlList(upFile upFile)
-        {
-            if (upFile == null)
-                throw new ArgumentNullException("El elemento es null");
-            if (IsNotValid(upFile))
-                return;
-            else
-                _controlList.Add(upFile);
-        }
-        public void RemoveDuplicates()
-        {
             for (int i = 0; i < _controlList.Count - 1; i++)
             {
                 for (int j = i + 1; j < _controlList.Count; j++)
@@ -70,10 +42,26 @@
                 }
             }
         }
+        public void CopyValidUpFiles()
+        {
+            foreach (upFile file in _controlList)
+            {
+                Directory.CreateDirectory(file.Path._targetPath + file.Path._partialPath);
+            }
+
+            foreach (upFile file in _controlList)
+            {
+                File.WriteAllBytes(file.Path._completeTargetPath, file.Content);
+            }
+        }
 
         #region FUNCIONES PRIVADAS
         private bool IsFileDuplicated(upFile upfileOriginal, upFile upfileTarget)
         {
+            if (upFileWithSameName(upfileOriginal, upfileTarget))
+                return true;
+
+            /*
             if (upFileWithSameSize(upfileOriginal, upfileTarget))
                 return true;
             if (upFileWithSameSHA256(upfileOriginal, upfileTarget))
@@ -82,8 +70,13 @@
                 return true;
             if (upFileWithSameContent(upfileOriginal, upfileTarget))
                 return true;
+            */
 
             return false;
+        }
+        private static bool upFileWithSameName(upFile upfileOriginal, upFile upfileTarget)
+        {
+            return (upfileOriginal.Path.Name == upfileTarget.Path.Name);
         }
         private static bool upFileWithSameSize(upFile upfileOriginal, upFile upfileTarget)
         {
