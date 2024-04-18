@@ -42,17 +42,20 @@
         /*
         // <see href="https://andreselianor.github.io/Documentation/MainApp/View/view.html">DOCUMENTACION ONLINE</see>
 
-        - DisplaySplashScreen() : void
-        Muestra la pantalla de bienvenida de la aplicación.
+        ~ DisplaySplashScreen() : void
+        Muestra por pantalla el 'splashScreen' de la aplicación.
 
-        - DisplaySetTargetFolder() : void
-        Pregunta la ruta destino de la copia de archivos.
+        ~ DisplaySetOriginFolder() : string
+        Una función que establece la carpeta de origen.
 
-        - DisplayCopyingFiles() : void
-        Informa al usuario que la copia de los archivos se está ejecutando.
+        ~ DisplaySetTargetFolder : string
+        Una función que establece la carpeta de destino.
 
-        - DisplayExitScreen() : void
-        Muestra la pantalla de salida de la aplicación.
+        ~ DisplayCopyingFiles() : void
+        Muestra por pantalla la pantalla de carga y copiado de archivos.
+
+        ~ DisplayExitScreen() : void
+        Muestra por pantalla el mensaje de salida del programa.
         */
         #endregion
     }

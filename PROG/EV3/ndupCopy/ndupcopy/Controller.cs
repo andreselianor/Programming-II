@@ -36,8 +36,10 @@
         /*
         // <see href="https://andreselianor.github.io/Documentation/MainApp/Controller/controller.html">DOCUMENTACION ONLINE</see>
 
-        - DisplaySplashScreen() : void
-        Muestra por pantalla el 'splashScreen' de la aplicación.
+        ~ Launch() : void
+        Crea un objeto de tipo controlador y ejecuta la orden de inicio de la aplicacion.
+
+        
 
         - DisplayQuestionCopy() : void
         Le pregunta al usuario si quiere ejecutar el programa de copia.

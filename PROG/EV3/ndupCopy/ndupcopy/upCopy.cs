@@ -50,10 +50,6 @@
         }
 
 
-
-
-
-
         public void AddUpFilesToControlList(upFile upFile)
         {
             if (upFile == null)
@@ -114,52 +110,34 @@
         #endregion
     }
 
-    /*
-     * 
-     * 
-        public void CopyOneFile()
-        {
-            string pathOrigen = "..\\..\\..\\..\\testingApp\\filesTest\\test1.txt";
-            byte[] file = File.ReadAllBytes(pathOrigen);
-
-            string pathOutput = "..\\..\\..\\..\\testingApp\\outputTest\\outTest1.txt";
-            File.WriteAllBytes(pathOutput, file);
-        }
-        public void CopyAllInFolder()
-        {
-            string pathFolder = "..\\..\\..\\..\\testingApp\\filesTest";
-            string pathFiles = "*.*";
-
-            var result = Directory.EnumerateFiles(pathFolder, pathFiles, SearchOption.AllDirectories);
-
-            foreach (string sending in result)
-            {
-                string pathOrigen = sending;
-                byte[] file = File.ReadAllBytes(pathOrigen);
-                string fileName = sending.Substring(33);
-
-                string pathOutput = "..\\..\\..\\..\\testingApp\\outputTest\\" + fileName;
-                File.WriteAllBytes(pathOutput, file);
-            }
-        }
-     * */
-
     #region DOCUMENTACION
     /*
     // <see href="https://andreselianor.github.io/Documentation/MainApp/UpCopy/UpCopy.html">DOCUMENTACION ONLINE</see>
 
-    - _filesList : List<upFile>
-    Lista de archivos de tipo 'up' dentro de una coleccion 'Set' donde no existen repeticiones de archivos.
+    - _controlList : List<upFile>
+    Lista de archivos de tipo 'upFile' dentro de una coleccion tipo 'List'. Aquí se encuentran todos los archivos listados en 
+    la carpeta origen.
 
-    _outputFolder : string
-    String con la ruta de la carpeta donde se escriben los archivos validos.
+    _originFolder : string
+    String con la ruta de la carpeta origen de archivos.
 
+    _targetFolder : string
+    String con la ruta de la carpeta destino de archivos.
 
-    - AddUpFile(Upfile) : void
-    Añade un archivo a la lista de validos.
+    + SetOriginPath(originPath) : void
+    Establece el atributo que almacena la direccion de la carpeta original.
 
-    - SetOutputFolder (path) : void
-    Indica la direccion de la ruta del directorio de salida.
+    + SetTargetPath(targetPath) : void
+    Estblece el atributo que almacena la direccion de la carpeta destino.
+
+    + AddToListUpFiles() : void
+    Funcion que añade a la lista de control de archivos 'upFile' todos los archivos contenidos en la carpeta origen.
+
+    + RemoveDuplicateUpFiles() : void
+    Funcion que elimina los archivos duplicados.
+    
+    + CopyValidUpFiles() : void
+    Funcion que copia en la carpeta origen, todos los archivos que se encuentran en la lista de control.
 
     */
     #endregion
