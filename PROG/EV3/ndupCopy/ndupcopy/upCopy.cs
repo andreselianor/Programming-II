@@ -28,6 +28,9 @@
 
                 upFile upFile = new upFile(filePath, completePath);
 
+                if (IsNotValid(upFile))
+                    return;
+
                 _controlList.Add(upFile);
             }
         }
@@ -60,22 +63,18 @@
         {
             if (upFileWithSameName(upfileOriginal, upfileTarget))
                 return true;
-           
             if (upFileWithSameSize(upfileOriginal, upfileTarget))
                 return true;
-
             if (upFileWithSameContent(upfileOriginal, upfileTarget))
                 return true;
-
-            /*
-           if (upFileWithSameSHA256(upfileOriginal, upfileTarget))
-               return true;
-           if (upFileWithSameHash(upfileOriginal, upfileTarget))
-               return true;           
-           */
+            if (upFileWithSameSHA256(upfileOriginal, upfileTarget))
+                return true;
+            if (upFileWithSameHash(upfileOriginal, upfileTarget))
+                return true;
 
             return false;
         }
+
         private static bool upFileWithSameName(upFile upfileOriginal, upFile upfileTarget)
         {
             return (upfileOriginal.Path.Name == upfileTarget.Path.Name);
@@ -100,6 +99,9 @@
         {
             if (upfile == null)
                 return true;
+            if (upfile.Size < 0)
+                return true;
+
             return false;
         }
         #endregion
