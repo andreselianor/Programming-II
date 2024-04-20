@@ -19,14 +19,14 @@
             var result = Directory.EnumerateFiles(_originFolder, "*.*", SearchOption.AllDirectories);
             foreach (string completePath in result)
             {
-                upFilePath filePaths = new upFilePath();
-                filePaths.SetOriginalPath(_originFolder);
-                filePaths.SetTargetPath(_targetFolder);
-                filePaths.SetFileName(completePath);
-                filePaths.SetPartialPath(_originFolder, completePath);
-                filePaths.SetCompleteTargetPath();
+                upFilePath filePath = new upFilePath();
+                filePath.SetOriginalPath(_originFolder);
+                filePath.SetTargetPath(_targetFolder);
+                filePath.SetFileName(completePath);
+                filePath.SetPartialPath(_originFolder, completePath);
+                filePath.SetCompleteTargetPath();
 
-                upFile upFile = new upFile(filePaths, completePath);
+                upFile upFile = new upFile(filePath, completePath);
 
                 _controlList.Add(upFile);
             }
@@ -60,17 +60,19 @@
         {
             if (upFileWithSameName(upfileOriginal, upfileTarget))
                 return true;
-
-            /*
+           
             if (upFileWithSameSize(upfileOriginal, upfileTarget))
                 return true;
-            if (upFileWithSameSHA256(upfileOriginal, upfileTarget))
-                return true;
-            if (upFileWithSameHash(upfileOriginal, upfileTarget))
-                return true;
+
             if (upFileWithSameContent(upfileOriginal, upfileTarget))
                 return true;
-            */
+
+            /*
+           if (upFileWithSameSHA256(upfileOriginal, upfileTarget))
+               return true;
+           if (upFileWithSameHash(upfileOriginal, upfileTarget))
+               return true;           
+           */
 
             return false;
         }
@@ -107,14 +109,14 @@
     /*
     // <see href="https://andreselianor.github.io/Documentation/MainApp/UpCopy/UpCopy.html">DOCUMENTACION ONLINE</see>
 
-    - _controlList : List<upFile>
+    - controlList : List<upFile>
     Lista de archivos de tipo 'upFile' dentro de una coleccion tipo 'List'. Aquí se encuentran todos los archivos listados en 
     la carpeta origen.
 
-    _originFolder : string
+    - originFolder : string
     String con la ruta de la carpeta origen de archivos.
 
-    _targetFolder : string
+    - targetFolder : string
     String con la ruta de la carpeta destino de archivos.
 
     + SetOriginPath(originPath) : void

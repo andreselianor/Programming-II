@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clase 47</title>
+    <title>Clase 57</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='all' href='../resources/Css/main.css'>
     <link type="icon" rel="icon" href="../resources/icono.ico">
@@ -12,42 +12,77 @@
 
 <body id="Page">
     <header>
-        <h1>Clase 47</h1>
-        <h3>Viernes, 12 Enero 2024</h3>
+        <h1>Clase 57</h1>
+        <h3>Martes, 30 Enero 2024</h3>
     </header>
     <a href="../index2EVAL.html">Indice</a>
 
     <ul class="clase·List">
-        <h4 class="remarks">Significado de una Hash</h4>
+        <h4 class="remarks">Continuación de la clase 'Tree'</h4>
         <li>
-            Un 'Hash' nos permite simplificar la definicion de un objeto. Por ejemplo, si un objeto es un número, el
-            resto de una division
-            seria el hash.
+            Creamos una función que encuentra un elemento entre los nodos hijos. Para ello utilizo un delegado, con los
+            parámetros de búsqueda.
+            <pre><code>
+                '
+                Node&ltT&gt findNode (DelegateChecker checker)
+                '
+            </code></pre>
         </li>
         <li>
-            Este numero Hash no debe repetirse para elementos diferentes. Cada objeto debe tener un hash propio, si no,
-            no tendria sentido.
+            Definición completa de la función de búsqueda de un nodo
         </li>
         <li>
-            Uno de sus usos mas empleados es para guardar la contraseña de los usuarios de un servidor.
+            Función 'Filter'
         </li>
         <li>
-            Si queremos comprobar si un objeto es igual a otro, en lugar de comprobar en profundidad sus atributos,
-            podemos primero
-            comprobar que tengan el mismo Hash. Solo en caso que tengan el mismo numero de referencia, comprobamos su
-            semejanza en profundidad.
+            Definición del delegado.
+            <pre><code>
+                '
+                public delegate bool DelegateFilter(Node&ltT&gt);
+                '
+            </code></pre>
         </li>
         <li>
-            C# contiene por defecto una clase llamada 'HashSet'. Su funcionamiento es el siguiente: comprueba el numero
-            Hash y si coincide ejecuta el metodo 'Equals'
+            Definición de la función 'Filter'
+            <pre><code>
+                '
+                public void Filter(DelegateFilter filter)
+                {
+                    if(filter == null)
+                    return;
+
+                    for(int i = 0; i &lt list.Count; i++)
+                    {
+                        if(filter(list[i]))
+                            listResult.Add(list[i]);
+                    }
+                }
+                '
+            </code></pre>
         </li>
         <li>
-            Existe una norma que indica que si sobreescribes el Equals por defecto en una clase, es obligatorio sobreescribir el 'GetHashCode'
+            Definición de la llamada a la función, mediante una función lambda.
+            <pre><code>
+                '
+                Instancia i1 = new Instancia();
+                i1.Filter(node => { return node.Name == "hijo";});
+                '
+            </code></pre>
         </li>
-        <h4 class="remarks">Clase 'SetWithHash'</h4>
         <li>
-            Crear una clase 'Set' que funcione con un 'Hash'
+            Podemos realizar código fuente utilizando patrones de programación, o respuestas establecidas para cada tipo
+            de problema.
         </li>
+        <li>
+            Existen dos tipos de referencias a la hora de apuntar un objeto a la memoria RAM:
+            <br>
+            <i>strong references</i>: cada referencia aumenta el 'reference count'.
+            <i>weak references</i>: las referencias no aumentan el 'reference count'.
+        </li>
+        <li>
+            Los datos de tipo 'weak' no deberían ser los hijos, porque la ausencia de referencias hace que se elimine el
+            objeto.
+        </li>        
     </ul>
 </body>
 

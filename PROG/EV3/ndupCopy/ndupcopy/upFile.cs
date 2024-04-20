@@ -13,11 +13,13 @@
 
 
         public byte[] Content => _file;
+
+        public upFilePath Path => _path;
         public int Date => _date;
         public int Size => _size;
         public int Hash => _hash;
         public int Sha256 => _SHA256;
-        public upFilePath Path => _path;
+        
 
 
         public upFile() { }
@@ -25,6 +27,9 @@
         {
             _path = path;
             _file = File.ReadAllBytes(filePath);
+
+            _size = _file.Length;
+            _hash = _file.GetHashCode();
         }
 
     }
@@ -33,14 +38,11 @@
     /*
     // <see href="https://andreselianor.github.io/Documentation/MainApp/UpFile/UpFile.html">DOCUMENTACION ONLINE</see>
 
-    [#] upFile
-    Crea un archivo 'upFile' de tipo array de byte 'byte[]'
+    [#] upFile ()
+    Crea un archivo 'upFile' con atributos vacios.
 
-    + CreateUpFile (filePath) : void
-    El atributo _file se compone de el archivo que le indicamos en la ruta.
-
-    + CreateFolderPath (folderPath) : void
-    Se crea un string con la dirección de la ruta de la carpeta contenedora.
+    [#] upFile (upfilePath, filePath)
+    Crea un archivo 'upFile' con una referencia a sus direcciones y el contenido del archivo.
 
     */
     #endregion
