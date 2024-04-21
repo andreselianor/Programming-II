@@ -53,4 +53,28 @@
             _completeTargetPath = _targetPath + _partialPath + _fileName;
         }
     }
+
+    #region DOCUMENTACION
+    /*
+    // <see href="https://andreselianor.github.io/Documentation/MainApp/UpFilePath/UpFilePath.html">DOCUMENTACION ONLINE</see>
+
+    - file: byte[]
+    Contiene el array de bytes con el contenido del archivo.
+
+    - path : upFilePath
+    Contiene una referencia a la clase 'upFilePath' donde se almacenan las direcciones de las distintas carpetas.
+
+    - date : int
+    Almacena la fecha de creación del archivo.
+
+    - size : int
+    Almacena el tamaño en bytes del archivo.
+
+    - hash : int
+    Contiene el numero hash del archivo.
+
+    - SHA256 : string
+    Contiene el archivo codificado en una cadena de texto, según el algoritmo SHA256.
+    */
+    #endregion
 }

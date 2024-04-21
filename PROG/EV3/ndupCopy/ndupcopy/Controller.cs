@@ -2,31 +2,29 @@
 {
     public class Controller
     {
-        public static void Launch(IUpCopy upCopy)
-        {            
-            Controller controller = new Controller();            
-            controller.Start(upCopy);
+        public static void Launch(IUpCopy upCopy, string[] args)
+        {
+            Controller controller = new Controller();
+            controller.Start(upCopy, args);
         }
 
-        private void Start(IUpCopy upCopy)
+        private void Start(IUpCopy upCopy, string[] args)
         {
-            // display Screen
+            // * display SplashScreen
             View.DisplaySplashScreen();
-            string originPath = View.DisplaySetOriginFolder();
             string targetPath = View.DisplaySetTargetFolder();
             View.DisplayCopyingFiles();
 
 
             // * app Run
-            originPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\UpFileTests";
-            targetPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\copiaPrueba";
-
-            upCopy.SetOriginPath(originPath);
-            upCopy.SetTargetPath(targetPath);
-            upCopy.AddToListUpFiles();
-            upCopy.RemoveDuplicateUpFiles();
-            upCopy.CopyValidUpFiles();
-
+            foreach (string sourcePath in args)
+            {
+                upCopy.SetOriginPath(sourcePath);
+                upCopy.SetTargetPath(targetPath);
+                upCopy.AddToListUpFiles();
+                upCopy.RemoveDuplicateUpFiles();
+                upCopy.CopyValidUpFiles();
+            }
 
             // * app Terminating
             View.DisplayExitScreen();
@@ -37,15 +35,27 @@
         // <see href="https://andreselianor.github.io/Documentation/MainApp/Controller/controller.html">DOCUMENTACION ONLINE</see>
 
         ~ Launch() : void
-        Crea un objeto de tipo controlador y ejecuta la orden de inicio de la aplicacion.
+        Crea un objeto de tipo controlador y ejecuta la función Start, que inicia la copia de archivos.
+        Recibe por parametros las direcciones de las carpetas de origen.
 
+        - Start(IUpcopy, args) : void
+        Inicia el proceso de listado, eliminacion de duplicados y copiado de archivos, en las carpetas que se le indican
+        por parametros.
         
+        ~ DisplaySplashScreen() : void
+        Muestra la pantalla inicial de la aplicación.
 
-        - DisplayQuestionCopy() : void
-        Le pregunta al usuario si quiere ejecutar el programa de copia.
+        ~ DisplaySetTargetFolder() : string
+        Le pregunta al usuario cual es la carpeta destino de la copia de archivos.
 
-        - CopyOneFile() : void
-        Copia el archivo relativo en la carpeta destino
+        ~ DisplayKeepFolderStructure() : void
+        Le pregunta al usuario si quiere mantener la estructura de carpetas.
+
+        ~ DisplayCopyingFiles() : void
+        Muestra el proceso de copia de los archivos.
+
+        ~ DisplayExitScreen() : void
+        Muestra el mensaje de despedida.
 
         */
         #endregion

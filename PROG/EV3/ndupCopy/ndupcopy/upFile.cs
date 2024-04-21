@@ -5,21 +5,18 @@
         private byte[] _file = Array.Empty<byte>();
 
         private upFilePath _path;
-
-        private int _date;
+        private DateTime _date;
         private int _size;
         private int _hash;
-        private int _SHA256;
+        private string _SHA256;
 
 
         public byte[] Content => _file;
-
         public upFilePath Path => _path;
-        public int Date => _date;
+        public DateTime Date => _date;
         public int Size => _size;
         public int Hash => _hash;
-        public int Sha256 => _SHA256;
-        
+        public string Sha256 => _SHA256;        
 
 
         public upFile() { }
@@ -29,9 +26,11 @@
             _file = File.ReadAllBytes(filePath);
 
             _size = _file.Length;
-            _hash = _file.GetHashCode();
-        }
+            _date = File.GetCreationTime(filePath);
 
+            _hash = _file.GetHashCode();
+            _SHA256 = upCopy.GetSHA256(_file);
+        }
     }
 
     #region DOCUMENTACION
@@ -44,6 +43,23 @@
     [#] upFile (upfilePath, filePath)
     Crea un archivo 'upFile' con una referencia a sus direcciones y el contenido del archivo.
 
+    - file: byte[]
+    Contiene el array de bytes con el contenido del archivo.
+
+    - path : upFilePath
+    Contiene una referencia a la clase 'upFilePath' donde se almacenan las direcciones de las distintas carpetas.
+
+    - date : int
+    Almacena la fecha de creación del archivo.
+
+    - size : int
+    Almacena el tamaño en bytes del archivo.
+
+    - hash : int
+    Contiene el numero hash del archivo.
+
+    - SHA256 : string
+    Contiene el archivo codificado en una cadena de texto, según el algoritmo SHA256.
     */
     #endregion
 }

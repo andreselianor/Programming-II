@@ -1,4 +1,7 @@
-﻿namespace ndupcopy
+﻿using System.Text;
+using System.Security.Cryptography;
+
+namespace ndupcopy
 {
     public class upCopy : IUpCopy
     {
@@ -94,6 +97,18 @@
         private static bool upFileWithSameContent(upFile upfileOriginal, upFile upfileTarget)
         {
             return (upfileOriginal.Content == upfileTarget.Content);
+        }
+        public static string GetSHA256(byte[] input)
+        {
+            SHA256 sha256 = SHA256.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            StringBuilder sb = new StringBuilder();
+            byte[] stream = sha256.ComputeHash(input);
+            for (int i = 0; i < stream.Length; i++)
+            {
+                sb.AppendFormat("{0:x2}", stream[i]);
+            }                
+            return sb.ToString();
         }
         private bool IsNotValid(upFile upfile)
         {

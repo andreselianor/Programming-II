@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             IUpCopy upCopy = new upCopy();
-            Controller.Launch(upCopy);
+            Controller.Launch(upCopy, args);
         }
     }
     /* DOCUMENTACION DEL PROGRAMA*/
