@@ -3,6 +3,6 @@
     public interface IMatch
     {
         void Init();
-        void ExecuteRound();
+        void ExecuteRound(IMatch match);
     }
 }

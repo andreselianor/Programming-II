@@ -23,13 +23,21 @@
         public upFile(upFilePath path, string filePath)
         {
             _path = path;
-            _file = File.ReadAllBytes(filePath);
+            string [] _file1 = CreateFile(filePath);
+            byte[] _file2 = File.ReadAllBytes(filePath);
 
             _size = _file.Length;
             _date = File.GetCreationTime(filePath);
 
             _hash = _file.GetHashCode();
             _SHA256 = upCopy.GetSHA256(_file);
+        }
+
+
+        public string[] CreateFile(string filePath)
+        {        
+            string[] data = File.ReadAllLines(filePath);
+            return data;
         }
     }
 

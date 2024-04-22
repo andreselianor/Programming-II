@@ -14,9 +14,9 @@
             return start + _random.NextDouble() * end;
         }
 
-        public static int GetRandomInt()
+        public static int GetRandomInt(int end)
         {
-            return _random.Next();
+            return _random.Next(end);
         }
 
         public static int GetRandomInt(int start, int end)

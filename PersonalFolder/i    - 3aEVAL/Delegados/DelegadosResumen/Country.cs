@@ -1,4 +1,6 @@
-﻿namespace DelegadosResumen
+﻿using System.Threading.Channels;
+
+namespace DelegadosResumen
 {
     public class Country
     {
@@ -108,34 +110,103 @@
         }
         #endregion
 
+        #region Delegate Sort
+        // CREAMOS UN CODIGO FUENTE QUE:
+        // ORDENA ->
+        // UNA COLECCION EXISTENTE MEDIANTE UNA FUNCION SORT ->
+        // A TRAVES DE UNA FUNCION DELEGADA
+        // ======================================================
 
-        public delegate int DelegateSort(City c1, City c2);
-        public List<City> Sort(DelegateSort comparator)
+        // A. Definicion de la FUNCION DELEGADA:
+        // La funcion recibe DOS ELEMENTOS DE LA COLECCION y devuelve un INT.
+        public delegate int DelegateSort(City city1, City city2);
+
+
+        // B. Definicion de la funcion que ORDENA:
+        // Si la funcion delegada devuelve '-1' se mantiene la posición, si devuelve '1' mueve el elemento a la derecha.
+        public List<City> Sort(DelegateSort filter)
         {
-            for (int i = 0; i < _citiesList.Count - 1; i++)
+            List<City> result = new List<City>();
+            for (int i = 0; i < _citiesList.Count; i++)
             {
-                for (int j = i + 1; j < _citiesList.Count; j++)
+                for(int j = i + 1; j < _citiesList.Count; j++)
                 {
-                    if (comparator(_citiesList[i], _citiesList[j]) >= 1)
+                    if (filter(_citiesList[i], _citiesList[j]) > 0)
                     {
                         City aux;
                         aux = _citiesList[i];
                         _citiesList[i] = _citiesList[j];
                         _citiesList[j] = aux;
                     }
-                }
+                }                
             }
-            return _citiesList;
+            return result;
         }
 
-        public delegate void DelegateVisit(City city);
-
-        public void Visit()
+        // C. Definicion de los parametros de la FUNCION DELEGADA:
+        // Existen distintas sintaxis para la funcion filter.
+        public void SortTest()
         {
-            foreach (City city in _citiesList)
-            {
+            Country countryTest = new Country();
+            List<City> listResult = new List<City>();
 
+            // sintaxis 1
+            DelegateSort delegado = delegate (City city1, City city2) { return 0; };
+            DelegateSort filter = new DelegateSort(delegado);
+            listResult = countryTest.Sort(filter);
+
+            // sintaxis 2
+            DelegateSort filter2 = new DelegateSort((City city1, City city2) => { return 0; });
+            listResult = countryTest.Sort(filter2);
+
+            // sintaxis 3
+            DelegateSort filter3 = new DelegateSort((City city1, City city2) => 0);
+            listResult = countryTest.Sort(filter3);
+        }
+        #endregion
+
+        #region Delegate Visit
+        // CREAMOS UN CODIGO FUENTE QUE:
+        // VISITA ->
+        // TODA LA COLECCION EXISTENTE MEDIANTE UNA FUNCION DEFINIDA POR EL USUARIO ->
+        // A TRAVES DE UNA FUNCION DELEGADA
+        // ======================================================
+
+        // A. Definicion de la FUNCION DELEGADA:
+        // La funcion recibe UN ELEMENTO DE LA COLECCION y devuelve VOID.
+        public delegate void DelegateVisit(City visitor);
+
+
+        // B. Definicion de la funcion que VISITA:
+        // 
+        public void Visit(DelegateVisit visitor)
+        {
+            for(int i = 0; i < _citiesList.Count; i++)
+            {
+                visitor(_citiesList[i]);
             }
         }
+
+        // C. Definicion de los parametros de la FUNCION DELEGADA:
+        // Existen distintas sintaxis para la funcion filter.
+        public void VisitTest()
+        {
+            Country countryTest = new Country();
+            List<City> listResult = new List<City>();
+
+            // sintaxis 1
+            DelegateVisit delegado = delegate (City city1) { Console.WriteLine(city1.Name + ": " + city1.Population) };
+            DelegateVisit filter = new DelegateVisit(delegado);
+            countryTest.Visit(filter);
+
+            // sintaxis 2
+            DelegateVisit filter2 = new DelegateVisit((City city1) => { Console.WriteLine(city1.Name + ": " + city1.Population) });
+            countryTest.Visit(filter2);
+
+            // sintaxis 3
+            DelegateVisit filter3 = new DelegateVisit((City city1) => Console.WriteLine(city1.Name + ": " + city1.Population));
+            countryTest.Visit(filter3);
+        }
+        #endregion
     }
 }

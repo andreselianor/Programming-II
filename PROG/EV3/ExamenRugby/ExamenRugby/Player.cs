@@ -1,16 +1,14 @@
 ﻿namespace ExamenRugby
 {
-    public abstract class Player
+    public abstract class Player : Character
     {
         protected Team _team;
-        protected Position _position = new Position();
 
         public Player() { }
-        public Player(Team team, Position position) 
+        public Player(Team team, Position position) : base(position)
         {
             _team = team;
             _position = position;
-        }
-        public abstract void ExecuteTurn();
+        }        
     }
 }

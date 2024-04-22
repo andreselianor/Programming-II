@@ -6,7 +6,7 @@
         {
 
         }
-        public override void ExecuteTurn()
+        public override void ExecuteTurn(IMatch match)
         {
             
         }
