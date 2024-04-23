@@ -13,5 +13,11 @@
 
             _position = new Position(positionX, positionY);
         }
+
+        public void SetBallToPosition(int X, int Y)
+        {
+            _position.X = X;
+            _position.Y = Y;
+        }
     }
 }

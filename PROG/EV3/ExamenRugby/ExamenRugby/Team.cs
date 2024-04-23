@@ -2,11 +2,16 @@
 {
     public record Team
     {
-        private string _name = string.Empty;
+        // Equipo 'A' juega ARRIBA
+        // Equipo 'B' juega ABAJO
 
-        public Team(string name)
+        private char _team = ' ';
+
+        public char TeamLetter => _team;
+
+        public Team(char letter)
         {
-            _name = name;
+            _team = letter;
         }
     }
 }

@@ -13,13 +13,13 @@
             UI.DisplaySplashScreen();
 
             game.Init();
-
             for(int i = 0; i < 1000; i++)
             {
                 game.ExecuteRound(game);
             }
+            Team winnerTeam = game.Winner();
 
-            UI.DisplayExitScreen();
+            UI.DisplayExitScreen(winnerTeam.ToString());
         }
     }
 }

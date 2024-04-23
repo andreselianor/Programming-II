@@ -4,6 +4,7 @@
     {
         protected Team _team;
 
+        public Team Team => _team;
         public Player() { }
         public Player(Team team, Position position) : base(position)
         {

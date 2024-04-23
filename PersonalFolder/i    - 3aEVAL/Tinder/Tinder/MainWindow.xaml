@@ -1,0 +1,67 @@
+﻿<Window x:Class="Tinder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tinder"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="400"
+        Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition Height="2.1*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1">
+            <Image Source="resources/tinderTitle.png"
+                   Margin="0 0 0 10"></Image>
+            <Image Source="resources/tinderLogo.png"
+                   Width="100px"></Image>
+
+        </StackPanel>
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1">
+
+            <Image Source="resources/logoEnter.png"
+                   Width="100px"
+                   Margin="0 -25 0 0"
+                   MouseDown="Image_MouseDown"></Image>
+        </StackPanel>
+        <StackPanel Grid.Row="3"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="145"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="It's a "
+                       Grid.Column="0"
+                       HorizontalContentAlignment="Right"
+                       Padding="2,5,2,5" />
+                <Label Grid.Column="1"
+                       Content="Match!"
+                       FontWeight="Bold"
+                       Foreground="DarkRed"
+                       FontStyle="Italic"
+                       HorizontalContentAlignment="Left"
+                       Padding="0,5,2,5" />
+
+            </Grid>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

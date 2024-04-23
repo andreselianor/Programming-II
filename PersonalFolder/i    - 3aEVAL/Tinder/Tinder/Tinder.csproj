@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\chick.png" />
+    <None Remove="resources\logoEnter.png" />
+    <None Remove="resources\tinderLogo.png" />
+    <None Remove="resources\tinderTitle.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Page1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Page1.xaml" />
+    <Resource Include="resources\chick.png" />
+    <Resource Include="resources\logoEnter.png" />
+    <Resource Include="resources\tinderLogo.png" />
+    <Resource Include="resources\tinderTitle.png" />
+  </ItemGroup>
+
+</Project>

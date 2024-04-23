@@ -8,10 +8,12 @@
             Console.WriteLine(text);
         }
 
-        public static void DisplayExitScreen()
+        public static void DisplayExitScreen(string winner)
         {
-            string text = "Saliendo de la simulación de Rugby";
+            string text = $"El partido ha terminado. El ganador es el equipo {winner}";
+            string text1 = "Saliendo de la simulación de Rugby";
             Console.WriteLine(text);
+            Console.WriteLine(text1);
         }
     }
 }

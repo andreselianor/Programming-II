@@ -4,6 +4,8 @@
     {
         protected Position _position = new Position();
 
+        public Position Position => _position;
+
         public Character() { }
         public Character(Position position)
         {
