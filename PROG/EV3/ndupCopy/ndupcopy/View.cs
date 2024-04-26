@@ -28,11 +28,16 @@
             string text = "Coping files, please stand by...";
             Console.WriteLine(text);
         }
+        public static void DisplayErrorMessage()
+        {
+            string text = "The program can't find source path of the files.\nPlease, check your parameters.";
+            Console.WriteLine(text);
+        }
 
         public static void DisplayExitScreen()
         {
-            string exitText1 = "La copia se ha realizado con éxito.";
-            string exitText2 = "Pulse cualquier tecla para salir de la aplicación...";
+            string exitText1 = "The list of source files have been copied sucessfully.";
+            string exitText2 = "Please, insert any key to finish the program.";
             Console.WriteLine(exitText1);
             Console.WriteLine(exitText2);
             Console.ReadLine();

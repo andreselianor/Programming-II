@@ -19,22 +19,30 @@ namespace ndupcopy
         }
         public void AddToListUpFiles()
         {
-            var result = Directory.EnumerateFiles(_originFolder, "*.*", SearchOption.AllDirectories);
-            foreach (string completePath in result)
+            try
             {
-                upFilePath filePath = new upFilePath();
-                filePath.SetOriginalPath(_originFolder);
-                filePath.SetTargetPath(_targetFolder);
-                filePath.SetFileName(completePath);
-                filePath.SetPartialPath(_originFolder, completePath);
-                filePath.SetCompleteTargetPath();
+                var result = Directory.EnumerateFiles(_originFolder, "*.*", SearchOption.AllDirectories);
+                foreach (string completePath in result)
+                {
+                    upFilePath filePath = new upFilePath();
+                    filePath.SetOriginalPath(_originFolder);
+                    filePath.SetTargetPath(_targetFolder);
+                    filePath.SetFileName(completePath);
+                    filePath.SetPartialPath(_originFolder, completePath);
+                    filePath.SetCompleteTargetPath();
 
-                upFile upFile = new upFile(filePath, completePath);
+                    upFile upFile = new upFile(filePath, completePath);
 
-                if (IsNotValid(upFile))
-                    return;
+                    if (IsNotValid(upFile))
+                        return;
 
-                _controlList.Add(upFile);
+                    _controlList.Add(upFile);
+                }
+            }
+            catch
+            {
+                View.DisplayErrorMessage();
+                throw new Exception("Existe un error en la apertura de archivos.");
             }
         }
         public void RemoveDuplicateUpFiles()
@@ -57,8 +65,18 @@ namespace ndupcopy
 
             foreach (upFile file in _controlList)
             {
-                File.WriteAllBytes(file.Path._completeTargetPath, file.Content);
+                FileStream fs = new FileStream(file.Path._completeTargetPath, FileMode.Create, FileAccess.Write);
+                fs.Write(file.Content, 0, file.Content.Length);
+                fs.Close();
             }
+
+            //foreach (upFile file in _controlList)
+            //{                
+            //    using (FileStream fs = new FileStream(file.Path._completeTargetPath, FileMode.Create))
+            //    {
+            //        fs.Write(file.Content, 0, file.Content.Length);
+            //    }
+            //}
         }
 
         #region FUNCIONES PRIVADAS
@@ -107,7 +125,7 @@ namespace ndupcopy
             for (int i = 0; i < stream.Length; i++)
             {
                 sb.AppendFormat("{0:x2}", stream[i]);
-            }                
+            }
             return sb.ToString();
         }
         private bool IsNotValid(upFile upfile)
@@ -147,7 +165,7 @@ namespace ndupcopy
 
     + RemoveDuplicateUpFiles() : void
     Funcion que elimina los archivos duplicados.
-    
+
     + CopyValidUpFiles() : void
     Funcion que copia en la carpeta origen, todos los archivos que se encuentran en la lista de control.
 

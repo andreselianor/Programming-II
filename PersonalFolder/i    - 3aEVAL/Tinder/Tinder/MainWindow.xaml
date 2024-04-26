@@ -36,7 +36,9 @@
             <Image Source="resources/logoEnter.png"
                    Width="100px"
                    Margin="0 -25 0 0"
-                   MouseDown="Image_MouseDown"></Image>
+                   MouseDown="Image_MouseDown"
+                   MouseEnter="Image_MouseEnter"
+                   MouseLeave="Image_MouseLeave"></Image>
         </StackPanel>
         <StackPanel Grid.Row="3"
                     Grid.Column="1"

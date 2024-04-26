@@ -13,6 +13,7 @@ namespace Tinder
 {
     public partial class MainWindow : Window
     {
+        private double animation = 0.0;
         public MainWindow()
         {
             InitializeComponent();
@@ -22,6 +23,17 @@ namespace Tinder
         {
             Window1 nextWindow = new Window1();
             nextWindow.Show();
+        }
+
+        private void Image_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Image image = (Image)sender;
+            image.Opacity = 0.5;
+        }
+        private void Image_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Image image = (Image)sender;
+            image.Opacity = 1.0;
         }
     }
 }

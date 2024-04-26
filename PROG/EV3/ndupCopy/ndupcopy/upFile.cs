@@ -16,15 +16,14 @@
         public DateTime Date => _date;
         public int Size => _size;
         public int Hash => _hash;
-        public string Sha256 => _SHA256;        
+        public string Sha256 => _SHA256;
 
 
         public upFile() { }
         public upFile(upFilePath path, string filePath)
         {
             _path = path;
-            string [] _file1 = CreateFile(filePath);
-            byte[] _file2 = File.ReadAllBytes(filePath);
+            _file = CreateFile(filePath);
 
             _size = _file.Length;
             _date = File.GetCreationTime(filePath);
@@ -34,10 +33,21 @@
         }
 
 
-        public string[] CreateFile(string filePath)
-        {        
-            string[] data = File.ReadAllLines(filePath);
-            return data;
+        private byte[] CreateFile(string filePath)
+        {
+            FileStream fsSource = new FileStream(filePath, FileMode.Open);
+            byte[] result = new byte[fsSource.Length + 1];
+
+            int byteContent = fsSource.ReadByte();
+            int count = 0;
+            while(byteContent != -1)
+            {
+                result[count] = Convert.ToByte(byteContent);
+                count++;
+                byteContent = fsSource.ReadByte();
+            }
+            
+            return result;
         }
     }
 

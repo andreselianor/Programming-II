@@ -12,7 +12,11 @@
         {
             // * display SplashScreen
             View.DisplaySplashScreen();
-            string targetPath = View.DisplaySetTargetFolder();
+
+            // * La carpeta ORIGEN se encuentra indicada en 'args'.
+            // * La carpeta destino se introduce por consola.
+            //string targetPath = View.DisplaySetTargetFolder();
+            string targetPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\TestFolder1\carpetaDestino";
             View.DisplayCopyingFiles();
 
 

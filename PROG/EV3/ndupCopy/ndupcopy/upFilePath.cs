@@ -58,23 +58,30 @@
     /*
     // <see href="https://andreselianor.github.io/Documentation/MainApp/UpFilePath/UpFilePath.html">DOCUMENTACION ONLINE</see>
 
-    - file: byte[]
-    Contiene el array de bytes con el contenido del archivo.
+    - _sourcePath : string;
+    - _targetPath : string;
+    - _partialPath : string;
+    - _completeTargetPath : string;
+    - _fileName : string;
 
-    - path : upFilePath
-    Contiene una referencia a la clase 'upFilePath' donde se almacenan las direcciones de las distintas carpetas.
+    Name => _fileName;
 
-    - date : int
-    Almacena la fecha de creación del archivo.
+    [#]upFilePath() { }
 
-    - size : int
-    Almacena el tamaño en bytes del archivo.
+    + SetOriginalPath(originalPath) : void
+    Descripcion
 
-    - hash : int
-    Contiene el numero hash del archivo.
+    + SetTargetPath(targetPath) : void
+    Descripcion
 
-    - SHA256 : string
-    Contiene el archivo codificado en una cadena de texto, según el algoritmo SHA256.
+    + SetPartialPath(originalPath, completePath) : void
+    Descripcion
+
+    + SetFileName(completeOriginPath) : void
+    Descripcion
+
+    + SetCompleteTargetPath() : void
+    Descripcion
     */
     #endregion
 }
