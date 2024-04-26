@@ -58,11 +58,20 @@
     /*
     // <see href="https://andreselianor.github.io/Documentation/MainApp/UpFilePath/UpFilePath.html">DOCUMENTACION ONLINE</see>
 
-    - _sourcePath : string;
-    - _targetPath : string;
-    - _partialPath : string;
-    - _completeTargetPath : string;
-    - _fileName : string;
+    - _sourcePath : string
+    String que contiene la ruta origen del archivo.
+
+    - _targetPath : string
+    String que contiene la ruta destino del archivo.
+
+    - _partialPath : string
+    String que contiene la ruta parcial del archivo.
+
+    - _completeTargetPath : string
+    String que contiene la ruta completa del archivo.
+
+    - _fileName : string
+    String que contiene el nombre con la extensión del archivo.
 
     Name => _fileName;
 
