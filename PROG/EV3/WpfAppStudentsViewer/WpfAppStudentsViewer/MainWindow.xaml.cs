@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Library;
 
 namespace WpfAppStudentsViewer
 {
@@ -17,6 +18,9 @@ namespace WpfAppStudentsViewer
         public MainWindow()
         {
             InitializeComponent();
+            //ControllerSingleTN.Controller._database.AddStudent();
+            IDatabase database = ControllerSingleTN.Controller._database;
+            database.AddStudent(new Student());
         }
 
         public void Button_Click(object sender, RoutedEventArgs e)
