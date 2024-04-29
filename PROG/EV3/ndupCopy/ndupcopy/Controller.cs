@@ -12,13 +12,19 @@
         {
             // * display SplashScreen
             View.DisplaySplashScreen();
+            View.DisplayAbstractMessage();
+            View.DisplayFirstStepProcess();
 
             // * La carpeta ORIGEN se encuentra indicada en 'args'.
-            // * La carpeta destino se introduce por consola.
-            //string targetPath = View.DisplaySetTargetFolder();
-            string targetPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\TestFolder1\carpetaDestino";
-            View.DisplayCopyingFiles();
+            // * La carpeta DESTINO se introduce por consola.
+            string targetPath = View.DisplaySetTargetFolder();
+            View.DisplaySecondStepProcess();
 
+            // * La siguiente linea tiene efectos para debuggear.
+            // string targetPath = @"C:\Andres\DAM\Programming-II\PROG\EV3\ndupCopy\ndupcopyTests\TestFolder1\carpetaDestino";
+
+            // * Se le pregunta al usuario si quiere mantener la jerarquia de carpetas del archivo.
+            bool keepStructureFolder = View.DisplayQuestionStructureFolder();
 
             // * app Run
             foreach (string sourcePath in args)
@@ -27,8 +33,10 @@
                 upCopy.SetTargetPath(targetPath);
                 upCopy.AddToListUpFiles();
                 upCopy.RemoveDuplicateUpFiles();
-                upCopy.CopyValidUpFiles();
+                upCopy.CopyValidUpFiles(keepStructureFolder);
             }
+            View.DisplayCopyingFiles();
+            View.DisplayThirdStepProcess();
 
             // * app Terminating
             View.DisplayExitScreen();

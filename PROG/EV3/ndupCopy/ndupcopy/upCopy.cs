@@ -56,27 +56,32 @@ namespace ndupcopy
                 }
             }
         }
-        public void CopyValidUpFiles()
+        public void CopyValidUpFiles(bool keepStructureFolder)
         {
-            foreach (upFile file in _controlList)
+            if (keepStructureFolder)
             {
-                Directory.CreateDirectory(file.Path._targetPath + file.Path._partialPath);
-            }
+                foreach (upFile file in _controlList)
+                {
+                    Directory.CreateDirectory(file.Path._targetPath + file.Path._partialPath);
+                }
 
-            foreach (upFile file in _controlList)
+                foreach (upFile file in _controlList)
+                {
+                    FileStream fs = new FileStream(file.Path._completeTargetPath, FileMode.Create, FileAccess.Write);
+                    fs.Write(file.Content, 0, file.Content.Length);
+                    fs.Close();
+                }
+            }
+            else
             {
-                FileStream fs = new FileStream(file.Path._completeTargetPath, FileMode.Create, FileAccess.Write);
-                fs.Write(file.Content, 0, file.Content.Length);
-                fs.Close();
-            }
-
-            //foreach (upFile file in _controlList)
-            //{                
-            //    using (FileStream fs = new FileStream(file.Path._completeTargetPath, FileMode.Create))
-            //    {
-            //        fs.Write(file.Content, 0, file.Content.Length);
-            //    }
-            //}
+                foreach (upFile file in _controlList)
+                {
+                    string targetPathWithoutStructure = file.Path._targetPath + "\\" + file.Path._fileName;
+                    FileStream fs = new FileStream(targetPathWithoutStructure, FileMode.Create, FileAccess.Write);
+                    fs.Write(file.Content, 0, file.Content.Length);
+                    fs.Close();
+                }
+            }            
         }
 
         #region FUNCIONES PRIVADAS

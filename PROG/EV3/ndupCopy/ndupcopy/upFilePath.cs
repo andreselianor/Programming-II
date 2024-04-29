@@ -73,24 +73,25 @@
     - _fileName : string
     String que contiene el nombre con la extensión del archivo.
 
-    Name => _fileName;
+    [·]Name => _fileName;
+    Devuelve el nombre del archivo.
 
     [#]upFilePath() { }
 
     + SetOriginalPath(originalPath) : void
-    Descripcion
+    Establece el string que contiene la ruta del archivo original.
 
     + SetTargetPath(targetPath) : void
-    Descripcion
+    Establece el atributo que contiene la ruta de destino de la copia.
 
     + SetPartialPath(originalPath, completePath) : void
-    Descripcion
+    Establece el atributo que contiene la ruta parcial del archivo.
 
     + SetFileName(completeOriginPath) : void
-    Descripcion
+    Establece el atributo que contiene el nombre con la extension del archivo.
 
     + SetCompleteTargetPath() : void
-    Descripcion
+    Establece la ruta completa del archivo, con la ruta parcial, la carpeta contenedora y el archivo.
     */
     #endregion
 }

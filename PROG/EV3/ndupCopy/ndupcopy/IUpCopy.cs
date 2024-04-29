@@ -6,6 +6,6 @@
         void SetTargetPath(string targetPath);
         void AddToListUpFiles();
         void RemoveDuplicateUpFiles();
-        void CopyValidUpFiles();
+        void CopyValidUpFiles(bool keepStructureFolder);
     }
 }
