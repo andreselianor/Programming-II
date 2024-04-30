@@ -14,21 +14,38 @@ namespace WpfAppStudentsViewer
 {
     public partial class MainWindow : Window
     {
-        private int studentIndex = 0;
+        private int studentID = 1;
+        private IDatabase database = ControllerSingleTN.Controller.Database;
+
         public MainWindow()
         {
             InitializeComponent();
-            //ControllerSingleTN.Controller._database.AddStudent();
-            IDatabase database = ControllerSingleTN.Controller._database;
-            database.AddStudent(new Student());
+
+            database.AddStudent(new Student("Pedro", 20, "Este es el primer alumno que muestra la base de datos", 1));
+            database.AddStudent(new Student("Josete", 40, "Este es la ficha del segundo alumno", 2));
+            SetDataContext();
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        private void Adelante_Click(object sender, RoutedEventArgs e)
         {
-            Application.AppGetter.GetNextStudent(studentIndex++);
+            if (studentID < database.List.Count)
+                studentID++;
+            SetDataContext();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Atras_Click(object sender, RoutedEventArgs e)
+        {
+            if (studentID > 1)
+                studentID--;
+            SetDataContext();
+        }
+
+        private void SetDataContext()
+        {
+            DataContext = database.List[studentID - 1];
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddStudentWindow window = new AddStudentWindow();
             window.ShowDialog();

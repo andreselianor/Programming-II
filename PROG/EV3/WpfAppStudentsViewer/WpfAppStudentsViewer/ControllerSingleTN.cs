@@ -9,6 +9,7 @@ namespace WpfAppStudentsViewer
         public IDatabase _database = new Database();
 
         public static ControllerSingleTN Controller => _controller;
+        public IDatabase Database => _database;
 
         private ControllerSingleTN()
         {

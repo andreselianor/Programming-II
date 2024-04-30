@@ -10,33 +10,64 @@
         Width="500">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"></RowDefinition>
-            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="0.12*"></RowDefinition>
+            <RowDefinition Height="0.9*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.9*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Background="AliceBlue"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"></StackPanel>
+            <Border BorderBrush="DeepSkyBlue"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="20 5 0 5">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Name="Atras"
+                            Content="&lt;"
+                            Height="20px"
+                            Click="Atras_Click"></Button>
+                    <TextBlock Text="{Binding Id}"
+                               TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               Width="100px"></TextBlock>
+                    <Button Name="Adelante"
+                            Content=">"
+                            Height="20px"
+                            Click="Adelante_Click"></Button>
+                </StackPanel>
+            </Border>
 
-        <Border BorderBrush="Aqua"
-                BorderThickness="10"
-                CornerRadius="20">
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Button" />
-                <Button Content="Button" />
-                <TextBlock Text="ID3"
-                           TextAlignment="Center"
-                           VerticalAlignment="Center"></TextBlock>
-                <Button Content="Button" />
-                <Button Content="Añadir Estudiante"
-                        Click="Button_Click_1" />
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="Button"
+                        Width="50px"
+                        Height="25px"
+                        Margin="10 10 10 10 " />
+                <Button Content="+"
+                        Width="50px"
+                        Height="25px"
+                        Margin="10 10 10 10 "
+                        Click="Button_Click" />
             </StackPanel>
-        </Border>
+        </Grid>
+
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
                 <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"></RowDefinition>
@@ -45,35 +76,60 @@
                 <RowDefinition Height="0.7*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="1"
-                       Text="Nombre:"
-                       TextAlignment="Right"
-                       Margin="0 0 10 0"></TextBlock>
-            <TextBlock Grid.Row="2"
-                       Text="Edad:"
-                       TextAlignment="Right"
-                       Margin="0 0 10 0"></TextBlock>
-            <TextBlock Grid.Row="3"
-                       Text="Descripcion:"
-                       TextAlignment="Right"
-                       Margin="0 0 10 0"></TextBlock>
+            <StackPanel Grid.Row="1"
+                        Grid.Column="0"
+                        Orientation="Vertical">
+                <TextBlock Grid.Row="1"
+                           Text="Nombre:"
+                           TextAlignment="Left"
+                           Margin="20 0 0 0"
+                           FontWeight="Bold"
+                           FontFamily="Bahnschrift SemiBold"></TextBlock>
+                <Border BorderThickness="0 1 0 0"
+                        BorderBrush="Black"
+                        Margin="20 5 0 0" />
+                <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Name}"
+                           TextAlignment="Left"
+                           Margin="20 0 0 0"
+                           Background="Beige" />
+            </StackPanel>
+            <StackPanel Grid.Row="2"
+                        Grid.Column="0"
+                        Orientation="Vertical">
+                <TextBlock Text="Edad:"
+                           TextAlignment="Left"
+                           Margin="20 0 0 0"
+                           FontWeight="Bold"
+                           FontFamily="Bahnschrift SemiBold"></TextBlock>
+                <Border BorderThickness="0 1 0 0"
+                        BorderBrush="Black"
+                        Margin="20 5 0 0" />
+                <TextBlock Text="{Binding Age}"
+                           TextAlignment="Left"
+                           Margin="20 0 0 0"
+                           Background="Beige" />
+            </StackPanel>
+            <StackPanel Grid.Row="3"
+                        Grid.Column="0"
+                        Orientation="Vertical">
+                <TextBlock Text="Description:"
+                           TextAlignment="Left"
+                           Margin="20 0 0 0"
+                           FontWeight="Bold"
+                           FontFamily="Bahnschrift SemiBold"></TextBlock>
 
-            <TextBlock Grid.Row="1"
-                       Grid.Column="1"
-                       Text="Nombre:"
-                       TextAlignment="Left"
-                       Margin="10 0 0 0"></TextBlock>
-            <TextBlock Grid.Row="2"
-                       Grid.Column="1"
-                       Text="Edad:"
-                       TextAlignment="Left"
-                       Margin="10 0 0 0"></TextBlock>
-            <TextBlock Grid.Row="3"
-                       Grid.Column="1"
-                       Text="Descripcion:"
-                       TextAlignment="Left"
-                       Margin="10 0 0 0"></TextBlock>
+                <Border BorderThickness="0 1 0 0"
+                        BorderBrush="Black"
+                        Margin="20 5 0 0" />
+                <TextBlock Height="150px"
+                           Text="{Binding Description}"
+                           TextAlignment="Left"
+                           Margin="20 0 0 0"
+                           Background="Beige"
+                           TextWrapping="Wrap" />
+            </StackPanel>
         </Grid>
-
     </Grid>
 </Window>

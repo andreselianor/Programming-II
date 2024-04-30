@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppStudentsViewer"
         mc:Ignorable="d"
-        Title="AddStudentWindow" Height="300" Width="500">
+        Title="AddStudentWindow"
+        Height="300"
+        Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.10*"></RowDefinition>
@@ -19,20 +21,56 @@
         </Grid.ColumnDefinitions>
 
         <Button Grid.Column="0"
-                Content="Cancelar" Click="Button_Click"></Button>
+                Content="Cancelar"
+                Margin="4 4 4 4"
+                Click="Button_Click"
+                FontFamily="Bahnschrift Light SemiCondensed"></Button>
         <Button Grid.Column="1"
-                Content="Guardar Alumno" Click="Button_Click_1"></Button>
+                Content="Guardar Alumno"
+                Margin="4 4 4 4"
+                Click="Button_Click_1"
+                FontFamily="Bahnschrift Light SemiCondensed"></Button>
         <TextBlock Grid.Row="1"
                    Grid.Column="0"
                    Text="Nombre"
-                   TextAlignment="Right"></TextBlock>
+                   TextAlignment="Right"
+                   Margin="4 4 4 4"
+                   FontFamily="Bahnschrift Light SemiCondensed"></TextBlock>
         <TextBlock Grid.Row="2"
                    Grid.Column="0"
                    Text="Edad"
-                   TextAlignment="Right"></TextBlock>
+                   TextAlignment="Right"
+                   Margin="4 4 4 4"
+                   FontFamily="Bahnschrift Light SemiCondensed"></TextBlock>
         <TextBlock Grid.Row="3"
                    Grid.Column="0"
                    Text="Descripcion"
-                   TextAlignment="Right"></TextBlock>
+                   TextAlignment="Right"
+                   Margin="4 4 4 4"
+                   FontFamily="Bahnschrift Light SemiCondensed"></TextBlock>
+
+
+        <TextBox Name="NameSave"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 TextAlignment="Right"
+                 Margin="4 4 4 4"
+                 Background="Beige"
+                 FontFamily="Bahnschrift Light SemiCondensed"></TextBox>
+        <TextBox Name="AgeSave"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 TextAlignment="Right"
+                 Margin="4 4 4 4"
+                 Background="Beige"
+                 FontFamily="Bahnschrift Light SemiCondensed"></TextBox>
+        <TextBox Name="DescriptionSave"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 TextAlignment="Right"
+                 Margin="4 4 4 4"
+                 Background="Beige"
+                 FontFamily="Bahnschrift Light SemiCondensed"></TextBox>
+
     </Grid>
 </Window>
