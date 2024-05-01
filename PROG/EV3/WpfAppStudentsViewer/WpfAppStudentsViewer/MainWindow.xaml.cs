@@ -20,10 +20,6 @@ namespace WpfAppStudentsViewer
         public MainWindow()
         {
             InitializeComponent();
-
-            database.AddStudent(new Student("Pedro", 20, "Este es el primer alumno que muestra la base de datos", 1));
-            database.AddStudent(new Student("Josete", 40, "Este es la ficha del segundo alumno", 2));
-            SetDataContext();
         }
 
         private void Adelante_Click(object sender, RoutedEventArgs e)
@@ -49,6 +45,47 @@ namespace WpfAppStudentsViewer
         {
             AddStudentWindow window = new AddStudentWindow();
             window.ShowDialog();
+        }
+
+        private void DatabaseBTN_Click(object sender, RoutedEventArgs e)
+        {
+            database.GetPrefetchDatabase();
+            Viewer.Text = DisplayStudents();
+            SetDataContext();
+        }
+
+        private string DisplayStudents()
+        {
+            string result = string.Empty;
+            foreach(Student s in database.List)
+            {
+                result += s.Id + " " + s.Name + " " + s.Age + "\n";
+            }
+            return result;
+        }
+
+        private void SortBTN_Click(object sender, RoutedEventArgs e)
+        {
+            Sort();
+            Viewer.Text = DisplayStudents();
+            SetDataContext();
+        }
+
+        private void Sort()
+        {
+            Student aux;
+            for(int i = 0; i < database.List.Count - 2;i++)
+            {
+                for(int j = i + 1; j < database.List.Count - 1; j++)
+                {
+                    if (database.List[i].Id > database.List[j].Id)
+                    {
+                        aux = database.List[i];
+                        database.List[i] = database.List[j];
+                        database.List[j] = aux;
+                    }
+                }
+            }    
         }
     }
 }
