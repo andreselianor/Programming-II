@@ -57,7 +57,7 @@ namespace WpfAppStudentsViewer
         private string DisplayStudents()
         {
             string result = string.Empty;
-            foreach(Student s in database.List)
+            foreach (Student s in database.List)
             {
                 result += s.Id + " " + s.Name + " " + s.Age + "\n";
             }
@@ -74,9 +74,9 @@ namespace WpfAppStudentsViewer
         private void Sort()
         {
             Student aux;
-            for(int i = 0; i < database.List.Count - 2;i++)
+            for (int i = 0; i < database.List.Count - 1; i++)
             {
-                for(int j = i + 1; j < database.List.Count - 1; j++)
+                for (int j = i + 1; j < database.List.Count; j++)
                 {
                     if (database.List[i].Id > database.List[j].Id)
                     {
@@ -85,7 +85,29 @@ namespace WpfAppStudentsViewer
                         database.List[j] = aux;
                     }
                 }
-            }    
+            }
+        }
+
+        public delegate bool DelegateFilter(int age);
+        private void FilterBTN_Click(object sender, RoutedEventArgs e)
+        {
+            List<Student> result = new List<Student>();
+            DelegateFilter filter = new DelegateFilter(age => age > 18);
+            foreach (Student s in database.List)
+            {
+                if (filter(s.Age))
+                    result.Add(s);
+            }
+            DisplayFilter(result);
+        }
+        private void DisplayFilter(List<Student> list)
+        {
+            string result = string.Empty;
+            foreach (Student s in list)
+            {
+                result += s.Id + " " + s.Name + " " + s.Age + "\n";
+            }
+            Viewer.Text = result;
         }
     }
 }
