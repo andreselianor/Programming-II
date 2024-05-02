@@ -15,45 +15,54 @@ namespace WpfAppStudentsViewer
     public partial class MainWindow : Window
     {
         private int studentID = 1;
+        private int _position = 0;
         private IDatabase database = ControllerSingleTN.Controller.Database;
+        private Student _student = new Student();
 
         public MainWindow()
-        {
+        {            
             InitializeComponent();
+            GetFirstStudent();
         }
-
-        private void Adelante_Click(object sender, RoutedEventArgs e)
+        public void GetFirstStudent()
         {
-            if (studentID < database.List.Count)
-                studentID++;
-            SetDataContext();
+            if (database.List.Count > 0)
+                _student = database.List[_position];
         }
-
-        private void Atras_Click(object sender, RoutedEventArgs e)
+        public void GetNextStudent(object sender, RoutedEventArgs e)
         {
-            if (studentID > 1)
-                studentID--;
-            SetDataContext();
+            if (_position < database.List.Count - 1)
+            {
+                _position++;
+                _student = database.List[_position];
+            }
+            DisplayUI();
         }
-
-        private void SetDataContext()
+        public void GetPreviousStudent(object sender, RoutedEventArgs e)
         {
-            DataContext = database.List[studentID - 1];
+            if (_position > 0)
+            {
+                _position--;
+                _student = database.List[_position];
+            }
+            DisplayUI();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public Student GetStudentAt(int index)
         {
-            AddStudentWindow window = new AddStudentWindow();
-            window.ShowDialog();
+            return database.List[index];
         }
-
+        private void DisplayUI()
+        {
+            UIName.Text = _student.Name;
+            UIAge.Text = _student.Age.ToString();
+            UIDescription.Text = _student.Description;
+        }
         private void DatabaseBTN_Click(object sender, RoutedEventArgs e)
         {
             database.GetPrefetchDatabase();
             Viewer.Text = DisplayStudents();
-            SetDataContext();
+            //SetDataContext();
         }
-
         private string DisplayStudents()
         {
             string result = string.Empty;
@@ -63,12 +72,10 @@ namespace WpfAppStudentsViewer
             }
             return result;
         }
-
         private void SortBTN_Click(object sender, RoutedEventArgs e)
         {
             Sort();
             Viewer.Text = DisplayStudents();
-            SetDataContext();
         }
 
         private void Sort()
@@ -109,5 +116,32 @@ namespace WpfAppStudentsViewer
             }
             Viewer.Text = result;
         }
+
+
+
+        // FUNCIONES UTILIZANDO BINDINGS
+
+        private void SetDataContext()
+        {
+            DataContext = database.List[studentID - 1];
+        }
+
+        private void Adelante_Click(object sender, RoutedEventArgs e)
+        {
+            if (studentID < database.List.Count)
+                studentID++;
+            SetDataContext();
+        }
+        private void Atras_Click(object sender, RoutedEventArgs e)
+        {
+            if (studentID > 1)
+                studentID--;
+            SetDataContext();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudentWindow window = new AddStudentWindow();
+            window.ShowDialog();
+        }        
     }
 }
