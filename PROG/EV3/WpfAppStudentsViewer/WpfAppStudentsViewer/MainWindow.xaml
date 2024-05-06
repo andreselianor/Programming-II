@@ -8,19 +8,19 @@
         Title="MainWindow"
         Height="500"
         Width="500">
-    <Grid>
+    <Grid> 
         <Grid.RowDefinitions>
             <RowDefinition Height="0.12*"></RowDefinition>
             <RowDefinition Height="0.9*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.8*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid>
             <Grid.RowDefinitions></Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.9*"></ColumnDefinition>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
                 <ColumnDefinition Width="0.8*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Background="AliceBlue"
@@ -35,15 +35,15 @@
                     <Button Name="Atras"
                             Content="&lt;"
                             Height="20px"
-                            Click="Atras_Click"></Button>
-                    <TextBlock Text="{Binding Id}"
+                            Click="GetPreviousStudent"></Button>
+                    <TextBlock Name="UIView"
                                TextAlignment="Center"
                                VerticalAlignment="Center"
                                Width="100px"></TextBlock>
                     <Button Name="Adelante"
                             Content=">"
                             Height="20px"
-                            Click="Adelante_Click"></Button>
+                            Click="GetNextStudent"></Button>
                 </StackPanel>
             </Border>
 
@@ -57,7 +57,7 @@
                 <Button Content="+"
                         Width="50px"
                         Height="25px"
-                        Margin="10 10 10 10 "
+                        Margin="10 10 30 10 "
                         Click="Button_Click" />
             </StackPanel>
         </Grid>
@@ -90,7 +90,7 @@
                         Margin="20 5 0 0" />
                 <TextBlock Grid.Row="1"
                            Grid.Column="1"
-                           Text="{Binding Name}"
+                           Name="UIName"
                            TextAlignment="Left"
                            Margin="20 0 0 0"
                            Background="Beige" />
@@ -106,7 +106,7 @@
                 <Border BorderThickness="0 1 0 0"
                         BorderBrush="Black"
                         Margin="20 5 0 0" />
-                <TextBlock Text="{Binding Age}"
+                <TextBlock Name="UIAge"
                            TextAlignment="Left"
                            Margin="20 0 0 0"
                            Background="Beige" />
@@ -124,12 +124,68 @@
                         BorderBrush="Black"
                         Margin="20 5 0 0" />
                 <TextBlock Height="150px"
-                           Text="{Binding Description}"
+                           Name="UIDescription"
                            TextAlignment="Left"
                            Margin="20 0 0 0"
                            Background="Beige"
                            TextWrapping="Wrap" />
             </StackPanel>
+
+            <Grid Grid.Column="2"
+                  Grid.RowSpan="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Name="Viewer"
+                           Grid.ColumnSpan="2"
+                           Margin="30 55 30 10"
+                           Background="Beige"
+                           TextAlignment="Right"></TextBlock>
+
+                <StackPanel Grid.Row="1"
+                            Margin="-10 0 0 0"
+                            Orientation="Vertical">
+
+                    <Button Name="DatabaseBTN"
+                            Grid.Column="0"
+                            Content="Database"
+                            Width="50"
+                            Height="50"
+                            FontSize="5pt"
+                            Click="DatabaseBTN_Click"></Button>
+                </StackPanel>
+                <StackPanel Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="30 0 30 0"
+                            Orientation="Vertical">
+
+                    <Button Name="SortBTN"
+                            Grid.Column="0"
+                            Content="Sort"
+                            Width="50"
+                            Height="50"
+                            FontSize="5pt" 
+                            Margin="0 0 0 10"
+                            Click="SortBTN_Click"
+                            HorizontalAlignment="Right"></Button>
+                    <Button Name="FilterBTN"
+                            Grid.Column="0"
+                            Content="Filter"
+                            Width="50"
+                            Height="50"
+                            FontSize="5pt"
+                            Click="FilterBTN_Click"
+                            HorizontalAlignment="Right"></Button>
+                </StackPanel>
+
+            </Grid>
         </Grid>
     </Grid>
 </Window>

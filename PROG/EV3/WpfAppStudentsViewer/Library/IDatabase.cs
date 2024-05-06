@@ -8,5 +8,6 @@ namespace Library
         long AddStudent(Student student);
         int GetIndexOf(Student student);
         List<Student> List { get; }
+        void GetPrefetchDatabase();
     }
 }
