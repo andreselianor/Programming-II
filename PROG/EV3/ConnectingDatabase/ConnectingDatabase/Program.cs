@@ -12,7 +12,7 @@ namespace ConnectingDatabase
         public const string conectionString = "Data Source=192.168.56.101,1433;Database=SUPERTIENDA;User ID=sa;Password=SqlServer123;";
 
         //192.168.56.101
-        //nombre de la base de datos, STUDENTS
+        //nombre de la base de datos, SUPERTIENDA
         //userID = sa
         //PASS = SqlServer123
 
