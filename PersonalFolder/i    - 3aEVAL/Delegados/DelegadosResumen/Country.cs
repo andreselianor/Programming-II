@@ -1,6 +1,4 @@
-﻿using System.Threading.Channels;
-
-namespace DelegadosResumen
+﻿namespace DelegadosResumen
 {
     public class Country
     {
@@ -93,6 +91,11 @@ namespace DelegadosResumen
         }
 
 
+
+
+
+
+
         // A''. Definicion de la FUNCION DELEGADA:
         // La funcion RECIBE UN STRING y devuelve un BOOL.
         public delegate bool DelegateFilterWithString(string name);
@@ -109,6 +112,7 @@ namespace DelegadosResumen
             return result;
         }
         #endregion
+
 
         #region Delegate Sort
         // CREAMOS UN CODIGO FUENTE QUE:
@@ -165,6 +169,7 @@ namespace DelegadosResumen
         }
         #endregion
 
+
         #region Delegate Visit
         // CREAMOS UN CODIGO FUENTE QUE:
         // VISITA ->
@@ -178,7 +183,8 @@ namespace DelegadosResumen
 
 
         // B. Definicion de la funcion que VISITA:
-        // 
+        // El usuario definirá la FUNCIÓN que se realiza sobre CADA UNO DE LOS ELEMENTOS
+        // de la colección.
         public void Visit(DelegateVisit visitor)
         {
             for(int i = 0; i < _citiesList.Count; i++)
