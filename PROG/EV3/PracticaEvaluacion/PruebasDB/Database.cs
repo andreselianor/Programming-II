@@ -4,6 +4,13 @@
     {
         private List<User> _usersList = new List<User>();        
 
+        public void DisplayDatabase()
+        {
+            foreach(User user in _usersList)
+            {
+                Console.WriteLine(user.ID);
+            }
+        }
         public long CreateUser(string name, string firstName, string phone, string email, string userName, string password)
         {
             User newUser = new User(name, firstName, phone, email, userName, password);

@@ -14,17 +14,14 @@ using System.Windows.Shapes;
 
 namespace PracticaPeliculas
 {
-    public partial class UserRegistration : Window
+    /// <summary>
+    /// Lógica de interacción para RegistrationWindow.xaml
+    /// </summary>
+    public partial class RegistrationWindow : Window
     {
-        public UserRegistration()
+        public RegistrationWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            UserControlPanel userControlPanel = new UserControlPanel();
-            userControlPanel.Show();
         }
     }
 }

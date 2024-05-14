@@ -9,29 +9,37 @@
         Height="500"
         Width="500">
     <Grid>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*"></ColumnDefinition>
-            <ColumnDefinition Width="1.0*"></ColumnDefinition>
-            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"></RowDefinition>
             <RowDefinition Height="1.0*"></RowDefinition>
-            <RowDefinition Height="0.1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1"
-                    Grid.Row="1">
+        
+        <StackPanel Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Vertical">
             <Image Source="RSC/splashScreenImage.png"
-                   Margin="0 0 0 -100"></Image>
-            <Button Click="Button_Click">
+                   Margin="0 0 0 0"></Image>
+            <TextBlock Text=" - Film Mentoring - "
+                       Margin="0 -400 0 0"
+                       HorizontalAlignment="Center"
+                       FontSize="12pt"
+                       FontStyle="Italic"></TextBlock>
+            <Button Click="Button_Click"
+                    Margin="0 -200 0 0"
+                    Width="80px"
+                    Height="25px"
+                    Background="Crimson"
+                    BorderBrush="black"
+                    Opacity="0.8">
                 <TextBlock Text="Entrar"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           Margin="0 0 0 0"
-                           FontSize="20pt"></TextBlock>
+                           FontSize="10pt"
+                           Opacity="1.0"></TextBlock>
             </Button>
-
         </StackPanel>
-
     </Grid>
 </Window>
