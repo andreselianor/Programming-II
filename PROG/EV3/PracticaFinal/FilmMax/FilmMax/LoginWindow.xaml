@@ -1,0 +1,79 @@
+﻿<Window x:Class="FilmMax.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmMax"
+        mc:Ignorable="d"
+        Title="LoginWindow"
+        Height="500"
+        Width="500">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="1.0*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    Orientation="Vertical">
+            <TextBlock Text="Insert your user and password:"
+                       Margin="0 0 0 10"></TextBlock>
+            <Border BorderBrush="black"
+                    BorderThickness="0 0 0 1">
+                <TextBox Name="userAccess"                         
+                         Background="LightGray"
+                         Margin="0 0 0 0">
+                </TextBox>
+            </Border>
+            <TextBlock Text="usuario"
+                       FontSize="6pt"
+                       Foreground="Gray"
+                       FontStyle="Italic">                
+            </TextBlock>
+
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1">
+                <TextBox Name="passwordAccess"
+                         Background="LightGray"
+                         Margin="0 10 0 0">
+                </TextBox>
+            </Border>
+            <TextBlock Text="password"
+                       FontSize="6pt"
+                       Foreground="Gray"
+                       FontStyle="Italic">
+            </TextBlock>
+
+            <TextBlock Name="ErrorLogin"
+                       HorizontalAlignment="Center">
+            </TextBlock>
+
+            <Button Margin="0 50 0 0 "
+                    Click="Button_Login">
+                <TextBlock Text="Log in"></TextBlock>
+            </Button>
+            <TextBlock Text="-"
+                       HorizontalAlignment="Center"></TextBlock>
+            <Button Margin="0 0 0 0 "
+                    Click="Button_NewUser">
+                <TextBlock Text="Create new User"></TextBlock>
+            </Button>
+
+            <Image Source="RSC/imagen.png"
+                   Width="180px"
+                   Margin="0 30 0 0"></Image>
+        </StackPanel>
+    </Grid>
+
+</Window>

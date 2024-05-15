@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="RSC\enunciado1.png" />
+    <None Remove="RSC\enunciado2.png" />
+    <None Remove="RSC\imagen.png" />
+    <None Remove="RSC\peliculaElPadrino.png" />
+    <None Remove="RSC\splashScreenImage.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryFilmMax\LibraryFilmMax.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="RSC\imagen.png" />
+    <Resource Include="RSC\peliculaElPadrino.png" />
+    <Resource Include="RSC\splashScreenImage.png" />
+  </ItemGroup>
+
+</Project>
