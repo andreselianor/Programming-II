@@ -1,186 +1,175 @@
 {
     "DATABASE": "USER_FILM_MAX",
-    "user": 
-  [
-  {
-        "security": {
-            "userName": "test",
-            "userPassword": "test"
-        },
-        "id" : 100,
-        "name": "yves",
-        "lastName": "lopez",
-        "birthDate" :
+    "user": [
         {
-            "dayDate" : 24,
-            "monthDate" : 3,
-            "yearDate" : 1983
+            "security": {
+                "userName": "admin",
+                "userPassword": "admin"
+            },
+            "id": 100,
+            "name": "andres",
+            "lastName": "lopez",
+            "birthDate": {
+                "dayDate": 24,
+                "monthDate": 3,
+                "yearDate": 1983
+            },
+            "phone": "34611758493",
+            "email": "andreselianor@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34611758493",
-        "email" : "andreselianor@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-    {
-        "security": {
-            "userName": "frodo",
-            "userPassword": "bolson"
-        },
-        "id" : 1,
-        "name": "frodo",
-        "lastName": "piespeludos",
-        "birthDate" :
         {
-            "dayDate" : 6,
-            "monthDate" : 3,
-            "yearDate" : 1983
+            "security": {
+                "userName": "frodo",
+                "userPassword": "bolson"
+            },
+            "id": 1,
+            "name": "frodo",
+            "lastName": "piespeludos",
+            "birthDate": {
+                "dayDate": 6,
+                "monthDate": 3,
+                "yearDate": 783
+            },
+            "phone": "34611758493",
+            "email": "andreselianor@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34611758493",
-        "email" : "andreselianor@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-     {
-        "security": {
-            "userName": "sam",
-            "userPassword": "gamyi"
-        },
-        "id" : 2,
-        "name": "sam",
-        "lastName": "samsagaz",
-        "birthDate" :
         {
-            "dayDate" : 12,
-            "monthDate" : 5,
-            "yearDate" : 712
+            "security": {
+                "userName": "sam",
+                "userPassword": "gamyi"
+            },
+            "id": 2,
+            "name": "sam",
+            "lastName": "samsagaz",
+            "birthDate": {
+                "dayDate": 12,
+                "monthDate": 5,
+                "yearDate": 712
+            },
+            "phone": "34665218753",
+            "email": "samsagaz@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34665218753",
-        "email" :"samsagaz@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-     {
-        "security": {
-            "userName": "meriadoc",
-            "userPassword": "brandigamo"
-        },
-        "id" : 3,
-        "name": "merry",
-        "lastName": "brandigamo",
-        "birthDate" :
         {
-            "dayDate" : 8,
-            "monthDate" : 12,
-            "yearDate" : 718
+            "security": {
+                "userName": "meriadoc",
+                "userPassword": "brandigamo"
+            },
+            "id": 3,
+            "name": "merry",
+            "lastName": "brandigamo",
+            "birthDate": {
+                "dayDate": 8,
+                "monthDate": 12,
+                "yearDate": 718
+            },
+            "phone": "34664143867",
+            "email": "merrybrandigamogmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34664143867",
-        "email" : "merrybrandigamogmail.com",
-        "favouriteFilms": "El padrino"
-    },
-     {
-        "security": {
-            "userName": "peregrin",
-            "userPassword": "tuk"
-        },
-        "id" : 4,
-        "name": "pippin",
-        "lastName": "tuk",
-        "birthDate" :
         {
-            "dayDate" : 21,
-            "monthDate" : 2,
-            "yearDate" : 715
+            "security": {
+                "userName": "peregrin",
+                "userPassword": "tuk"
+            },
+            "id": 4,
+            "name": "pippin",
+            "lastName": "tuk",
+            "birthDate": {
+                "dayDate": 21,
+                "monthDate": 2,
+                "yearDate": 715
+            },
+            "phone": "34677856454",
+            "email": "pippintuk@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34677856454",
-        "email" : "pippintuk@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-     {
-        "security": {
-            "userName": "gandalf",
-            "userPassword": "blanco"
-        },
-        "id" : 5,
-        "name": "gandalf",
-        "lastName": "el blanco",
-        "birthDate" :
         {
-            "dayDate" : 5,
-            "monthDate" : 1,
-            "yearDate" : 57
+            "security": {
+                "userName": "gandalf",
+                "userPassword": "blanco"
+            },
+            "id": 5,
+            "name": "gandalf",
+            "lastName": "el blanco",
+            "birthDate": {
+                "dayDate": 5,
+                "monthDate": 1,
+                "yearDate": 57
+            },
+            "phone": "34655322899",
+            "email": "gandalf@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34655322899",
-        "email" : "gandalf@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-    {
-        "security": {
-            "userName": "aragorn",
-            "userPassword": "trancos"
-        },
-        "id" : 6,
-        "name": "aragorn",
-        "lastName": "trancos",
-        "birthDate" :
         {
-            "dayDate" : 9,
-            "monthDate" : 7,
-            "yearDate" : 544
+            "security": {
+                "userName": "aragorn",
+                "userPassword": "trancos"
+            },
+            "id": 6,
+            "name": "aragorn",
+            "lastName": "trancos",
+            "birthDate": {
+                "dayDate": 9,
+                "monthDate": 7,
+                "yearDate": 544
+            },
+            "phone": "34644876900",
+            "email": "aragorntrancos@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34644876900",
-        "email" : "aragorntrancos@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-    {
-        "security": {
-            "userName": "boromir",
-            "userPassword": "denethor"
-        },
-        "id" : 7,
-        "name": "boromir",
-        "lastName": "denethor",
-        "birthDate" :
         {
-            "dayDate" : 12,
-            "monthDate" : 9,
-            "yearDate" : 767
+            "security": {
+                "userName": "boromir",
+                "userPassword": "denethor"
+            },
+            "id": 7,
+            "name": "boromir",
+            "lastName": "denethor",
+            "birthDate": {
+                "dayDate": 12,
+                "monthDate": 9,
+                "yearDate": 767
+            },
+            "phone": "34644234876",
+            "email": "boromirdenethor@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "34644234876",
-        "email" : "boromirdenethor@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-     {
-        "security": {
-            "userName": "legolas",
-            "userPassword": "hojaverde"
-        },
-        "id" : 8,
-        "name": "legolas",
-        "lastName": "hojaverde",
-        "birthDate" :
         {
-            "dayDate" : 4,
-            "monthDate" : 8,
-            "yearDate" : 675
+            "security": {
+                "userName": "legolas",
+                "userPassword": "hojaverde"
+            },
+            "id": 8,
+            "name": "legolas",
+            "lastName": "hojaverde",
+            "birthDate": {
+                "dayDate": 4,
+                "monthDate": 8,
+                "yearDate": 675
+            },
+            "phone": "346889078",
+            "email": "legolashojaverde@gmail.com",
+            "favouriteFilms": "El padrino"
         },
-        "phone" : "346889078",
-        "email" : "legolashojaverde@gmail.com",
-        "favouriteFilms": "El padrino"
-    },
-    {
-        "security": {
-            "userName": "gimli",
-            "userPassword": "gloin"
-        },
-        "id" : 9,
-        "name": "gimli",
-        "lastName": "gloin",
-        "birthDate" :
         {
-            "dayDate" : 16,
-            "monthDate" : 9,
-            "yearDate" : 540
-        },
-        "phone" : "34667899566",
-        "email" : "gimligloin@gmail.com",
-        "favouriteFilms": "El padrino"
-    }
-  ]
+            "security": {
+                "userName": "gimli",
+                "userPassword": "gloin"
+            },
+            "id": 9,
+            "name": "gimli",
+            "lastName": "gloin",
+            "birthDate": {
+                "dayDate": 16,
+                "monthDate": 9,
+                "yearDate": 540
+            },
+            "phone": "34667899566",
+            "email": "gimligloin@gmail.com",
+            "favouriteFilms": "El padrino"
+        }
+    ]
 }

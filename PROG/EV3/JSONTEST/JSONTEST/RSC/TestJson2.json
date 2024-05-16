@@ -1,0 +1,22 @@
+﻿{
+  "DATABASE": "USER_FILM_MAX",
+  "user": [
+    {
+      "security": {
+        "userName": "testingusername",
+        "userPassword": "testpassword"
+      },
+      "id": 100,
+      "name": "yves",
+      "lastName": "lopez",
+      "birthDate": {
+        "dayDate": 24,
+        "monthDate": 3,
+        "yearDate": 1983
+      },
+      "phone": "34611758493",
+      "email": "andreselianor@gmail.com",
+      "favouriteFilms": "El padrino"
+    }
+  ]
+}
