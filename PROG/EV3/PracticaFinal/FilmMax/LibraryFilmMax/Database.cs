@@ -9,7 +9,7 @@ namespace LibraryFilmMax
 
 
         public void LoadDatabaseFromLocalJSON(string path)
-        {            
+        {
             try
             {
                 string jsonDataBase = File.ReadAllText(path);
@@ -18,14 +18,14 @@ namespace LibraryFilmMax
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }            
+            }
         }
         public UserDB UsersToArray()
         {
             int count = _usersDB.user.Length;
             UserDB clone = new UserDB();
             clone.user = new Users[count];
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 clone.user[i] = _usersDB.user[i];
             }
@@ -47,18 +47,21 @@ namespace LibraryFilmMax
         }
 
 
-        public int CreateFilm()
+        public int AddFilm(Movie movie)
         {
-            throw new NotImplementedException();
+            int id = _movieDB.AddMovie(movie);
+            return id;
         }
-        public void UpdateFilm()
+        public void UpdateFilm(Movie movie)
         {
-            throw new NotImplementedException();
+            _movieDB.UpdateMovie(movie);
         }
-        public void RemoveFilm()
+        public void RemoveFilm(Movie movie)
         {
-            throw new NotImplementedException();
+            _movieDB.RemoveMovie(movie);
         }
+
+
 
         public void LoadDatabaseFromServer()
         {
