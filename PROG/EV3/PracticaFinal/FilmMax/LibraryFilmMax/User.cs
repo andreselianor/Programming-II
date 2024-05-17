@@ -1,10 +1,14 @@
 ﻿namespace LibraryFilmMax
 {
-    public class UserDB
+    public class User
     {
-        public Users[] user { get; set; }
+        public string name { get; set; }
+        public string pass { get; set; }
     }
-    public class Users
+
+
+    /*
+    public class User
     {
         public Security security { get; set; }
         public long id { get; set; }
@@ -25,4 +29,5 @@
         public int monthDate { get; set; }
         public int yearDate { get; set; }
     }
+    */
 }

@@ -10,11 +10,13 @@ namespace FilmMax
 
         public Controller()
         {
-            _database.LoadDatabaseFromLocalJSON(JSONPath);
+            //_database.LoadDatabaseFromLocal(JSONPath);
         }
 
         public bool LoginUser(string user, string password)
         {
+            return false;
+            /*
             UserDB users = _database.UsersToArray();
 
             for (int i = 0; i < users.user.Length; i++)
@@ -24,6 +26,7 @@ namespace FilmMax
                     return true;
             }
             return false;
+            */
         }
     }
 }
