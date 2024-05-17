@@ -7,8 +7,8 @@
         void RemoveUser();
 
 
-        int CreateFilm();
-        void UpdateFilm();
-        void RemoveFilm();
+        int CreateMovie();
+        void UpdateMovie();
+        void RemoveMovie();
     }
 }

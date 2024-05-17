@@ -6,9 +6,8 @@
         public string pass { get; set; }
     }
 
-
-    /*
-    public class User
+    
+    public class UserComplete
     {
         public Security security { get; set; }
         public long id { get; set; }
@@ -28,6 +27,5 @@
         public int dayDate { get; set; }
         public int monthDate { get; set; }
         public int yearDate { get; set; }
-    }
-    */
+    }    
 }

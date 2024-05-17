@@ -18,8 +18,6 @@ namespace LibraryFilmMax
                 Console.WriteLine(ex.Message);
             }
         }
-
-
         public void LoadDatabaseFromServer()
         {
             throw new NotImplementedException();
@@ -27,33 +25,29 @@ namespace LibraryFilmMax
 
 
 
-
-        public void RemoveFilm()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int CreateFilm()
-        {
-            throw new NotImplementedException();
-        }
-        public void UpdateFilm()
-        {
-            throw new NotImplementedException();
-        }
-
-
         public long CreateUser()
         {
             throw new NotImplementedException();
         }
-
         public void RemoveUser()
         {
             throw new NotImplementedException();
         }
-
         public void UpdateUser()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void RemoveMovie()
+        {
+            throw new NotImplementedException();
+        }
+        public int CreateMovie()
+        {
+            throw new NotImplementedException();
+        }
+        public void UpdateMovie()
         {
             throw new NotImplementedException();
         }
