@@ -17,11 +17,10 @@ namespace FilmMax
 {
     public partial class LoginWindow : Window
     {
-        private IDatabase database = new Database();
+        private Controller _controller = new Controller();
         public LoginWindow()
         {
-            InitializeComponent();            
-            database.CreateDatabase();
+            InitializeComponent();
         }
 
         private void Button_Login(object sender, RoutedEventArgs e)
@@ -29,10 +28,10 @@ namespace FilmMax
             string user = userAccess.Text;
             string password = passwordAccess.Text;
 
-            if(database.LoginUser(user,password))
+            if(_controller.LoginUser(user,password))
             {
                 UserControlPanelWindow controlPanel = new UserControlPanelWindow();
-                controlPanel.Show();
+                controlPanel.ShowDialog();
             }
             else
             {
@@ -45,7 +44,7 @@ namespace FilmMax
         private void Button_NewUser(object sender, RoutedEventArgs e)
         {
             RegisterNewUserWindow register = new RegisterNewUserWindow();
-            register.Show();
+            register.ShowDialog();
         }
     }
 }

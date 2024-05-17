@@ -11,6 +11,14 @@
   <ItemGroup>
     <None Remove="RSC\enunciado1.png" />
     <None Remove="RSC\enunciado2.png" />
+    <None Remove="RSC\film1.png" />
+    <None Remove="RSC\film2.png" />
+    <None Remove="RSC\film3.png" />
+    <None Remove="RSC\film4.png" />
+    <None Remove="RSC\film5.png" />
+    <None Remove="RSC\film6.png" />
+    <None Remove="RSC\film7.png" />
+    <None Remove="RSC\film8.png" />
     <None Remove="RSC\imagen.png" />
     <None Remove="RSC\peliculaElPadrino.png" />
     <None Remove="RSC\splashScreenImage.png" />
@@ -21,6 +29,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="RSC\film1.png" />
+    <Resource Include="RSC\film2.png" />
+    <Resource Include="RSC\film3.png" />
+    <Resource Include="RSC\film4.png" />
+    <Resource Include="RSC\film5.png" />
+    <Resource Include="RSC\film6.png" />
+    <Resource Include="RSC\film7.png" />
+    <Resource Include="RSC\film8.png" />
     <Resource Include="RSC\imagen.png" />
     <Resource Include="RSC\peliculaElPadrino.png" />
     <Resource Include="RSC\splashScreenImage.png" />

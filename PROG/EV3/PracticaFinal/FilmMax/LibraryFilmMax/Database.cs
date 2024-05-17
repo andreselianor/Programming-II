@@ -4,25 +4,65 @@ namespace LibraryFilmMax
 {
     public class Database : IDatabase
     {
-        private Data _data = new Data();
+        private UserDB _usersDB = new UserDB();
+        private MovieDB _movieDB = new MovieDB();
 
-        public void CreateDatabase()
+
+        public void LoadDatabaseFromLocalJSON(string path)
+        {            
+            try
+            {
+                string jsonDataBase = File.ReadAllText(path);
+                _usersDB = JsonSerializer.Deserialize<UserDB>(jsonDataBase);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }            
+        }
+        public UserDB UsersToArray()
         {
-            string path = "../../../RSC/usuariosFilmMax.json";
-            string jsonDataBase = File.ReadAllText(path);
-
-            _data = JsonSerializer.Deserialize<Data>(jsonDataBase);
+            int count = _usersDB.user.Length;
+            UserDB clone = new UserDB();
+            clone.user = new Users[count];
+            for(int i = 0; i < count; i++)
+            {
+                clone.user[i] = _usersDB.user[i];
+            }
+            return clone;
         }
 
-        public bool LoginUser(string user, string password)
+
+        public long CreateUser()
         {
-            for (int i = 0; i < _data.user.Length; i++)
-            {
-                if (user == _data.user[i].security.userName &&
-                    password == _data.user[i].security.userPassword)
-                    return true;
-            }
-            return false;
+            throw new NotImplementedException();
+        }
+        public void RemoveUser()
+        {
+            throw new NotImplementedException();
+        }
+        public void UpdateUser()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public int CreateFilm()
+        {
+            throw new NotImplementedException();
+        }
+        public void UpdateFilm()
+        {
+            throw new NotImplementedException();
+        }
+        public void RemoveFilm()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadDatabaseFromServer()
+        {
+            throw new NotImplementedException();
         }
     }
 }

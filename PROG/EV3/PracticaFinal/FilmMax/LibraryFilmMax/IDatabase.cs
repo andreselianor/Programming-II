@@ -2,7 +2,18 @@
 {
     public interface IDatabase
     {
-        void CreateDatabase();
-        bool LoginUser(string user, string password);
+        long CreateUser();
+        void UpdateUser();
+        void RemoveUser();
+
+
+        int CreateFilm();
+        void UpdateFilm();
+        void RemoveFilm();
+
+
+        void LoadDatabaseFromLocalJSON(string path);
+        void LoadDatabaseFromServer();
+        UserDB UsersToArray();
     }
 }

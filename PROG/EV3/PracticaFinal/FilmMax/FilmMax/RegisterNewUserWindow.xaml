@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilmMax"
         mc:Ignorable="d"
-        Title="RegisterNewUserWindow" Height="500" Width="500">
+        Title="RegisterNewUserWindow"
+        Height="500"
+        Width="500">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,36 +17,80 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
             <ColumnDefinition Width="1.0*"></ColumnDefinition>
+            <ColumnDefinition Width="1.0*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="1"
                     Grid.Row="1">
-            <TextBlock Text="Insert your data:"></TextBlock>
+            <TextBlock Text="Complete the user registration:"
+                       Padding="0 0 0 10"></TextBlock>
 
-            <TextBlock Text="User name"></TextBlock>
-            <TextBox Background="LightGray"
-                       Width="100px"
-                       HorizontalAlignment="Left"></TextBox>
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+            <TextBox Name="registerName"
+                     Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="name"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
 
-            <TextBlock Text="User password"></TextBlock>
-            <TextBox Background="LightGray"
-                       Width="100px"
-                       HorizontalAlignment="Left"></TextBox>
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerPassword"
+                         Background="LightGray"
+                         ></TextBox>
+            </Border>
+            <TextBlock Text="password"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
 
-            <TextBlock Text="User Birthday"></TextBlock>
-            <TextBox Background="LightGray"
-                       Width="100px"
-                       HorizontalAlignment="Left"></TextBox>
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerbirth"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="birthdate"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
 
-            <TextBlock Text="User phone"></TextBlock>
-            <TextBox Background="LightGray"
-                       Width="100px"
-                       HorizontalAlignment="Left"></TextBox>
 
-            <TextBlock Text="User email"></TextBlock>
-            <TextBox Background="LightGray"
-                       Width="100px"
-                       HorizontalAlignment="Left"></TextBox>
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="regiserPhone"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="phone number"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
+
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerEmail"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="email"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
 
             <Button Width="100px"
                     Height="50px"
@@ -53,6 +99,96 @@
                     Content="Create User"
                     Click="Button_CreateUser"></Button>
         </StackPanel>
+
+
+        <StackPanel Grid.Column="2"
+                    Grid.Row="1"
+                    Orientation="Vertical">
+            <TextBlock Text="Choose your 4 favourite films:">                
+            </TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="500px"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0"
+                    Orientation="Vertical">
+                    <Border Name="film1Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film1.png"
+                               MouseDown="Image1_MouseDown"></Image>
+                    </Border>
+                    <Border Name="film2Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film2.png"
+                               MouseDown="Image2_MouseDown"></Image>
+                    </Border>
+                    <Border Name="film3Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film3.png"
+                               MouseDown="Image3_MouseDown"></Image>
+                    </Border>
+                    <Border Name="film4Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film4.png"
+                               MouseDown="Image4_MouseDown"></Image>
+                    </Border>
+
+                </StackPanel>
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical">
+                    <Border Name="film5Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film5.png"
+                               MouseDown="Image5_MouseDown"></Image>
+                    </Border>
+                    <Border Name="film6Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film6.png"
+                               MouseDown="Image6_MouseDown"></Image>
+                    </Border>
+                    <Border Name="film7Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film7.png"
+                               MouseDown="Image7_MouseDown"></Image>
+                    </Border>
+                    <Border Name="film8Border"
+                            BorderThickness="5 5 5 5"
+                            BorderBrush="White"
+                            Width="80px"
+                            Margin="0 5 0 5">
+                        <Image Source="RSC/film8.png"
+                               MouseDown="Image8_MouseDown"></Image>
+                    </Border>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
     </Grid>
-    
+
 </Window>

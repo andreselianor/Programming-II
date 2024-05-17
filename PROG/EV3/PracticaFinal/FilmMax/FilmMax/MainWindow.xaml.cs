@@ -22,7 +22,7 @@ namespace FilmMax
         private void Button_Enter(object sender, RoutedEventArgs e)
         {
             LoginWindow login = new LoginWindow();
-            login.Show();
+            login.ShowDialog();
         }
     }
 }
