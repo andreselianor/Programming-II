@@ -5,15 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestingJSON"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Grid>
-        <TextBlock Text="test"
-                   Name="JSONtest"></TextBlock>
-        <Button Content="Button"
+        <ListBox Name="usuariosListBox"
+                 HorizontalAlignment="Left"
+                 Height="105"
+                 Margin="29,55,0,0"
+                 VerticalAlignment="Top"
+                 Width="137" />
+        <TextBlock Text="Lista vacia"
+                   Name="JSONtest"
+                   Width="100px"
+                   Height="100px"
+                   Margin="48,199,652,135"></TextBlock>
+        <Button Content="Get All Users"
                 HorizontalAlignment="Left"
-                Margin="400,132,0,0"
+                Margin="239,82,0,0"
                 VerticalAlignment="Top"
-                Click="Button_Click" />
+                Click="Button_GetAllUsers_Click" />
+        <Button Content="Reset"
+                HorizontalAlignment="Left"
+                Margin="250,126,0,0"
+                VerticalAlignment="Top"
+                Click="Button_Reset_Click" />
 
     </Grid>
 </Window>

@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilmMax"
         mc:Ignorable="d"
-        Title="UserControlPanelWindow" Height="500" Width="500">
-    
+        Title="UserControlPanelWindow"
+        Height="500"
+        Width="500">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"></RowDefinition>
@@ -15,7 +17,7 @@
             <RowDefinition Height="0.2*"></RowDefinition>
             <RowDefinition Height="0.2*"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>
@@ -24,18 +26,87 @@
             <ColumnDefinition Width="0.2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <!-- CABECERA -->
+        <StackPanel Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal"
+                    Height="50px"
+                    VerticalAlignment="Top">
+            <Border Grid.ColumnSpan="4"
+                    BorderThickness="0 0 0 5"
+                    BorderBrush="DarkGreen"
+                    Height="30px"
+                    Width="400px"
+                    VerticalAlignment="Top"
+                    Margin="12 12 0 0">
+                <TextBlock Text="Bienvenido a 'Panel de Control'"
+                           FontSize="12pt"
+                           FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
+            </Border>
+        </StackPanel>
+
+        <!-- USER BUTTONS -->
+        <StackPanel Grid.Column="4">
+            <StackPanel Orientation="Horizontal"
+                        Height="40px"
+                        VerticalAlignment="Top">
+                <Image Width="30px"
+                       Height="30px"
+                       Margin="20 0 5 0"
+                       Source="RSC/iconos/userPng.png"
+                       VerticalAlignment="Bottom"
+                       MouseDown="User_MouseDown"
+                       MouseEnter="userLabel_MouseEnter"
+                       MouseLeave="userLabel_MouseLeave"></Image>
+                <Image Source="RSC/iconos/logoutPng.png"
+                       Width="30px"
+                       Height="30px"
+                       VerticalAlignment="Bottom"
+                       MouseDown="Logout_MouseDown"
+                       MouseEnter="logoutLabel_MouseEnter"
+                       MouseLeave="logoutLabel_MouseLeave"></Image>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="40px"
+                        VerticalAlignment="Top">
+                <TextBlock Name="userLabel"
+                           Text="user"
+                           FontSize="7pt"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           Width="30px"
+                           Height="30px"
+                           Margin="20 0 5 0"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center"
+                           Visibility="Hidden"></TextBlock>
+                <TextBlock Name="logoutLabel"
+                           Text="exit"
+                           Width="30px"
+                           Height="30px"
+                           FontSize="7pt"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           TextAlignment="Center"
+                           VerticalAlignment="Top"
+                           Visibility="Hidden"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+
+
         <StackPanel Grid.Column="1"
-                    Grid.Row="0">
+                    Grid.Row="1">
             <TextBlock Text="Bienvenido User">
             </TextBlock>
         </StackPanel>
-
-        <TextBlock Grid.Column="3"
-                   Grid.Row="0"
+        <TextBlock Grid.Column="2"
+                   Grid.Row="1"
                    Text="Su siguiente pelicula es..."
                    TextWrapping="Wrap"></TextBlock>
         <Image Grid.Row="1"
                Grid.Column="3"
                Source="RSC/peliculaElPadrino.png"></Image>
+
     </Grid>
 </Window>

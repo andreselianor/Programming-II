@@ -1,4 +1,5 @@
 ﻿using LibraryFilmMax;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +22,31 @@ namespace FilmMax
         public LoginWindow()
         {
             InitializeComponent();
+            _controller.ConectarMongoDB();
         }
 
+        public bool LoginUser(string user, string password)
+        {
+            List<User> usersList = _controller.GetAllUsers();
+            for (int i = 0; i < usersList.Count; i++)
+            {
+                if (user == usersList[i].security.userName &&
+                    password == usersList[i].security.userPassword)
+                    return true;
+            }
+            return false;
+        }
+
+
+        // FUNCIONAMIENTO DE LOS BOTONES
         private void Button_Login(object sender, RoutedEventArgs e)
         {
             string user = userAccess.Text;
             string password = passwordAccess.Text;
 
-            if(_controller.LoginUser(user,password))
+            if(LoginUser(user,password))
             {
+                Close();
                 UserControlPanelWindow controlPanel = new UserControlPanelWindow();
                 controlPanel.ShowDialog();
             }
@@ -37,10 +54,9 @@ namespace FilmMax
             {
                 ErrorLogin.Text = "El usuario no existe";
                 userAccess.Text = "";
-                passwordAccess.Text = "";
+                passwordAccess.Text = "";                
             }
         }
-
         private void Button_NewUser(object sender, RoutedEventArgs e)
         {
             RegisterNewUserWindow register = new RegisterNewUserWindow();

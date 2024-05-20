@@ -17,6 +17,11 @@ namespace FilmMax
         public MainWindow()
         {
             InitializeComponent();
+
+            /*
+            LoginWindow login = new LoginWindow();
+            login.ShowDialog();
+            */
         }
 
         private void Button_Enter(object sender, RoutedEventArgs e)

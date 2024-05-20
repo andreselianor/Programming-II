@@ -101,6 +101,7 @@
         </StackPanel>
 
 
+        <!-- Favourite Films Panel -->
         <StackPanel Grid.Column="2"
                     Grid.Row="1"
                     Orientation="Vertical">
@@ -122,7 +123,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film1.png"
+                        <Image Source="RSC/moviesPictures/film1.png"
                                MouseDown="Image1_MouseDown"></Image>
                     </Border>
                     <Border Name="film2Border"
@@ -130,7 +131,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film2.png"
+                        <Image Source="RSC/moviesPictures/film2.png"
                                MouseDown="Image2_MouseDown"></Image>
                     </Border>
                     <Border Name="film3Border"
@@ -138,7 +139,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film3.png"
+                        <Image Source="RSC/moviesPictures/film3.png"
                                MouseDown="Image3_MouseDown"></Image>
                     </Border>
                     <Border Name="film4Border"
@@ -146,7 +147,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film4.png"
+                        <Image Source="RSC/moviesPictures/film4.png"
                                MouseDown="Image4_MouseDown"></Image>
                     </Border>
 
@@ -158,7 +159,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film5.png"
+                        <Image Source="RSC/moviesPictures/film5.png"
                                MouseDown="Image5_MouseDown"></Image>
                     </Border>
                     <Border Name="film6Border"
@@ -166,7 +167,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film6.png"
+                        <Image Source="RSC/moviesPictures/film6.png"
                                MouseDown="Image6_MouseDown"></Image>
                     </Border>
                     <Border Name="film7Border"
@@ -174,7 +175,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film7.png"
+                        <Image Source="RSC/moviesPictures/film7.png"
                                MouseDown="Image7_MouseDown"></Image>
                     </Border>
                     <Border Name="film8Border"
@@ -182,7 +183,7 @@
                             BorderBrush="White"
                             Width="80px"
                             Margin="0 5 0 5">
-                        <Image Source="RSC/film8.png"
+                        <Image Source="RSC/moviesPictures/film8.png"
                                MouseDown="Image8_MouseDown"></Image>
                     </Border>
                 </StackPanel>

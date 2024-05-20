@@ -1,0 +1,106 @@
+﻿<Window x:Class="FilmMax.LogoutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmMax"
+        mc:Ignorable="d"
+        Title="LogoutWindow"
+        Height="500"
+        Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="1.0*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    Orientation="Vertical">
+            <TextBlock Text="Your are loggin out from FilmMax"
+                       Margin="0 0 0 10"
+                       HorizontalAlignment="Center"></TextBlock>
+            <Image Source="RSC/logoutQuiz/logoutImage1.png"
+                   Width="150px"
+                   Margin="0 0 0 10"></Image>
+            <TextBlock Width="250px"
+                       TextWrapping="Wrap"
+                       Margin="0 0 0 10"
+                       Text="¿Sabes qué actores dieron voz a los personajes de Mike y Sully?"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+            </StackPanel>
+            <DockPanel Margin="0 0 0 10">
+                <Border Name="borderButton1"
+                        Width="100px"
+                        Height="35px"
+                        BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Background="LightGray">
+                    <TextBlock Text="John Goodman y Billy Cristal"
+                               TextWrapping="Wrap"
+                               MouseDown="button_Answer1"></TextBlock>
+                </Border>
+                <Border Name="borderButton2"
+                        HorizontalAlignment="Right"
+                        Width="100px"
+                        Height="35px"
+                        BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Background="LightGray">
+                    <TextBlock Text="Ryan Gosling y Tom Hanks"
+                               TextWrapping="Wrap"
+                               MouseDown="button_Answer2"></TextBlock>
+                </Border>
+            </DockPanel>
+            <DockPanel Margin="0 0 0 10">
+                <Border Name="borderButton3"
+                        Width="100px"
+                        Height="35px"
+                        BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Background="LightGray">
+                    <TextBlock Text="Benzema y Toni Kroos"
+                               TextWrapping="Wrap"
+                               MouseDown="button_Answer3"></TextBlock>
+                </Border>
+                <Border Name="borderButton4"
+                        HorizontalAlignment="Right"
+                        Width="100px"
+                        Height="35px"
+                        BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Background="LightGray">
+                    <TextBlock Text="Brian May y Eddie Van Halen"
+                               TextWrapping="Wrap"
+                               MouseDown="button_Answer4"></TextBlock>
+                </Border>
+            </DockPanel>
+
+            <TextBlock Name="answerText1"
+                       Visibility="Visible"
+                       Width="250px"
+                       TextWrapping="Wrap"
+                       Text="John Goodman y Billy Crystal grababan sus líneas juntos en la misma habitación, algo inusual para las películas animadas, donde los actores suelen trabajar en distintas habitaciones."></TextBlock>
+        </StackPanel>
+        <TextBlock Name="logoutButton"
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   Text="LOGOUT"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   TextAlignment="Center"
+                   Background="DodgerBlue"
+                   Height="20px"
+                   Width="250px"
+                   Visibility="Hidden"
+                   MouseDown="logoutButton_MouseDown"></TextBlock>
+    </Grid>
+</Window>

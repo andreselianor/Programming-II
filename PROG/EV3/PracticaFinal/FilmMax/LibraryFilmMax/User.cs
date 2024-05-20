@@ -1,21 +1,23 @@
 ﻿namespace LibraryFilmMax
 {
-    public class User
+    public class UserTest
     {
         public string name { get; set; }
         public string pass { get; set; }
+        public object id { get; set; }
     }
 
     
-    public class UserComplete
+    public class User
     {
+        public object id { get; set; }
         public Security security { get; set; }
-        public long id { get; set; }
         public string name { get; set; }
         public string lastName { get; set; }
         public BirthDate birthDate { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
+        public string favouriteFilms { get; set; }
     }
     public class Security
     {

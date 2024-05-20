@@ -18,11 +18,12 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
             <RowDefinition Height="1.0*"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <!-- Entrada del usuario -->
         <StackPanel Grid.Column="1"
                     Grid.Row="1"
                     HorizontalAlignment="Center"
@@ -31,7 +32,7 @@
                        Margin="0 0 0 10"></TextBlock>
             <Border BorderBrush="black"
                     BorderThickness="0 0 0 1">
-                <TextBox Name="userAccess"                         
+                <TextBox Name="userAccess"
                          Background="LightGray"
                          Margin="0 0 0 0">
                 </TextBox>
@@ -39,7 +40,7 @@
             <TextBlock Text="usuario"
                        FontSize="6pt"
                        Foreground="Gray"
-                       FontStyle="Italic">                
+                       FontStyle="Italic">
             </TextBlock>
 
             <Border BorderBrush="Black"
@@ -59,6 +60,8 @@
                        HorizontalAlignment="Center">
             </TextBlock>
 
+
+            <!-- Botones interactivos -->
             <Button Margin="0 50 0 0 "
                     Click="Button_Login">
                 <TextBlock Text="Log in"></TextBlock>
@@ -70,7 +73,7 @@
                 <TextBlock Text="Create new User"></TextBlock>
             </Button>
 
-            <Image Source="RSC/imagen.png"
+            <Image Source="RSC/iconos/imagen.png"
                    Width="180px"
                    Margin="0 30 0 0"></Image>
         </StackPanel>

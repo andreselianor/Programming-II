@@ -22,15 +22,17 @@
         <StackPanel Grid.Row="0"
                     Grid.ColumnSpan="2"
                     Orientation="Vertical">
+
+
             <Image Source="RSC/splashScreenImage.png"
-                   Margin="0 -50 0 0"></Image>
+                   Margin="0 -70 0 0"></Image>
             <TextBlock Text=" - Film Mentoring - "
-                       Margin="0 -400 0 0"
+                       Margin="0 -380 0 0"
                        HorizontalAlignment="Center"
                        FontSize="12pt"
                        FontStyle="Italic"></TextBlock>
             <Button Click="Button_Enter"
-                    Margin="0 -200 0 0"
+                    Margin="0 -150 0 0"
                     Width="80px"
                     Height="25px"
                     Background="Crimson"

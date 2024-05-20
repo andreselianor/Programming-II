@@ -1,32 +1,46 @@
 ﻿using LibraryFilmMax;
+using MongoDB.Driver;
 using System.Text.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace FilmMax
 {
     public class Controller
     {
         private IDatabase _database = new Database();
-        private readonly string JSONPath = "../../../RSC/usuariosFilmMax.json";
+        //private readonly string JSONPath = "../../../RSC/usuariosFilmMax.json";
+        private IMongoCollection<User> _usuariosCollection;
 
-        public Controller()
+
+        public void ConectarMongoDB()
         {
-            //_database.LoadDatabaseFromLocal(JSONPath);
+            var client = new MongoClient("mongodb+srv://user1:testingUser1@cluster0.ujikwt4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+            var database = client.GetDatabase("DatabaseFilmMax");
+            _usuariosCollection = database.GetCollection<User>("UsersData");
         }
-
-        public bool LoginUser(string user, string password)
+        public List<User> GetAllUsers()
         {
-            return false;
-            /*
-            UserDB users = _database.UsersToArray();
-
-            for (int i = 0; i < users.user.Length; i++)
+            return _usuariosCollection.Find(usuario => true).ToList();
+        }
+        public void ReviewUsers()
+        {
+            List<User> usersList = GetAllUsers();
+            foreach (User user in usersList)
             {
-                if (user == users.user[i].security.userName &&
-                    password == users.user[i].security.userPassword)
-                    return true;
+                User test = user;
             }
-            return false;
-            */
         }
     }
 }
