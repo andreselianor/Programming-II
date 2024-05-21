@@ -1,0 +1,2 @@
+mongodb+srv://user1:<password>@cluster0.ujikwt4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+mongodb+srv://user1:<testingUser1>@cluster0.ujikwt4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

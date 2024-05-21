@@ -11,22 +11,43 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryFilmMax;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace FilmMax
 {
     public partial class RegisterNewUserWindow : Window
     {
-        
-        public RegisterNewUserWindow()
+        Controller _controller;
+        public RegisterNewUserWindow(Controller controller)
         {
             InitializeComponent();
+            _controller = controller;
         }
 
         private void Button_CreateUser(object sender, RoutedEventArgs e)
         {
-            // ¿Como recojo la base de datos que he creado en la ventana de login?
+            User user = new User()
+            {
+                id = ObjectId.GenerateNewId(),
+                name = registerName.Text,
+                security = new Security()
+                {
+                    userName = registerName.Text,
+                    userPassword = registerPassword.Text,
+                },
+                birthDate = new BirthDate() { dayDate = 1, monthDate = 2, yearDate = 3 },
+                phone = registerPhone.Text,
+                email = registerEmail.Text,
+                favouriteFilms = "TODO"
+            };
+            _controller._usuariosCollection.InsertOne(user);
         }
 
+
+
+        // Seleccion de peliculas favoritas
         private void Image1_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Border brush = film1Border;

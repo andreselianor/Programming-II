@@ -97,7 +97,8 @@
 
         <StackPanel Grid.Column="1"
                     Grid.Row="1">
-            <TextBlock Text="Bienvenido User">
+            <TextBlock Text="{Binding name, StringFormat = Bienvenido a tu pagina de inicio {0}}"
+                       TextWrapping="Wrap">
             </TextBlock>
         </StackPanel>
         <TextBlock Grid.Column="2"

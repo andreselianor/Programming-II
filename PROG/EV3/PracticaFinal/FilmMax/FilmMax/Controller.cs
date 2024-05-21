@@ -21,7 +21,7 @@ namespace FilmMax
     {
         private IDatabase _database = new Database();
         //private readonly string JSONPath = "../../../RSC/usuariosFilmMax.json";
-        private IMongoCollection<User> _usuariosCollection;
+        public IMongoCollection<User> _usuariosCollection;
 
 
         public void ConectarMongoDB()
@@ -41,6 +41,10 @@ namespace FilmMax
             {
                 User test = user;
             }
+        }
+        public User GetUserAt(int index)
+        {
+            return GetAllUsers()[index];
         }
     }
 }

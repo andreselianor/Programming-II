@@ -16,7 +16,7 @@ namespace FilmMax
 {
     public partial class LogoutWindow : Window
     {
-        Brush brushRigth = Brushes.DodgerBlue;
+        Brush brushRight = Brushes.DodgerBlue;
         Brush brushWrong = Brushes.Crimson;
 
         public LogoutWindow()
@@ -26,7 +26,7 @@ namespace FilmMax
 
         private void button_Answer1(object sender, RoutedEventArgs e)
         {           
-            borderButton1.Background = brushRigth;
+            borderButton1.Background = brushRight;
 
             answerText1.Visibility = Visibility.Visible;
             logoutButton.Visibility = Visibility.Visible;
@@ -34,7 +34,7 @@ namespace FilmMax
 
         private void button_Answer2(object sender, RoutedEventArgs e)
         {
-            borderButton1.Background = brushRigth;
+            borderButton1.Background = brushRight;
             borderButton2.Background = brushWrong;
 
             answerText1.Visibility = Visibility.Visible;
@@ -43,7 +43,7 @@ namespace FilmMax
 
         private void button_Answer3(object sender, RoutedEventArgs e)
         {
-            borderButton1.Background = brushRigth;
+            borderButton1.Background = brushRight;
             borderButton3.Background = brushWrong;
 
             answerText1.Visibility = Visibility.Visible;
@@ -52,7 +52,7 @@ namespace FilmMax
 
         private void button_Answer4(object sender, RoutedEventArgs e)
         {
-            borderButton1.Background = brushRigth;
+            borderButton1.Background = brushRight;
             borderButton4.Background = brushWrong;
 
             answerText1.Visibility = Visibility.Visible;

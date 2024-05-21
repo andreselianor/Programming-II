@@ -47,7 +47,7 @@ namespace FilmMax
             if(LoginUser(user,password))
             {
                 Close();
-                UserControlPanelWindow controlPanel = new UserControlPanelWindow();
+                UserControlPanelWindow controlPanel = new UserControlPanelWindow(_controller,3);
                 controlPanel.ShowDialog();
             }
             else
@@ -59,7 +59,7 @@ namespace FilmMax
         }
         private void Button_NewUser(object sender, RoutedEventArgs e)
         {
-            RegisterNewUserWindow register = new RegisterNewUserWindow();
+            RegisterNewUserWindow register = new RegisterNewUserWindow(_controller);
             register.ShowDialog();
         }
     }

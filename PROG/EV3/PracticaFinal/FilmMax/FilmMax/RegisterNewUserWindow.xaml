@@ -56,7 +56,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerbirth"
+                <TextBox Name="registerBirth"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="birthdate"
@@ -70,7 +70,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="regiserPhone"
+                <TextBox Name="registerPhone"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="phone number"

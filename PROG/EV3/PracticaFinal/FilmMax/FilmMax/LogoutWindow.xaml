@@ -85,7 +85,7 @@
             </DockPanel>
 
             <TextBlock Name="answerText1"
-                       Visibility="Visible"
+                       Visibility="Hidden"
                        Width="250px"
                        TextWrapping="Wrap"
                        Text="John Goodman y Billy Crystal grababan sus líneas juntos en la misma habitación, algo inusual para las películas animadas, donde los actores suelen trabajar en distintas habitaciones."></TextBlock>

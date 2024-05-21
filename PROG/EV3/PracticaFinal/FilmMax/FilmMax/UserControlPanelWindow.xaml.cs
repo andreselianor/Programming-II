@@ -11,26 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryFilmMax;
 
 namespace FilmMax
 {
     public partial class UserControlPanelWindow : Window
     {
-        public UserControlPanelWindow()
+        User user = new User();
+        public UserControlPanelWindow(Controller controller,int index)
         {
             InitializeComponent();
+            user = controller.GetUserAt(index);
+            DataContext = user;
         }
 
         // Botones de usuario
         private void User_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Close();
-            LoginWindow window = new LoginWindow();
-            window.ShowDialog();
+            ShowAlertUser();
         }
         private void Logout_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ShowAlert();
+            ShowAlertLogout();
         }
         private void userLabel_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -50,8 +52,21 @@ namespace FilmMax
         }
 
 
+        // Alerta para cambiar de usuario
+        private void ShowAlertUser()
+        {
+            MessageBoxResult result = MessageBox.Show("¿Realmente desea cerrar la sesión y volver a la página de inicio?", "Alerta", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+                LoginWindow window = new LoginWindow();
+                window.ShowDialog();
+            }
+        }
+
         // Alerta para salir del programa
-        private void ShowAlert()
+        private void ShowAlertLogout()
         {
             MessageBoxResult result = MessageBox.Show("Desea realmente salir de la aplicación?", "Alerta", MessageBoxButton.YesNo);
 
@@ -60,6 +75,6 @@ namespace FilmMax
                 LogoutWindow window = new LogoutWindow();
                 window.ShowDialog();
             }
-        }        
+        }
     }
 }
