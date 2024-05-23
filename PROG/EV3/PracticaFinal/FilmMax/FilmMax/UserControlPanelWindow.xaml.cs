@@ -17,12 +17,12 @@ namespace FilmMax
 {
     public partial class UserControlPanelWindow : Window
     {
-        User user = new User();
-        public UserControlPanelWindow(Controller controller,int index)
+        User _user = new User();
+        public UserControlPanelWindow(ICore controller, int index)
         {
             InitializeComponent();
-            user = controller.GetUserAt(index);
-            DataContext = user;
+            _user = controller.GetUserAtIndex(index);
+            DataContext = _user;
         }
 
         // Botones de usuario
@@ -55,7 +55,9 @@ namespace FilmMax
         // Alerta para cambiar de usuario
         private void ShowAlertUser()
         {
-            MessageBoxResult result = MessageBox.Show("¿Realmente desea cerrar la sesión y volver a la página de inicio?", "Alerta", MessageBoxButton.YesNo);
+            string alertUser = "¿Desea realmente volver a la página de login?";
+            string alert = "Cambio de usuario";
+            MessageBoxResult result = MessageBox.Show(alertUser, alert, MessageBoxButton.YesNo);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -68,7 +70,9 @@ namespace FilmMax
         // Alerta para salir del programa
         private void ShowAlertLogout()
         {
-            MessageBoxResult result = MessageBox.Show("Desea realmente salir de la aplicación?", "Alerta", MessageBoxButton.YesNo);
+            string quitApp = "¿Desea realmente salir de FilmMax?";
+            string alert = "Salir del programa";
+            MessageBoxResult result = MessageBox.Show(quitApp, alert, MessageBoxButton.YesNo);
 
             if (result == MessageBoxResult.Yes)
             {

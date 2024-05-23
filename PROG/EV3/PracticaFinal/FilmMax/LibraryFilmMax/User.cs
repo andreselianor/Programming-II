@@ -1,18 +1,10 @@
 ﻿namespace LibraryFilmMax
-{
-    public class UserTest
-    {
-        public string name { get; set; }
-        public string pass { get; set; }
-        public object id { get; set; }
-    }
-
-    
+{    
     public class User
     {
         public object id { get; set; }
         public Security security { get; set; }
-        public string name { get; set; }
+        public string userName { get; set; }
         public string lastName { get; set; }
         public BirthDate birthDate { get; set; }
         public string phone { get; set; }
@@ -21,8 +13,8 @@
     }
     public class Security
     {
-        public string userName { get; set; }
-        public string userPassword { get; set; }
+        public string loginName { get; set; }
+        public string loginPassword { get; set; }
     }
     public class BirthDate
     {

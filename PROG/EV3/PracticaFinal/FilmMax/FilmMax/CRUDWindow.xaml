@@ -1,0 +1,128 @@
+﻿<Window x:Class="FilmMax.CRUDWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmMax"
+        mc:Ignorable="d"
+        Title="CRUDWindow"
+        Height="500"
+        Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- CABECERA -->
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Margin="10 0 0 0">
+            <StackPanel Height="40px"
+                        Orientation="Vertical"
+                        Margin="0 0 0 10">
+                <TextBlock></TextBlock>
+                <DockPanel VerticalAlignment="Bottom">
+                    <TextBlock Text="'Gestion de Usuarios'"
+                               FontSize="12pt"
+                               FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
+                    <TextBlock HorizontalAlignment="Right"
+                               Text="'FilmMax'"
+                               VerticalAlignment="Bottom"
+                               FontSize="8pt"
+                               FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
+                </DockPanel>
+                <Border BorderThickness="0 0 0 5"
+                        BorderBrush="DarkGreen"
+                        VerticalAlignment="Bottom"
+                        CornerRadius="5">
+                </Border>
+            </StackPanel>
+
+            <!-- BOTONES CRUD -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15px"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0"
+                        Margin="0 0 10 0"
+                        Content="create user"
+                        FontSize="7pt"
+                        Foreground="Gray"
+                        Click="ButtonCreateFrame_Click"></Button>
+                <Button Grid.Column="1"
+                        Margin="0 0 5 0"
+                        Content="filter user"
+                        FontSize="7pt"
+                        Foreground="Gray"></Button>
+                <Button Grid.Column="2"
+                        Margin="5 0 0 0"
+                        Content="update user"
+                        FontSize="7pt"
+                        Foreground="Gray"></Button>
+                <Button Grid.Column="3"
+                        Margin="10 0 0 0"
+                        Content="remove user"
+                        FontSize="7pt"
+                        Foreground="Gray"
+                        Click="ButtonRemoveUser_Click"></Button>
+            </Grid>
+        </StackPanel>
+
+        <!-- USER BUTTONS -->
+        <StackPanel Grid.Column="4">
+            <StackPanel Orientation="Horizontal"
+                        Height="40px"
+                        VerticalAlignment="Top">
+                <Image Width="30px"
+                       Height="30px"
+                       Margin="20 0 5 0"
+                       Source="RSC/iconos/userSettingsAdmin.png"
+                       VerticalAlignment="Bottom"
+                       MouseDown="ImageBackUsers_MouseDown"></Image>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="40px"
+                        VerticalAlignment="Top">
+                <TextBlock Name="userLabel"
+                           Text="user"
+                           FontSize="7pt"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           Width="30px"
+                           Height="30px"
+                           Margin="20 0 5 0"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center"
+                           Visibility="Hidden"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Ventanas FRAME -->
+        <Frame Name="ViewUI"
+               Grid.Column="0"
+               Grid.ColumnSpan="5"
+               Grid.Row="1"
+               Grid.RowSpan="4"
+               VerticalAlignment="Stretch"
+               HorizontalAlignment="Stretch"></Frame>
+    </Grid>
+</Window>

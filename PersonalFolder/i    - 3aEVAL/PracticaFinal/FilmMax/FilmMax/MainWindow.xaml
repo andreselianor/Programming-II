@@ -1,0 +1,50 @@
+﻿<Window x:Class="FilmMax.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmMax"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="500"
+        Width="500">
+
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.0*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Vertical">
+
+
+            <Image Source="RSC/splashScreenImage.png"
+                   Margin="0 -70 0 0"></Image>
+            <TextBlock Text=" - Film Mentoring - "
+                       Margin="0 -380 0 0"
+                       HorizontalAlignment="Center"
+                       FontSize="12pt"
+                       FontStyle="Italic"></TextBlock>
+            <Button Click="Button_Enter"
+                    Margin="0 -150 0 0"
+                    Width="80px"
+                    Height="25px"
+                    Background="Crimson"
+                    BorderBrush="black"
+                    Opacity="0.8">
+                <TextBlock Text="Entrar"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="10pt"
+                           Opacity="1.0"></TextBlock>
+            </Button>
+        </StackPanel>
+        
+    </Grid>
+</Window>

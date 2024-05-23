@@ -29,10 +29,10 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-            <TextBox Name="registerName"
+            <TextBox Name="registerLogin"
                      Background="LightGray"></TextBox>
             </Border>
-            <TextBlock Text="name"
+            <TextBlock Text="login Name"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
@@ -46,7 +46,20 @@
                          Background="LightGray"
                          ></TextBox>
             </Border>
-            <TextBlock Text="password"
+            <TextBlock Text="login Password"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
+
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerName"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="user Name"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"

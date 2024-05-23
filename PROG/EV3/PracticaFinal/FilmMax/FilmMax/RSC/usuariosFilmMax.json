@@ -1,10 +1,10 @@
 [
     {
         "security": {
-            "userName": "admin",
-            "userPassword": "admin"
+            "loginName": "admin",
+            "loginPassword": "admin"
         },
-        "name": "andres",
+        "userName": "andres",
         "lastName": "lopez",
         "birthDate": {
             "dayDate": 24,
@@ -17,10 +17,10 @@
     },
     {
         "security": {
-            "userName": "frodo",
-            "userPassword": "bolson"
+            "loginName": "frodo",
+            "loginPassword": "bolson"
         },
-        "name": "frodo",
+        "userName": "frodo",
         "lastName": "piespeludos",
         "birthDate": {
             "dayDate": 6,
@@ -33,10 +33,10 @@
     },
     {
         "security": {
-            "userName": "sam",
-            "userPassword": "gamyi"
+            "loginName": "sam",
+            "loginPassword": "gamyi"
         },
-        "name": "sam",
+        "userName": "sam",
         "lastName": "samsagaz",
         "birthDate": {
             "dayDate": 12,
@@ -49,10 +49,10 @@
     },
     {
         "security": {
-            "userName": "meriadoc",
-            "userPassword": "brandigamo"
+            "loginName": "meriadoc",
+            "loginPassword": "brandigamo"
         },
-        "name": "merry",
+        "userName": "merry",
         "lastName": "brandigamo",
         "birthDate": {
             "dayDate": 8,
@@ -65,10 +65,10 @@
     },
     {
         "security": {
-            "userName": "peregrin",
-            "userPassword": "tuk"
+            "loginName": "peregrin",
+            "loginPassword": "tuk"
         },
-        "name": "pippin",
+        "userName": "pippin",
         "lastName": "tuk",
         "birthDate": {
             "dayDate": 21,
@@ -81,10 +81,10 @@
     },
     {
         "security": {
-            "userName": "gandalf",
-            "userPassword": "blanco"
+            "loginName": "gandalf",
+            "loginPassword": "blanco"
         },
-        "name": "gandalf",
+        "userName": "gandalf",
         "lastName": "el blanco",
         "birthDate": {
             "dayDate": 5,
@@ -97,10 +97,10 @@
     },
     {
         "security": {
-            "userName": "aragorn",
-            "userPassword": "trancos"
+            "loginName": "aragorn",
+            "loginPassword": "trancos"
         },
-        "name": "aragorn",
+        "userName": "aragorn",
         "lastName": "trancos",
         "birthDate": {
             "dayDate": 9,
@@ -113,10 +113,10 @@
     },
     {
         "security": {
-            "userName": "boromir",
-            "userPassword": "denethor"
+            "loginName": "boromir",
+            "loginPassword": "denethor"
         },
-        "name": "boromir",
+        "userName": "boromir",
         "lastName": "denethor",
         "birthDate": {
             "dayDate": 12,
@@ -129,10 +129,10 @@
     },
     {
         "security": {
-            "userName": "legolas",
-            "userPassword": "hojaverde"
+            "loginName": "legolas",
+            "loginPassword": "hojaverde"
         },
-        "name": "legolas",
+        "userName": "legolas",
         "lastName": "hojaverde",
         "birthDate": {
             "dayDate": 4,
@@ -145,10 +145,10 @@
     },
     {
         "security": {
-            "userName": "gimli",
-            "userPassword": "gloin"
+            "loginName": "gimli",
+            "loginPassword": "gloin"
         },
-        "name": "gimli",
+        "userName": "gimli",
         "lastName": "gloin",
         "birthDate": {
             "dayDate": 16,

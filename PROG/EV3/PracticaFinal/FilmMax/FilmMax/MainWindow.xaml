@@ -8,9 +8,8 @@
         Title="MainWindow"
         Height="500"
         Width="500">
-
-    <Grid>
-        
+    
+    <Grid>        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -22,8 +21,6 @@
         <StackPanel Grid.Row="0"
                     Grid.ColumnSpan="2"
                     Orientation="Vertical">
-
-
             <Image Source="RSC/splashScreenImage.png"
                    Margin="0 -70 0 0"></Image>
             <TextBlock Text=" - Film Mentoring - "
@@ -35,14 +32,15 @@
                     Margin="0 -150 0 0"
                     Width="80px"
                     Height="25px"
-                    Background="Crimson"
+                    Background="MediumPurple"
                     BorderBrush="black"
                     Opacity="0.8">
                 <TextBlock Text="Entrar"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            FontSize="10pt"
-                           Opacity="1.0"></TextBlock>
+                           Opacity="1.0">                    
+                </TextBlock>
             </Button>
         </StackPanel>
         

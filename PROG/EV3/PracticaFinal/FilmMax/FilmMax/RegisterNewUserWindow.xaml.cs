@@ -19,8 +19,8 @@ namespace FilmMax
 {
     public partial class RegisterNewUserWindow : Window
     {
-        Controller _controller;
-        public RegisterNewUserWindow(Controller controller)
+        ICore _controller;
+        public RegisterNewUserWindow(ICore controller)
         {
             InitializeComponent();
             _controller = controller;
@@ -31,18 +31,18 @@ namespace FilmMax
             User user = new User()
             {
                 id = ObjectId.GenerateNewId(),
-                name = registerName.Text,
                 security = new Security()
                 {
-                    userName = registerName.Text,
-                    userPassword = registerPassword.Text,
-                },
+                    loginName = registerLogin.Text,
+                    loginPassword = registerPassword.Text
+                },        
+                userName = registerName.Text,
                 birthDate = new BirthDate() { dayDate = 1, monthDate = 2, yearDate = 3 },
                 phone = registerPhone.Text,
                 email = registerEmail.Text,
                 favouriteFilms = "TODO"
             };
-            _controller._usuariosCollection.InsertOne(user);
+            _controller.CreateUser(user);
         }
 
 

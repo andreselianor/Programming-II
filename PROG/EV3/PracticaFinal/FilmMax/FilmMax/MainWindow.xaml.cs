@@ -1,14 +1,4 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using LibraryFilmMax;
+﻿using System.Windows;
 
 namespace FilmMax
 {
@@ -17,11 +7,6 @@ namespace FilmMax
         public MainWindow()
         {
             InitializeComponent();
-
-            /*
-            LoginWindow login = new LoginWindow();
-            login.ShowDialog();
-            */
         }
 
         private void Button_Enter(object sender, RoutedEventArgs e)

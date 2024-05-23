@@ -27,22 +27,29 @@
         </Grid.ColumnDefinitions>
 
         <!-- CABECERA -->
-        <StackPanel Grid.Column="0"
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="0"
                     Grid.ColumnSpan="4"
-                    Orientation="Horizontal"
-                    Height="50px"
-                    VerticalAlignment="Top">
-            <Border Grid.ColumnSpan="4"
-                    BorderThickness="0 0 0 5"
-                    BorderBrush="DarkGreen"
-                    Height="30px"
-                    Width="400px"
-                    VerticalAlignment="Top"
-                    Margin="12 12 0 0">
-                <TextBlock Text="Bienvenido a 'Panel de Control'"
-                           FontSize="12pt"
-                           FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
-            </Border>
+                    Margin="10 0 0 0">
+            <StackPanel Height="40px"
+                        Orientation="Vertical">
+                <TextBlock></TextBlock>
+                <DockPanel VerticalAlignment="Bottom">
+                    <TextBlock Text="'Panel de Control'"
+                               FontSize="12pt"
+                               FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
+                    <TextBlock HorizontalAlignment="Right"
+                               Text="'FilmMax'"
+                               VerticalAlignment="Bottom"
+                               FontSize="8pt"
+                               FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
+                </DockPanel>
+                <Border BorderThickness="0 0 0 5"
+                        BorderBrush="DarkGreen"
+                        VerticalAlignment="Bottom"
+                        CornerRadius="5">
+                </Border>
+            </StackPanel>
         </StackPanel>
 
         <!-- USER BUTTONS -->
@@ -93,11 +100,9 @@
             </StackPanel>
         </StackPanel>
 
-
-
         <StackPanel Grid.Column="1"
                     Grid.Row="1">
-            <TextBlock Text="{Binding name, StringFormat = Bienvenido a tu pagina de inicio {0}}"
+            <TextBlock Text="{Binding userName, StringFormat = Bienvenido a tu pagina de inicio\, {0}}"
                        TextWrapping="Wrap">
             </TextBlock>
         </StackPanel>
