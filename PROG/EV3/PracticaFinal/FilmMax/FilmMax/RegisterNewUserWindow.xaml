@@ -69,6 +69,19 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
+                <TextBox Name="registerLastName"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="last Name"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
+
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
                 <TextBox Name="registerBirth"
                          Background="LightGray"></TextBox>
             </Border>
@@ -107,7 +120,7 @@
 
             <Button Width="100px"
                     Height="50px"
-                    Margin="0 10 0 0 "
+                    Margin="0 0 0 0 "
                     HorizontalAlignment="Left"
                     Content="Create User"
                     Click="Button_CreateUser"></Button>
@@ -200,9 +213,7 @@
                                MouseDown="Image8_MouseDown"></Image>
                     </Border>
                 </StackPanel>
-
             </Grid>
         </StackPanel>
     </Grid>
-
 </Window>

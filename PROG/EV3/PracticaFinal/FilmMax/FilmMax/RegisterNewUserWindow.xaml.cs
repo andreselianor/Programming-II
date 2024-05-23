@@ -35,8 +35,9 @@ namespace FilmMax
                 {
                     loginName = registerLogin.Text,
                     loginPassword = registerPassword.Text
-                },        
+                },
                 userName = registerName.Text,
+                lastName = registerLastName.Text,
                 birthDate = new BirthDate() { dayDate = 1, monthDate = 2, yearDate = 3 },
                 phone = registerPhone.Text,
                 email = registerEmail.Text,

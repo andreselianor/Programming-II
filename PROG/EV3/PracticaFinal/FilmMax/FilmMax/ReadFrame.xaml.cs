@@ -30,12 +30,19 @@ namespace FilmMax
 
         private void ButtonFindUser_Click(object sender, RoutedEventArgs e)
         {
-            string loginName = registerName.Text;
+            string loginName = registerLoginName.Text;
             _userSelected = _controller.GetUserWithLoginName(loginName);
 
+            if(_userSelected == null ) 
             {
-                listUser.Text = _userSelected.security.loginName;
-                listPassword.Text = _userSelected.security.loginPassword;
+                DisplayMessage.Text = "El usuario no existe";
+            }
+            else
+            {
+                listLoginUser.Text = _userSelected.security.loginName;
+                listLoginPassword.Text = "*****";
+                listUserName.Text = _userSelected.userName;
+                listLastName.Text = _userSelected.lastName;
                 listPhone.Text = _userSelected.phone;
                 listEmail.Text = _userSelected.email;
             }

@@ -28,21 +28,37 @@ namespace FilmMax
 
         private void ButtonCreateUser_Click(object sender, RoutedEventArgs e)
         {
+            User user = RegisterUserData();
+
+            if(_controller.IsValidUser(user))
+            {
+                _controller.CreateUser(user);
+                DisplayMessage.Text = "El usuario ha sido creado";
+            }
+            else
+            {
+                DisplayMessage.Text = "El usuario introducido es incorrecto";
+            }
+        }
+
+        private User RegisterUserData()
+        {
             User user = new User()
             {
                 id = ObjectId.GenerateNewId(),
-                userName = registerName.Text,
                 security = new Security()
                 {
-                    loginName = registerName.Text,
-                    loginPassword = registerPassword.Text,
+                    loginName = registerLoginName.Text,
+                    loginPassword = registerLoginPassword.Text,
                 },
+                userName = registerName.Text,
+                lastName = registerlastName.Text,
                 birthDate = new BirthDate() { dayDate = 1, monthDate = 2, yearDate = 3 },
                 phone = registerPhone.Text,
                 email = registerEmail.Text,
                 favouriteFilms = "//TODO"
             };
-            _controller.CreateUser(user);
+            return user;
         }
     }
 }

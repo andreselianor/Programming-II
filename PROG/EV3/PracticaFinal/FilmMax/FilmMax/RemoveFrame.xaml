@@ -11,10 +11,7 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*"></RowDefinition>
-            <RowDefinition Height="0.9*"></RowDefinition>
-            <RowDefinition Height="0.05*"></RowDefinition>
-            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition Height="1.0*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
@@ -23,19 +20,22 @@
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <!-- Panel IZQUIERDO -->
         <StackPanel Grid.Column="1"
                     Grid.Row="1">
-            <TextBlock Text="Filter the database"
-                       Padding="0 0 0 10"></TextBlock>
+            <TextBlock Text="Filter the database:"
+                       Padding="0 0 0 10"
+                       FontWeight="Bold"
+                       FontStyle="Italic"></TextBlock>
 
             <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerName"
+                <TextBox Name="registerLoginName"
                          Background="LightGray"></TextBox>
             </Border>
-            <TextBlock Text="name"
+            <TextBlock Text="login Name"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
@@ -45,10 +45,10 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerPassword"
+                <TextBox Name="registerLoginPassword"
                          Background="LightGray"></TextBox>
             </Border>
-            <TextBlock Text="password"
+            <TextBlock Text="login Password"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
@@ -58,7 +58,33 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerBirth"
+                <TextBox Name="registerUserName"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="user Name"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
+
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerLastName"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="last Name"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
+
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerBirthdate"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="birthdate"
@@ -80,6 +106,7 @@
                        Foreground="Gray"
                        Padding="0 0 0 10"
                        FontSize="7pt"></TextBlock>
+
             <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1"
                     Width="160px"
@@ -91,20 +118,38 @@
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
-                       FontSize="7pt"></TextBlock>            
+                       FontSize="7pt"></TextBlock>
+            <Button Grid.Column="1"
+                    Grid.Row="3"
+                    VerticalAlignment="Top"
+                    Width="100px"
+                    Height="50px"
+                    HorizontalAlignment="Left"
+                    Content="Find User"
+                    Click="ButtonFindUser_Click"></Button>
         </StackPanel>
+        
+        <!-- Panel DERECHO -->
         <StackPanel Grid.Column="2"
-                    Grid.Row="1">
-            <TextBlock Text="User"
-                       Padding="0 0 0 10"></TextBlock>
+                    Grid.Row="0">
+            <TextBlock Text="User data:"
+                       Padding="0 0 0 10"
+                       FontWeight="Bold"
+                       FontStyle="Italic"></TextBlock>
             <ListBox Name="Listbox"
-                     Height="205px"
+                     Height="270px"
                      Background="LightGray">
                 <ListBoxItem>
-                    <TextBlock Name="listUser"></TextBlock>
+                    <TextBlock Name="listLoginUser"></TextBlock>
                 </ListBoxItem>
                 <ListBoxItem>
-                <TextBlock Name="listPassword"></TextBlock>
+                    <TextBlock Name="listLoginPassword"></TextBlock>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock Name="listUserName"></TextBlock>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock Name="listLastName"></TextBlock>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBlock Name="listPhone"></TextBlock>
@@ -112,24 +157,22 @@
                 <ListBoxItem>
                     <TextBlock Name="listEmail"></TextBlock>
                 </ListBoxItem>
-
-            </ListBox>            
-        </StackPanel>
-        <Button Grid.Column="1"
-                Grid.Row="3"
-                VerticalAlignment="Top"
-                Width="100px"
-                Height="50px"
-                HorizontalAlignment="Left"
-                Content="Find User"
-                Click="ButtonFindUser_Click"></Button>
-        <Button Grid.Column="2"
-                Grid.Row="3"
-            Width="100px"
-                Height="50px"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-                Content="Remove User"
-                Click="ButtonRemoveUser_Click"></Button>
+            </ListBox>
+            <TextBlock></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Button Grid.Column="2"
+                        Grid.Row="3"
+                        Width="100px"
+                        Height="50px"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Content="Remove User"
+                        Click="ButtonRemoveUser_Click"></Button>
+                <TextBlock Name="DisplayMessage"
+                           Width="130px"
+                           TextWrapping="Wrap"
+                           Grid.Column="1"></TextBlock>
+            </StackPanel>            
+        </StackPanel>       
     </Grid>
 </Page>

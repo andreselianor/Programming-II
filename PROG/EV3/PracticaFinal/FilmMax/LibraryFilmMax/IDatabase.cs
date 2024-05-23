@@ -26,5 +26,6 @@ namespace LibraryFilmMax
         int GetIndexOf(User user);
         User GetUserWithLoginName(string loginName);
         User GetUserAtIndex(int index);
+        bool IsValidUser(User user);
     }
 }

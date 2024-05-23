@@ -93,5 +93,15 @@ namespace LibraryFilmMax
             }
             return -1;
         }
+        public bool IsValidUser(User user)
+        {
+            if (user.security.loginName == null)
+                return false;
+            if (user.security.loginPassword == null)
+                return false;
+            if (user.userName == null)
+                return false;
+            return true;
+        }
     }
 }

@@ -10,7 +10,6 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -20,18 +19,20 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="1"
-                    Grid.Row="1">
-            <TextBlock Text="Fill the following form:"
-                       Padding="0 0 0 10"></TextBlock>
+                    Grid.Row="0">
+            <TextBlock Text="Fill the form:"
+                       Padding="0 0 0 10"
+                       FontWeight="Bold"
+                       FontStyle="Italic"></TextBlock>
 
             <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerName"
+                <TextBox Name="registerLoginName"
                          Background="LightGray"></TextBox>
             </Border>
-            <TextBlock Text="name"
+            <TextBlock Text="login Name"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
@@ -41,10 +42,10 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerPassword"
+                <TextBox Name="registerLoginPassword"
                          Background="LightGray"></TextBox>
             </Border>
-            <TextBlock Text="password"
+            <TextBlock Text="login Password"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
@@ -57,12 +58,37 @@
                 <TextBox Name="registerBirth"
                          Background="LightGray"></TextBox>
             </Border>
-            <TextBlock Text="birthdate"
+            <TextBlock Text="user Name"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
                        FontSize="7pt"></TextBlock>
 
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerName"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="last Name"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
+
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerlastName"
+                         Background="LightGray"></TextBox>
+            </Border>
+            <TextBlock Text="birthdate"
+                       FontStyle="Italic"
+                       Foreground="Gray"
+                       Padding="0 0 0 10"
+                       FontSize="7pt"></TextBlock>
 
             <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1"
@@ -89,14 +115,18 @@
                        Foreground="Gray"
                        Padding="0 0 0 10"
                        FontSize="7pt"></TextBlock>
-
             <Button Width="100px"
                     Height="50px"
-                    Margin="0 10 0 0 "
                     HorizontalAlignment="Left"
                     Content="Create User"
                     Click="ButtonCreateUser_Click"></Button>
         </StackPanel>
-
+        <StackPanel Grid.Column="2">
+            <TextBlock Height="310px"></TextBlock>
+            <TextBlock Name="DisplayMessage"
+                       Width="225px"
+                       HorizontalAlignment="Left"
+                       Grid.Column="2"></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

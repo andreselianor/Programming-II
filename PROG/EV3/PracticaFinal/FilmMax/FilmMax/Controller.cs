@@ -18,6 +18,7 @@ namespace FilmMax
 
         public User GetUserWithLoginName(string loginName) => _database.GetUserWithLoginName(loginName);
         public User GetUserAtIndex(int index) => _database.GetUserAtIndex(index);
-        public int GetIndexOf(User user) => _database.GetIndexOf(user);        
+        public int GetIndexOf(User user) => _database.GetIndexOf(user);
+        public bool IsValidUser(User user) => _database.IsValidUser(user);
     }
 }

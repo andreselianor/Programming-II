@@ -19,7 +19,8 @@ namespace FilmMax
     public partial class RemoveFrame : Page
     {
         ICore _controller;
-        User _userSelected;
+        User _userContext;
+
         public RemoveFrame(ICore controller)
         {
             InitializeComponent();
@@ -28,20 +29,45 @@ namespace FilmMax
 
         private void ButtonFindUser_Click(object sender, RoutedEventArgs e)
         {
-            string userName = registerName.Text;
-            _userSelected = _controller.GetUserWithLoginName(userName);
+            string loginName = registerLoginName.Text;
+            _userContext = _controller.GetUserWithLoginName(loginName);
 
+            if (_userContext == null)
             {
-                listUser.Text = _userSelected.security.loginName;
-                listPassword.Text = _userSelected.security.loginPassword;
-                listPhone.Text = _userSelected.phone;
-                listEmail.Text = _userSelected.email;
-            }            
+                DisplayMessage.Text = "El usuario no existe";
+            }
+            else
+            {
+                DisplayDataTextBlock();
+            }
         }
 
         private void ButtonRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            _controller.DeleteUserWithLoginName(_userSelected.security.loginName);
+            _controller.DeleteUserWithLoginName(_userContext.security.loginName);
+
+            string alert = "El usuario ha sido eliminado";
+            DisplayMessage.Text = alert;
+            DisplayEmptyTextBlock();
+        }
+
+        private void DisplayDataTextBlock()
+        {
+            listLoginUser.Text = _userContext.security.loginName;
+            listLoginPassword.Text = "*****";
+            listUserName.Text = _userContext.userName;
+            listLastName.Text = _userContext.lastName;
+            listPhone.Text = _userContext.phone;
+            listEmail.Text = _userContext.email;
+        }
+        private void DisplayEmptyTextBlock()
+        {
+            listLoginUser.Text = string.Empty;
+            listLoginPassword.Text = string.Empty;
+            listUserName.Text = string.Empty;
+            listLastName.Text = string.Empty;
+            listPhone.Text = string.Empty;
+            listEmail.Text = string.Empty;
         }
     }
 }
