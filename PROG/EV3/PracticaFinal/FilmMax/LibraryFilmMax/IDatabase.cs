@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace LibraryFilmMax
 {
@@ -9,23 +10,23 @@ namespace LibraryFilmMax
         IMongoCollection<User> UsersCollection { get; }
 
 
-        long CreateUser(User user);
-        void ReadUser(User user);
+        ObjectId CreateUser(User user);
+        User ReadUser(User user);
         void UpdateUser(User user, string field, string value);
         void DeleteUser(User user);
 
 
-        int CreateMovie();
-        void ReadMovie();
-        void UpdateMovie();
-        void DeleteMovie();
+        ObjectId CreateMovie(Movie movie);
+        void ReadMovie(Movie movie);
+        void UpdateMovie(Movie movie, string field, string value);
+        void DeleteMovie(Movie movie);
 
 
         
         List<User> GetAllUsers();
         int GetIndexOf(User user);
-        User GetUserWithLoginName(string loginName);
-        User GetUserAtIndex(int index);
+        User? GetUserWithLoginName(string loginName);
+        User? GetUserAtIndex(int index);
         bool IsValidUser(User user);
     }
 }

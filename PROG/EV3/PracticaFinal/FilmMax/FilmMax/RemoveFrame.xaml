@@ -169,9 +169,10 @@
                         Content="Remove User"
                         Click="ButtonRemoveUser_Click"></Button>
                 <TextBlock Name="DisplayMessage"
-                           Width="130px"
+                           Width="115px"
                            TextWrapping="Wrap"
-                           Grid.Column="1"></TextBlock>
+                           Grid.Column="1"
+                           Margin="10 0 0 0"></TextBlock>
             </StackPanel>            
         </StackPanel>       
     </Grid>

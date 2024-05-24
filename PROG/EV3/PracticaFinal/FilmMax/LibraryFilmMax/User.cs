@@ -1,8 +1,10 @@
-﻿namespace LibraryFilmMax
+﻿using MongoDB.Bson;
+
+namespace LibraryFilmMax
 {    
     public class User
     {
-        public object id { get; set; }
+        public ObjectId id { get; set; }
         public Security security { get; set; }
         public string userName { get; set; }
         public string lastName { get; set; }

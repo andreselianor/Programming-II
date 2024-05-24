@@ -2,6 +2,7 @@
 using System.Xml.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using SharpCompress.Common;
 
 namespace LibraryFilmMax
 {
@@ -9,11 +10,12 @@ namespace LibraryFilmMax
     {
         private IMongoDatabase _database;
         private IMongoCollection<User> _usuariosCollection;
-        private List<User> _usersList = new List<User>();
+        private List<User> _usersList;
 
         public IMongoDatabase DatabaseMongo => _database;
         public IMongoCollection<User> UsersCollection => _usuariosCollection;
         public List<User> UsersLists => _usersList;
+
 
         public void ConnectMongoDB()
         {
@@ -21,6 +23,8 @@ namespace LibraryFilmMax
             _database = client.GetDatabase("DatabaseFilmMax");
             _usuariosCollection = _database.GetCollection<User>("UsersData");
         }
+
+
         public List<User> GetAllUsers()
         {
             return _usuariosCollection.Find(usuario => true).ToList();
@@ -28,67 +32,63 @@ namespace LibraryFilmMax
 
 
         // CRUD de USUARIOS
-        public long CreateUser(User user)
+        public ObjectId CreateUser(User user)
         {
-            _usuariosCollection.InsertOne(user);
-            return 1; //TODO OBJ INDEX
+            if (IsValidUser(user))
+            {
+                _usuariosCollection.InsertOne(user);
+                return GetUserID(user);
+            }
+            else
+            {
+                ObjectId insertError = new ObjectId("-1");
+                return insertError;
+            }            
         }
-        public void ReadUser(User user)
+        public User? ReadUser(User user)
         {
-            _usuariosCollection.Find(usuario => usuario.security.loginName == user.security.loginName);
+            _usersList = GetAllUsers();
+            for (int i = 0; i < _usersList.Count; i++)
+            {
+                if (_usersList[i] == user)
+                    return _usersList[i];
+            }
+            return null;
+
         }
         public void UpdateUser(User user, string field, string value)
         {
-            /*
-            User updateUser = GetUserWithLoginName(user.security.loginName);
-            switch(field)
-            {
-                case "userName":
-                    updateUser.userName = value;
-                    break;
-                case "lastName":
-                    updateUser.lastName = value;
-                    break;
-                case "phone":
-                    updateUser.phone = value;
-                    break;
-                case "email":
-                    updateUser.email = value;
-                    break;
-                default:
-                    break;
-            }            
-            */
-            var update = Builders<User>.Update.Set(field, value);
+            UpdateDefinition<User> update = Builders<User>.Update.Set(field, value);
             _usuariosCollection.UpdateOne(usuario => usuario.security.loginName == user.security.loginName, update);
         }
         public void DeleteUser(User user)
         {
-            _usuariosCollection.DeleteOne(usuario => usuario.security.loginName == user.security.loginName);
+            //_usuariosCollection.DeleteOne(usuario => usuario.security.loginName == user.security.loginName);
+            _usuariosCollection.DeleteOne(usuario => usuario.Equals(user));
         }
 
 
         // CRUD de MOVIES
-        public int CreateMovie()
+        public ObjectId CreateMovie(Movie movie)
         {
             throw new NotImplementedException();
         }
-        public void ReadMovie()
+        public void ReadMovie(Movie movie)
         {
             throw new NotImplementedException();
         }
-        public void UpdateMovie()
+        public void UpdateMovie(Movie movie, string field, string value)
         {
             throw new NotImplementedException();
         }
-        public void DeleteMovie()
+        public void DeleteMovie(Movie movie)
         {
             throw new NotImplementedException();
         }
 
 
         // FUNCIONES GESTION USERS
-        public User GetUserWithLoginName(string loginName)
+        public User? GetUserWithLoginName(string loginName)
         {
             List<User> usersList = GetAllUsers();
             for (int i = 0; i < usersList.Count; i++)
@@ -98,11 +98,13 @@ namespace LibraryFilmMax
             }
             return null;
         }
-        public User GetUserAtIndex(int index)
+        public User? GetUserAtIndex(int index)
         {
-            if (index < 0)
-                return null;        // TODO index valido
             List<User> usersList = GetAllUsers();
+            int totalUsers = usersList.Count;
+            if (index < 0 || index > totalUsers)
+                return null;
+
             return usersList[index];
         }
         public int GetIndexOf(User user)
@@ -110,10 +112,18 @@ namespace LibraryFilmMax
             List<User> usersList = GetAllUsers();
             for (int i = 0; i < usersList.Count; i++)
             {
-                if (usersList[i].security.loginName == user.security.loginName)      //TODO user.Equals
+                //if (usersList[i].security.loginName == user.security.loginName)      //TODO implementar Equals
+                if (usersList[i].Equals(user))
                     return i;
             }
             return -1;
+        }
+        private ObjectId GetUserID(User user)
+        {
+            User? userResult = GetUserWithLoginName(user.security.loginName);
+            if (userResult == null)
+                return ObjectId.Empty;  // valor -1 o valor null?
+            return userResult.id;
         }
         public bool IsValidUser(User user)
         {
@@ -123,6 +133,7 @@ namespace LibraryFilmMax
                 return false;
             if (user.userName == null)
                 return false;
+            // TODO restos de usuarios validos
             return true;
         }
     }
