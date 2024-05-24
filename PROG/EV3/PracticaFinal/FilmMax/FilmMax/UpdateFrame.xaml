@@ -31,7 +31,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerLoginName"
+                <TextBox Name="LoginName"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="login Name"
@@ -44,7 +44,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerPassword"
+                <TextBox Name="LoginPassword"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="login Password"
@@ -57,7 +57,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerBirth"
+                <TextBox Name="UserName"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="user Name"
@@ -70,7 +70,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerName"
+                <TextBox Name="LastName"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="last Name"
@@ -83,7 +83,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerlastName"
+                <TextBox Name="Birth"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="birthdate"
@@ -96,10 +96,9 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerPhone"
+                <TextBox Name="Phone"
                          Background="LightGray"></TextBox>
             </Border>
-            
             <TextBlock Text="phone number"
                        FontStyle="Italic"
                        Foreground="Gray"
@@ -110,15 +109,15 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerEmail"
+                <TextBox Name="Email"
                          Background="LightGray"></TextBox>
             </Border>
-            
             <TextBlock Text="email"
                        FontStyle="Italic"
                        Foreground="Gray"
                        Padding="0 0 0 10"
                        FontSize="7pt"></TextBlock>
+            
             <Button Grid.Column="1"
                     Grid.Row="1"
                     VerticalAlignment="Top"
@@ -140,10 +139,16 @@
                      Height="270px"
                      Background="LightGray">
                 <ListBoxItem>
-                    <TextBlock Name="listUser"></TextBlock>
+                    <TextBlock Name="listLoginUser"></TextBlock>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <TextBlock Name="listPassword"></TextBlock>
+                    <TextBlock Name="listLoginPassword"></TextBlock>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock Name="listUserName"></TextBlock>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock Name="listLastName"></TextBlock>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBlock Name="listPhone"></TextBlock>

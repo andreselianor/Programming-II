@@ -19,7 +19,8 @@ namespace FilmMax
     public partial class UpdateFrame : Page
     {
         ICore _controller;
-        User _userSelected;
+        User _userContext;
+
         public UpdateFrame(ICore controller)
         {
             InitializeComponent();
@@ -27,28 +28,30 @@ namespace FilmMax
         }
         private void ButtonFindUser_Click(object sender, RoutedEventArgs e)
         {
-            string userName = registerName.Text;
-            _userSelected = _controller.GetUserWithLoginName(userName);
-
-            {
-                listUser.Text = _userSelected.security.loginName;
-                listPassword.Text = _userSelected.security.loginPassword;
-                listPhone.Text = _userSelected.phone;
-                listEmail.Text = _userSelected.email;
-            }
+            string loginName = LoginName.Text;
+            _userContext = _controller.Database.GetUserWithLoginName(loginName);
+            GetUserData();            
         }
-
         private void ButtonUpdateUser_Click(object sender, RoutedEventArgs e)
         {
-            string userName = registerName.Text;
-            _userSelected = _controller.GetUserWithLoginName(userName);
+            UpdateUserData();            
+        }
 
-            {
-                _userSelected.security.loginName = listUser.Text;
-                _userSelected.security.loginPassword = listPassword.Text;
-                _userSelected.phone = listPhone.Text;
-                _userSelected.email = listEmail.Text;
-            }
+        private void GetUserData()
+        {
+            listLoginUser.Text = _userContext.security.loginName;
+            listLoginPassword.Text = "*****";
+            listUserName.Text = _userContext.userName;
+            listLastName.Text = _userContext.lastName;
+            listPhone.Text = _userContext.phone;
+            listEmail.Text = _userContext.email;
+        }
+        private void UpdateUserData()
+        {
+            _controller.Database.UpdateUser(_userContext, "userName", UserName.Text);
+            _controller.Database.UpdateUser(_userContext, "lastName", LastName.Text);
+            _controller.Database.UpdateUser(_userContext, "phone", Phone.Text);
+            _controller.Database.UpdateUser(_userContext, "email", Email.Text);
         }
     }
 }

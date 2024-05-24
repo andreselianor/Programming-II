@@ -10,9 +10,9 @@ namespace LibraryFilmMax
 
 
         long CreateUser(User user);
-        void ReadUser();
-        void UpdateUser();
-        void DeleteUser(string loginName);
+        void ReadUser(User user);
+        void UpdateUser(User user, string field, string value);
+        void DeleteUser(User user);
 
 
         int CreateMovie();

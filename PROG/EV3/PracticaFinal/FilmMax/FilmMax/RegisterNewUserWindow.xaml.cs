@@ -43,7 +43,7 @@ namespace FilmMax
                 email = registerEmail.Text,
                 favouriteFilms = "TODO"
             };
-            _controller.CreateUser(user);
+            _controller.Database.CreateUser(user);
         }
 
 

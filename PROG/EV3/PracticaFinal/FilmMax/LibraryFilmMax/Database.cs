@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Xml.Linq;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace LibraryFilmMax
@@ -32,17 +33,38 @@ namespace LibraryFilmMax
             _usuariosCollection.InsertOne(user);
             return 1; //TODO OBJ INDEX
         }
-        public void ReadUser()
+        public void ReadUser(User user)
         {
-            throw new NotImplementedException();
+            _usuariosCollection.Find(usuario => usuario.security.loginName == user.security.loginName);
         }
-        public void UpdateUser()
+        public void UpdateUser(User user, string field, string value)
         {
-            throw new NotImplementedException();
+            /*
+            User updateUser = GetUserWithLoginName(user.security.loginName);
+            switch(field)
+            {
+                case "userName":
+                    updateUser.userName = value;
+                    break;
+                case "lastName":
+                    updateUser.lastName = value;
+                    break;
+                case "phone":
+                    updateUser.phone = value;
+                    break;
+                case "email":
+                    updateUser.email = value;
+                    break;
+                default:
+                    break;
+            }            
+            */
+            var update = Builders<User>.Update.Set(field, value);
+            _usuariosCollection.UpdateOne(usuario => usuario.security.loginName == user.security.loginName, update);
         }
-        public void DeleteUser(string loginName)
+        public void DeleteUser(User user)
         {
-            _usuariosCollection.DeleteOne(usuario => usuario.security.loginName == loginName);
+            _usuariosCollection.DeleteOne(usuario => usuario.security.loginName == user.security.loginName);
         }
 
 

@@ -30,7 +30,7 @@ namespace FilmMax
         private void ButtonFindUser_Click(object sender, RoutedEventArgs e)
         {
             string loginName = registerLoginName.Text;
-            _userContext = _controller.GetUserWithLoginName(loginName);
+            _userContext = _controller.Database.GetUserWithLoginName(loginName);
 
             if (_userContext == null)
             {
@@ -44,7 +44,7 @@ namespace FilmMax
 
         private void ButtonRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            _controller.DeleteUserWithLoginName(_userContext.security.loginName);
+            _controller.Database.DeleteUser(_userContext);
 
             string alert = "El usuario ha sido eliminado";
             DisplayMessage.Text = alert;

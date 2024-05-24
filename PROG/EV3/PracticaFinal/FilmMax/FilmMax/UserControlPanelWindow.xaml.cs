@@ -21,7 +21,7 @@ namespace FilmMax
         public UserControlPanelWindow(ICore controller, int index)
         {
             InitializeComponent();
-            _user = controller.GetUserAtIndex(index);
+            _user = controller.Database.GetUserAtIndex(index);
             DataContext = _user;
         }
 

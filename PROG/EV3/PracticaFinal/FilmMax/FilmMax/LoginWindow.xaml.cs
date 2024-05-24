@@ -16,7 +16,7 @@ namespace FilmMax
 
         public bool LoginUser(string user, string password)
         {
-            List<User> usersList = _controller.GetAllUsers();
+            List<User> usersList = _controller.Database.GetAllUsers();
             for (int i = 0; i < usersList.Count; i++)
             {
                 if (user == usersList[i].security.loginName &&
@@ -54,7 +54,7 @@ namespace FilmMax
         // Visualizador de ventanas según el user
         private void OpenUserWindow(string loginName)
         {
-            User user = _controller.GetUserWithLoginName(loginName);
+            User user = _controller.Database.GetUserWithLoginName(loginName);
             if(user.security.loginName == "admin")
             {
                 AdminControlPanelWindow controlPanel = new AdminControlPanelWindow(_controller);
@@ -62,7 +62,7 @@ namespace FilmMax
             }
             else
             {
-                int userIndex = _controller.GetIndexOf(user);
+                int userIndex = _controller.Database.GetIndexOf(user);
                 UserControlPanelWindow controlPanel = new UserControlPanelWindow(_controller, userIndex);
                 controlPanel.ShowDialog();
             }            

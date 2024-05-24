@@ -12,7 +12,7 @@ namespace FilmMax
         {
             InitializeComponent();
             _controller = controller;
-            DataContext = controller.GetUserWithLoginName("admin");
+            DataContext = _controller.Database.GetUserWithLoginName("admin");
         }
 
         // Botones de usuario

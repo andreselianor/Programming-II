@@ -30,9 +30,9 @@ namespace FilmMax
         {
             User user = RegisterUserData();
 
-            if(_controller.IsValidUser(user))
+            if(_controller.Database.IsValidUser(user))
             {
-                _controller.CreateUser(user);
+                _controller.Database.CreateUser(user);
                 DisplayMessage.Text = "El usuario ha sido creado";
             }
             else
@@ -52,7 +52,7 @@ namespace FilmMax
                     loginPassword = registerLoginPassword.Text,
                 },
                 userName = registerName.Text,
-                lastName = registerlastName.Text,
+                lastName = registerLastName.Text,
                 birthDate = new BirthDate() { dayDate = 1, monthDate = 2, yearDate = 3 },
                 phone = registerPhone.Text,
                 email = registerEmail.Text,

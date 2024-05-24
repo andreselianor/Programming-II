@@ -20,7 +20,7 @@ namespace FilmMax
     public partial class ReadFrame : Page
     {
         ICore _controller;
-        User _userSelected;
+        User _userContext;
 
         public ReadFrame(ICore controller)
         {
@@ -31,20 +31,20 @@ namespace FilmMax
         private void ButtonFindUser_Click(object sender, RoutedEventArgs e)
         {
             string loginName = registerLoginName.Text;
-            _userSelected = _controller.GetUserWithLoginName(loginName);
+            _userContext = _controller.Database.GetUserWithLoginName(loginName);
 
-            if(_userSelected == null ) 
+            if(_userContext == null ) 
             {
                 DisplayMessage.Text = "El usuario no existe";
             }
             else
             {
-                listLoginUser.Text = _userSelected.security.loginName;
+                listLoginUser.Text = _userContext.security.loginName;
                 listLoginPassword.Text = "*****";
-                listUserName.Text = _userSelected.userName;
-                listLastName.Text = _userSelected.lastName;
-                listPhone.Text = _userSelected.phone;
-                listEmail.Text = _userSelected.email;
+                listUserName.Text = _userContext.userName;
+                listLastName.Text = _userContext.lastName;
+                listPhone.Text = _userContext.phone;
+                listEmail.Text = _userContext.email;
             }
         }
     }

@@ -46,7 +46,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerPassword"
+                <TextBox Name="registerLoginPassword"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="login Password"
@@ -59,7 +59,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerBirth"
+                <TextBox Name="registerName"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="user Name"
@@ -72,7 +72,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerName"
+                <TextBox Name="registerLastName"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="last Name"
@@ -85,7 +85,7 @@
                     BorderThickness="0 0 0 1"
                     Width="160px"
                     HorizontalAlignment="Left">
-                <TextBox Name="registerlastName"
+                <TextBox Name="registerBirth"
                          Background="LightGray"></TextBox>
             </Border>
             <TextBlock Text="birthdate"
@@ -93,7 +93,6 @@
                        Foreground="Gray"
                        Padding="0 0 0 10"
                        FontSize="7pt"></TextBlock>
-
 
             <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1"

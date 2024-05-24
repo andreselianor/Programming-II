@@ -19,6 +19,7 @@
     <None Remove="RSC\moviesPictures\film6.png" />
     <None Remove="RSC\moviesPictures\film7.png" />
     <None Remove="RSC\moviesPictures\film8.png" />
+    <None Remove="RSC\moviesPictures\film9.jpg" />
   </ItemGroup>  
 
   <ItemGroup>
@@ -45,6 +46,7 @@
     <Resource Include="RSC\moviesPictures\film6.png" />
     <Resource Include="RSC\moviesPictures\film7.png" />
     <Resource Include="RSC\moviesPictures\film8.png" />
+    <Resource Include="RSC\moviesPictures\film9.jpg" />
     <Resource Include="RSC\peliculaElPadrino.png" />
     <Resource Include="RSC\splashScreenImage.png" />
   </ItemGroup>
