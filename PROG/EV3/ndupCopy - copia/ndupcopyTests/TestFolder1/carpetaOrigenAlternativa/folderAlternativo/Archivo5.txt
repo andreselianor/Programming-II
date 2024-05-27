@@ -1,0 +1,4 @@
+Otro archivo de texto con
+varias
+lineas
+distintas.
