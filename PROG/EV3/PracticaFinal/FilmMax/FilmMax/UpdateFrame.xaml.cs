@@ -48,10 +48,10 @@ namespace FilmMax
         }
         private void UpdateUserData()
         {
-            _controller.Database.UpdateUser(_userContext, "userName", UserName.Text);
-            _controller.Database.UpdateUser(_userContext, "lastName", LastName.Text);
-            _controller.Database.UpdateUser(_userContext, "phone", Phone.Text);
-            _controller.Database.UpdateUser(_userContext, "email", Email.Text);
+            _controller.Database.UpdateUser(_userContext.id, "userName", UserName.Text);
+            _controller.Database.UpdateUser(_userContext.id, "lastName", LastName.Text);
+            _controller.Database.UpdateUser(_userContext.id, "phone", Phone.Text);
+            _controller.Database.UpdateUser(_userContext.id, "email", Email.Text);
         }
     }
 }

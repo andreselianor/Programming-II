@@ -28,14 +28,17 @@
                        Padding="0 0 0 10"
                        FontWeight="Bold"
                        FontStyle="Italic"></TextBlock>
-
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1"
-                    Width="160px"
-                    HorizontalAlignment="Left">
-                <TextBox Name="registerLoginName"
-                         Background="LightGray"></TextBox>
-            </Border>
+            <StackPanel Orientation="Horizontal">
+                <Border BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Width="160px"
+                        HorizontalAlignment="Left">
+                    <TextBox Name="registerLoginName"
+                             Background="LightGray"></TextBox>
+                </Border>
+                <CheckBox Name="checkRegisterLoginName" Margin="10 0 0 0"></CheckBox>
+            </StackPanel>
+            
             <TextBlock Text="login Name"
                        FontStyle="Italic"
                        Foreground="Gray"

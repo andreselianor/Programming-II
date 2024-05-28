@@ -62,7 +62,7 @@ namespace FilmMax
             }
             else
             {
-                int userIndex = _controller.Database.GetIndexOf(user);
+                int userIndex = 2;
                 UserControlPanelWindow controlPanel = new UserControlPanelWindow(_controller, userIndex);
                 controlPanel.ShowDialog();
             }            

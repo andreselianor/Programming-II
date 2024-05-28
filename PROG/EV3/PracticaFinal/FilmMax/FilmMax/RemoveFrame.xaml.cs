@@ -44,7 +44,7 @@ namespace FilmMax
 
         private void ButtonRemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            _controller.Database.DeleteUser(_userContext);
+            _controller.Database.DeleteUser(_userContext.id);
 
             string alert = "El usuario ha sido eliminado";
             DisplayMessage.Text = alert;

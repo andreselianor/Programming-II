@@ -16,7 +16,7 @@ using FilmMax;
 using LibraryFilmMax;
 
 namespace FilmMax
-{    
+{
     public partial class ReadFrame : Page
     {
         ICore _controller;
@@ -31,9 +31,10 @@ namespace FilmMax
         private void ButtonFindUser_Click(object sender, RoutedEventArgs e)
         {
             string loginName = registerLoginName.Text;
-            _userContext = _controller.Database.GetUserWithLoginName(loginName);
+            if (checkRegisterLoginName.IsChecked == true)
+                _userContext = _controller.Database.GetUserWithLoginName(loginName);
 
-            if(_userContext == null ) 
+            if (_userContext == null)
             {
                 DisplayMessage.Text = "El usuario no existe";
             }
