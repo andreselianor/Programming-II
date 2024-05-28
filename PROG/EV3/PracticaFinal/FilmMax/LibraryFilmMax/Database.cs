@@ -9,7 +9,7 @@ namespace LibraryFilmMax
     public class Database : IDatabase
     {
         private IMongoDatabase _database;
-        private IMongoCollection<User> _usuariosCollection;
+        public IMongoCollection<User> _usuariosCollection;
         private List<User> _usersList;
 
         public IMongoDatabase DatabaseMongo => _database;

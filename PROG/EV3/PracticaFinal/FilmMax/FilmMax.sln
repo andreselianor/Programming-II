@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmMax", "FilmMax\FilmMax.csproj", "{05777E43-4B6B-4186-A9C3-A0BC9AC92EB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmMax", "FilmMax\FilmMax.csproj", "{05777E43-4B6B-4186-A9C3-A0BC9AC92EB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryFilmMax", "LibraryFilmMax\LibraryFilmMax.csproj", "{47CDD956-B176-4E59-A982-14918D864A1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryFilmMax", "LibraryFilmMax\LibraryFilmMax.csproj", "{47CDD956-B176-4E59-A982-14918D864A1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsControl", "TestsControl\TestsControl.csproj", "{14173447-A7FB-4126-9739-30B19A92959A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{47CDD956-B176-4E59-A982-14918D864A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47CDD956-B176-4E59-A982-14918D864A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47CDD956-B176-4E59-A982-14918D864A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14173447-A7FB-4126-9739-30B19A92959A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14173447-A7FB-4126-9739-30B19A92959A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14173447-A7FB-4126-9739-30B19A92959A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14173447-A7FB-4126-9739-30B19A92959A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
