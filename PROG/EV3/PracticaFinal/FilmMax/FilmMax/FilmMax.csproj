@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="RSC\iconos\userPortrait.png" />
     <None Remove="RSC\iconos\userSettingsAdmin.png" />
     <None Remove="RSC\logoutQuiz\logoutImage1.png" />
     <None Remove="RSC\moviesPictures\film1.png" />
@@ -36,6 +37,7 @@
     <Resource Include="RSC\iconos\imagen.png" />
     <Resource Include="RSC\iconos\logoutPng.png" />
     <Resource Include="RSC\iconos\userPng.png" />
+    <Resource Include="RSC\iconos\userPortrait.png" />
     <Resource Include="RSC\iconos\userSettingsAdmin.png" />
     <Resource Include="RSC\logoutQuiz\logoutImage1.png" />
     <Resource Include="RSC\moviesPictures\film1.png" />

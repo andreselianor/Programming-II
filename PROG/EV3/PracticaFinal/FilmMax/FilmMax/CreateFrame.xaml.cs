@@ -19,7 +19,7 @@ namespace FilmMax
 {
     public partial class CreateFrame : Page
     {
-        ICore _controller;
+        private ICore _controller;
         public CreateFrame(ICore controller)
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace FilmMax
 
         private void ButtonCreateUser_Click(object sender, RoutedEventArgs e)
         {
-            User user = RegisterUserData();
+            User user = RegisterNewUser();
 
             if(_controller.Database.IsValidUser(user))
             {
@@ -41,11 +41,11 @@ namespace FilmMax
             }
         }
 
-        private User RegisterUserData()
+        private User RegisterNewUser()
         {
             User user = new User()
             {
-                id = ObjectId.GenerateNewId(),
+                id = ObjectId.Empty,
                 security = new Security()
                 {
                     loginName = registerLoginName.Text,
@@ -53,10 +53,13 @@ namespace FilmMax
                 },
                 userName = registerName.Text,
                 lastName = registerLastName.Text,
-                birthDate = new BirthDate() { dayDate = 1, monthDate = 2, yearDate = 3 },
+                birthDate = new BirthDate() { 
+                    dayDate = Int16.Parse(registerDayBirth.Text), 
+                    monthDate = Int32.Parse(registerMonthBirth.Text), 
+                    yearDate = Int32.Parse(registerYearBirth.Text) 
+                },
                 phone = registerPhone.Text,
-                email = registerEmail.Text,
-                favouriteFilms = "//TODO"
+                email = registerEmail.Text
             };
             return user;
         }

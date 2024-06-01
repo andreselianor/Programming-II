@@ -20,9 +20,13 @@
 
         <StackPanel Grid.Column="1"
                     Grid.Row="0">
-            <TextBlock Text="Fill the form:"
-                       Padding="0 0 0 10"
+            <TextBlock Text="Fill the form:"                       
                        FontWeight="Bold"
+                       FontStyle="Italic"></TextBlock>
+            <TextBlock Text="All fields are required"
+                       FontSize="7pt"
+                       Padding="0 0 0 10"
+                       Foreground="Gray"
                        FontStyle="Italic"></TextBlock>
 
             <Border BorderBrush="Black"
@@ -77,18 +81,87 @@
                        Padding="0 0 0 10"
                        FontSize="7pt"></TextBlock>
 
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1"
-                    Width="160px"
-                    HorizontalAlignment="Left">
-                <TextBox Name="registerBirth"
-                         Background="LightGray"></TextBox>
-            </Border>
-            <TextBlock Text="birthdate"
-                       FontStyle="Italic"
-                       Foreground="Gray"
-                       Padding="0 0 0 10"
-                       FontSize="7pt"></TextBlock>
+            <StackPanel Orientation="Horizontal"
+                        Width="160px"
+                        HorizontalAlignment="Left">
+                <Label Width="60px"
+                        HorizontalAlignment="Left">
+                </Label>
+                <Border BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Width="20px"
+                        HorizontalAlignment="Right"
+                        Margin="0 0 10 0">
+                    <TextBox Name="registerDayBirth"
+                             Height="17"
+                             Background="LightGray"
+                             Foreground="Gray"
+                             FontSize="7pt"
+                             Text="01"
+                             Width="20px"
+                             VerticalAlignment="Bottom"
+                             HorizontalAlignment="Center"></TextBox>
+                </Border>
+                <Border BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Width="20px"
+                        HorizontalAlignment="Right"
+                        Margin="0 0 10 0">
+                    <TextBox Name="registerMonthBirth"
+                             Height="17"
+                             Background="LightGray"
+                             Foreground="Gray"
+                             FontSize="7pt"
+                             Text="01"
+                             Width="20px"
+                             VerticalAlignment="Bottom"
+                             HorizontalAlignment="Center"></TextBox>
+                </Border>
+                <Border BorderBrush="Black"
+                        BorderThickness="0 0 0 1"
+                        Width="40px"
+                        HorizontalAlignment="Right"
+                        Margin="0 0 10 0"
+                        >
+                    <TextBox Name="registerYearBirth"
+                             Height="17"
+                             Width="40px"
+                             Background="LightGray"
+                             Foreground="Gray"
+                             FontSize="7pt"
+                             Text="1900"
+                             VerticalAlignment="Bottom"
+                             HorizontalAlignment="Center">
+                    </TextBox>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="birthdate"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           Padding="0 0 10 10"
+                           FontSize="7pt"></TextBlock>
+                <TextBlock Text="day"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           Padding="0 0 0 10"
+                           FontSize="7pt"
+                           Margin="15 0 0 0"></TextBlock>
+                <TextBlock Text="month"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           Padding="0 0 0 10"
+                           FontSize="7pt"
+                           Margin="10 0 0 0"></TextBlock>
+                <TextBlock Text="year"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           Padding="0 0 0 10"
+                           FontSize="7pt"
+                           Margin="10 0 0 0"></TextBlock>
+            </StackPanel>
+            
 
             <Border BorderBrush="Black"
                     BorderThickness="0 0 0 1"
@@ -121,11 +194,13 @@
                     Content="Create User"
                     Click="ButtonCreateUser_Click"></Button>
         </StackPanel>
-        <StackPanel Grid.Column="2">
+        <StackPanel Grid.Column="2"
+                    Margin="0 40 0 0">
             <TextBlock Height="310px"></TextBlock>
-            <TextBlock Name="DisplayMessage"
-                       Width="225px"
-                       HorizontalAlignment="Left"
+            <TextBlock Name="DisplayMessage"                       
+                       Width="150px"
+                       Height="50"
+                       TextWrapping="Wrap"
                        Grid.Column="2"></TextBlock>
         </StackPanel>
     </Grid>

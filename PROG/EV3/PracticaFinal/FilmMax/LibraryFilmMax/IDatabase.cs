@@ -18,10 +18,7 @@ namespace LibraryFilmMax
         bool IsValidUser(User user);
 
         List<User> GetAllUsers();
-        User GetUserWithID(ObjectId id);
         User? GetUserWithLoginName(string loginName);
         User? GetUserWithUserName(string userName);
-        User? GetUserWithPhone(string phone);
-        User? GetUserWithEmail(string email);
     }
 }

@@ -2,8 +2,14 @@
 
 namespace LibraryFilmMax
 {    
+
+	
+	//[BsonIgnoreExtraElements]
+	
     public class User
     {
+		// [BsonId]
+		// [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId id { get; set; }
         public Security security { get; set; }
         public string userName { get; set; }
@@ -20,6 +26,8 @@ namespace LibraryFilmMax
     }
     public class BirthDate
     {
+		// [BsonElement("nombredelabasededatos")]
+		// La anotacion vincula el atributo C# con el atributo de la DB
         public int dayDate { get; set; }
         public int monthDate { get; set; }
         public int yearDate { get; set; }

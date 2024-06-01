@@ -44,5 +44,13 @@ namespace FilmMax
         {
             ViewUI.Content = new RemoveFrame(_controller);
         }
+        private void userLabel_MouseEnter(object sender, MouseEventArgs e)
+        {
+            userLabel.Visibility = Visibility.Visible;
+        }
+        private void userLabel_MouseLeave(object sender, MouseEventArgs e)
+        {
+            userLabel.Visibility = Visibility.Hidden;
+        }
     }
 }
