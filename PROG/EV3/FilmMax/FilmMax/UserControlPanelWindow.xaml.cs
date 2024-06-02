@@ -25,7 +25,7 @@ namespace FilmMax
         {
             InitializeComponent();
             _controller = controller;
-            _user = _controller.Database.GetUser(id);
+            _user = _controller.Database.GetUserWithId(id);
             DataContext = _user;
         }
 

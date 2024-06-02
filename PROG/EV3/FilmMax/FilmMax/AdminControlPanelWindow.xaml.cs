@@ -20,7 +20,7 @@ namespace FilmMax
         private User GetAdminUser()
         {
             ObjectId id = _controller.Database.GetUserWithLoginName("admin");
-            return _controller.Database.GetUser(id);
+            return _controller.Database.GetUserWithId(id);
         }
 
         // Botones de usuario
@@ -88,7 +88,8 @@ namespace FilmMax
 
             if (result == MessageBoxResult.Yes)
             {
-                Application.Current.Shutdown();
+                LogoutWindow window = new LogoutWindow();
+                window.ShowDialog();
             }
         }
 

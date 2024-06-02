@@ -16,7 +16,7 @@ namespace FilmMax
 
         public bool LoginUser(string user, string password)
         {
-            List<User> usersList = _controller.Database.GetAllUsers();
+            List<User> usersList = _controller.Database.FilterAllUsers();
             for (int i = 0; i < usersList.Count; i++)
             {
                 if (user == usersList[i].security.loginName &&
@@ -55,7 +55,7 @@ namespace FilmMax
         private void OpenUserWindow(string loginName)
         {
             ObjectId id = _controller.Database.GetUserWithLoginName(loginName);
-            User user = _controller.Database.GetUser(id);
+            User user = _controller.Database.GetUserWithId(id);
 
             if(user.security.loginName == "admin")
             {

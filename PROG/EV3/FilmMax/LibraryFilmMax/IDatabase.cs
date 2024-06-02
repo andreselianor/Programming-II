@@ -11,14 +11,17 @@ namespace LibraryFilmMax
 
 
         ObjectId CreateUser(User user);
-        User GetUser(ObjectId id);
         void UpdateUser(ObjectId id, string field, string value);
         void DeleteUser(ObjectId id);
 
 
-        List<User> GetAllUsers();
         ObjectId GetUserWithLoginName(string loginName);
         ObjectId GetUserWithUserName(string userName);
+        User GetUserWithId(ObjectId id);
+
+
+        List<User> FilterAllUsers();
+        List<User> FilterUsers(DelegateFilter filter);
         bool IsValidUser(User user);
     }
 }

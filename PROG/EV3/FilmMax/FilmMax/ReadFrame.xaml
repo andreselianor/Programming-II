@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:FilmMax"
       mc:Ignorable="d"
       d:DesignHeight="400"
-      d:DesignWidth="500"
+      d:DesignWidth="600"
       Title="ReadFrame">
 
     <Grid Background="White">
@@ -16,10 +16,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
             <ColumnDefinition Width="1.0*"></ColumnDefinition>
-            <ColumnDefinition Width="1.0*"></ColumnDefinition>
-            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="1.9*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
 
         <!-- Panel IZQUIERDO -->
         <StackPanel Grid.Column="1"
@@ -27,15 +25,15 @@
             <TextBlock Text="Filter the database:"
                        Padding="0 0 0 10"
                        FontWeight="Bold"
-                       FontStyle="Italic"></TextBlock>            
-                <Border BorderBrush="Black"
-                        BorderThickness="0 0 0 1"
-                        Width="160px"
-                        HorizontalAlignment="Left">
-                    <TextBox Name="registerLoginName"
-                             Background="LightGray"></TextBox>
-                </Border>            
-            
+                       FontStyle="Italic"></TextBlock>
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Width="160px"
+                    HorizontalAlignment="Left">
+                <TextBox Name="registerLoginName"
+                         Background="LightGray"></TextBox>
+            </Border>
+
             <TextBlock Text="login Name"
                        FontStyle="Italic"
                        Foreground="Gray"
@@ -58,73 +56,6 @@
                        Grid.Column="0"
                        HorizontalAlignment="Left"></TextBlock>
             <Label Height="200px"></Label>
-
-            <!-- BOTONES DE USUARIO 
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1"
-                    Width="160px"
-                    HorizontalAlignment="Left">
-                <TextBox Name="registerLoginPassword"
-                         Background="LightGray"></TextBox>
-            </Border>
-            <TextBlock Text="login Password"
-                       FontStyle="Italic"
-                       Foreground="Gray"
-                       Padding="0 0 0 10"
-                       FontSize="7pt"></TextBlock>            
-
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1"
-                    Width="160px"
-                    HorizontalAlignment="Left">
-                <TextBox Name="registerLastName"
-                         Background="LightGray"></TextBox>
-            </Border>
-            <TextBlock Text="last Name"
-                       FontStyle="Italic"
-                       Foreground="Gray"
-                       Padding="0 0 0 10"
-                       FontSize="7pt"></TextBlock>
-
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1"
-                    Width="160px"
-                    HorizontalAlignment="Left">
-                <TextBox Name="registerBirth"
-                         Background="LightGray"></TextBox>
-            </Border>
-            <TextBlock Text="birthdate"
-                       FontStyle="Italic"
-                       Foreground="Gray"
-                       Padding="0 0 0 10"
-                       FontSize="7pt"></TextBlock>
-
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1"
-                    Width="160px"
-                    HorizontalAlignment="Left">
-                <TextBox Name="registerPhone"
-                         Background="LightGray"></TextBox>
-            </Border>
-            <TextBlock Text="phone number"
-                       FontStyle="Italic"
-                       Foreground="Gray"
-                       Padding="0 0 0 10"
-                       FontSize="7pt"></TextBlock>
-
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 1"
-                    Width="160px"
-                    HorizontalAlignment="Left">
-                <TextBox Name="registerEmail"
-                         Background="LightGray"></TextBox>
-            </Border>
-            <TextBlock Text="email"
-                       FontStyle="Italic"
-                       Foreground="Gray"
-                       Padding="0 0 0 10"
-                       FontSize="7pt"></TextBlock>
-            -->
             <Button Grid.Column="1"
                     Grid.Row="1"
                     VerticalAlignment="Top"
@@ -134,16 +65,22 @@
                     Content="Find User"
                     Click="ButtonFindUser_Click"></Button>
         </StackPanel>
-        
 
         <!-- Panel DERECHO -->
-
+        <StackPanel Grid.Row="0"
+                    Grid.Column="2">
+            <TextBlock Text="User ListView:"
+                       Padding="0 0 0 10"
+                       FontWeight="Bold"
+                       FontStyle="Italic"></TextBlock>
+        </StackPanel>
         <ScrollViewer Name="PantallaScroll"
-                      Grid.Column="2">
+                      Grid.Column="2"
+                      Margin="0 20 0 0">
             <ItemsControl Name="UIControl">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:UserDataControl HorizontalAlignment="Stretch" />
+                        <local:UserDataControl />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
@@ -154,38 +91,5 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
         </ScrollViewer>
-        <!--
-        <StackPanel Grid.Column="2"
-                    Grid.Row="0">
-            <TextBlock Text="User data:"
-                       Padding="0 0 0 10"
-                       FontWeight="Bold"
-                       FontStyle="Italic"></TextBlock>
-            <ListBox Name="Listbox"
-                     Height="270px"
-                     Background="LightGray">
-                <ListBoxItem>
-                    <TextBlock Name="listLoginUser"></TextBlock>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <TextBlock Name="listLoginPassword"></TextBlock>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <TextBlock Name="listUserName"></TextBlock>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <TextBlock Name="listLastName"></TextBlock>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <TextBlock Name="listPhone"></TextBlock>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <TextBlock Name="listEmail"></TextBlock>
-                </ListBoxItem>
-            </ListBox>
-            <TextBlock></TextBlock>
-            
-        </StackPanel>
-        -->
     </Grid>
 </Page>

@@ -19,34 +19,41 @@ namespace FilmMax
 {
     public partial class RegisterNewUserWindow : Window
     {
-        ICore _controller;
+        private ICore _controller;
         public RegisterNewUserWindow(ICore controller)
         {
             InitializeComponent();
             _controller = controller;
         }
 
-        private void Button_CreateUser(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             User user = new User()
             {
                 id = ObjectId.GenerateNewId(),
                 security = new Security()
                 {
-                    loginName = registerLogin.Text,
-                    loginPassword = registerPassword.Text
+                    loginName = registerLoginName.Text,
+                    loginPassword = registerLoginPassword.Text
                 },
                 userName = registerName.Text,
                 lastName = registerLastName.Text,
-                birthDate = new BirthDate() { dayDate = 1, monthDate = 2, yearDate = 3 },
+                birthDate = new BirthDate() { dayDate = Int32.Parse(registerDayBirth.Text), monthDate = Int32.Parse(registerMonthBirth.Text), yearDate = Int32.Parse(registerYearBirth.Text) },
                 phone = registerPhone.Text,
                 email = registerEmail.Text,
                 favouriteFilms = "TODO"
             };
-            _controller.Database.CreateUser(user);
+
+            if (_controller.Database.IsValidUser(user))
+            {
+                _controller.Database.CreateUser(user);
+                DisplayMessage.Text = "El usuario ha sido creado";
+            }
+            else
+            {
+                DisplayMessage.Text = "El usuario introducido es incorrecto";
+            }
         }
-
-
 
         // Seleccion de peliculas favoritas
         private void Image1_MouseDown(object sender, MouseButtonEventArgs e)
@@ -112,6 +119,6 @@ namespace FilmMax
                 brush.BorderBrush = Brushes.IndianRed;
             else
                 brush.BorderBrush = Brushes.White;
-        }
+        }        
     }
 }

@@ -57,12 +57,12 @@ namespace FilmMax
             }
             else
             {
-                DisplayEmptyResult();
+                DisplayNullResult();
             }
         }
         private void DisplayAllUsers()
         {
-            _UIUsersList = _controller.Database.GetAllUsers();
+            _UIUsersList = _controller.Database.FilterAllUsers();
             _usersViewer = new ObservableCollection<User>(_UIUsersList);    //TODO??
             UIControl.ItemsSource = _usersViewer;
         }
@@ -71,31 +71,39 @@ namespace FilmMax
         private void DisplayUsersWithLoginName(string loginName)
         {
             ObjectId id = _controller.Database.GetUserWithLoginName(loginName);
-            User user = _controller.Database.GetUser(id);
+            if (id == ObjectId.Empty)
+                DisplayNullResult();
+            User user = _controller.Database.GetUserWithId(id);
             _usersViewer.Add(user);
             UIControl.ItemsSource = _usersViewer;
         }
         private void DisplayUsersWithUserName(string userName)
         {
-            ObjectId id = _controller.Database.GetUserWithLoginName(userName);
-            User user = _controller.Database.GetUser(id);
+            ObjectId id = _controller.Database.GetUserWithUserName(userName);
+            if (id == ObjectId.Empty)
+                DisplayNullResult();
+            User user = _controller.Database.GetUserWithId(id);
             _usersViewer.Add(user);
             UIControl.ItemsSource = _usersViewer;
         }
         private void DisplayUsersWithNames(string loginName, string userName)
         {
             ObjectId idLogin = _controller.Database.GetUserWithLoginName(loginName);
-            ObjectId idName = _controller.Database.GetUserWithLoginName(userName);
+            ObjectId idName = _controller.Database.GetUserWithUserName(userName);
             if(idLogin == idName)   // TODO idLogin.Equals(idName)
             {
-                User user = _controller.Database.GetUser(idLogin);
+                User user = _controller.Database.GetUserWithId(idLogin);
                 _usersViewer.Add(user);
                 UIControl.ItemsSource = _usersViewer;
             }
+            else
+            {
+                return;
+            }
         }
-        private void DisplayEmptyResult()
+        private void DisplayNullResult()
         {
-            DisplayMessage.Text = "Usuario no encontrado";
+            DisplayMessage.Text = "El usuario no existe";
         }
     }
 }

@@ -78,7 +78,7 @@
                         BorderBrush="Black"
                         BorderThickness="0 0 0 1"
                         Background="LightGray">
-                    <TextBlock Text="Brian May y Eddie Van Halen"
+                    <TextBlock Text="Gervasio y Bonifacio Poncho"
                                TextWrapping="Wrap"
                                MouseDown="button_Answer4"></TextBlock>
                 </Border>

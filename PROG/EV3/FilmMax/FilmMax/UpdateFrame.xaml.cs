@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace FilmMax
     {
         private ICore _controller;
         private User _userContext;
+        private ObservableCollection<User> _usersViewer = new ObservableCollection<User>();
+        private List<User> _UIUsersList = new List<User>();
 
         public UpdateFrame(ICore controller)
         {
@@ -30,31 +33,101 @@ namespace FilmMax
         }
         private void ButtonFindUser_Click(object sender, RoutedEventArgs e)
         {
-            string loginName = LoginName.Text;
-            ObjectId id = _controller.Database.GetUserWithLoginName(loginName);
-            _userContext = _controller.Database.GetUser(id);
-            GetUserData();            
+            _usersViewer.Clear();
+
+            string loginName = loginUpdateName.Text;
+            string userName = userUpdateName.Text;
+
+            if (loginName == "" && userName == "")
+            {
+                DisplayNullResult();
+            }
+            else if (loginName != "" && userName == "")
+            {
+                DisplayUsersWithLoginName(loginName);
+            }
+            else if (loginName == "" && userName != "")
+            {
+                DisplayUsersWithUserName(userName);
+            }
+            else if (loginName != "" && userName != "")
+            {
+                DisplayUsersWithNames(loginName, userName);
+            }
+            else
+            {
+                DisplayNullResult();
+            }
+            DisplayMessageUpdate.Text = "";
         }
         private void ButtonUpdateUser_Click(object sender, RoutedEventArgs e)
         {
-            UpdateUserData();            
+            if (_usersViewer.Count < 1)
+                return;
+            User userUpdate = _usersViewer[0];
+            ObjectId id = _controller.Database.GetUserWithLoginName(userUpdate.security.loginName);
+
+            if (IsValidValue(loginUpdateName.Text))
+                _controller.Database.UpdateUser(id, "security.loginName", loginUpdateName.Text);
+            if (IsValidValue(loginUpdatePassword.Text))
+                _controller.Database.UpdateUser(id, "security.loginPassword", loginUpdatePassword.Text);
+            if (IsValidValue(userUpdateName.Text))
+                _controller.Database.UpdateUser(id, "userName", userUpdateName.Text);
+            if (IsValidValue(lastUpdateName.Text))
+                _controller.Database.UpdateUser(id, "lastName", lastUpdateName.Text);
+            if (IsValidValue(phone.Text))
+                _controller.Database.UpdateUser(id, "phone", phone.Text);
+            if (IsValidValue(email.Text))
+                _controller.Database.UpdateUser(id, "email", email.Text);
+
+            DisplayUpdateResult();
         }
 
-        private void GetUserData()
+        private void DisplayUsersWithLoginName(string loginName)
         {
-            listLoginUser.Text = _userContext.security.loginName;
-            listLoginPassword.Text = "*****";
-            listUserName.Text = _userContext.userName;
-            listLastName.Text = _userContext.lastName;
-            listPhone.Text = _userContext.phone;
-            listEmail.Text = _userContext.email;
+            ObjectId id = _controller.Database.GetUserWithLoginName(loginName);
+            if (id == ObjectId.Empty)
+                DisplayNullResult();
+            User user = _controller.Database.GetUserWithId(id);
+            _usersViewer.Add(user);
+            UIControl.ItemsSource = _usersViewer;
         }
-        private void UpdateUserData()
+        private void DisplayUsersWithUserName(string userName)
         {
-            _controller.Database.UpdateUser(_userContext.id, "userName", UserName.Text);
-            _controller.Database.UpdateUser(_userContext.id, "lastName", LastName.Text);
-            _controller.Database.UpdateUser(_userContext.id, "phone", Phone.Text);
-            _controller.Database.UpdateUser(_userContext.id, "email", Email.Text);
+            ObjectId id = _controller.Database.GetUserWithUserName(userName);
+            if (id == ObjectId.Empty)
+                DisplayNullResult();
+            User user = _controller.Database.GetUserWithId(id);
+            _usersViewer.Add(user);
+            UIControl.ItemsSource = _usersViewer;
+        }
+        private void DisplayUsersWithNames(string loginName, string userName)
+        {
+            ObjectId idLogin = _controller.Database.GetUserWithLoginName(loginName);
+            ObjectId idName = _controller.Database.GetUserWithUserName(userName);
+            if (idLogin == idName)   // TODO idLogin.Equals(idName)
+            {
+                User user = _controller.Database.GetUserWithId(idLogin);
+                _usersViewer.Add(user);
+                UIControl.ItemsSource = _usersViewer;
+            }
+            else
+            {
+                return;
+            }
+        }
+        private void DisplayNullResult()
+        {
+            DisplayMessage.Text = "El usuario no existe";
+        }
+        private void DisplayUpdateResult()
+        {
+            DisplayMessageUpdate.Text = "El usuario ha sido actualizado";
+        }
+
+        private bool IsValidValue(string value)
+        {
+            return value != "";
         }
     }
 }
