@@ -87,39 +87,31 @@ namespace ndupcopy
         #region FUNCIONES PRIVADAS
         private bool IsFileDuplicated(upFile upfileOriginal, upFile upfileTarget)
         {
-            if (upFileWithSameName(upfileOriginal, upfileTarget))
-                return true;
-            if (upFileWithSameSize(upfileOriginal, upfileTarget))
-                return true;
-            if (upFileWithSameContent(upfileOriginal, upfileTarget))
-                return true;
-            if (upFileWithSameSHA256(upfileOriginal, upfileTarget))
-                return true;
-            if (upFileWithSameHash(upfileOriginal, upfileTarget))
-                return true;
-
-            return false;
-        }
-
-        private static bool upFileWithSameName(upFile upfileOriginal, upFile upfileTarget)
-        {
-            return (upfileOriginal.Path.Name == upfileTarget.Path.Name);
-        }
-        private static bool upFileWithSameSize(upFile upfileOriginal, upFile upfileTarget)
-        {
-            return (upfileOriginal.Size == upfileTarget.Size);
+            if (!upFileWithSameSHA256(upfileOriginal, upfileTarget))    // 32 bytes
+                return false;
+            if (!upFileWithSameHash(upfileOriginal, upfileTarget))      // 4 bytes
+                return false; 
+            if (!upFileWithSameSize(upfileOriginal, upfileTarget))
+                return false;
+            if (!upFileWithSameContent(upfileOriginal, upfileTarget))
+                return false;
+            return true;
         }
         private static bool upFileWithSameSHA256(upFile upfileOriginal, upFile upfileTarget)
         {
-            return (upfileOriginal.Sha256 == upfileTarget.Sha256);
+            return (upfileOriginal.Sha256.Equals(upfileTarget.Sha256));
         }
         private static bool upFileWithSameHash(upFile upfileOriginal, upFile upfileTarget)
         {
-            return (upfileOriginal.Hash == upfileTarget.Hash);
+            return (upfileOriginal.Hash.Equals(upfileTarget.Hash));
+        }
+        private static bool upFileWithSameSize(upFile upfileOriginal, upFile upfileTarget)
+        {
+            return (upfileOriginal.Size.Equals(upfileTarget.Size));
         }
         private static bool upFileWithSameContent(upFile upfileOriginal, upFile upfileTarget)
         {
-            return (upfileOriginal.Content == upfileTarget.Content);
+            return (upfileOriginal.Content.Equals(upfileTarget.Content));
         }
         public static string GetSHA256(byte[] input)
         {
@@ -139,7 +131,6 @@ namespace ndupcopy
                 return true;
             if (upfile.Size < 0)
                 return true;
-
             return false;
         }
         #endregion

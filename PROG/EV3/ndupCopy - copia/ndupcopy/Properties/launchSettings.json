@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "ndupcopy": {
-      "commandName": "Project",
-      "commandLineArgs": "C:\\Andres\\DAM\\Programming-II\\PROG\\EV3\\ndupCopy\\ndupcopyTests\\TestFolder1\\carpetaOrigen\r\nC:\\Andres\\DAM\\Programming-II\\PROG\\EV3\\ndupCopy\\ndupcopyTests\\TestFolder1\\carpetaOrigenAlternativa"
-    }
-  }
-}

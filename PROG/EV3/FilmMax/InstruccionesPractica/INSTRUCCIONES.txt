@@ -1,0 +1,6 @@
+La lista de usuarios creados por mi esta en el archivo JSON
+Este archivo es resultado de la coleccion archivada en el ATLAS de MONGODB CLOUD
+
+puedes entrar con el administrador( admin / admin) que tiene las opciones de Creacion, Lectura, Update y Delete de Users
+
+tambien puedes entrar con el resto de usuarios hasta su 'homepage'

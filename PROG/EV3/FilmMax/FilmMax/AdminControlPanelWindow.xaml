@@ -1,0 +1,160 @@
+﻿<Window x:Class="FilmMax.AdminControlPanelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmMax"
+        mc:Ignorable="d"
+        Title="AdminControlPanelWindow" Height="500" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- CABECERA -->
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Margin="10 0 0 0">
+            <StackPanel Height="40px"
+                        Orientation="Vertical">
+                <TextBlock></TextBlock>
+                <DockPanel VerticalAlignment="Bottom">
+                    <TextBlock Text="'Panel de Control'"
+                               FontSize="12pt"
+                               FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
+                    <TextBlock HorizontalAlignment="Right"
+                               Text="'FilmMax'"
+                               VerticalAlignment="Bottom"
+                               FontSize="8pt"
+                               FontFamily="pack://application:,,,/RSC/Fonts/#Fredericka the Great"></TextBlock>
+                </DockPanel>
+                <Border BorderThickness="0 0 0 5"
+                        BorderBrush="DarkGreen"
+                        VerticalAlignment="Bottom"
+                        CornerRadius="5">
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- USER BUTTONS -->
+        <StackPanel Grid.Column="4"
+                    Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal"
+                        Height="40px"
+                        VerticalAlignment="Top">
+                <Image Width="30px"
+                       Height="30px"
+                       Margin="20 0 5 0"
+                       Source="RSC/iconos/userPng.png"
+                       VerticalAlignment="Bottom"
+                       MouseDown="userLabel_MouseDown"
+                       MouseEnter="userLabel_MouseEnter"
+                       MouseLeave="userLabel_MouseLeave"></Image>
+                <Image Source="RSC/iconos/logoutPng.png"
+                       Width="30px"
+                       Height="30px"
+                       VerticalAlignment="Bottom"
+                       MouseDown="logoutLabel_MouseDown"
+                       MouseEnter="logoutLabel_MouseEnter"
+                       MouseLeave="logoutLabel_MouseLeave"></Image>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="10px"
+                        VerticalAlignment="Top"
+                        Margin="0 0 0 2">                
+                <TextBlock Name="userLabel"
+                           Text="user"
+                           FontSize="7pt"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           Width="30px"
+                           Height="30px"
+                           Margin="20 -2 5 0"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center"
+                           Visibility="Hidden"></TextBlock>
+                <TextBlock Name="logoutLabel"
+                           Text="exit"
+                           Width="30px"
+                           Height="30px"
+                           FontSize="7pt"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           TextAlignment="Center"
+                           VerticalAlignment="Top"
+                           Visibility="Hidden"
+                           Margin="0 -2 0 0"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="30px"
+                        VerticalAlignment="Top">
+                <Image Width="30px"
+                       Height="30px"
+                       Margin="20 0 5 0"
+                       Source="RSC/iconos/userSettingsAdmin.png"
+                       VerticalAlignment="Top"
+                       MouseDown="userSettings_MouseDown"
+                       MouseEnter="userSettingsLabel_MouseEnter"
+                       MouseLeave="userSettingsLabel_MouseLeave"></Image>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Height="100px">
+                <TextBlock Name="settingsAdminLabel"
+                           Text="User Settings"
+                           Width="50px"
+                           Height="30px"
+                           FontSize="7pt"
+                           FontStyle="Italic"
+                           Foreground="Gray"
+                           TextAlignment="Center"
+                           VerticalAlignment="Top"
+                           Visibility="Hidden"
+                           Margin="10 0 0 0"
+                           TextWrapping="Wrap"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1">
+            <TextBlock Text="{Binding userName, StringFormat = Bienvenido a tu pagina de inicio\, {0}}"
+                       TextWrapping="Wrap">
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1"
+                    Margin="10 0 0 0">
+            <TextBlock Text="Puede utilizar los botones para cambiar de sesión, administrar usuarios o salir del programa."
+                       TextWrapping="Wrap">
+            </TextBlock>
+        </StackPanel>
+        <Border Grid.Column="1"
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                BorderThickness="0 0 0 1"
+                BorderBrush="Black"
+                Height="20px"
+                VerticalAlignment="Top">
+            <TextBlock 
+                       Text="Películas recomendadas"
+                       TextWrapping="Wrap"></TextBlock>
+        </Border>
+        
+        <Image Grid.Row="3"
+               Grid.Column="1"
+               Source="RSC/peliculaElPadrino.png"></Image>
+    </Grid>
+</Window>

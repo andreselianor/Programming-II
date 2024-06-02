@@ -1,9 +1,0 @@
-Archivo de texto1
-
-Prueba de copia de archivos
-
-esto copia todas las lineas
-
-y las añade a un archivo nuevo
-
-fin.
