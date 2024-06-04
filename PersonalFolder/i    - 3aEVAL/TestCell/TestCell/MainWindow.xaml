@@ -1,0 +1,38 @@
+﻿<Window x:Class="TestCell.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestCell"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="500"
+        Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Texto en un textblock de prueba"></TextBlock>
+        <ScrollViewer Name="PantallaScroll"
+                      Grid.Column="1">
+            <ItemsControl Name="IControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:UsersDataControl HorizontalAlignment="Stretch" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"
+                                    HorizontalAlignment="Stretch"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+
+        </ScrollViewer>
+    </Grid>
+</Window>

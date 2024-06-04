@@ -49,7 +49,7 @@ namespace LibraryFilmMax
         public void DeleteUser(ObjectId id)
         {
             User user = GetUserWithId(id);
-            _usuariosCollection.DeleteOne(usuario => usuario.Equals(user));
+            _usuariosCollection.DeleteOne(usuario => usuario.id == id);
         }
 
 
